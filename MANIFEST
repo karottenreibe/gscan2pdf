@@ -286,6 +286,7 @@ t/1604_import_multipage_DjVu.t
 t/1611_import_TIFF.t
 t/1612_import_TIFF_with_error.t
 t/1613_import_multipage_TIFF.t
+t/1614_import_linked_TIFF.t
 t/1621_import_pdf.t
 t/1622_import_multipage_PDF.t
 t/1623_import_multipage_PDF2.t
