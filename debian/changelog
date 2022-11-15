@@ -1,3 +1,11 @@
+gscan2pdf (2.13.0-2) unstable; urgency=medium
+
+  * + Testsuite: autopkgtest-pkg-perl in debian/control
+    - debian/tests/control
+    Closes: #1022864: gscan2pdf: unnecessary test dependency on autopkgtest?
+
+ -- Jeffrey Ratcliffe <jjr@debian.org>  Tue, 15 Nov 2022 21:31:43 +0100
+
 gscan2pdf (2.13.0-1) unstable; urgency=medium
 
   * New upstream release

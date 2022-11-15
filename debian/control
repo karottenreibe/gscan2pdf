@@ -1,5 +1,6 @@
 Source: gscan2pdf
 Section: utils
+Testsuite: autopkgtest-pkg-perl
 Priority: optional
 Build-Depends: debhelper-compat (= 13)
 Build-Depends-Indep: fonts-noto-extra,

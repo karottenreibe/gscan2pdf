@@ -1,3 +1,0 @@
-Test-Command: xvfb-run -a make test
-Depends: @, @builddeps@, autopkgtest, xvfb
-Restrictions: build-needed, allow-stderr
