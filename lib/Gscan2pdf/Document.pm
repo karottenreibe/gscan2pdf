@@ -732,7 +732,9 @@ sub import_scan {
                     for ( 1 .. $pad * $BITS_PER_BYTE ) {
                         $data .= '1';
                     }
-                    printf {$fh} pack sprintf( 'b%d', length $data ), $data;
+                    print {$fh} pack sprintf( 'b%d', length $data ), $data
+                      or $logger->warn(
+                        "Error writing to $options{filename}: $ERRNO");
                     close $fh
                       or
                       $logger->warn("Error closing $options{filename}: $ERRNO");
