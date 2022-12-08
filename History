@@ -5,6 +5,9 @@
 * Don't forget to destroy file chooser when creating multiple images.
   Closes bug #409 (V2.13.0: Save Dialog Box cannot be closed anymore)
 * Catch missing dependencies in pdftk.
+* Catch invalid dates rather than crashing.
+  Closes bug #407 (2.12.8-1.fc36 crashes (exits) when entering an invalid date)
+  Thanks to Petr Písař for the patch.
 * Update to Hungarian translation (thanks to csola)
 
 

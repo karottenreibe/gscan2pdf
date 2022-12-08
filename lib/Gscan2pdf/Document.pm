@@ -35,7 +35,7 @@ use English qw( -no_match_vars );    # for $PROCESS_ID, $INPUT_RECORD_SEPARATOR
                                      # $CHILD_ERROR
 use POSIX qw(:sys_wait_h strftime);
 use Data::UUID;
-use Date::Calc qw(Add_Delta_DHMS Date_to_Time Today_and_Now Timezone);
+use Date::Calc qw(Add_Delta_DHMS Date_to_Time Timezone);
 use Time::Piece;
 use Carp qw(longmess);
 
@@ -2232,7 +2232,7 @@ sub text_to_datetime {
         ( $year, $month, $day, $hour, $minute, $sec ) =
           ( $1, $2, $3, $4, $5, $6 );
     }
-    if ( not defined $year ) { $year = $thisyear }
+    if ( not defined $year or $year == 0 ) { $year = $thisyear }
     if ( not defined $month or $month < 1 or $month > $MONTHS_PER_YEAR ) {
         $month = $thismonth;
     }

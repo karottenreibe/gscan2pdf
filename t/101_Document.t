@@ -1,7 +1,7 @@
 use warnings;
 use strict;
 use IPC::System::Simple qw(system);
-use Test::More tests => 70;
+use Test::More tests => 72;
 use Glib 1.210 qw(TRUE FALSE);
 use Gtk3 -init;    # Could just call init separately
 use Encode;
@@ -159,6 +159,12 @@ is_deeply( \@date, [ 2016, 2, 1, 0, 0, 0 ], 'text_to_datetime just date' );
 
 @date = Gscan2pdf::Document::text_to_datetime('2016-02-01 10:11:12');
 is_deeply( \@date, [ 2016, 2, 1, 10, 11, 12 ], 'text_to_datetime' );
+
+@date = Gscan2pdf::Document::text_to_datetime( '', 2016, 2, 1 );
+is_deeply( \@date, [ 2016, 2, 1, 0, 0, 0 ], 'text_to_datetime empty string' );
+
+@date = Gscan2pdf::Document::text_to_datetime( '0000-00-00', 2016, 2, 1 );
+is_deeply( \@date, [ 2016, 2, 1, 0, 0, 0 ], 'text_to_datetime invalid date' );
 
 #########################
 

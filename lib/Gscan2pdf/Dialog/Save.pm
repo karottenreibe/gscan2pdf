@@ -247,7 +247,7 @@ sub GET_PROPERTY {
                     {
                         $self->{$name} = [
                             Gscan2pdf::Document::text_to_datetime(
-                                $self->{$name}
+                                $self->{$name}, Today()
                             )
                         ];
                     }
@@ -355,10 +355,10 @@ sub add_metadata {
     $self->{'meta-datetime-widget'}->signal_connect(
         'focus-out-event' => sub {
             my $text = $self->{'meta-datetime-widget'}->get_text;
-            if ( defined $text and $text ne $EMPTY ) {
+            if ( defined $text ) {
                 $self->{'meta-datetime-widget'}->set_text(
                     $self->datetime2string(
-                        Gscan2pdf::Document::text_to_datetime($text)
+                        Gscan2pdf::Document::text_to_datetime($text), Today()
                     )
                 );
             }
@@ -381,7 +381,7 @@ sub add_metadata {
             # focus-out-event, so update the date now
             my ( $year, $month, $day, $hour, $min, $sec ) =
               Gscan2pdf::Document::text_to_datetime(
-                $self->{'meta-datetime-widget'}->get_text );
+                $self->{'meta-datetime-widget'}->get_text, Today() );
 
             $calendar->select_day($day);
             $calendar->select_month( $month - 1, $year );
@@ -504,7 +504,7 @@ sub insert_text_handler {
         $widget->set_text(
             $self->datetime2string(
                 Add_Delta_DHMS(
-                    Gscan2pdf::Document::text_to_datetime($text),
+                    Gscan2pdf::Document::text_to_datetime( $text, Today() ),
                     $offset, 0, 0, 0
                 )
             )

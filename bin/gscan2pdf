@@ -2814,13 +2814,15 @@ sub update_metadata_settings {
         try {
             $SETTING{'datetime offset'} =
               [ Delta_DHMS( Today_and_Now(), @{$datetime} ) ];
+            $SETTING{'timezone offset'} =
+              [ Gscan2pdf::Document::delta_timezone_to_current($datetime) ];
         }
         catch {
             $success = FALSE;
             my $msg =
               sprintf __(
-                '%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime.'),
-              @{$datetime};
+                '%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime: %s'),
+              @{$datetime}, $_;
             $logger->debug($msg);
             show_message_dialog(
                 parent  => $window,
@@ -2829,8 +2831,6 @@ sub update_metadata_settings {
                 text    => $msg,
             );
         };
-        $SETTING{'timezone offset'} =
-          [ Gscan2pdf::Document::delta_timezone_to_current($datetime) ];
     }
     return $success;
 }
