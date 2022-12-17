@@ -308,23 +308,27 @@ $loop->run;
 
 #########################
 
-$loop = Glib::MainLoop->new;
-my $cmd = 'cat scanners/*';
-Gscan2pdf::Frontend::CLI::_watch_cmd(
-    cmd              => $cmd,
-    started_callback => sub {
-        pass('started watching large amounts of stdout');
-    },
-    finished_callback => sub {
-        my ( $output, $error ) = @_;
-        is( length($output) . "\n",
-            capture("$cmd | wc -c"),
-            'stdout finished watching large amounts of stdout' );
-        is( $error, undef, 'stderr finished watching large amounts of stdout' );
-        $loop->quit;
-    }
-);
-$loop->run;
+SKIP: {
+    skip 'source tree not available', 3 unless -r 'scanners';
+    $loop = Glib::MainLoop->new;
+    my $cmd = 'cat scanners/*';
+    Gscan2pdf::Frontend::CLI::_watch_cmd(
+        cmd              => $cmd,
+        started_callback => sub {
+            pass('started watching large amounts of stdout');
+        },
+        finished_callback => sub {
+            my ( $output, $error ) = @_;
+            is( length($output) . "\n",
+                capture("$cmd | wc -c"),
+                'stdout finished watching large amounts of stdout' );
+            is( $error, undef,
+                'stderr finished watching large amounts of stdout' );
+            $loop->quit;
+        }
+    );
+    $loop->run;
+}
 
 #########################
 
