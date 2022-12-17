@@ -1,4 +1,4 @@
-2.13.1 (15.11.2022):
+2.13.1 (16.12.2022):
 
 * Fixed opening soft link to TIFF
   Closes bug #406 (Cannot read linked files)
