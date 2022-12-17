@@ -2,6 +2,8 @@
 
 * Fixed opening soft link to TIFF
   Closes bug #406 (Cannot read linked files)
+* Removed unnecessary dependency on autopkgtest
+  (thanks to Paul Gevers for the heads up).
 * Update to Hungarian translation (thanks to csola)
 
 
