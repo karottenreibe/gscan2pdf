@@ -385,3 +385,4 @@ t/91_critic.t
 t/99_pod.t
 t/non-utf8.html
 t/perlcriticrc
+t/stop_words
