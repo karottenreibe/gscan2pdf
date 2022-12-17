@@ -43,7 +43,7 @@
 #     dput ftp-master .changes
 #     dput gscan2pdf-ppa .changes
 #    https://launchpad.net/~jeffreyratcliffe/+archive
-# 8. gscan2pdf-announce@lists.sourceforge.net, gscan2pdf-help@lists.sourceforge.net, gnome-announce-list@gnome.org, sane-devel@lists.alioth.debian.org
+# 8. gscan2pdf-announce@lists.sourceforge.net, gscan2pdf-help@lists.sourceforge.net, sane-devel@lists.alioth.debian.org
 # 9. To interactively debug in the schroot:
 #     duplicate the config file, typically in /etc/schroot/chroot.d/, changing the sbuild profile to desktop
 #     schroot -c sid-amd64-desktop -u root
