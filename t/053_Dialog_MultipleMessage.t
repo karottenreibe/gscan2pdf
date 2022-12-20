@@ -1,6 +1,6 @@
 use warnings;
 use strict;
-use Test::More tests => 22;
+use Test::More tests => 23;
 use Glib qw(TRUE FALSE);    # To get TRUE and FALSE
 use Gtk3 -init;
 
@@ -198,6 +198,14 @@ is(
     ),
     '[image2 @ %%x] Encoder did not produce proper pts, making some up.',
     'Filter out trailing whitespace'
+);
+
+is(
+    Gscan2pdf::Dialog::MultipleMessage::filter_message(
+"[image2 @ 0x56054e417040] The specified filename '/tmp/gscan2pdf-ldks/OHSk_wKy5v.pnm' does not contain an image sequence pattern or a pattern is invalid."
+    ),
+"[image2 @ %%x] The specified filename '/tmp/%%t.pnm' does not contain an image sequence pattern or a pattern is invalid.",
+    'Filter out temporary filename from unpaper warning'
 );
 
 __END__

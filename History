@@ -1,5 +1,7 @@
 2.13.2 (16.01.2023):
 
+* Filter out temporary filenames from tool warnings.
+  Closes Debian bug #1026205: Unpaper errors for every scanned page
 * Update to Hungarian translation (thanks to csola)
 
 

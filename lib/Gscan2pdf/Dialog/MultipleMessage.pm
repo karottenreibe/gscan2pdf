@@ -23,6 +23,10 @@ my $INTREGEX = qr{^(.*)           # start of message
                   \b[[:digit:]]+\b # integer
                   (.*)$           # rest of message
                  }xsm;
+my $TEMPFILEREGEX = qr{^(.*)           # start of message
+                  gscan2pdf[-][[:alnum:]]+/[[:word:]]+ # temp filename
+                  (.*)$           # rest of message
+                 }xsm;
 
 sub INIT_INSTANCE {
     my $self = shift;
@@ -266,6 +270,9 @@ sub munge_message {
 sub filter_message {
     my ($message) = @_;
     $message =~ s/\s+$//xsm;
+    while ( $message =~ /$TEMPFILEREGEX/xsmo ) {
+        $message =~ s/$TEMPFILEREGEX/$1%%t$2/xsmo;
+    }
     while ( $message =~ /$HEXREGEX/xsmo ) {
         $message =~ s/$HEXREGEX/$1%%x$2/xsmo;
     }
