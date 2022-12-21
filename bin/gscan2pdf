@@ -3427,8 +3427,18 @@ sub save_image {
                 my $current_filename =
                   sprintf "${filename}_%0${w}d.$SETTING{'image type'}",
                   $_;
-                return if ( file_exists( $file_chooser, $current_filename ) );
-                return if ( file_writable( $file_chooser, $current_filename ) );
+                if ( -f $current_filename ) {
+                    my $text = sprintf __('This operation would overwrite %s'),
+                      $current_filename;
+                    show_message_dialog(
+                        parent  => $file_chooser,
+                        type    => 'error',
+                        buttons => 'close',
+                        text    => $text
+                    );
+                    $file_chooser->destroy;
+                    return;
+                }
             }
             $filename = "${filename}_%0${w}d.$SETTING{'image type'}";
         }
