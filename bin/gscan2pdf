@@ -3478,7 +3478,15 @@ sub save_image {
                 if ( defined $SETTING{'view files toggle'}
                     and $SETTING{'view files toggle'} )
                 {
-                    launch_default_for_file($filename);
+                    if ( @{$list_of_pages} > 1 ) {
+                        my $w = length scalar @{$list_of_pages};
+                        for ( 1 .. @{$list_of_pages} ) {
+                            launch_default_for_file( sprintf ${filename}, $_ );
+                        }
+                    }
+                    else {
+                        launch_default_for_file($filename);
+                    }
                 }
                 $logger->debug("Finished saving $filename");
             },
