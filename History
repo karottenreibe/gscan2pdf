@@ -4,6 +4,7 @@
   Closes Debian bug #1026205: Unpaper errors for every scanned page
 * Don't forget to destroy file chooser when creating multiple images.
   Closes bug #409 (V2.13.0: Save Dialog Box cannot be closed anymore)
+* Catch missing dependencies in pdftk.
 * Update to Hungarian translation (thanks to csola)
 
 

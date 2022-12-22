@@ -1190,9 +1190,16 @@ sub check_dependencies {
 
                 ( undef, my $out ) = Gscan2pdf::Document::exec_command(
                     [ $name, $temppdf, 'dump_data' ] );
-                if ( $out !~ /NumberOfPages/xsm ) {
-                    delete $dependencies{$name};
-                    my $msg = __(
+                my $msg;
+                if ( $out =~
+                    /Error:[ ]could[ ]not[ ]load[ ]a[ ]required[ ]library/xsm )
+                {
+                    $msg = sprintf __(
+"pdftk is installed, but seems to be missing required dependencies:\n%s"
+                    ), $out;
+                }
+                elsif ( $out !~ /NumberOfPages/xsm ) {
+                    $msg = __(
 'pdftk is installed, but cannot access the directory used for temporary files.'
                       )
                       . __(
@@ -1204,6 +1211,9 @@ sub check_dependencies {
                       . __(
 'Another workaround would be to select a temporary directory under your home directory in Edit/Preferences.'
                       );
+                }
+                if ($msg) {
+                    delete $dependencies{$name};
                     show_message_dialog(
                         parent           => $window,
                         type             => 'warning',
