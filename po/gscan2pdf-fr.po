@@ -1934,11 +1934,11 @@ msgstr "Face à numériser"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:529
 msgid "Facing"
-msgstr "Pages en vis-à-vis"
+msgstr "Recto"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:529
 msgid "Reverse"
-msgstr "Inverser"
+msgstr "Verso"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:550
 msgid "Sets which side of a double-sided document is scanned"

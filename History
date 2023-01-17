@@ -9,6 +9,7 @@
   Closes bug #407 (2.12.8-1.fc36 crashes (exits) when entering an invalid date)
   Thanks to Petr Písař for the patch.
 * Update to Hungarian translation (thanks to csola)
+* Update to French translation (thanks to papoteur)
 
 
 2.13.1 (16.12.2022):
