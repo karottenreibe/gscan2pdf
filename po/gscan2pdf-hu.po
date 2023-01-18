@@ -9,133 +9,142 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gscan2pdf\n"
 "Report-Msgid-Bugs-To: csola48@gmail.com\n"
-"POT-Creation-Date: 2022-12-16 18:55+0100\n"
-"PO-Revision-Date: 2022-12-18 10:32+0100\n"
+"POT-Creation-Date: 2023-01-17 18:30+0100\n"
+"PO-Revision-Date: 2023-01-18 11:11+0100\n"
 "Last-Translator: csola48 <csola48@gmail.com>\n"
 "Language-Team: magyar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-12-18 09:24+0000\n"
+"X-Launchpad-Export-Date: 2023-01-18 10:00+0000\n"
 "X-Generator: Poedit 2.0.6\n"
 "Language: hu\n"
 
-#: bin/gscan2pdf:488 bin/gscan2pdf:817
+#: bin/gscan2pdf:490 bin/gscan2pdf:819
 msgid "Text layer"
 msgstr "Szöveges réteg"
 
-#: bin/gscan2pdf:494
+#: bin/gscan2pdf:496
 msgid "Go to least confident text"
 msgstr "Menjen a legkevésbé biztos szöveghez"
 
-#: bin/gscan2pdf:501
+#: bin/gscan2pdf:503
 msgid "Go to previous text"
 msgstr "Ugrás az előző szöveghez"
 
-#: bin/gscan2pdf:508
+#: bin/gscan2pdf:510
 msgid "Sort by confidence"
 msgstr "Rendezés bizalom szerint"
 
-#: bin/gscan2pdf:509
+#: bin/gscan2pdf:511
 msgid "Sort OCR text boxes by confidence."
 msgstr "Rendezze az OCR szövegdobozait bizalom szerint."
 
-#: bin/gscan2pdf:512
+#: bin/gscan2pdf:514
 msgid "Sort by position"
 msgstr "Rendezés pozíció szerint"
 
-#: bin/gscan2pdf:513
+#: bin/gscan2pdf:515
 msgid "Sort OCR text boxes by position."
 msgstr "Rendezze az OCR szövegdobozokat pozíció szerint."
 
-#: bin/gscan2pdf:517
+#: bin/gscan2pdf:519
 msgid "Select sort method for OCR boxes"
 msgstr "Válassza ki az OCR dobozok rendezési módját"
 
-#: bin/gscan2pdf:535
+#: bin/gscan2pdf:537
 msgid "Go to next text"
 msgstr "Ugrás a következő szöveghez"
 
-#: bin/gscan2pdf:542
+#: bin/gscan2pdf:544
 msgid "Go to most confident text"
 msgstr "Ugrás a legbiztosabb szöveghez"
 
-#: bin/gscan2pdf:549 bin/gscan2pdf:660
+#: bin/gscan2pdf:551 bin/gscan2pdf:662
 msgid "Accept corrections"
 msgstr "Fogadja el a javításokat"
 
-#: bin/gscan2pdf:565 bin/gscan2pdf:675
+#: bin/gscan2pdf:567 bin/gscan2pdf:677
 msgid "Cancel corrections"
 msgstr "A javítások visszavonása"
 
-#: bin/gscan2pdf:575
+#: bin/gscan2pdf:577
 msgid "Duplicate text"
 msgstr "Ismétlődő szöveg"
 
-#: bin/gscan2pdf:588
+#: bin/gscan2pdf:590
 msgid "Add text"
 msgstr "Szöveg hozzáadása"
 
-#: bin/gscan2pdf:594
+#: bin/gscan2pdf:596
 msgid "my-new-word"
 msgstr "az-én-új-szavam"
 
-#: bin/gscan2pdf:629
+#: bin/gscan2pdf:631
 msgid "Delete text"
 msgstr "Szöveg törlése"
 
-#: bin/gscan2pdf:654 bin/gscan2pdf:819
+#: bin/gscan2pdf:656 bin/gscan2pdf:821
 msgid "Annotations"
 msgstr "Megjegyzések"
 
-#: bin/gscan2pdf:685
+#: bin/gscan2pdf:687
 msgid "Add annotation"
 msgstr "Megjegyzés hozzáadása"
 
-#: bin/gscan2pdf:690
+#: bin/gscan2pdf:692
 msgid "my-new-annotation"
 msgstr "új-megjegyzéseim"
 
-#: bin/gscan2pdf:726
+#: bin/gscan2pdf:728
 msgid "Delete annotation"
 msgstr "Megjegyzés törlése"
 
-#: bin/gscan2pdf:815
+#: bin/gscan2pdf:817
 msgid "Image"
 msgstr "Kép"
 
-#: bin/gscan2pdf:899
+#: bin/gscan2pdf:901
 msgid "Error displaying help"
 msgstr "Hiba a súgó megjelenítésekor"
 
-#: bin/gscan2pdf:1003 bin/gscan2pdf:1024
+#: bin/gscan2pdf:1005 bin/gscan2pdf:1026
 #, perl-format
 msgid "Cannot read file: %s"
 msgstr "Nem lehet olvasni a fájlt: %s"
 
-#: bin/gscan2pdf:1153
+#: bin/gscan2pdf:1155
 msgid "GraphicsMagick is being used in ImageMagick compatibility mode."
 msgstr "A GraphicsMagick az ImageMagick kompatibilitási módban használatos."
 
-#: bin/gscan2pdf:1156
+#: bin/gscan2pdf:1158
 msgid "Whilst this might work, it is not currently supported."
 msgstr "Bár ez működhet, jelenleg nem támogatott."
 
-#: bin/gscan2pdf:1158
+#: bin/gscan2pdf:1160
 msgid "Please switch to ImageMagick in case of problems."
 msgstr "Probléma esetén váltson az ImageMagick elemre."
 
-#: bin/gscan2pdf:1195
+#: bin/gscan2pdf:1199
+#, perl-format
+msgid ""
+"pdftk is installed, but seems to be missing required dependencies:\n"
+"%s"
+msgstr ""
+"A pdftk telepítve van, de úgy tűnik, hiányoznak a szükséges függőségek:\\n\n"
+"%s"
+
+#: bin/gscan2pdf:1204
 msgid ""
 "pdftk is installed, but cannot access the directory used for temporary files."
 msgstr ""
 "pdftk telepítve van, de nem férhet hozzá az ideiglenes fájlok könyvtárához."
 
-#: bin/gscan2pdf:1198
+#: bin/gscan2pdf:1207
 msgid "One reason for this might be that pdftk was installed via snap."
 msgstr "Ennek egyik oka lehet, hogy a pdftk-t snap segítségével telepítették."
 
-#: bin/gscan2pdf:1201
+#: bin/gscan2pdf:1210
 msgid ""
 "In this case, removing pdftk, and reinstalling without using snap would "
 "allow gscan2pdf to use pdftk."
@@ -143,7 +152,7 @@ msgstr ""
 "Ebben az esetben a pdftk eltávolítása és a snap használata nélkül történő "
 "újratelepítése lehetővé tenné a gscan2pdf használatát a pdftk használatára."
 
-#: bin/gscan2pdf:1204
+#: bin/gscan2pdf:1213
 msgid ""
 "Another workaround would be to select a temporary directory under your home "
 "directory in Edit/Preferences."
@@ -151,495 +160,494 @@ msgstr ""
 "Egy másik megoldás az lenne, ha egy ideiglenes könyvtárat választana az "
 "otthoni könyvtár alatt a Szerkesztés / Beállítások között."
 
-#: bin/gscan2pdf:1221
+#: bin/gscan2pdf:1233
 msgid "GOCR"
 msgstr "GOCR"
 
-#: bin/gscan2pdf:1221
+#: bin/gscan2pdf:1233
 msgid "Process image with GOCR."
 msgstr "Kép feldolgozása GOCR-rel."
 
-#: bin/gscan2pdf:1225
+#: bin/gscan2pdf:1237
 msgid "Tesseract"
 msgstr "Tesseract"
 
-#: bin/gscan2pdf:1225
+#: bin/gscan2pdf:1237
 msgid "Process image with Tesseract."
 msgstr "Kép feldolgozása Tesseract-tal."
 
-#: bin/gscan2pdf:1230
+#: bin/gscan2pdf:1242
 msgid "Cuneiform"
 msgstr "Cuneiform"
 
-#: bin/gscan2pdf:1230
+#: bin/gscan2pdf:1242
 msgid "Process image with Cuneiform."
 msgstr "Kép feldolgozása Cuneiformmal."
 
-#: bin/gscan2pdf:1257
+#: bin/gscan2pdf:1269
 msgid "_File"
 msgstr "_Fájl"
 
-#: bin/gscan2pdf:1260
+#: bin/gscan2pdf:1272
 msgid "_New"
 msgstr "_Új"
 
-#: bin/gscan2pdf:1261
+#: bin/gscan2pdf:1273
 msgid "Clears all pages"
 msgstr "Összes oldal törlése"
 
-#: bin/gscan2pdf:1265
+#: bin/gscan2pdf:1277
 msgid "_Open"
 msgstr "_Megnyitás"
 
-#: bin/gscan2pdf:1266
+#: bin/gscan2pdf:1278
 msgid "Open image file(s)"
 msgstr "Képfájlok megnyitása"
 
-#: bin/gscan2pdf:1270
+#: bin/gscan2pdf:1282
 msgid "Open c_rashed session"
 msgstr "Megtört f_olyamat megnyítása"
 
-#: bin/gscan2pdf:1271 bin/gscan2pdf:2523
+#: bin/gscan2pdf:1283 bin/gscan2pdf:2535
 msgid "Open crashed session"
 msgstr "Megtört folyamat megnyítása"
 
-#: bin/gscan2pdf:1275
+#: bin/gscan2pdf:1287
 msgid "S_can"
 msgstr "_Digitalizálás"
 
-#: bin/gscan2pdf:1276
+#: bin/gscan2pdf:1288
 msgid "Scan document"
 msgstr "Dokumentum digitalizálása"
 
-#: bin/gscan2pdf:1279 bin/gscan2pdf:1280 bin/gscan2pdf:2937
+#: bin/gscan2pdf:1291 bin/gscan2pdf:1292 bin/gscan2pdf:2949
 msgid "Save"
 msgstr "Mentés"
 
-#: bin/gscan2pdf:1284
+#: bin/gscan2pdf:1296
 msgid "_Email as PDF"
 msgstr "PDF küldése  _emailben"
 
-#: bin/gscan2pdf:1285
+#: bin/gscan2pdf:1297
 msgid "Attach as PDF to a new email"
 msgstr "PDF csatolása egy új emailhez"
 
-#: bin/gscan2pdf:1288
+#: bin/gscan2pdf:1300
 msgid "_Print"
 msgstr "_Nyomtatás"
 
-#: bin/gscan2pdf:1289
+#: bin/gscan2pdf:1301
 msgid "Print"
 msgstr "Nyomtatás"
 
-#: bin/gscan2pdf:1293
+#: bin/gscan2pdf:1305
 msgid "_Compress temporary files"
 msgstr "Átmeneti állományok _tömörítése"
 
-#: bin/gscan2pdf:1294
+#: bin/gscan2pdf:1306
 msgid "Compress temporary files"
 msgstr "Átmeneti állományok tömörítése"
 
-#: bin/gscan2pdf:1299
+#: bin/gscan2pdf:1311
 msgid "_Quit"
 msgstr "_Kilépés"
 
-#: bin/gscan2pdf:1301
+#: bin/gscan2pdf:1313
 msgid "Quit"
 msgstr "Kilépés"
 
-#: bin/gscan2pdf:1308
+#: bin/gscan2pdf:1320
 msgid "_Edit"
 msgstr "_Szerkesztés"
 
-#: bin/gscan2pdf:1309
+#: bin/gscan2pdf:1321
 msgid "_Undo"
 msgstr "_Visszavonás"
 
-#: bin/gscan2pdf:1309
+#: bin/gscan2pdf:1321
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: bin/gscan2pdf:1312
+#: bin/gscan2pdf:1324
 msgid "_Redo"
 msgstr "_Újra"
 
-#: bin/gscan2pdf:1313
+#: bin/gscan2pdf:1325
 msgid "Redo"
 msgstr "Újra"
 
-#: bin/gscan2pdf:1317
+#: bin/gscan2pdf:1329
 msgid "Cu_t"
 msgstr "_Kivágás"
 
-#: bin/gscan2pdf:1318
+#: bin/gscan2pdf:1330
 msgid "Cut selection"
 msgstr "Kijelölés kivágása"
 
-#: bin/gscan2pdf:1322
+#: bin/gscan2pdf:1334
 msgid "_Copy"
 msgstr "_Másolás"
 
-#: bin/gscan2pdf:1323
+#: bin/gscan2pdf:1335
 msgid "Copy selection"
 msgstr "Kijelölés másolása"
 
-#: bin/gscan2pdf:1327
+#: bin/gscan2pdf:1339
 msgid "_Paste"
 msgstr "_Beillesztés"
 
-#: bin/gscan2pdf:1328
+#: bin/gscan2pdf:1340
 msgid "Paste selection"
 msgstr "Kijelölés beillesztése"
 
-#: bin/gscan2pdf:1332
+#: bin/gscan2pdf:1344
 msgid "_Delete"
 msgstr "_Törlés"
 
-#: bin/gscan2pdf:1333
+#: bin/gscan2pdf:1345
 msgid "Delete selected pages"
 msgstr "Kijelölt oldalak törlése"
 
-#: bin/gscan2pdf:1337
+#: bin/gscan2pdf:1349
 msgid "_Renumber"
 msgstr "_Újra számozás"
 
-#: bin/gscan2pdf:1338
+#: bin/gscan2pdf:1350
 msgid "Renumber pages"
 msgstr "Oldalak újra számozása"
 
-#: bin/gscan2pdf:1340 bin/gscan2pdf:1527
+#: bin/gscan2pdf:1352 bin/gscan2pdf:1539
 msgid "_Select"
 msgstr "_Kijelölés"
 
-#: bin/gscan2pdf:1343
+#: bin/gscan2pdf:1355
 msgid "_All"
 msgstr "_Mind"
 
-#: bin/gscan2pdf:1344
+#: bin/gscan2pdf:1356
 msgid "Select all pages"
 msgstr "Minden oldal kijelölése"
 
-#: bin/gscan2pdf:1347
+#: bin/gscan2pdf:1359
 msgid "_Odd"
 msgstr "_Páratlan"
 
-#: bin/gscan2pdf:1348
+#: bin/gscan2pdf:1360
 msgid "Select all odd-numbered pages"
 msgstr "Összes páratlan oldal kijelölése"
 
-#: bin/gscan2pdf:1352
+#: bin/gscan2pdf:1364
 msgid "_Even"
 msgstr "_Páros"
 
-#: bin/gscan2pdf:1353
+#: bin/gscan2pdf:1365
 msgid "Select all evenly-numbered pages"
 msgstr "Minden \"x\"-edik oldal kijelölése"
 
-#: bin/gscan2pdf:1358
+#: bin/gscan2pdf:1370
 msgid "_Invert"
-msgstr "_Fordított"
+msgstr "_Megfordít"
 
-#: bin/gscan2pdf:1359
+#: bin/gscan2pdf:1371
 msgid "Invert selection"
 msgstr "Fordított kijelölés"
 
-#: bin/gscan2pdf:1364
+#: bin/gscan2pdf:1376
 msgid "_Blank"
 msgstr "_Üres"
 
-#: bin/gscan2pdf:1366
+#: bin/gscan2pdf:1378
 msgid "Select pages with low standard deviation"
 msgstr "Alacsony szórású oldalak kijelölése"
 
-#: bin/gscan2pdf:1371
+#: bin/gscan2pdf:1383
 msgid "_Dark"
 msgstr "_Sötét"
 
-#: bin/gscan2pdf:1372
+#: bin/gscan2pdf:1384
 msgid "Select dark pages"
 msgstr "Sötét oldalak kijelölése"
 
-#: bin/gscan2pdf:1377
+#: bin/gscan2pdf:1389
 msgid "_Modified"
 msgstr "_Módosított"
 
-#: bin/gscan2pdf:1379
+#: bin/gscan2pdf:1391
 msgid "Select modified pages since last OCR"
 msgstr "Módosított oldalak kijelölése az utolsó OCR felismerés óta"
 
-#: bin/gscan2pdf:1384
+#: bin/gscan2pdf:1396
 msgid "_No OCR"
 msgstr "_Nincs szövegfelismerő"
 
-#: bin/gscan2pdf:1385
+#: bin/gscan2pdf:1397
 msgid "Select pages with no OCR output"
 msgstr "OCR felismerés nélküli oldalak kiválasztása"
 
-#: bin/gscan2pdf:1389
+#: bin/gscan2pdf:1401
 msgid "_Clear OCR"
 msgstr "_OCR szöveg törlése"
 
-#: bin/gscan2pdf:1390
+#: bin/gscan2pdf:1402
 msgid "Clear OCR output from selected pages"
 msgstr "OCR szöveg törlése a kijelölt oldalakról"
 
-#: bin/gscan2pdf:1394
+#: bin/gscan2pdf:1406
 msgid "Propert_ies"
 msgstr "_Tulajdonságok"
 
-#: bin/gscan2pdf:1395
+#: bin/gscan2pdf:1407
 msgid "Edit image properties"
 msgstr "Kép tulajdonságainak módosítása"
 
-#: bin/gscan2pdf:1399
+#: bin/gscan2pdf:1411
 msgid "Prefere_nces"
 msgstr "_Beállítások"
 
-#: bin/gscan2pdf:1400
+#: bin/gscan2pdf:1412
 msgid "Edit preferences"
 msgstr "Beállítások szerkesztése"
 
-#: bin/gscan2pdf:1404
+#: bin/gscan2pdf:1416
 msgid "_View"
 msgstr "_Nézet"
 
-#: bin/gscan2pdf:1407
+#: bin/gscan2pdf:1419
 msgid "Zoom _100%"
 msgstr "Nagyítás _100%"
 
-#: bin/gscan2pdf:1408
+#: bin/gscan2pdf:1420
 msgid "Zoom to 100%"
 msgstr "Nagyítás 100%"
 
-#: bin/gscan2pdf:1412
+#: bin/gscan2pdf:1424
 msgid "Zoom to _fit"
 msgstr "Ablakmérethez _igazítás"
 
-#: bin/gscan2pdf:1413
+#: bin/gscan2pdf:1425
 msgid "Zoom to fit"
 msgstr "Ablakmérethez igazítás"
 
-#: bin/gscan2pdf:1417
+#: bin/gscan2pdf:1429
 msgid "Zoom _in"
 msgstr "_Nagyítás"
 
-#: bin/gscan2pdf:1418
+#: bin/gscan2pdf:1430
 msgid "Zoom in"
 msgstr "Nagyítás"
 
-#: bin/gscan2pdf:1422
+#: bin/gscan2pdf:1434
 msgid "Zoom _out"
 msgstr "_Kicsinyítés"
 
-#: bin/gscan2pdf:1423
+#: bin/gscan2pdf:1435
 msgid "Zoom out"
 msgstr "Kicsinyítés"
 
-#: bin/gscan2pdf:1428 bin/gscan2pdf:1430
+#: bin/gscan2pdf:1440 bin/gscan2pdf:1442
 msgid "Rotate 90° clockwise"
 msgstr "Elforgatás 90°-al óramutató járása szerint"
 
-#: bin/gscan2pdf:1439 bin/gscan2pdf:1441
+#: bin/gscan2pdf:1451 bin/gscan2pdf:1453
 msgid "Rotate 180°"
 msgstr "Elforgatás 180°-al"
 
-#: bin/gscan2pdf:1450 bin/gscan2pdf:1452
+#: bin/gscan2pdf:1462 bin/gscan2pdf:1464
 msgid "Rotate 90° anticlockwise"
 msgstr "Elforgatás 90°-al óramutató járásával ellentétesen"
 
-#: bin/gscan2pdf:1460
+#: bin/gscan2pdf:1472
 msgid "_Tools"
 msgstr "_Eszközök"
 
-#: bin/gscan2pdf:1462
+#: bin/gscan2pdf:1474
 msgid "_Threshold"
 msgstr "_Küszöbérték"
 
-#: bin/gscan2pdf:1463
+#: bin/gscan2pdf:1475
 msgid "Change each pixel above this threshold to black"
 msgstr "Minden képpont módosítása feketére, amely ezen küszöb érték felett van"
 
-#: bin/gscan2pdf:1468
+#: bin/gscan2pdf:1480
 msgid "_Brightness / Contrast"
 msgstr "_Fényesség / Kontraszt"
 
-#: bin/gscan2pdf:1469
+#: bin/gscan2pdf:1481
 msgid "Change brightness & contrast"
 msgstr "Fényesség & kontraszt cseréje"
 
-#: bin/gscan2pdf:1472
+#: bin/gscan2pdf:1484
 msgid "_Negate"
 msgstr "_Tagadás"
 
-#: bin/gscan2pdf:1473
+#: bin/gscan2pdf:1485
 msgid "Converts black to white and vice versa"
 msgstr "Fekete fehérré alakítása és fordítva"
 
-#: bin/gscan2pdf:1477
+#: bin/gscan2pdf:1489
 msgid "_Unsharp Mask"
 msgstr "_Elmosás maszk"
 
-#: bin/gscan2pdf:1478
+#: bin/gscan2pdf:1490
 msgid "Apply an unsharp mask"
 msgstr "Elmosás maszk elfogadása"
 
-#: bin/gscan2pdf:1482 bin/gscan2pdf:1487
+#: bin/gscan2pdf:1494 bin/gscan2pdf:1499
 msgid "_Crop"
 msgstr "_Kivágás"
 
-#: bin/gscan2pdf:1483
+#: bin/gscan2pdf:1495
 msgid "Crop pages"
 msgstr "Oldalak kivágása"
 
-#: bin/gscan2pdf:1488
+#: bin/gscan2pdf:1500
 msgid "Crop selection"
 msgstr "Kivágás választás"
 
-#: bin/gscan2pdf:1491
+#: bin/gscan2pdf:1503
 msgid "_Clean up"
 msgstr "_Tisztitás"
 
-#: bin/gscan2pdf:1492 bin/gscan2pdf:4585
+#: bin/gscan2pdf:1504 bin/gscan2pdf:4615
 msgid "Clean up scanned images with unpaper"
 msgstr "Szkennelt képek tisztítása lap kiadással"
 
-#: bin/gscan2pdf:1495
+#: bin/gscan2pdf:1507
 msgid "_Split"
 msgstr "Ha_sítás"
 
-#: bin/gscan2pdf:1496
+#: bin/gscan2pdf:1508
 msgid "Split pages horizontally or vertically"
 msgstr "Oldalak felosztása vízszintesen vagy függőlegesen"
 
-#: bin/gscan2pdf:1500
+#: bin/gscan2pdf:1512
 msgid "_OCR"
 msgstr "_OCR"
 
-#: bin/gscan2pdf:1501
+#: bin/gscan2pdf:1513
 msgid "Optical Character Recognition"
 msgstr "Optikai karakterfelismerés (OCR)"
 
-#: bin/gscan2pdf:1505
+#: bin/gscan2pdf:1517
 msgid "U_ser-defined"
 msgstr "_Felhasználói_meghatározás"
 
-#: bin/gscan2pdf:1506
+#: bin/gscan2pdf:1518
 msgid "Process images with user-defined tool"
 msgstr "Képkezelés a felhasználó által meghatározott folyamattal"
 
-#: bin/gscan2pdf:1511 bin/gscan2pdf:1513
+#: bin/gscan2pdf:1523 bin/gscan2pdf:1525
 msgid "_Help"
 msgstr "_Súgó"
 
-#: bin/gscan2pdf:1514
+#: bin/gscan2pdf:1526
 msgid "Help"
 msgstr "Súgó"
 
-#: bin/gscan2pdf:1516
+#: bin/gscan2pdf:1528
 msgid "_About"
 msgstr "_Névjegy"
 
-#: bin/gscan2pdf:1522
+#: bin/gscan2pdf:1534
 msgid "_Pan"
 msgstr "_Pásztáz"
 
-#: bin/gscan2pdf:1523
+#: bin/gscan2pdf:1535
 msgid "Use the pan tool"
 msgstr "Használja a pásztázás eszközt"
 
-#: bin/gscan2pdf:1528
+#: bin/gscan2pdf:1540
 msgid "Use the rectangular selection tool"
 msgstr "Használja a téglalap alakú kijelölő eszközt"
 
-#: bin/gscan2pdf:1532
+#: bin/gscan2pdf:1544
 msgid "_Select & pan"
 msgstr "_Válassza ki és pásztáz"
 
-#: bin/gscan2pdf:1533
+#: bin/gscan2pdf:1545
 msgid "Use the combined select and pan tool"
 msgstr "Használja a kombinált kijelölés és pásztázás eszközt"
 
-#: bin/gscan2pdf:1538
+#: bin/gscan2pdf:1550
 msgid "_Tabbed"
 msgstr "_Fül"
 
-#: bin/gscan2pdf:1539
+#: bin/gscan2pdf:1551
 msgid "Arrange image and OCR viewers in tabs"
 msgstr "A kép- és OCR-nézőket lapokba rendez"
 
-#: bin/gscan2pdf:1542
+#: bin/gscan2pdf:1554
 msgid "_Split horizontally"
 msgstr "_Osztás  vízszintesen"
 
-#: bin/gscan2pdf:1544
+#: bin/gscan2pdf:1556
 msgid "Arrange image and OCR viewers in horizontally split screen"
 msgstr "Rendezze el a kép- és OCR-nézőket vízszintesen osztott képernyőn"
 
-#: bin/gscan2pdf:1548
+#: bin/gscan2pdf:1560
 msgid "_Split vertically"
 msgstr "_Osztás függőlegesen"
 
-#: bin/gscan2pdf:1549
+#: bin/gscan2pdf:1561
 msgid "Arrange image and OCR viewers in vertically split screen"
 msgstr "Rendezze el a kép- és OCR-nézőket függőlegesen osztott képernyőn"
 
-#: bin/gscan2pdf:1556
+#: bin/gscan2pdf:1568
 msgid "Edit text layer"
 msgstr "Szöveges réteg szerkesztése"
 
-#: bin/gscan2pdf:1557
+#: bin/gscan2pdf:1569
 msgid "Show editing tools for text layer"
 msgstr "Szerkesztőeszközök megjelenítése a szövegréteghez"
 
-#: bin/gscan2pdf:1562
+#: bin/gscan2pdf:1574
 msgid "Edit annotations"
 msgstr "Megjegyzés szerkesztése"
 
-#: bin/gscan2pdf:1564
+#: bin/gscan2pdf:1576
 msgid "Show editing tools for annotations"
 msgstr "Szerkesztőeszközök megjelenítése a kommentárokhoz"
 
-#: bin/gscan2pdf:1771
+#: bin/gscan2pdf:1783
 msgid "Save image and Save as PDF both require imagemagick\n"
 msgstr "Kép és PDF mentéséhez nélkülözhetetlen az imagemagick csomag\n"
 
-#: bin/gscan2pdf:1776
+#: bin/gscan2pdf:1788
 msgid "Save image requires libtiff\n"
 msgstr "Kép mentéséhez szükséges a libtiff csomag\n"
 
-#: bin/gscan2pdf:1781
+#: bin/gscan2pdf:1793
 msgid "Save as DjVu requires djvulibre-bin\n"
 msgstr "Kép mentése DjVu változathoz szükség van a djvulibre-bin csomagra\n"
 
-#: bin/gscan2pdf:1786
+#: bin/gscan2pdf:1798
 msgid "Email as PDF requires xdg-email\n"
 msgstr "PDF küldése E-mailbenhez szükség van az xdg-email csomagra\n"
 
-#: bin/gscan2pdf:1819
+#: bin/gscan2pdf:1831
 msgid ""
 "The rotating, crop, unsharp, split and unpaper tools require perlmagick\n"
 msgstr ""
 "A forgó, a levágott, az éles, az osztott és a papír eltávolításhoz szükséges "
 "eszközök ImageMagickot igényelnek\n"
 
-#: bin/gscan2pdf:1824
+#: bin/gscan2pdf:1836
 msgid "unpaper missing\n"
 msgstr "unpaper program hiányzik\n"
 
-#: bin/gscan2pdf:1836
+#: bin/gscan2pdf:1848
 msgid "OCR requires gocr, tesseract, or cuneiform\n"
-msgstr ""
-"OCR felismeréshez gocr, tesseract vagy cuneiform csomagok szükségesek\n"
+msgstr "Az OCR-hez gocr, tesseract vagy ékírás szükséges\n"
 
-#: bin/gscan2pdf:1853
+#: bin/gscan2pdf:1865
 msgid "PDF encryption requires pdftk\n"
 msgstr "A PDF titkosításhoz pdftk program telepítése szükséges\n"
 
-#: bin/gscan2pdf:1858
+#: bin/gscan2pdf:1870
 msgid "Warning: missing packages"
 msgstr "Figyelmeztetés: hiányzó csomagok"
 
-#: bin/gscan2pdf:2125
+#: bin/gscan2pdf:2137
 #, perl-format
 msgid ""
 "Warning: unable to use %s for temporary storage. Defaulting to %s instead."
@@ -647,31 +655,31 @@ msgstr ""
 "Figyelmeztetés: %s nem használható átmeneti adattárolásra. Ehelyett %s "
 "használata."
 
-#: bin/gscan2pdf:2172
+#: bin/gscan2pdf:2184
 msgid "Crashed sessions"
 msgstr "Megsérült folyamat"
 
-#: bin/gscan2pdf:2180
+#: bin/gscan2pdf:2192
 msgid "The following list of sessions cannot be restored."
 msgstr "A következő lista szerinti folyamatot nem lehet visszaállítani."
 
-#: bin/gscan2pdf:2182
+#: bin/gscan2pdf:2194
 msgid "Please retrieve any images you require from them."
 msgstr "Kérjük, töltsön be tőlük minden szükséges képet."
 
-#: bin/gscan2pdf:2184
+#: bin/gscan2pdf:2196
 msgid "Selected sessions will be deleted."
 msgstr "A kiválasztott munkamenetek törlődnek."
 
-#: bin/gscan2pdf:2186 bin/gscan2pdf:2223 lib/Gscan2pdf/Dialog/Save.pm:553
+#: bin/gscan2pdf:2198 bin/gscan2pdf:2235 lib/Gscan2pdf/Dialog/Save.pm:553
 msgid "Session"
 msgstr "Munkamenet"
 
-#: bin/gscan2pdf:2215 bin/gscan2pdf:2220
+#: bin/gscan2pdf:2227 bin/gscan2pdf:2232
 msgid "Pick crashed session to restore"
 msgstr "Megszakadt munkamenet helyreállítása"
 
-#: bin/gscan2pdf:2403
+#: bin/gscan2pdf:2415
 msgid ""
 "Some pages have not been saved.\n"
 "Do you really want to clear all pages?"
@@ -679,51 +687,51 @@ msgstr ""
 "Nem minden oldal van elmentve\n"
 "Biztosan elveti az összes oldalt?"
 
-#: bin/gscan2pdf:2560 bin/gscan2pdf:2592
+#: bin/gscan2pdf:2572 bin/gscan2pdf:2604
 #, perl-format
 msgid "Process %i of %i (%s)"
 msgstr "Folyamat: %i / %i (%s)"
 
-#: bin/gscan2pdf:2599
+#: bin/gscan2pdf:2611
 #, perl-format
 msgid "Process %i of %i"
 msgstr "Folyamat: %i / %i"
 
-#: bin/gscan2pdf:2627
+#: bin/gscan2pdf:2639
 msgid "Open image"
 msgstr "Kép megnyitása"
 
-#: bin/gscan2pdf:2635 bin/gscan2pdf:3166 bin/gscan2pdf:3410
+#: bin/gscan2pdf:2647 bin/gscan2pdf:3178 bin/gscan2pdf:3422
 msgid "Image files"
 msgstr "Képfájlok"
 
-#: bin/gscan2pdf:2673
+#: bin/gscan2pdf:2685
 #, perl-format
 msgid "Enter user password for PDF %s"
 msgstr "Adja meg a felhasználói jelszót a %s PDF fájlhoz"
 
-#: bin/gscan2pdf:2733
+#: bin/gscan2pdf:2745
 msgid "Pages to extract"
 msgstr "Oldalak kibontása"
 
-#: bin/gscan2pdf:2741
+#: bin/gscan2pdf:2753
 msgid "First page to extract"
 msgstr "Első oldal kibontása"
 
-#: bin/gscan2pdf:2748
+#: bin/gscan2pdf:2760
 msgid "Last page to extract"
 msgstr "Utolsó oldal kibontása"
 
-#: bin/gscan2pdf:2811
+#: bin/gscan2pdf:2825
 #, perl-format
-msgid "%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime."
-msgstr "%04d-%02d-%02d %02d:%02d:%02d nem valós dátum."
+msgid "%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime: %s"
+msgstr "%04d-%02d-%02d %02d:%02d:%02d nem érvényes dátumidő: %s"
 
-#: bin/gscan2pdf:2976
+#: bin/gscan2pdf:2988
 msgid "Post-save hook"
 msgstr "Utófeldolgozás"
 
-#: bin/gscan2pdf:2979
+#: bin/gscan2pdf:2991
 #, perl-format
 msgid ""
 "Run command on saved file. The available commands are those user-defined "
@@ -732,214 +740,219 @@ msgstr ""
 "Futtasson parancsot megmentett fájlon. Az elérhető parancsok azok a "
 "felhasználói eszközök, amelyek nem részletezik %o"
 
-#: bin/gscan2pdf:2994 bin/gscan2pdf:2995
+#: bin/gscan2pdf:3006 bin/gscan2pdf:3007
 msgid "Close dialog on save"
 msgstr "Dialógus zárása mentéssel"
 
-#: bin/gscan2pdf:3063 bin/gscan2pdf:3087
+#: bin/gscan2pdf:3075 bin/gscan2pdf:3099
 msgid "PDF filename"
 msgstr "PDF fájlnév"
 
-#: bin/gscan2pdf:3093
+#: bin/gscan2pdf:3105
 msgid "PDF files"
 msgstr "PDF fájlok"
 
-#: bin/gscan2pdf:3117
+#: bin/gscan2pdf:3129
 msgid "DjVu filename"
 msgstr "DjVu fájlnév"
 
-#: bin/gscan2pdf:3139
+#: bin/gscan2pdf:3151
 msgid "DjVu files"
 msgstr "DjVu fájlok"
 
-#: bin/gscan2pdf:3159
+#: bin/gscan2pdf:3171
 msgid "TIFF filename"
 msgstr "TIFF fájlnév"
 
-#: bin/gscan2pdf:3185
+#: bin/gscan2pdf:3197
 msgid "Text filename"
 msgstr "Szöveg fájlnév"
 
-#: bin/gscan2pdf:3193
+#: bin/gscan2pdf:3205
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: bin/gscan2pdf:3210
+#: bin/gscan2pdf:3222
 msgid "hOCR filename"
 msgstr "hOCR fájlnév"
 
-#: bin/gscan2pdf:3218
+#: bin/gscan2pdf:3230
 msgid "hOCR files"
 msgstr "hOCR fájlok"
 
-#: bin/gscan2pdf:3237
+#: bin/gscan2pdf:3249
 msgid "PS filename"
 msgstr "Postscript fájlnév"
 
-#: bin/gscan2pdf:3244
+#: bin/gscan2pdf:3256
 msgid "Postscript files"
 msgstr "Postscript fájlok"
 
-#: bin/gscan2pdf:3262
+#: bin/gscan2pdf:3274
 msgid "gscan2pdf session filename"
 msgstr "gscan2pdf munkamenetfájl neve"
 
-#: bin/gscan2pdf:3269
+#: bin/gscan2pdf:3281
 msgid "gscan2pdf session files"
 msgstr "gscan2pdf munkamenetfájlok"
 
-#: bin/gscan2pdf:3373
+#: bin/gscan2pdf:3385
 #, perl-format
 msgid "Directory %s is read-only"
 msgstr "A(z) %s könyvtár csak olvasható"
 
-#: bin/gscan2pdf:3383
+#: bin/gscan2pdf:3395
 #, perl-format
 msgid "File %s is read-only"
 msgstr "A(z) %s fájl csak olvasható"
 
-#: bin/gscan2pdf:3403
+#: bin/gscan2pdf:3415
 msgid "Image filename"
 msgstr "Képfájl neve"
 
-#: bin/gscan2pdf:3686
+#: bin/gscan2pdf:3442
+#, perl-format
+msgid "This operation would overwrite %s"
+msgstr "Ez a művelet felülírná a következőt: %s"
+
+#: bin/gscan2pdf:3716
 msgid "Email as PDF"
 msgstr "E-mail PDF-ként"
 
-#: bin/gscan2pdf:3812
+#: bin/gscan2pdf:3842
 msgid "Error creating email"
 msgstr "Hiba az e-mail létrehozásakor"
 
-#: bin/gscan2pdf:3850
+#: bin/gscan2pdf:3880
 msgid "Scan Document"
 msgstr "Dokumentum szkennelése"
 
-#: bin/gscan2pdf:4206
+#: bin/gscan2pdf:4236
 msgid "Error opening the last device used."
 msgstr "Hiba az utoljára használt eszköz megnyitásakor."
 
-#: bin/gscan2pdf:4209
+#: bin/gscan2pdf:4239
 msgid "There was an error opening the last device used."
 msgstr "Hiba történt az utoljára használt eszköz megnyitásakor."
 
-#: bin/gscan2pdf:4212
+#: bin/gscan2pdf:4242
 msgid "Whoops! I forgot to turn it on. Try again now."
 msgstr "Hoppá! Elfelejtettem bekapcsolni. Próbáld újra."
 
-#: bin/gscan2pdf:4215 lib/Gscan2pdf/Dialog/Scan.pm:638
+#: bin/gscan2pdf:4245 lib/Gscan2pdf/Dialog/Scan.pm:638
 msgid "Rescan for devices"
 msgstr "Eszközök keresése"
 
-#: bin/gscan2pdf:4218
+#: bin/gscan2pdf:4248
 msgid "Restart gscan2pdf."
 msgstr "Indítsa újra a gscan2pdf fájlt."
 
-#: bin/gscan2pdf:4221
+#: bin/gscan2pdf:4251
 msgid "Just ignore the error. I don't need the scanner yet."
 msgstr "Csak hagyja figyelmen kívül a hibát. Még nincs szükségem a szkennerre."
 
-#: bin/gscan2pdf:4224 bin/gscan2pdf:7037
+#: bin/gscan2pdf:4254 bin/gscan2pdf:7066
 msgid "Cache device list"
 msgstr "Gyorsítótár-eszközök listája"
 
-#: bin/gscan2pdf:4228 bin/gscan2pdf:7610
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:56
+#: bin/gscan2pdf:4258 bin/gscan2pdf:7639
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:60
 msgid "Don't show this message again"
 msgstr "Ne mutassa ezt az üzenetet újra"
 
-#: bin/gscan2pdf:4286
+#: bin/gscan2pdf:4316
 msgid "Finished scanning facing pages. Scan reverse pages?"
 msgstr "A lapolvasás befejeződött. Fordított oldalak beolvasása?"
 
-#: bin/gscan2pdf:4291
+#: bin/gscan2pdf:4321
 msgid "Finished scanning reverse pages. Scan facing pages?"
 msgstr "A lapolvasás befejeződött. Szkennelt oldalak szkennelése?"
 
-#: bin/gscan2pdf:4338 bin/gscan2pdf:4363
+#: bin/gscan2pdf:4368 bin/gscan2pdf:4393
 msgid "Rotate"
 msgstr "Forgatás"
 
-#: bin/gscan2pdf:4339 bin/gscan2pdf:4364
+#: bin/gscan2pdf:4369 bin/gscan2pdf:4394
 msgid "Rotate image after scanning"
 msgstr "Kép elforgatása scannelés után"
 
-#: bin/gscan2pdf:4342
+#: bin/gscan2pdf:4372
 msgid "Both sides"
 msgstr "Mindkét oldal"
 
-#: bin/gscan2pdf:4342
+#: bin/gscan2pdf:4372
 msgid "Both sides."
 msgstr "Mindkét oldal."
 
-#: bin/gscan2pdf:4343
+#: bin/gscan2pdf:4373
 msgid "Facing side"
 msgstr "Felszíne"
 
-#: bin/gscan2pdf:4343
+#: bin/gscan2pdf:4373
 msgid "Facing side."
 msgstr "Felszíne."
 
-#: bin/gscan2pdf:4344
+#: bin/gscan2pdf:4374
 msgid "Reverse side"
 msgstr "Visszája"
 
-#: bin/gscan2pdf:4344
+#: bin/gscan2pdf:4374
 msgid "Reverse side."
 msgstr "Visszája."
 
-#: bin/gscan2pdf:4347 bin/gscan2pdf:4368
+#: bin/gscan2pdf:4377 bin/gscan2pdf:4398
 msgid "Select side to rotate"
 msgstr "Forgatott oldal kiválasztása"
 
-#: bin/gscan2pdf:4350
+#: bin/gscan2pdf:4380
 msgid "90"
 msgstr "90"
 
-#: bin/gscan2pdf:4350
+#: bin/gscan2pdf:4380
 msgid "Rotate image 90 degrees clockwise."
 msgstr "Elforgatás az óramutató járásával megegyezően 90 fokkal."
 
-#: bin/gscan2pdf:4351
+#: bin/gscan2pdf:4381
 msgid "180"
 msgstr "180"
 
-#: bin/gscan2pdf:4351
+#: bin/gscan2pdf:4381
 msgid "Rotate image 180 degrees clockwise."
 msgstr "Elforgatás az óramutató járásával megegyezően 180 fokkal."
 
-#: bin/gscan2pdf:4353
+#: bin/gscan2pdf:4383
 msgid "270"
 msgstr "270"
 
-#: bin/gscan2pdf:4354
+#: bin/gscan2pdf:4384
 msgid "Rotate image 90 degrees anticlockwise."
 msgstr "Elforgatás az óramutató járásával ellentétesen 90 fokkal."
 
-#: bin/gscan2pdf:4358 bin/gscan2pdf:4371
+#: bin/gscan2pdf:4388 bin/gscan2pdf:4401
 msgid "Select direction of rotation"
 msgstr "Forgatás irányának kiválasztása"
 
-#: bin/gscan2pdf:4447
+#: bin/gscan2pdf:4477
 msgid "Process with user-defined tool"
 msgstr "Munkamenet a felhasználó által meghatározva"
 
-#: bin/gscan2pdf:4449
+#: bin/gscan2pdf:4479
 msgid "Process scanned images with user-defined tool"
 msgstr "Szkennelési folyamat felhasználó által meghatározva"
 
-#: bin/gscan2pdf:4477 bin/gscan2pdf:4478
+#: bin/gscan2pdf:4507 bin/gscan2pdf:4508
 msgid "OCR scanned pages"
 msgstr "OCR felismert oldalak"
 
-#: bin/gscan2pdf:4488
+#: bin/gscan2pdf:4518
 msgid "Select OCR engine"
 msgstr "OCR motor kiválasztása"
 
-#: bin/gscan2pdf:4536 bin/gscan2pdf:6332
+#: bin/gscan2pdf:4566 bin/gscan2pdf:6361
 msgid "Threshold before OCR"
 msgstr "Küszöbérték OCR folyamat előtt"
 
-#: bin/gscan2pdf:4539 bin/gscan2pdf:6335
+#: bin/gscan2pdf:4569 bin/gscan2pdf:6364
 msgid ""
 "Threshold the image before performing OCR. This only affects the image "
 "passed to the OCR engine, and not the image stored."
@@ -947,67 +960,67 @@ msgstr ""
 "A kép küszöbértéke az OCR futása előtt. Ez nem befolyásolja a kép OCR-en "
 "való áthaladását, de a kép nem lesz tárolva."
 
-#: bin/gscan2pdf:4570
+#: bin/gscan2pdf:4600
 msgid "Postprocessing"
 msgstr "Utófeldolgozás"
 
-#: bin/gscan2pdf:4584
+#: bin/gscan2pdf:4614
 msgid "Clean up images"
 msgstr "Képek tisztítása"
 
-#: bin/gscan2pdf:4594
+#: bin/gscan2pdf:4624
 msgid "Options"
 msgstr "Beállítások"
 
-#: bin/gscan2pdf:4595
+#: bin/gscan2pdf:4625
 msgid "Set unpaper options"
 msgstr "Unpaper beállítása"
 
-#: bin/gscan2pdf:4601
+#: bin/gscan2pdf:4631
 msgid "unpaper options"
 msgstr "unpaper beállítások"
 
-#: bin/gscan2pdf:5024
+#: bin/gscan2pdf:5054
 msgid "To aid the scan-to-PDF process"
 msgstr "Segítség a szkennelés PDF-be folyamathoz"
 
-#: bin/gscan2pdf:5025
+#: bin/gscan2pdf:5055
 msgid "Copyright 2006--2022 Jeffrey Ratcliffe"
-msgstr "Szerzői jog: 2006-2022 Jeffrey Ratcliffe"
+msgstr "Szerzői jog: 2006--2022 Jeffrey Ratcliffe"
 
-#: bin/gscan2pdf:5280 bin/gscan2pdf:5290 bin/gscan2pdf:5549
+#: bin/gscan2pdf:5309 bin/gscan2pdf:5319 bin/gscan2pdf:5578
 msgid "Threshold"
 msgstr "Küszöbszint"
 
-#: bin/gscan2pdf:5359
+#: bin/gscan2pdf:5388
 msgid "Brightness / Contrast"
 msgstr "Fényesség / Kontraszt"
 
-#: bin/gscan2pdf:5370
+#: bin/gscan2pdf:5399
 msgid "Brightness"
 msgstr "Fényesség"
 
-#: bin/gscan2pdf:5381
+#: bin/gscan2pdf:5410
 msgid "Contrast"
 msgstr "Kontraszt"
 
-#: bin/gscan2pdf:5450
+#: bin/gscan2pdf:5479
 msgid "Negate"
 msgstr "Tagadás"
 
-#: bin/gscan2pdf:5512
+#: bin/gscan2pdf:5541
 msgid "Unsharp mask"
 msgstr "Elmosás maszk"
 
-#: bin/gscan2pdf:5526
+#: bin/gscan2pdf:5555
 msgid "Radius"
 msgstr "Sugár"
 
-#: bin/gscan2pdf:5528 bin/gscan2pdf:5535 bin/gscan2pdf:5752
+#: bin/gscan2pdf:5557 bin/gscan2pdf:5564 bin/gscan2pdf:5781
 msgid "pixels"
 msgstr "képpontok"
 
-#: bin/gscan2pdf:5531
+#: bin/gscan2pdf:5560
 msgid ""
 "The radius of the Gaussian, in pixels, not counting the center pixel (0 = "
 "automatic)."
@@ -1015,19 +1028,19 @@ msgstr ""
 "A Gauss görbe sugara pixelekben, nem számolva a központi pixelt (0 = "
 "automatikus)."
 
-#: bin/gscan2pdf:5535
+#: bin/gscan2pdf:5564
 msgid "Sigma"
 msgstr "Szigma"
 
-#: bin/gscan2pdf:5537
+#: bin/gscan2pdf:5566
 msgid "The standard deviation of the Gaussian."
 msgstr "Gauss átlagos eltérés."
 
-#: bin/gscan2pdf:5540
+#: bin/gscan2pdf:5569
 msgid "Gain"
 msgstr "Erősítés"
 
-#: bin/gscan2pdf:5545
+#: bin/gscan2pdf:5574
 msgid ""
 "The percentage of the difference between the original and the blur image "
 "that is added back into the original."
@@ -1035,7 +1048,7 @@ msgstr ""
 "Az eredeti és az elmosódott kép közötti különbség százalékos aránya, amely "
 "visszaadja az eredeti képet."
 
-#: bin/gscan2pdf:5554
+#: bin/gscan2pdf:5583
 msgid ""
 "The threshold, as a fraction of QuantumRange, needed to apply the difference "
 "amount."
@@ -1043,103 +1056,103 @@ msgstr ""
 "A küszöbérték, mint a QuantumRange töredékéért, a különbözetet kellett "
 "alkalmazni."
 
-#: bin/gscan2pdf:5710
+#: bin/gscan2pdf:5739
 msgid "Crop"
 msgstr "Vágás"
 
-#: bin/gscan2pdf:5724
+#: bin/gscan2pdf:5753
 msgid "x"
 msgstr "x"
 
-#: bin/gscan2pdf:5726
+#: bin/gscan2pdf:5755
 msgid "The x-position of the left hand edge of the crop."
 msgstr "A vágás bal szélének x poziciója."
 
-#: bin/gscan2pdf:5729
+#: bin/gscan2pdf:5758
 msgid "y"
 msgstr "y"
 
-#: bin/gscan2pdf:5730
+#: bin/gscan2pdf:5759
 msgid "The y-position of the top edge of the crop."
 msgstr "A vágás tetejének y poziciója."
 
-#: bin/gscan2pdf:5732 lib/Gscan2pdf/Dialog/Scan.pm:1740
+#: bin/gscan2pdf:5761 lib/Gscan2pdf/Dialog/Scan.pm:1749
 msgid "Width"
 msgstr "Szélesség"
 
-#: bin/gscan2pdf:5732
+#: bin/gscan2pdf:5761
 msgid "The width of the crop."
 msgstr "A vágás szélessége."
 
-#: bin/gscan2pdf:5733 lib/Gscan2pdf/Dialog/Scan.pm:1741
+#: bin/gscan2pdf:5762 lib/Gscan2pdf/Dialog/Scan.pm:1750
 msgid "Height"
 msgstr "Magasság"
 
-#: bin/gscan2pdf:5733
+#: bin/gscan2pdf:5762
 msgid "The height of the crop."
 msgstr "A vágás magassága."
 
-#: bin/gscan2pdf:5888
+#: bin/gscan2pdf:5917
 msgid "Split"
 msgstr "Osztás"
 
-#: bin/gscan2pdf:5898
+#: bin/gscan2pdf:5927
 msgid "Direction"
 msgstr "Irány"
 
-#: bin/gscan2pdf:5902
+#: bin/gscan2pdf:5931
 msgid "Vertically"
 msgstr "Függőlegesen"
 
-#: bin/gscan2pdf:5903
+#: bin/gscan2pdf:5932
 msgid "Split the page vertically into left and right pages."
 msgstr "Bontsa az oldalt függőlegesen bal és jobb oldalra."
 
-#: bin/gscan2pdf:5906
+#: bin/gscan2pdf:5935
 msgid "Horizontally"
 msgstr "Vízszintesen"
 
-#: bin/gscan2pdf:5907
+#: bin/gscan2pdf:5936
 msgid "Split the page horizontally into top and bottom pages."
 msgstr "Ossza fel az oldalt vízszintesen felső és alsó oldalra."
 
-#: bin/gscan2pdf:5931
+#: bin/gscan2pdf:5960
 msgid "Position"
 msgstr "Pozíció"
 
-#: bin/gscan2pdf:6047
+#: bin/gscan2pdf:6076
 msgid "User-defined tools"
 msgstr "Felhasználó álta meghatározott eszközök"
 
-#: bin/gscan2pdf:6057
+#: bin/gscan2pdf:6086
 msgid "Selected tool"
 msgstr "Kiválasztott eszköz"
 
-#: bin/gscan2pdf:6178
+#: bin/gscan2pdf:6207
 msgid "unpaper"
 msgstr "szkennelés utáni eszköz"
 
-#: bin/gscan2pdf:6229 bin/gscan2pdf:6257
+#: bin/gscan2pdf:6258 bin/gscan2pdf:6286
 msgid "Language to recognise"
 msgstr "Nyelv felismerés"
 
-#: bin/gscan2pdf:6240
+#: bin/gscan2pdf:6269
 msgid "English"
 msgstr "Angol"
 
-#: bin/gscan2pdf:6283
+#: bin/gscan2pdf:6312
 msgid "OCR"
 msgstr "OCR"
 
-#: bin/gscan2pdf:6294
+#: bin/gscan2pdf:6323
 msgid "OCR Engine"
 msgstr "OCR rendszer"
 
-#: bin/gscan2pdf:6357
+#: bin/gscan2pdf:6386
 msgid "Start OCR"
 msgstr "A szövegfelismerés indítása"
 
-#: bin/gscan2pdf:6449
+#: bin/gscan2pdf:6478
 msgid ""
 "Some pages have not been saved.\n"
 "Do you really want to quit?"
@@ -1147,44 +1160,44 @@ msgstr ""
 "Néhány oldal még nincs elmentve.\n"
 "Biztosan kilép?"
 
-#: bin/gscan2pdf:6547
+#: bin/gscan2pdf:6576
 #, perl-format
 msgid "%dMb free in %s."
 msgstr "%d Mb szabad. Rendelkezésre áll: %s."
 
-#: bin/gscan2pdf:6683
+#: bin/gscan2pdf:6712
 msgid "This operation cannot be undone. Are you sure?"
 msgstr "Ez a művelet nem vonható vissza. Biztosan folytatja?"
 
-#: bin/gscan2pdf:6740
+#: bin/gscan2pdf:6769
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: bin/gscan2pdf:6757
+#: bin/gscan2pdf:6786
 msgid "Scan options"
 msgstr "Szkennelési opciók"
 
-#: bin/gscan2pdf:6767
+#: bin/gscan2pdf:6796
 msgid "General options"
 msgstr "Általános opciók"
 
-#: bin/gscan2pdf:6821
+#: bin/gscan2pdf:6850
 msgid "Invalid regex. Try without special characters such as '*'"
 msgstr "Érvénytelen regex. Próbálkozzon speciális karakterekkel, például '*'"
 
-#: bin/gscan2pdf:6897
+#: bin/gscan2pdf:6926
 msgid "Changes will only take effect after restarting gscan2pdf."
 msgstr "A változások csak a gscan2pdf újraindítása után lépnek hatályba."
 
-#: bin/gscan2pdf:6900
+#: bin/gscan2pdf:6929
 msgid "Restart gscan2pdf now?"
 msgstr "Indítsa újra a gscan2pdf fájlt most?"
 
-#: bin/gscan2pdf:6920
+#: bin/gscan2pdf:6949
 msgid "Open scanner at program start"
 msgstr "Nyissa meg a szkennert a program indításakor"
 
-#: bin/gscan2pdf:6923
+#: bin/gscan2pdf:6952
 msgid ""
 "Automatically open the scan dialog in the background at program start. This "
 "saves time clicking the scan button and waiting for the program to find the "
@@ -1194,61 +1207,61 @@ msgstr ""
 "indításakor. Ez elmenti az időt a szkennelés gombra való kattintáskor és vár "
 "a programra, hogy megkeresse a szkennert"
 
-#: bin/gscan2pdf:6936
+#: bin/gscan2pdf:6965
 msgid "Frontend"
 msgstr "Applikáció"
 
-#: bin/gscan2pdf:6941
+#: bin/gscan2pdf:6970
 msgid "libimage-sane-perl"
 msgstr "libimage-sane-perl"
 
-#: bin/gscan2pdf:6942
+#: bin/gscan2pdf:6971
 msgid "Scan using the Perl bindings for SANE."
 msgstr "Szkennelés a Perl kötésekkel a SANE használatával."
 
-#: bin/gscan2pdf:6945
+#: bin/gscan2pdf:6974
 msgid "scanimage"
 msgstr "scanimage"
 
-#: bin/gscan2pdf:6946
+#: bin/gscan2pdf:6975
 msgid "Scan using the scanimage frontend."
 msgstr "Szkennelés a scanimage applikációval."
 
-#: bin/gscan2pdf:6951
+#: bin/gscan2pdf:6980
 msgid "scanadf"
 msgstr "scanadf"
 
-#: bin/gscan2pdf:6951
+#: bin/gscan2pdf:6980
 msgid "Scan using the scanadf frontend."
 msgstr "Szkennelés a scanadf applikációval."
 
-#: bin/gscan2pdf:6954
+#: bin/gscan2pdf:6983
 msgid "Interface used for scanner access"
 msgstr "Interfész használata a szkenner csatolásához"
 
-#: bin/gscan2pdf:6960
+#: bin/gscan2pdf:6989
 msgid "Device blacklist"
 msgstr "Eszközök tiltólistája"
 
-#: bin/gscan2pdf:6964
+#: bin/gscan2pdf:6993
 msgid "Device blacklist (regular expression)"
 msgstr "Eszközök tiltólistája (reguláris kifejezés)"
 
-#: bin/gscan2pdf:6972
+#: bin/gscan2pdf:7001
 msgid "Cycle SANE handle after scan"
 msgstr "SANE folyamat kezelése szkennelés után"
 
-#: bin/gscan2pdf:6974
+#: bin/gscan2pdf:7003
 msgid "Some ADFs do not feed out the last page if this is not enabled"
 msgstr ""
 "Bizonyos automatikus lapadagolók nem adják ki az utolsó oldalt, ha ez nem "
 "engedélyezett"
 
-#: bin/gscan2pdf:6983
+#: bin/gscan2pdf:7012
 msgid "Allow batch scanning from flatbed"
 msgstr "Kötegelt szkennelés megengedett"
 
-#: bin/gscan2pdf:6986
+#: bin/gscan2pdf:7015
 msgid ""
 "If not set, switching to a flatbed scanner will force # pages to 1 and "
 "single-sided mode."
@@ -1256,11 +1269,11 @@ msgstr ""
 "Ha nem állítja be a síkágyas lapolvasóra váltásnál a # oldalszámot 1 lap és "
 "egyoldalas üzemmód lesz."
 
-#: bin/gscan2pdf:6995
+#: bin/gscan2pdf:7024
 msgid "Ignore duplex capabilities of scanner"
 msgstr "Hagyja figyelmen kívül a szkenner duplex képességeit"
 
-#: bin/gscan2pdf:6998
+#: bin/gscan2pdf:7027
 msgid ""
 "If set, any duplex capabilities are ignored, and facing/reverse widgets are "
 "displayed to allow manual interleaving of pages."
@@ -1268,11 +1281,11 @@ msgstr ""
 "Ha be van állítva, akkor a duplex képességeket nem veszik figyelembe, és az "
 "oldalsó / hátsó kütyü megjelenik az oldalak kézi átlapolása érdekében."
 
-#: bin/gscan2pdf:7007
+#: bin/gscan2pdf:7036
 msgid "Force new scan job between pages"
 msgstr "Az új szkennelési munka új oldalak közötti kényszerítése"
 
-#: bin/gscan2pdf:7010
+#: bin/gscan2pdf:7039
 msgid ""
 "Otherwise, some Brother scanners report out of documents, despite scanning "
 "from flatbed."
@@ -1280,11 +1293,11 @@ msgstr ""
 "Egyébként egyes Brother szkennerek beszámolnak a dokumentumokról, annak "
 "ellenére, hogy beolvasták a síkágyat."
 
-#: bin/gscan2pdf:7026
+#: bin/gscan2pdf:7055
 msgid "Select # pages = all on selecting ADF"
 msgstr "Válassza a # oldal = mind lehetőséget az ADF kiválasztása során"
 
-#: bin/gscan2pdf:7029
+#: bin/gscan2pdf:7058
 msgid ""
 "If this option is enabled, when switching to source=ADF, # pages = all is "
 "selected"
@@ -1292,7 +1305,7 @@ msgstr ""
 "Ha ez az opció engedélyezve van, amikor a forrás = ADF-re vált, akkor az # "
 "oldal = mind van kiválasztva"
 
-#: bin/gscan2pdf:7040
+#: bin/gscan2pdf:7069
 msgid ""
 "If this option is enabled, opening the scanner is quicker, as gscan2pdf does "
 "not first search for available devices."
@@ -1300,73 +1313,73 @@ msgstr ""
 "Ha ez az opció engedélyezve van, a szkenner gyorsabban nyitható meg, mivel a "
 "gscan2pdf nem először keresi a rendelkezésre álló eszközöket."
 
-#: bin/gscan2pdf:7043
+#: bin/gscan2pdf:7072
 msgid ""
 "This is only effective if the device names do not change between sessions."
 msgstr ""
 "Ez csak akkor hatékony, ha az eszköznevek nem változnak munkamenetek között."
 
-#: bin/gscan2pdf:7052
+#: bin/gscan2pdf:7081
 msgid "Scan command prefix"
 msgstr "Digitalizálás parancs előtag"
 
-#: bin/gscan2pdf:7062
+#: bin/gscan2pdf:7091
 msgid "Cache device-dependent options"
 msgstr "Eszköz függő beállítások gyorsítótárazása"
 
-#: bin/gscan2pdf:7068
+#: bin/gscan2pdf:7097
 msgid "Clear device-dependent options cache"
 msgstr "Eszköz függő beállítások gyorsítótárának ürítése"
 
-#: bin/gscan2pdf:7080
+#: bin/gscan2pdf:7109
 msgid "Option visibility & control"
 msgstr "Láthatóság & ellenőrzés opció"
 
-#: bin/gscan2pdf:7089 lib/Gscan2pdf/Dialog/Save.pm:449
+#: bin/gscan2pdf:7118 lib/Gscan2pdf/Dialog/Save.pm:449
 msgid "Title"
 msgstr "Cím"
 
-#: bin/gscan2pdf:7090
+#: bin/gscan2pdf:7119
 msgid "Type"
 msgstr "Típus"
 
-#: bin/gscan2pdf:7091 bin/gscan2pdf:7098
+#: bin/gscan2pdf:7120 bin/gscan2pdf:7127
 msgid "Show"
 msgstr "Mutat"
 
-#: bin/gscan2pdf:7092
+#: bin/gscan2pdf:7121
 msgid "Reload"
 msgstr "Újratölt"
 
-#: bin/gscan2pdf:7108 lib/Gscan2pdf/Dialog/MultipleMessage.pm:52
+#: bin/gscan2pdf:7137 lib/Gscan2pdf/Dialog/MultipleMessage.pm:56
 msgid "Hide"
 msgstr "Elrejt"
 
-#: bin/gscan2pdf:7117
+#: bin/gscan2pdf:7146
 msgid "List current options"
 msgstr "Az aktuális opciók listája"
 
-#: bin/gscan2pdf:7137
+#: bin/gscan2pdf:7166
 msgid "No scanner currently open with command line frontend."
 msgstr "Jelenleg nincs szkenner megnyitva a parancssoros applikációban."
 
-#: bin/gscan2pdf:7145
+#: bin/gscan2pdf:7174
 msgid "Show options not listed"
 msgstr "A nem listázott opciók mutatása"
 
-#: bin/gscan2pdf:7191
+#: bin/gscan2pdf:7220
 msgid "Restore window settings on startup"
 msgstr "Ablakbeállítások visszaállítása indításkor"
 
-#: bin/gscan2pdf:7196
+#: bin/gscan2pdf:7225
 msgid "View files on saving"
 msgstr "Fájlok megtekintése mentéskor"
 
-#: bin/gscan2pdf:7203
+#: bin/gscan2pdf:7232
 msgid "Default PDF & DjVu filename"
 msgstr "Alapértelmezett PDF & DjVu fájlnév"
 
-#: bin/gscan2pdf:7208
+#: bin/gscan2pdf:7237
 msgid ""
 "strftime codes, e.g.:\n"
 "%Y\tcurrent year\n"
@@ -1398,44 +1411,44 @@ msgstr ""
 "%Dm\t dokumentum hónap\n"
 "%Dd\t dokumentumnap\n"
 
-#: bin/gscan2pdf:7229
+#: bin/gscan2pdf:7258
 msgid "Replace whitespace in filenames with underscores"
 msgstr "Szóköz cseréje aláhúzásra a fájlnévben"
 
-#: bin/gscan2pdf:7235
+#: bin/gscan2pdf:7264
 msgid "Use timezone from locale"
 msgstr "Időzóna használata a helyi menüből"
 
-#: bin/gscan2pdf:7241
+#: bin/gscan2pdf:7270
 msgid "Specify time as well as date"
 msgstr "Adja meg az időt és a dátumot is"
 
-#: bin/gscan2pdf:7247
+#: bin/gscan2pdf:7276
 msgid "Set access and modification times to metadata date"
 msgstr "Állítsa és módosítsa az időt a metaadat dátumára"
 
-#: bin/gscan2pdf:7253
+#: bin/gscan2pdf:7282
 msgid "Convert scanned images to PNG before further processing"
 msgstr ""
 "Konvertálja a beolvasott képeket PNG formátumra a további feldolgozás előtt"
 
-#: bin/gscan2pdf:7260
+#: bin/gscan2pdf:7289
 msgid "Temporary directory"
 msgstr "Átmeneti könyvtár"
 
-#: bin/gscan2pdf:7265
+#: bin/gscan2pdf:7294
 msgid "Browse"
 msgstr "Böngészés"
 
-#: bin/gscan2pdf:7269
+#: bin/gscan2pdf:7298
 msgid "Select temporary directory"
 msgstr "Ideiglenes könyvtár választása"
 
-#: bin/gscan2pdf:7291
+#: bin/gscan2pdf:7320
 msgid "Warn if available space less than (Mb)"
 msgstr "Figyelmeztetés, ha a használható hely kevesebb, mint (Mb)"
 
-#: bin/gscan2pdf:7297
+#: bin/gscan2pdf:7326
 msgid ""
 "Warn if the available space in the temporary directory is less than this "
 "value"
@@ -1443,55 +1456,55 @@ msgstr ""
 "Figyelmeztet, ha az elérhető hely az ideiglenes könyvtárban kisebb mint ez "
 "az érték"
 
-#: bin/gscan2pdf:7305
+#: bin/gscan2pdf:7334
 msgid "Blank threshold"
 msgstr "Üres küszöbszint"
 
-#: bin/gscan2pdf:7311
+#: bin/gscan2pdf:7340
 msgid "Threshold used for selecting blank pages"
 msgstr "Küszöbszint használata kiválasztott üres oldalakhoz"
 
-#: bin/gscan2pdf:7317
+#: bin/gscan2pdf:7346
 msgid "Dark threshold"
 msgstr "Sötét küszöbszint"
 
-#: bin/gscan2pdf:7323
+#: bin/gscan2pdf:7352
 msgid "Threshold used for selecting dark pages"
 msgstr "Küszöbszint használata kiválasztott sötét oldalakhoz"
 
-#: bin/gscan2pdf:7329
+#: bin/gscan2pdf:7358
 msgid "OCR output"
 msgstr "OCR kimenet"
 
-#: bin/gscan2pdf:7334
+#: bin/gscan2pdf:7363
 msgid "Replace"
 msgstr "Csere"
 
-#: bin/gscan2pdf:7336
+#: bin/gscan2pdf:7365
 msgid "Replace the contents of the text buffer with that from the OCR output."
 msgstr "A szöveg puffer tartalmának cseréje az OCR kimenetével."
 
-#: bin/gscan2pdf:7340
+#: bin/gscan2pdf:7369
 msgid "Prepend"
 msgstr "Eléfűz"
 
-#: bin/gscan2pdf:7341
+#: bin/gscan2pdf:7370
 msgid "Prepend the OCR output to the text buffer."
 msgstr "Elé fűz az OCR kimenethez a text pufferbe."
 
-#: bin/gscan2pdf:7344
+#: bin/gscan2pdf:7373
 msgid "Append"
 msgstr "Hozzáfűz"
 
-#: bin/gscan2pdf:7345
+#: bin/gscan2pdf:7374
 msgid "Append the OCR output to the text buffer."
 msgstr "Hozzáfűz az OCR kimenethez a text pufferbe."
 
-#: bin/gscan2pdf:7353
+#: bin/gscan2pdf:7382
 msgid "Manage user-defined tools"
 msgstr "Felhasználó által meghatározott eszközök"
 
-#: bin/gscan2pdf:7433
+#: bin/gscan2pdf:7462
 msgid ""
 "Use %i and %o for the input and output filenames respectively, or a single "
 "%i if the image is to be modified in-place.\n"
@@ -1507,15 +1520,15 @@ msgstr ""
 "\n"
 "%r felbontás"
 
-#: bin/gscan2pdf:7485
+#: bin/gscan2pdf:7514
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#: bin/gscan2pdf:7497 bin/gscan2pdf:7507
+#: bin/gscan2pdf:7526 bin/gscan2pdf:7536
 msgid "dpi"
 msgstr "dpi"
 
-#: bin/gscan2pdf:7642
+#: bin/gscan2pdf:7671
 msgid "Messages"
 msgstr "Üzenetek"
 
@@ -1539,42 +1552,42 @@ msgstr "US Legal"
 msgid "Page Range"
 msgstr "Oldal tartomány"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:30
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:34
 msgid "Error"
 msgstr "Hiba"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:31
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:35
 msgid "Warning"
 msgstr "Figyelmeztetés"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:43
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:47
 msgid "Page"
 msgstr "Oldal"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:45
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:49
 msgid "Process"
 msgstr "Folyamat"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:47
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:51
 msgid "Message type"
 msgstr "Üzenet típusa"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:49
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:53
 msgid "Message"
 msgstr "Üzenet"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:112
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:116
 msgid "Don't show these messages again"
 msgstr "Ne jelenítse meg újra ezeket az üzeneteket"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:248
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:252
 msgid ""
 "This error is normally due to ImageMagick exceeding its resource limits."
 msgstr ""
 "Ez a hiba általában akkor jelentkezik, ha az ImageMagick meghaladja az "
 "erőforráshatárokat."
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:252
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:256
 msgid ""
 "These can be extended by editing its policy file, which on my system is "
 "found at /etc/ImageMagick-6/policy.xml"
@@ -1582,7 +1595,7 @@ msgstr ""
 "Ezeket a házirendfájl szerkesztésével bővítheti, amely a rendszer az /etc/"
 "ImageMagick-6/policy.xml címen található"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:256
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:260
 msgid ""
 "Please see https://imagemagick.org/script/resources.php for more information"
 msgstr ""
@@ -2043,7 +2056,7 @@ msgstr "Frontend lehetőségek"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:982 lib/Gscan2pdf/Dialog/Scan.pm:1150
 #: lib/Gscan2pdf/Dialog/Scan.pm:1325 lib/Gscan2pdf/Dialog/Scan.pm:1338
-#: lib/Gscan2pdf/Dialog/Scan.pm:1620
+#: lib/Gscan2pdf/Dialog/Scan.pm:1623
 msgid "Manual"
 msgstr "Kézikönyv"
 
@@ -2088,7 +2101,7 @@ msgstr "Szerkesztés"
 msgid "Selects or edits the paper size"
 msgstr "Papírméret kiválasztása vagy szerkesztése"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1442
+#: lib/Gscan2pdf/Dialog/Scan.pm:1445
 #, perl-format
 msgid ""
 "Reload recursion limit (%d) exceeded. Please file a bug, attaching a log "
@@ -2097,55 +2110,55 @@ msgstr ""
 "A rekurzió korlátjának újratöltése (%d) túllépve. Kérjük, csatoljon fájlt a "
 "hibával és a problémát reprodukáló naplófájlt."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1723
+#: lib/Gscan2pdf/Dialog/Scan.pm:1732
 msgid "Edit paper size"
 msgstr "Papírméret állítása"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1739
+#: lib/Gscan2pdf/Dialog/Scan.pm:1748
 msgid "Name"
 msgstr "Név"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1742 lib/Gscan2pdf/Unpaper.pm:153
+#: lib/Gscan2pdf/Dialog/Scan.pm:1751 lib/Gscan2pdf/Unpaper.pm:153
 #: lib/Gscan2pdf/Unpaper.pm:183
 msgid "Left"
 msgstr "Bal"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1743 lib/Gscan2pdf/Unpaper.pm:159
+#: lib/Gscan2pdf/Dialog/Scan.pm:1752 lib/Gscan2pdf/Unpaper.pm:159
 #: lib/Gscan2pdf/Unpaper.pm:188
 msgid "Top"
 msgstr "Felül"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1744
+#: lib/Gscan2pdf/Dialog/Scan.pm:1753
 msgid "Units"
 msgstr "Mértékegységek"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1796
+#: lib/Gscan2pdf/Dialog/Scan.pm:1805
 msgid "Cannot delete all paper sizes"
 msgstr "Nem törölhető az összes papírméret"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1864
+#: lib/Gscan2pdf/Dialog/Scan.pm:1873
 msgid ""
 "The following paper sizes are too big to be scanned by the selected device:"
 msgstr "A következő papírméretek túl nagyok ehhez az eszközhöz:"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2025
+#: lib/Gscan2pdf/Dialog/Scan.pm:2034
 msgid ""
 "Multiple unconstrained values are not currently supported. Please file a bug."
 msgstr ""
 "A beállítási értékek jelenleg nincsenek támogatva. A fájl valószínűleg egy "
 "hiba."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2039
+#: lib/Gscan2pdf/Dialog/Scan.pm:2048
 msgid ""
 "Multiple non-numerical values are not currently supported. Please file a bug."
 msgstr "Több nem numerikus érték nem támogatott. Kérjük, javítsa."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2528
+#: lib/Gscan2pdf/Dialog/Scan.pm:2537
 #, perl-format
 msgid "Scanning page %d of %d"
 msgstr "Szkennelt oldal: %d / %d"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2530
+#: lib/Gscan2pdf/Dialog/Scan.pm:2539
 #, perl-format
 msgid "Scanning page %d"
 msgstr "Szkennelt oldal %d"
