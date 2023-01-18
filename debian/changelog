@@ -3,7 +3,7 @@ gscan2pdf (2.13.2-1) unstable; urgency=medium
   * New upstream release
     Closes: #1026205: Unpaper errors for every scanned page
 
---
+ -- Jeffrey Ratcliffe <jjr@debian.org>  Tue, 17 Jan 2023 18:20:33 +0100
 
 gscan2pdf (2.13.1-2) unstable; urgency=medium
 
