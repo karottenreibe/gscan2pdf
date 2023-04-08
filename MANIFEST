@@ -191,6 +191,7 @@ t/0615_Dialog_Scan_Image_Sane.t
 t/0616_Dialog_Scan_Image_Sane.t
 t/0617_Dialog_Scan_Image_Sane.t
 t/06181_Dialog_Scan_Image_Sane.t
+t/06182_Dialog_Scan_Image_Sane.t
 t/0618_Dialog_Scan_Image_Sane.t
 t/06190_Dialog_Scan_Image_Sane.t
 t/06191_Dialog_Scan_Image_Sane.t

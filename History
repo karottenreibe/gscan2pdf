@@ -1,4 +1,6 @@
 2.13.3 (16.02.2023):
+
+* Skip options (spotted in a Brother device) where min>max.
 * Update to Hungarian translation (thanks to csola)
 
 
