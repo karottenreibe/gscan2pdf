@@ -2,7 +2,6 @@ package Gscan2pdf::Dialog::Save;
 
 use warnings;
 use strict;
-use feature 'switch';
 use Glib 1.220 qw(TRUE FALSE);    # To get TRUE and FALSE
 use Gscan2pdf::ComboBoxText;
 use Gscan2pdf::Dialog;
@@ -10,7 +9,6 @@ use Gscan2pdf::Document;
 use Gscan2pdf::EntryCompletion;
 use Gscan2pdf::Translation '__';    # easier to extract strings with xgettext
 use Date::Calc qw(Today Today_and_Now Add_Delta_DHMS);
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use Encode;
 use Readonly;
 Readonly my $ENTRY_WIDTH_DATE     => 10;
@@ -667,70 +665,68 @@ sub image_type_changed_callback {
     my ( $self, $vboxp, $hboxpq, $hboxc, $hboxtq, $hboxps, ) = @{$data};
     my $image_type = $widget->get_active_index;
     $self->set( 'image-type', $image_type );
-    given ($image_type) {
-        when (/pdf/xsm) {
-            $vboxp->show;
-            $hboxc->hide;
-            $hboxtq->hide;
-            $hboxps->hide;
-            if ( $_ eq 'pdf' ) {
-                $self->{'meta-box-widget'}->show;
-            }
-            else {    # don't show metadata for pre-/append to pdf
-                $self->{'meta-box-widget'}->hide;
-            }
-            if ( $self->get('pdf-compression') eq 'jpg' ) {
-                $hboxpq->show;
-            }
-            else {
-                $hboxpq->hide;
-            }
-        }
-        when ('djvu') {
+    if ( $image_type =~ /pdf/xsm ) {
+        $vboxp->show;
+        $hboxc->hide;
+        $hboxtq->hide;
+        $hboxps->hide;
+        if ( $image_type eq 'pdf' ) {
             $self->{'meta-box-widget'}->show;
-            $hboxc->hide;
-            $vboxp->hide;
-            $hboxpq->hide;
-            $hboxtq->hide;
-            $hboxps->hide;
         }
-        when ('tif') {
-            $hboxc->show;
+        else {    # don't show metadata for pre-/append to pdf
             $self->{'meta-box-widget'}->hide;
-            $vboxp->hide;
-            $hboxpq->hide;
-            if ( $self->get('tiff-compression') eq 'jpeg' ) {
-                $hboxtq->show;
-            }
-            else {
-                $hboxtq->hide;
-            }
-            $hboxps->hide;
         }
-        when ('ps') {
-            $hboxc->hide;
-            $self->{'meta-box-widget'}->hide;
-            $vboxp->hide;
-            $hboxpq->hide;
-            $hboxtq->hide;
-            $hboxps->show;
+        if ( $self->get('pdf-compression') eq 'jpg' ) {
+            $hboxpq->show;
         }
-        when ('jpg') {
-            $self->{'meta-box-widget'}->hide;
-            $hboxc->hide;
-            $vboxp->hide;
+        else {
             $hboxpq->hide;
+        }
+    }
+    elsif ( $image_type =~ 'djvu' ) {
+        $self->{'meta-box-widget'}->show;
+        $hboxc->hide;
+        $vboxp->hide;
+        $hboxpq->hide;
+        $hboxtq->hide;
+        $hboxps->hide;
+    }
+    elsif ( $image_type =~ 'tif' ) {
+        $hboxc->show;
+        $self->{'meta-box-widget'}->hide;
+        $vboxp->hide;
+        $hboxpq->hide;
+        if ( $self->get('tiff-compression') eq 'jpeg' ) {
             $hboxtq->show;
-            $hboxps->hide;
         }
-        default {
-            $self->{'meta-box-widget'}->hide;
-            $vboxp->hide;
-            $hboxc->hide;
-            $hboxpq->hide;
+        else {
             $hboxtq->hide;
-            $hboxps->hide;
         }
+        $hboxps->hide;
+    }
+    elsif ( $image_type eq 'ps' ) {
+        $hboxc->hide;
+        $self->{'meta-box-widget'}->hide;
+        $vboxp->hide;
+        $hboxpq->hide;
+        $hboxtq->hide;
+        $hboxps->show;
+    }
+    elsif ( $image_type eq 'jpg' ) {
+        $self->{'meta-box-widget'}->hide;
+        $hboxc->hide;
+        $vboxp->hide;
+        $hboxpq->hide;
+        $hboxtq->show;
+        $hboxps->hide;
+    }
+    else {
+        $self->{'meta-box-widget'}->hide;
+        $vboxp->hide;
+        $hboxc->hide;
+        $hboxpq->hide;
+        $hboxtq->hide;
+        $hboxps->hide;
     }
     $self->resize( 1, 1 );
     return;
@@ -740,7 +736,12 @@ sub filter_table {
     my ( $table, @filter ) = @_;
     my @sub_table;
     for my $row ( @{$table} ) {
-        if ( $row->[0] ~~ @filter ) { push @sub_table, $row }
+        for (@filter) {
+            if ( $row->[0] eq $_ ) {
+                push @sub_table, $row;
+                last;
+            }
+        }
     }
     return \@sub_table;
 }

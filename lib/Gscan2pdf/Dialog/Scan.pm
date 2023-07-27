@@ -2,13 +2,11 @@ package Gscan2pdf::Dialog::Scan;
 
 use warnings;
 use strict;
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use Glib qw(TRUE FALSE);   # To get TRUE and FALSE
 use Image::Sane ':all';    # To get SANE_NAME_PAGE_WIDTH & SANE_NAME_PAGE_HEIGHT
 use Data::Dumper;
 $Data::Dumper::Sortkeys = 1;
 use Storable qw(dclone);
-use feature 'switch';
 use GooCanvas2;
 use Gscan2pdf::ComboBoxText;
 use Gscan2pdf::Dialog;
@@ -900,123 +898,121 @@ sub SET_PROPERTY {
             $logger->debug("Started$msg");
         }
         my $callback = FALSE;
-        given ($name) {
-            when ('allow_batch_flatbed') {
-                $self->_set_allow_batch_flatbed( $name, $newval );
-            }
-            when ('available_scan_options') {
-                $self->_set_available_scan_options( $name, $newval );
-            }
-            when ('cursor') {
-                $self->{$name} = $newval;
-                $self->set_cursor($newval);
-            }
-            when ('device') {
-                $self->{$name} = $newval;
-                $self->set_device($newval);
-                $self->signal_emit( 'changed-device', $newval )
-            }
-            when ('device_list') {
-                $self->{$name} = $newval;
-                $self->set_device_list($newval);
-                $self->signal_emit( 'changed-device-list', $newval )
-            }
-            when ('document') {
-                $self->{$name} = $newval;
+        if ( $name eq 'allow_batch_flatbed' ) {
+            $self->_set_allow_batch_flatbed( $name, $newval );
+        }
+        elsif ( $name eq 'available_scan_options' ) {
+            $self->_set_available_scan_options( $name, $newval );
+        }
+        elsif ( $name eq 'cursor' ) {
+            $self->{$name} = $newval;
+            $self->set_cursor($newval);
+        }
+        elsif ( $name eq 'device' ) {
+            $self->{$name} = $newval;
+            $self->set_device($newval);
+            $self->signal_emit( 'changed-device', $newval )
+        }
+        elsif ( $name eq 'device_list' ) {
+            $self->{$name} = $newval;
+            $self->set_device_list($newval);
+            $self->signal_emit( 'changed-device-list', $newval )
+        }
+        elsif ( $name eq 'document' ) {
+            $self->{$name} = $newval;
 
-                # Update the start spinbutton if the page number is been edited.
-                my $slist = $self->get('document');
-                if ( defined $slist ) {
-                    $slist->get_model->signal_connect(
-                        'row-changed' => sub { $self->update_start_page } );
-                }
+            # Update the start spinbutton if the page number is been edited.
+            my $slist = $self->get('document');
+            if ( defined $slist ) {
+                $slist->get_model->signal_connect(
+                    'row-changed' => sub { $self->update_start_page } );
             }
-            when ('ignore_duplex_capabilities') {
-                $self->{$name} = $newval;
-                $self->_flatbed_or_duplex_callback;
+        }
+        elsif ( $name eq 'ignore_duplex_capabilities' ) {
+            $self->{$name} = $newval;
+            $self->_flatbed_or_duplex_callback;
+        }
+        elsif ( $name eq 'num_pages' ) {
+            $self->_set_num_pages( $name, $newval );
+        }
+        elsif ( $name eq 'page_number_start' ) {
+            $self->{$name} = $newval;
+            $self->signal_emit( 'changed-page-number-start', $newval )
+        }
+        elsif ( $name eq 'page_number_increment' ) {
+            $self->{$name} = $newval;
+            $self->signal_emit( 'changed-page-number-increment', $newval )
+        }
+        elsif ( $name eq 'side_to_scan' ) {
+            $self->_set_side_to_scan( $name, $newval );
+        }
+        elsif ( $name eq 'sided' ) {
+            $self->{$name} = $newval;
+            my $widget = $self->{buttons};
+            if ( $newval eq 'double' ) {
+                $widget = $self->{buttond};
             }
-            when ('num_pages') {
-                $self->_set_num_pages( $name, $newval );
+            else {
+                # selecting single-sided also selects facing page.
+                $self->set( 'side-to-scan', 'facing' );
             }
-            when ('page_number_start') {
-                $self->{$name} = $newval;
-                $self->signal_emit( 'changed-page-number-start', $newval )
-            }
-            when ('page_number_increment') {
-                $self->{$name} = $newval;
-                $self->signal_emit( 'changed-page-number-increment', $newval )
-            }
-            when ('side_to_scan') {
-                $self->_set_side_to_scan( $name, $newval );
-            }
-            when ('sided') {
-                $self->{$name} = $newval;
-                my $widget = $self->{buttons};
-                if ( $newval eq 'double' ) {
-                    $widget = $self->{buttond};
-                }
-                else {
-                    # selecting single-sided also selects facing page.
-                    $self->set( 'side-to-scan', 'facing' );
-                }
-                $widget->set_active(TRUE);
-            }
-            when ('paper') {
-                if ( defined $newval ) {
-                    for ( @{ $self->{ignored_paper_formats} } ) {
-                        if ( $_ eq $newval ) {
-                            if ( defined $logger ) {
-                                $logger->info(
-                                    "Ignoring unsupported paper $newval");
-                                $logger->debug("Finished$msg");
-                            }
-                            return;
-                        }
-                    }
-                }
-                $callback = TRUE;
-                my $signal;
-                $signal = $self->signal_connect(
-                    'changed-paper' => sub {
-                        $self->signal_handler_disconnect($signal);
-                        my $paper = defined $newval ? $newval : __('Manual');
-                        my $retval =
-                          $self->{combobp}->set_active_by_text($paper);
-                        $logger->debug(
-                            "Widget update to $paper returned $retval");
+            $widget->set_active(TRUE);
+        }
+        elsif ( $name eq 'paper' ) {
+            if ( defined $newval ) {
+                for ( @{ $self->{ignored_paper_formats} } ) {
+                    if ( $_ eq $newval ) {
                         if ( defined $logger ) {
+                            $logger->info(
+                                "Ignoring unsupported paper $newval");
                             $logger->debug("Finished$msg");
                         }
+                        return;
                     }
-                );
-                $self->set_paper($newval);
+                }
             }
-            when ('paper_formats') {
-                $self->{$name} = $newval;
-                $self->set_paper_formats($newval);
-                $self->signal_emit( 'changed-paper-formats', $newval )
-            }
-            when ('profile') {
-                $callback = TRUE;
-                my $signal;
-                $signal = $self->signal_connect(
-                    'changed-profile' => sub {
-                        $self->signal_handler_disconnect($signal);
-                        $self->{combobsp}->set_active_by_text($newval);
-                        if ( defined $logger ) {
-                            $logger->debug("Finished$msg");
-                        }
+            $callback = TRUE;
+            my $signal;
+            $signal = $self->signal_connect(
+                'changed-paper' => sub {
+                    $self->signal_handler_disconnect($signal);
+                    my $paper = defined $newval ? $newval : __('Manual');
+                    my $retval =
+                      $self->{combobp}->set_active_by_text($paper);
+                    $logger->debug(
+                        "Widget update to $paper returned $retval");
+                    if ( defined $logger ) {
+                        $logger->debug("Finished$msg");
                     }
-                );
-                $self->set_profile($newval);
-            }
-            when ('visible_scan_options') {
-                $self->{$name} = $newval;
-                $self->signal_emit( 'changed-option-visibility', $newval );
-            }
-            default {
-                $self->{$name} = $newval;
-            }
+                }
+            );
+            $self->set_paper($newval);
+        }
+        elsif ( $name eq 'paper_formats' ) {
+            $self->{$name} = $newval;
+            $self->set_paper_formats($newval);
+            $self->signal_emit( 'changed-paper-formats', $newval )
+        }
+        elsif ( $name eq 'profile' ) {
+            $callback = TRUE;
+            my $signal;
+            $signal = $self->signal_connect(
+                'changed-profile' => sub {
+                    $self->signal_handler_disconnect($signal);
+                    $self->{combobsp}->set_active_by_text($newval);
+                    if ( defined $logger ) {
+                        $logger->debug("Finished$msg");
+                    }
+                }
+            );
+            $self->set_profile($newval);
+        }
+        elsif ( $name eq 'visible_scan_options' ) {
+            $self->{$name} = $newval;
+            $self->signal_emit( 'changed-option-visibility', $newval );
+        }
+        else {
+            $self->{$name} = $newval;
         }
         if ( defined $logger and not $callback ) {
             $logger->debug("Finished$msg");
@@ -1239,25 +1235,23 @@ sub pack_widget {
         # Add label for units
         if ( $opt->{unit} != SANE_UNIT_NONE ) {
             my $text;
-            given ( $opt->{unit} ) {
-                when (SANE_UNIT_PIXEL) {
-                    $text = __('pel')
-                }
-                when (SANE_UNIT_BIT) {
-                    $text = __('bit')
-                }
-                when (SANE_UNIT_MM) {
-                    $text = __('mm')
-                }
-                when (SANE_UNIT_DPI) {
-                    $text = __('ppi')
-                }
-                when (SANE_UNIT_PERCENT) {
-                    $text = __(q{%})
-                }
-                when (SANE_UNIT_MICROSECOND) {
-                    $text = __('μs')
-                }
+            if ( $opt->{unit} == SANE_UNIT_PIXEL ) {
+                $text = __('pel')
+            }
+            elsif ( $opt->{unit} == SANE_UNIT_BIT ) {
+                $text = __('bit')
+            }
+            elsif ( $opt->{unit} == SANE_UNIT_MM ) {
+                $text = __('mm')
+            }
+            elsif ( $opt->{unit} == SANE_UNIT_DPI ) {
+                $text = __('ppi')
+            }
+            elsif ( $opt->{unit} == SANE_UNIT_PERCENT ) {
+                $text = __(q{%})
+            }
+            elsif ( $opt->{unit} == SANE_UNIT_MICROSECOND ) {
+                $text = __('μs')
             }
             my $label = Gtk3::Label->new($text);
             $hbox->pack_end( $label, FALSE, FALSE, 0 );
@@ -1541,46 +1535,43 @@ sub _update_option {
             }
         }
         else {
-            given ( $opt->{constraint_type} ) {
+            # SpinButton
+            if ( $opt->{constraint_type} == SANE_CONSTRAINT_RANGE ) {
+                my ( $step, $page ) = $widget->get_increments;
+                $step = 1;
+                if ( $opt->{constraint}{quant} ) {
+                    $step = $opt->{constraint}{quant};
+                }
+                $widget->set_range( $opt->{constraint}{min},
+                    $opt->{constraint}{max} );
+                $widget->set_increments( $step, $page );
+                if ( $self->value_for_active_option( $value, $opt ) ) {
+                    $widget->set_value($value);
+                }
+            }
 
-                # SpinButton
-                when (SANE_CONSTRAINT_RANGE) {
-                    my ( $step, $page ) = $widget->get_increments;
-                    $step = 1;
-                    if ( $opt->{constraint}{quant} ) {
-                        $step = $opt->{constraint}{quant};
-                    }
-                    $widget->set_range( $opt->{constraint}{min},
-                        $opt->{constraint}{max} );
-                    $widget->set_increments( $step, $page );
-                    if ( $self->value_for_active_option( $value, $opt ) ) {
-                        $widget->set_value($value);
+            # ComboBox
+            elsif ( $opt->{constraint_type} == SANE_CONSTRAINT_STRING_LIST or
+                $opt->{constraint_type} == SANE_CONSTRAINT_WORD_LIST )
+            {
+                $widget->get_model->clear;
+                my $index = 0;
+                for ( 0 .. $#{ $opt->{constraint} } ) {
+                    $widget->append_text(
+                        $d_sane->get( $opt->{constraint}[$_] ) );
+                    if ( defined $value
+                        and $opt->{constraint}[$_] eq $value )
+                    {
+                        $index = $_;
                     }
                 }
+                if ( defined $index ) { $widget->set_active($index) }
+            }
 
-                # ComboBox
-                when (
-                    [ SANE_CONSTRAINT_STRING_LIST, SANE_CONSTRAINT_WORD_LIST ] )
-                {
-                    $widget->get_model->clear;
-                    my $index = 0;
-                    for ( 0 .. $#{ $opt->{constraint} } ) {
-                        $widget->append_text(
-                            $d_sane->get( $opt->{constraint}[$_] ) );
-                        if ( defined $value
-                            and $opt->{constraint}[$_] eq $value )
-                        {
-                            $index = $_;
-                        }
-                    }
-                    if ( defined $index ) { $widget->set_active($index) }
-                }
-
-                # Entry
-                when (SANE_CONSTRAINT_NONE) {
-                    if ( $self->value_for_active_option( $value, $opt ) ) {
-                        $widget->set_text($value);
-                    }
+            # Entry
+            elsif ( $opt->{constraint_type} == SANE_CONSTRAINT_NONE ) {
+                if ( $self->value_for_active_option( $value, $opt ) ) {
+                    $widget->set_text($value);
                 }
             }
         }
@@ -2486,33 +2477,31 @@ sub update_widget_value {
         $logger->debug( "Setting widget '$opt->{name}'"
               . ( $opt->{type} == SANE_TYPE_BUTTON ? $EMPTY : " to '$val'." ) );
         $widget->signal_handler_block( $widget->{signal} );
-        given ($widget) {
-            when (
-                     $widget->isa('Gtk3::CheckButton')
-                  or $widget->isa('Gtk3::Switch')
-              )
-            {
-                if ( $val eq $EMPTY ) { $val = 0 }
-                if ( $widget->get_active != $val ) {
-                    $widget->set_active($val);
-                }
+        if (
+                 $widget->isa('Gtk3::CheckButton')
+              or $widget->isa('Gtk3::Switch')
+          )
+        {
+            if ( $val eq $EMPTY ) { $val = 0 }
+            if ( $widget->get_active != $val ) {
+                $widget->set_active($val);
             }
-            when ( $widget->isa('Gtk3::SpinButton') ) {
-                if ( $widget->get_value != $val ) {
-                    $widget->set_value($val);
-                }
+        }
+        elsif ( $widget->isa('Gtk3::SpinButton') ) {
+            if ( $widget->get_value != $val ) {
+                $widget->set_value($val);
             }
-            when ( $widget->isa('Gtk3::ComboBox') ) {
-                if ( $opt->{constraint}[ $widget->get_active ] ne $val ) {
-                    my $index =
-                      first_index { $_ eq $val } @{ $opt->{constraint} };
-                    if ( $index > $NO_INDEX ) { $widget->set_active($index) }
-                }
+        }
+        elsif ( $widget->isa('Gtk3::ComboBox') ) {
+            if ( $opt->{constraint}[ $widget->get_active ] ne $val ) {
+                my $index =
+                  first_index { $_ eq $val } @{ $opt->{constraint} };
+                if ( $index > $NO_INDEX ) { $widget->set_active($index) }
             }
-            when ( $widget->isa('Gtk3::Entry') ) {
-                if ( $widget->get_text ne $val ) {
-                    $widget->set_text($val);
-                }
+        }
+        elsif ( $widget->isa('Gtk3::Entry') ) {
+            if ( $widget->get_text ne $val ) {
+                $widget->set_text($val);
             }
         }
         $widget->signal_handler_unblock( $widget->{signal} );

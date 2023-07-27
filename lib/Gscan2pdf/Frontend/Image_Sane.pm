@@ -2,8 +2,6 @@ package Gscan2pdf::Frontend::Image_Sane;
 
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 
 use threads;
 use threads::shared;
@@ -441,40 +439,40 @@ sub _thread_main {
         # Signal the sentinel that the request was started.
         ${ $request->{sentinel} }++;
 
-        given ( $request->{action} ) {
-            when ('quit') { last }
-            when ('get-devices') {
-                _thread_get_devices( $self, $request->{uuid} )
+        if ( $request->{action} eq 'quit' ) { last }
+        elsif ( $request->{action} eq 'get-devices' ) {
+            _thread_get_devices( $self, $request->{uuid} )
+        }
+        elsif ( $request->{action} eq 'open' ) {
+            _thread_open_device( $self, $request->{uuid},
+                $request->{device_name} )
+        }
+        elsif ( $request->{action} eq 'close' ) {
+            if ( defined( $self->{device_handle} ) ) {
+                $logger->debug("closing device '$self->{device_name}'");
+                undef $self->{device_handle};
             }
-            when ('open') {
-                _thread_open_device( $self, $request->{uuid},
-                    $request->{device_name} )
+            else {
+                $logger->debug(
+                    'Ignoring close_device() call - no device open.');
             }
-            when ('close') {
-                if ( defined( $self->{device_handle} ) ) {
-                    $logger->debug("closing device '$self->{device_name}'");
-                    undef $self->{device_handle};
-                }
-                else {
-                    $logger->debug(
-                        'Ignoring close_device() call - no device open.');
-                }
-            }
-            when ('get-options') {
-                _thread_get_options( $self, $request->{uuid} )
-            }
-            when ('set-option') {
-                _thread_set_option( $self, $request->{uuid}, $request->{index},
-                    $request->{value} )
-            }
-            when ('scan-page') {
-                _thread_scan_page( $self, $request->{uuid}, $request->{path} )
-            }
-            when ('cancel') { _thread_cancel( $self, $request->{uuid} ) }
-            default {
-                $logger->info("Ignoring unknown request $_");
-                next;
-            }
+        }
+        elsif ( $request->{action} eq 'get-options' ) {
+            _thread_get_options( $self, $request->{uuid} )
+        }
+        elsif ( $request->{action} eq 'set-option' ) {
+            _thread_set_option( $self, $request->{uuid}, $request->{index},
+                $request->{value} )
+        }
+        elsif ( $request->{action} eq 'scan-page' ) {
+            _thread_scan_page( $self, $request->{uuid}, $request->{path} )
+        }
+        elsif ( $request->{action} eq 'cancel') {
+            _thread_cancel( $self, $request->{uuid} )
+        }
+        else {
+            $logger->info("Ignoring unknown request $request->{action}");
+            next;
         }
 
         # Signal the sentinel that the request was completed.

@@ -54,8 +54,6 @@
 
 use warnings;
 use strict;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 
 use Gscan2pdf::Dialog::MultipleMessage;
 use Gscan2pdf::Dialog::Renumber;
@@ -3047,85 +3045,30 @@ sub save_button_clicked_callback {
         $SETTING{current_psh} = $windowi->{comboboxpsh}->get_active_text;
     }
 
-    given ( $SETTING{'image type'} ) {
-        when (/pdf/xsm) {
+    if ( $SETTING{'image type'} =~ /pdf/xsm ) {
 
-            # dig out the compression
-            $SETTING{downsample}        = $windowi->get('downsample');
-            $SETTING{'downsample dpi'}  = $windowi->get('downsample-dpi');
-            $SETTING{'pdf compression'} = $windowi->get('pdf-compression');
-            $SETTING{quality}           = $windowi->get('jpeg-quality');
+        # dig out the compression
+        $SETTING{downsample}        = $windowi->get('downsample');
+        $SETTING{'downsample dpi'}  = $windowi->get('downsample-dpi');
+        $SETTING{'pdf compression'} = $windowi->get('pdf-compression');
+        $SETTING{quality}           = $windowi->get('jpeg-quality');
 
-            $SETTING{text_position} = $windowi->get('text_position');
-            $SETTING{'pdf font'}    = $windowi->get('pdf-font');
+        $SETTING{text_position} = $windowi->get('text_position');
+        $SETTING{'pdf font'}    = $windowi->get('pdf-font');
 
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
 
-            my $file_chooser;
-            if ( $_ eq 'pdf' ) {
-                if ( not update_metadata_settings($windowi) ) {
-                    save_dialog();
-                    return;
-                }
-
-                # Set up file selector
-                $file_chooser = Gtk3::FileChooserDialog->new(
-                    __('PDF filename'),
-                    $windowi, 'save',
-                    'gtk-cancel' => 'cancel',
-                    'gtk-save'   => 'ok'
-                );
-
-                my $filename = Gscan2pdf::Document::expand_metadata_pattern(
-                    template           => $SETTING{'default filename'},
-                    convert_whitespace =>
-                      $SETTING{'convert whitespace to underscores'},
-                    author        => $SETTING{author},
-                    title         => $SETTING{title},
-                    docdate       => $windowi->get('meta-datetime'),
-                    today_and_now => [ Today_and_Now() ],
-                    extension     => 'pdf',
-                    subject       => $SETTING{subject},
-                    keywords      => $SETTING{keywords},
-                );
-
-                $file_chooser->set_current_name($filename);
-                $file_chooser->set_do_overwrite_confirmation(TRUE);
-            }
-            else {
-                $file_chooser = Gtk3::FileChooserDialog->new(
-                    __('PDF filename'),
-                    $windowi, 'open',
-                    'gtk-cancel' => 'cancel',
-                    'gtk-open'   => 'ok'
-                );
-            }
-            add_filter( $file_chooser, __('PDF files'), 'pdf' );
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            $file_chooser->set_default_response('ok');
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                [ $_, $list_of_pages ]
-            );
-            $file_chooser->show;
-
-            # cd back to tempdir
-            chdir $session;
-        }
-        when ('djvu') {
-
+        my $file_chooser;
+        if ( $SETTING{'image type'} eq 'pdf' ) {
             if ( not update_metadata_settings($windowi) ) {
                 save_dialog();
                 return;
             }
 
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
-
             # Set up file selector
-            my $file_chooser = Gtk3::FileChooserDialog->new(
-                __('DjVu filename'),
+            $file_chooser = Gtk3::FileChooserDialog->new(
+                __('PDF filename'),
                 $windowi, 'save',
                 'gtk-cancel' => 'cancel',
                 'gtk-save'   => 'ok'
@@ -3139,162 +3082,215 @@ sub save_button_clicked_callback {
                 title         => $SETTING{title},
                 docdate       => $windowi->get('meta-datetime'),
                 today_and_now => [ Today_and_Now() ],
-                extension     => 'djvu',
+                extension     => 'pdf',
                 subject       => $SETTING{subject},
                 keywords      => $SETTING{keywords},
             );
 
             $file_chooser->set_current_name($filename);
-            $file_chooser->set_default_response('ok');
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            add_filter( $file_chooser, __('DjVu files'), 'djvu' );
             $file_chooser->set_do_overwrite_confirmation(TRUE);
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                [ 'djvu', $list_of_pages ]
-            );
-            $file_chooser->show;
-
-            # cd back to tempdir
-            chdir $session;
         }
-        when ('tif') {
-            $SETTING{'tiff compression'} = $windowi->get('tiff-compression');
-            $SETTING{quality}            = $windowi->get('jpeg-quality');
-
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
-
-            # Set up file selector
-            my $file_chooser = Gtk3::FileChooserDialog->new(
-                __('TIFF filename'),
-                $windowi, 'save',
+        else {
+            $file_chooser = Gtk3::FileChooserDialog->new(
+                __('PDF filename'),
+                $windowi, 'open',
                 'gtk-cancel' => 'cancel',
-                'gtk-save'   => 'ok'
+                'gtk-open'   => 'ok'
             );
-            $file_chooser->set_default_response('ok');
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            add_filter( $file_chooser, __('Image files'),
-                $SETTING{'image type'} );
-            $file_chooser->set_do_overwrite_confirmation(TRUE);
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                [ 'tif', $list_of_pages ]
-            );
-            $file_chooser->show;
-
-            # cd back to tempdir
-            chdir $session;
         }
-        when ('txt') {
+        add_filter( $file_chooser, __('PDF files'), 'pdf' );
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        $file_chooser->set_default_response('ok');
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            [ $SETTING{'image type'}, $list_of_pages ]
+        );
+        $file_chooser->show;
 
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'djvu' ) {
 
-            # Set up file selector
-            my $file_chooser = Gtk3::FileChooserDialog->new(
-                __('Text filename'),
-                $windowi, 'save',
-                'gtk-cancel' => 'cancel',
-                'gtk-save'   => 'ok'
-            );
-            $file_chooser->set_default_response('ok');
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            $file_chooser->set_do_overwrite_confirmation(TRUE);
-            add_filter( $file_chooser, __('Text files'), 'txt' );
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                [ 'txt', $list_of_pages ]
-            );
-            $file_chooser->show;
-
-            # cd back to tempdir
-            chdir $session;
+        if ( not update_metadata_settings($windowi) ) {
+            save_dialog();
+            return;
         }
-        when ('hocr') {
 
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
 
-            # Set up file selector
-            my $file_chooser = Gtk3::FileChooserDialog->new(
-                __('hOCR filename'),
-                $windowi, 'save',
-                'gtk-cancel' => 'cancel',
-                'gtk-save'   => 'ok'
-            );
-            $file_chooser->set_default_response('ok');
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            $file_chooser->set_do_overwrite_confirmation(TRUE);
-            add_filter( $file_chooser, __('hOCR files'), 'hocr' );
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                [ 'hocr', $list_of_pages ]
-            );
-            $file_chooser->show;
+        # Set up file selector
+        my $file_chooser = Gtk3::FileChooserDialog->new(
+            __('DjVu filename'),
+            $windowi, 'save',
+            'gtk-cancel' => 'cancel',
+            'gtk-save'   => 'ok'
+        );
 
-            # cd back to tempdir
-            chdir $session;
-        }
-        when ('ps') {
-            $SETTING{ps_backend} = $windowi->get('ps-backend');
-            $logger->info("Selected '$SETTING{ps_backend}' as ps backend");
+        my $filename = Gscan2pdf::Document::expand_metadata_pattern(
+            template           => $SETTING{'default filename'},
+            convert_whitespace =>
+              $SETTING{'convert whitespace to underscores'},
+            author        => $SETTING{author},
+            title         => $SETTING{title},
+            docdate       => $windowi->get('meta-datetime'),
+            today_and_now => [ Today_and_Now() ],
+            extension     => 'djvu',
+            subject       => $SETTING{subject},
+            keywords      => $SETTING{keywords},
+        );
 
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
+        $file_chooser->set_current_name($filename);
+        $file_chooser->set_default_response('ok');
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        add_filter( $file_chooser, __('DjVu files'), 'djvu' );
+        $file_chooser->set_do_overwrite_confirmation(TRUE);
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            [ 'djvu', $list_of_pages ]
+        );
+        $file_chooser->show;
 
-            # Set up file selector
-            my $file_chooser = Gtk3::FileChooserDialog->new(
-                __('PS filename'),
-                $windowi, 'save',
-                'gtk-cancel' => 'cancel',
-                'gtk-save'   => 'ok'
-            );
-            $file_chooser->set_default_response('ok');
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            add_filter( $file_chooser, __('Postscript files'), 'ps' );
-            $file_chooser->set_do_overwrite_confirmation(TRUE);
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                [ 'ps', $list_of_pages ]
-            );
-            $file_chooser->show;
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'tif' ) {
+        $SETTING{'tiff compression'} = $windowi->get('tiff-compression');
+        $SETTING{quality}            = $windowi->get('jpeg-quality');
 
-            # cd back to tempdir
-            chdir $session;
-        }
-        when ('session') {
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
 
-            # cd back to cwd to save
-            chdir $SETTING{cwd};
+        # Set up file selector
+        my $file_chooser = Gtk3::FileChooserDialog->new(
+            __('TIFF filename'),
+            $windowi, 'save',
+            'gtk-cancel' => 'cancel',
+            'gtk-save'   => 'ok'
+        );
+        $file_chooser->set_default_response('ok');
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        add_filter( $file_chooser, __('Image files'),
+            $SETTING{'image type'} );
+        $file_chooser->set_do_overwrite_confirmation(TRUE);
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            [ 'tif', $list_of_pages ]
+        );
+        $file_chooser->show;
 
-            # Set up file selector
-            my $file_chooser = Gtk3::FileChooserDialog->new(
-                __('gscan2pdf session filename'),
-                $windowi, 'save',
-                'gtk-cancel' => 'cancel',
-                'gtk-save'   => 'ok'
-            );
-            $file_chooser->set_default_response('ok');
-            $file_chooser->set_current_folder( $SETTING{cwd} );
-            add_filter( $file_chooser, __('gscan2pdf session files'), 'gs2p' );
-            $file_chooser->set_do_overwrite_confirmation(TRUE);
-            $file_chooser->signal_connect(
-                response => \&file_chooser_response_callback,
-                ['gs2p']
-            );
-            $file_chooser->show;
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'txt' ) {
 
-            # cd back to tempdir
-            chdir $session;
-        }
-        when ('jpg') {
-            $SETTING{quality} = $windowi->get('jpeg-quality');
-            save_image($list_of_pages);
-        }
-        default {
-            save_image($list_of_pages);
-        }
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
+
+        # Set up file selector
+        my $file_chooser = Gtk3::FileChooserDialog->new(
+            __('Text filename'),
+            $windowi, 'save',
+            'gtk-cancel' => 'cancel',
+            'gtk-save'   => 'ok'
+        );
+        $file_chooser->set_default_response('ok');
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        $file_chooser->set_do_overwrite_confirmation(TRUE);
+        add_filter( $file_chooser, __('Text files'), 'txt' );
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            [ 'txt', $list_of_pages ]
+        );
+        $file_chooser->show;
+
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'hocr' ) {
+
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
+
+        # Set up file selector
+        my $file_chooser = Gtk3::FileChooserDialog->new(
+            __('hOCR filename'),
+            $windowi, 'save',
+            'gtk-cancel' => 'cancel',
+            'gtk-save'   => 'ok'
+        );
+        $file_chooser->set_default_response('ok');
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        $file_chooser->set_do_overwrite_confirmation(TRUE);
+        add_filter( $file_chooser, __('hOCR files'), 'hocr' );
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            [ 'hocr', $list_of_pages ]
+        );
+        $file_chooser->show;
+
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'ps' ) {
+        $SETTING{ps_backend} = $windowi->get('ps-backend');
+        $logger->info("Selected '$SETTING{ps_backend}' as ps backend");
+
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
+
+        # Set up file selector
+        my $file_chooser = Gtk3::FileChooserDialog->new(
+            __('PS filename'),
+            $windowi, 'save',
+            'gtk-cancel' => 'cancel',
+            'gtk-save'   => 'ok'
+        );
+        $file_chooser->set_default_response('ok');
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        add_filter( $file_chooser, __('Postscript files'), 'ps' );
+        $file_chooser->set_do_overwrite_confirmation(TRUE);
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            [ 'ps', $list_of_pages ]
+        );
+        $file_chooser->show;
+
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'session') {
+
+        # cd back to cwd to save
+        chdir $SETTING{cwd};
+
+        # Set up file selector
+        my $file_chooser = Gtk3::FileChooserDialog->new(
+            __('gscan2pdf session filename'),
+            $windowi, 'save',
+            'gtk-cancel' => 'cancel',
+            'gtk-save'   => 'ok'
+        );
+        $file_chooser->set_default_response('ok');
+        $file_chooser->set_current_folder( $SETTING{cwd} );
+        add_filter( $file_chooser, __('gscan2pdf session files'), 'gs2p' );
+        $file_chooser->set_do_overwrite_confirmation(TRUE);
+        $file_chooser->signal_connect(
+            response => \&file_chooser_response_callback,
+            ['gs2p']
+        );
+        $file_chooser->show;
+
+        # cd back to tempdir
+        chdir $session;
+    }
+    elsif ( $SETTING{'image type'} eq 'jpg' ) {
+        $SETTING{quality} = $windowi->get('jpeg-quality');
+        save_image($list_of_pages);
+    }
+    else {
+        save_image($list_of_pages);
     }
     return;
 }
@@ -3326,35 +3322,33 @@ sub file_chooser_response_callback {
         # Update cwd
         $SETTING{cwd} = dirname($filename);
 
-        given ($type) {
-            when (/pdf/xsm) {
-                save_pdf( $filename, $_, $list_of_pages );
+        if ( $type =~ /pdf/xsm ) {
+            save_pdf( $filename, $type, $list_of_pages );
+        }
+        elsif ( $type eq 'djvu' ) {
+            save_djvu( $filename, $list_of_pages );
+        }
+        elsif ( $type eq 'tif' ) {
+            save_tiff( $filename, undef, $list_of_pages );
+        }
+        elsif ( $type eq 'txt' ) {
+            save_text( $filename, $list_of_pages );
+        }
+        elsif ( $type eq 'hocr' ) {
+            save_hocr( $filename, $list_of_pages );
+        }
+        elsif ( $type eq 'ps' ) {
+            if ( $SETTING{ps_backend} eq 'libtiff' ) {
+                my $tif =
+                  File::Temp->new( DIR => $session, SUFFIX => '.tif' );
+                save_tiff( $tif->filename, $filename, $list_of_pages );
             }
-            when ('djvu') {
-                save_djvu( $filename, $list_of_pages );
+            else {
+                save_pdf( $filename, 'ps', $list_of_pages );
             }
-            when ('tif') {
-                save_tiff( $filename, undef, $list_of_pages );
-            }
-            when ('txt') {
-                save_text( $filename, $list_of_pages );
-            }
-            when ('hocr') {
-                save_hocr( $filename, $list_of_pages );
-            }
-            when ('ps') {
-                if ( $SETTING{ps_backend} eq 'libtiff' ) {
-                    my $tif =
-                      File::Temp->new( DIR => $session, SUFFIX => '.tif' );
-                    save_tiff( $tif->filename, $filename, $list_of_pages );
-                }
-                else {
-                    save_pdf( $filename, 'ps', $list_of_pages );
-                }
-            }
-            when ('gs2p') {
-                $slist->save_session( $filename, $VERSION );
-            }
+        }
+        elsif ( $type eq 'gs2p' ) {
+            $slist->save_session( $filename, $VERSION );
         }
         if ( defined $windowi and $SETTING{close_dialog_on_save} ) {
             $windowi->hide;

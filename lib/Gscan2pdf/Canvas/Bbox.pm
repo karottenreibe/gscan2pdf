@@ -2,8 +2,6 @@ package Gscan2pdf::Canvas::Bbox;
 
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use GooCanvas2;
 use Glib ':constants';
 use HTML::Entities;
@@ -312,37 +310,35 @@ sub hsv2rgb {
     my $q  = $in{v} * ( 1.0 - ( $in{s} * $ff ) );
     my $t  = $in{v} * ( 1.0 - ( $in{s} * ( 1.0 - $ff ) ) );
 
-    given ($i) {
-        when (0) {
-            $out{r} = $in{v};
-            $out{g} = $t;
-            $out{b} = $p;
-        }
-        when (1) {
-            $out{r} = $q;
-            $out{g} = $in{v};
-            $out{b} = $p;
-        }
-        when ($COLOR_GREEN) {
-            $out{r} = $p;
-            $out{g} = $in{v};
-            $out{b} = $t;
-        }
-        when ($COLOR_CYAN) {
-            $out{r} = $p;
-            $out{g} = $q;
-            $out{b} = $in{v};
-        }
-        when ($COLOR_BLUE) {
-            $out{r} = $t;
-            $out{g} = $p;
-            $out{b} = $in{v};
-        }
-        default {
-            $out{r} = $in{v};
-            $out{g} = $p;
-            $out{b} = $q;
-        }
+    if ( $i == 0 ) {
+        $out{r} = $in{v};
+        $out{g} = $t;
+        $out{b} = $p;
+    }
+    elsif ( $i == 1 ) {
+        $out{r} = $q;
+        $out{g} = $in{v};
+        $out{b} = $p;
+    }
+    elsif ( $i == $COLOR_GREEN ) {
+        $out{r} = $p;
+        $out{g} = $in{v};
+        $out{b} = $t;
+    }
+    elsif ( $i == $COLOR_CYAN ) {
+        $out{r} = $p;
+        $out{g} = $q;
+        $out{b} = $in{v};
+    }
+    elsif ( $i == $COLOR_BLUE ) {
+        $out{r} = $t;
+        $out{g} = $p;
+        $out{b} = $in{v};
+    }
+    else {
+        $out{r} = $in{v};
+        $out{g} = $p;
+        $out{b} = $q;
     }
     ( $out{r}, $out{g}, $out{b}, ) = (
         $out{r} * $MAX_COLOR_INT,
@@ -554,18 +550,16 @@ sub to_hocr {
         # determine hOCR element types & mapping to HTML tags
         my $type = 'ocr_' . $self->{type};
         my $tag  = 'span';
-        given ( $self->{type} ) {
-            when ('page') {
-                $tag = 'div';
-            }
-            when (/^(?:carea|column)$/xsm) {
-                $type = 'ocr_carea';
-                $tag  = 'div';
-            }
-            when ('para') {
-                $type = 'ocr_par';
-                $tag  = 'p';
-            }
+        if ( $self->{type} eq 'page' ) {
+            $tag = 'div';
+        }
+        elsif ( $self->{type} =~ /^(?:carea|column)$/xsm ) {
+            $type = 'ocr_carea';
+            $tag  = 'div';
+        }
+        elsif ( $self->{type} eq 'para' ) {
+            $type = 'ocr_par';
+            $tag  = 'p';
         }
 
         # build properties of hOCR elements

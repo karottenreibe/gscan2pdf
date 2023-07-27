@@ -2,8 +2,6 @@ package Gscan2pdf::Document;
 
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 
 use threads;
 use threads::shared;
@@ -813,74 +811,72 @@ sub check_return_queue {
             $logger->error('Bad uuid in return queue.');
             next;
         }
-        given ( $data->{type} ) {
-            when ('file-info') {
-                if ( not defined $data->{info} ) {
-                    $logger->error('Bad file info in return queue.');
-                    next;
-                }
-                if ( defined $callback{ $data->{uuid} }{finished} ) {
-                    $callback{ $data->{uuid} }{finished}->( $data->{info} );
-                    delete $callback{ $data->{uuid} };
-                }
+        if ( $data->{type} eq 'file-info' ) {
+            if ( not defined $data->{info} ) {
+                $logger->error('Bad file info in return queue.');
+                next;
             }
-            when ('page request') {
-                my $i = $self->find_page_by_uuid( $data->{uuid} );
-                if ( defined $i ) {
-                    $_self->{pages}->enqueue(
-                        {
-                            # sharing File::Temp objects causes problems,
-                            # so freeze
-                            page => $self->{data}[$i][2]->freeze,
-                        }
-                    );
-                }
-                else {
-                    $logger->error("No page with UUID $data->{uuid}");
-                    $_self->{pages}->enqueue( { page => 'cancel' } );
-                }
-                return Glib::SOURCE_CONTINUE;
+            if ( defined $callback{ $data->{uuid} }{finished} ) {
+                $callback{ $data->{uuid} }{finished}->( $data->{info} );
+                delete $callback{ $data->{uuid} };
             }
-            when ('page') {
-                if ( defined $data->{page} ) {
-                    delete $data->{page}{saved};    # Remove saved tag
-                    $self->add_page( $data->{uuid}, $data->{page},
-                        $data->{info} );
-                }
-                else {
-                    $logger->error('Bad page in return queue.');
-                }
-            }
-            when ('error') {
-                _throw_error(
-                    $data->{uuid},    $data->{page},
-                    $data->{process}, $data->{message}
+        }
+        elsif ( $data->{type} eq 'page request' ) {
+            my $i = $self->find_page_by_uuid( $data->{uuid} );
+            if ( defined $i ) {
+                $_self->{pages}->enqueue(
+                    {
+                        # sharing File::Temp objects causes problems,
+                        # so freeze
+                        page => $self->{data}[$i][2]->freeze,
+                    }
                 );
             }
-            when ('finished') {
-                if ( defined $callback{ $data->{uuid} }{started} ) {
-                    $callback{ $data->{uuid} }{started}->(
-                        undef, $_self->{process_name},
-                        $jobs_completed, $jobs_total, $data->{message},
-                        $_self->{progress}
-                    );
-                    delete $callback{ $data->{uuid} }{started};
-                }
-                if ( defined $callback{ $data->{uuid} }{mark_saved} ) {
-                    $callback{ $data->{uuid} }{mark_saved}->();
-                    delete $callback{ $data->{uuid} }{mark_saved};
-                }
-                if ( defined $callback{ $data->{uuid} }{finished} ) {
-                    $callback{ $data->{uuid} }{finished}->( $data->{message} );
-                    delete $callback{ $data->{uuid} };
-                }
-                if ( $_self->{requests}->pending == 0 ) {
-                    $jobs_completed = 0;
-                    $jobs_total     = 0;
-                }
-                else {
-                    $jobs_completed++;
-                }
+            else {
+                $logger->error("No page with UUID $data->{uuid}");
+                $_self->{pages}->enqueue( { page => 'cancel' } );
+            }
+            return Glib::SOURCE_CONTINUE;
+        }
+        elsif ( $data->{type} eq 'page' ) {
+            if ( defined $data->{page} ) {
+                delete $data->{page}{saved};    # Remove saved tag
+                $self->add_page( $data->{uuid}, $data->{page},
+                    $data->{info} );
+            }
+            else {
+                $logger->error('Bad page in return queue.');
+            }
+        }
+        elsif ( $data->{type} eq 'error' ) {
+            _throw_error(
+                $data->{uuid},    $data->{page},
+                $data->{process}, $data->{message}
+            );
+        }
+        elsif ( $data->{type} eq 'finished' ) {
+            if ( defined $callback{ $data->{uuid} }{started} ) {
+                $callback{ $data->{uuid} }{started}->(
+                    undef, $_self->{process_name},
+                    $jobs_completed, $jobs_total, $data->{message},
+                    $_self->{progress}
+                );
+                delete $callback{ $data->{uuid} }{started};
+            }
+            if ( defined $callback{ $data->{uuid} }{mark_saved} ) {
+                $callback{ $data->{uuid} }{mark_saved}->();
+                delete $callback{ $data->{uuid} }{mark_saved};
+            }
+            if ( defined $callback{ $data->{uuid} }{finished} ) {
+                $callback{ $data->{uuid} }{finished}->( $data->{message} );
+                delete $callback{ $data->{uuid} };
+            }
+            if ( $_self->{requests}->pending == 0 ) {
+                $jobs_completed = 0;
+                $jobs_total     = 0;
+            }
+            else {
+                $jobs_completed++;
             }
         }
     }
@@ -2182,19 +2178,17 @@ sub _program_version {
     if ( not defined $out ) { $out = q{} }
     if ( not defined $err ) { $err = q{} }
     my $output;
-    given ($stream) {
-        when ('stdout') {
-            $output = $out
-        }
-        when ('stderr') {
-            $output = $err
-        }
-        when ('both') {
-            $output = $out . $err
-        }
-        default {
-            $logger->error("Unknown stream: '$stream'");
-        }
+    if ( $stream eq 'stdout' ) {
+        $output = $out
+    }
+    elsif ( $stream eq 'stderr' ) {
+        $output = $err
+    }
+    elsif ( $stream eq 'both' ) {
+        $output = $out . $err
+    }
+    else {
+        $logger->error("Unknown stream: '$stream'");
     }
     if ( $output =~ $regex ) { return $1 }
     if ( $status == $PROCESS_FAILED ) {
@@ -2536,244 +2530,242 @@ sub _thread_main {
             if ($cancel) { next }
         }
 
-        given ( $request->{action} ) {
-            when ('analyse') {
-                _thread_analyse( $self, $request->{list_of_pages},
-                    $request->{uuid} );
-            }
+        if ( $request->{action} eq 'analyse' ) {
+            _thread_analyse( $self, $request->{list_of_pages},
+                $request->{uuid} );
+        }
 
-            when ('brightness-contrast') {
-                _thread_brightness_contrast(
-                    $self,
-                    page       => $request->{page},
-                    brightness => $request->{brightness},
-                    contrast   => $request->{contrast},
-                    dir        => $request->{dir},
-                    uuid       => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'brightness-contrast' ) {
+            _thread_brightness_contrast(
+                $self,
+                page       => $request->{page},
+                brightness => $request->{brightness},
+                contrast   => $request->{contrast},
+                dir        => $request->{dir},
+                uuid       => $request->{uuid}
+            );
+        }
 
-            when ('cancel') {
-                lock( $_self->{pages} )
-                  ;    # unlocks automatically when out of scope
+        elsif ( $request->{action} eq 'cancel' ) {
+            lock( $_self->{pages} )
+              ;    # unlocks automatically when out of scope
 
-                # Empty pages queue
-                while ( $_self->{pages}->pending ) {
-                    $_self->{pages}->dequeue;
-                }
-                $self->{return}->enqueue(
-                    { type => 'cancelled', uuid => $request->{uuid} } );
+            # Empty pages queue
+            while ( $_self->{pages}->pending ) {
+                $_self->{pages}->dequeue;
             }
+            $self->{return}->enqueue(
+                { type => 'cancelled', uuid => $request->{uuid} } );
+        }
 
-            when ('crop') {
-                _thread_crop(
-                    $self,
-                    page => $request->{page},
-                    x    => $request->{x},
-                    y    => $request->{y},
-                    w    => $request->{w},
-                    h    => $request->{h},
-                    dir  => $request->{dir},
-                    uuid => $request->{uuid},
-                );
-            }
+        elsif ( $request->{action} eq 'crop' ) {
+            _thread_crop(
+                $self,
+                page => $request->{page},
+                x    => $request->{x},
+                y    => $request->{y},
+                w    => $request->{w},
+                h    => $request->{h},
+                dir  => $request->{dir},
+                uuid => $request->{uuid},
+            );
+        }
 
-            when ('split') {
-                _thread_split(
-                    $self,
-                    page      => $request->{page},
-                    direction => $request->{direction},
-                    position  => $request->{position},
-                    dir       => $request->{dir},
-                    uuid      => $request->{uuid},
-                );
-            }
+        elsif ( $request->{action} eq 'split' ) {
+            _thread_split(
+                $self,
+                page      => $request->{page},
+                direction => $request->{direction},
+                position  => $request->{position},
+                dir       => $request->{dir},
+                uuid      => $request->{uuid},
+            );
+        }
 
-            when ('cuneiform') {
-                _thread_cuneiform(
-                    $self,
-                    page      => $request->{page},
-                    language  => $request->{language},
-                    threshold => $request->{threshold},
-                    pidfile   => $request->{pidfile},
-                    uuid      => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'cuneiform' ) {
+            _thread_cuneiform(
+                $self,
+                page      => $request->{page},
+                language  => $request->{language},
+                threshold => $request->{threshold},
+                pidfile   => $request->{pidfile},
+                uuid      => $request->{uuid}
+            );
+        }
 
-            when ('get-file-info') {
-                _thread_get_file_info(
-                    $self,
-                    filename => $request->{path},
-                    password => $request->{password},
-                    pidfile  => $request->{pidfile},
-                    uuid     => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'get-file-info' ) {
+            _thread_get_file_info(
+                $self,
+                filename => $request->{path},
+                password => $request->{password},
+                pidfile  => $request->{pidfile},
+                uuid     => $request->{uuid}
+            );
+        }
 
-            when ('gocr') {
-                _thread_gocr( $self, $request->{page}, $request->{threshold},
-                    $request->{pidfile}, $request->{uuid} );
-            }
+        elsif ( $request->{action} eq 'gocr' ) {
+            _thread_gocr( $self, $request->{page}, $request->{threshold},
+                $request->{pidfile}, $request->{uuid} );
+        }
 
-            when ('import-file') {
-                _thread_import_file(
-                    $self,
-                    info     => $request->{info},
-                    password => $request->{password},
-                    first    => $request->{first},
-                    last     => $request->{last},
-                    dir      => $request->{dir},
-                    pidfile  => $request->{pidfile},
-                    uuid     => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'import-file' ) {
+            _thread_import_file(
+                $self,
+                info     => $request->{info},
+                password => $request->{password},
+                first    => $request->{first},
+                last     => $request->{last},
+                dir      => $request->{dir},
+                pidfile  => $request->{pidfile},
+                uuid     => $request->{uuid}
+            );
+        }
 
-            when ('negate') {
-                _thread_negate(
-                    $self,           $request->{page},
-                    $request->{dir}, $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'negate' ) {
+            _thread_negate(
+                $self,           $request->{page},
+                $request->{dir}, $request->{uuid}
+            );
+        }
 
-            when ('paper_sizes') {
-                _thread_paper_sizes( $self, $request->{paper_sizes} );
-            }
+        elsif ( $request->{action} eq 'paper_sizes' ) {
+            _thread_paper_sizes( $self, $request->{paper_sizes} );
+        }
 
-            when ('quit') {
-                last;
-            }
+        elsif ( $request->{action} eq 'quit' ) {
+            last;
+        }
 
-            when ('rotate') {
-                _thread_rotate(
-                    $self, $request->{angle}, $request->{page},
-                    $request->{dir}, $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'rotate' ) {
+            _thread_rotate(
+                $self, $request->{angle}, $request->{page},
+                $request->{dir}, $request->{uuid}
+            );
+        }
 
-            when ('save-djvu') {
-                _thread_save_djvu(
-                    $self,
-                    path          => $request->{path},
-                    list_of_pages => $request->{list_of_pages},
-                    metadata      => $request->{metadata},
-                    options       => $request->{options},
-                    dir           => $request->{dir},
-                    pidfile       => $request->{pidfile},
-                    uuid          => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'save-djvu' ) {
+            _thread_save_djvu(
+                $self,
+                path          => $request->{path},
+                list_of_pages => $request->{list_of_pages},
+                metadata      => $request->{metadata},
+                options       => $request->{options},
+                dir           => $request->{dir},
+                pidfile       => $request->{pidfile},
+                uuid          => $request->{uuid}
+            );
+        }
 
-            when ('save-hocr') {
-                _thread_save_hocr( $self, $request->{path},
-                    $request->{list_of_pages},
-                    $request->{options}, $request->{uuid} );
-            }
+        elsif ( $request->{action} eq 'save-hocr' ) {
+            _thread_save_hocr( $self, $request->{path},
+                $request->{list_of_pages},
+                $request->{options}, $request->{uuid} );
+        }
 
-            when ('save-image') {
-                _thread_save_image(
-                    $self,
-                    path          => $request->{path},
-                    list_of_pages => $request->{list_of_pages},
-                    pidfile       => $request->{pidfile},
-                    options       => $request->{options},
-                    uuid          => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'save-image' ) {
+            _thread_save_image(
+                $self,
+                path          => $request->{path},
+                list_of_pages => $request->{list_of_pages},
+                pidfile       => $request->{pidfile},
+                options       => $request->{options},
+                uuid          => $request->{uuid}
+            );
+        }
 
-            when ('save-pdf') {
-                _thread_save_pdf(
-                    $self,
-                    path          => $request->{path},
-                    list_of_pages => $request->{list_of_pages},
-                    metadata      => $request->{metadata},
-                    options       => $request->{options},
-                    dir           => $request->{dir},
-                    pidfile       => $request->{pidfile},
-                    uuid          => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'save-pdf' ) {
+            _thread_save_pdf(
+                $self,
+                path          => $request->{path},
+                list_of_pages => $request->{list_of_pages},
+                metadata      => $request->{metadata},
+                options       => $request->{options},
+                dir           => $request->{dir},
+                pidfile       => $request->{pidfile},
+                uuid          => $request->{uuid}
+            );
+        }
 
-            when ('save-text') {
-                _thread_save_text( $self, $request->{path},
-                    $request->{list_of_pages},
-                    $request->{options}, $request->{uuid} );
-            }
+        elsif ( $request->{action} eq 'save-text' ) {
+            _thread_save_text( $self, $request->{path},
+                $request->{list_of_pages},
+                $request->{options}, $request->{uuid} );
+        }
 
-            when ('save-tiff') {
-                _thread_save_tiff(
-                    $self,
-                    path          => $request->{path},
-                    list_of_pages => $request->{list_of_pages},
-                    options       => $request->{options},
-                    dir           => $request->{dir},
-                    pidfile       => $request->{pidfile},
-                    uuid          => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'save-tiff' ) {
+            _thread_save_tiff(
+                $self,
+                path          => $request->{path},
+                list_of_pages => $request->{list_of_pages},
+                options       => $request->{options},
+                dir           => $request->{dir},
+                pidfile       => $request->{pidfile},
+                uuid          => $request->{uuid}
+            );
+        }
 
-            when ('tesseract') {
-                _thread_tesseract(
-                    $self,
-                    page      => $request->{page},
-                    language  => $request->{language},
-                    threshold => $request->{threshold},
-                    pidfile   => $request->{pidfile},
-                    uuid      => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'tesseract' ) {
+            _thread_tesseract(
+                $self,
+                page      => $request->{page},
+                language  => $request->{language},
+                threshold => $request->{threshold},
+                pidfile   => $request->{pidfile},
+                uuid      => $request->{uuid}
+            );
+        }
 
-            when ('threshold') {
-                _thread_threshold( $self, $request->{threshold},
-                    $request->{page}, $request->{dir}, $request->{uuid} );
-            }
+        elsif ( $request->{action} eq 'threshold' ) {
+            _thread_threshold( $self, $request->{threshold},
+                $request->{page}, $request->{dir}, $request->{uuid} );
+        }
 
-            when ('to-png') {
-                _thread_to_png(
-                    $self,           $request->{page},
-                    $request->{dir}, $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'to-png' ) {
+            _thread_to_png(
+                $self,           $request->{page},
+                $request->{dir}, $request->{uuid}
+            );
+        }
 
-            when ('unpaper') {
-                _thread_unpaper(
-                    $self,
-                    page    => $request->{page},
-                    options => $request->{options},
-                    pidfile => $request->{pidfile},
-                    dir     => $request->{dir},
-                    uuid    => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'unpaper' ) {
+            _thread_unpaper(
+                $self,
+                page    => $request->{page},
+                options => $request->{options},
+                pidfile => $request->{pidfile},
+                dir     => $request->{dir},
+                uuid    => $request->{uuid}
+            );
+        }
 
-            when ('unsharp') {
-                _thread_unsharp(
-                    $self,
-                    page      => $request->{page},
-                    radius    => $request->{radius},
-                    sigma     => $request->{sigma},
-                    gain      => $request->{gain},
-                    threshold => $request->{threshold},
-                    dir       => $request->{dir},
-                    uuid      => $request->{uuid},
-                );
-            }
+        elsif ( $request->{action} eq 'unsharp' ) {
+            _thread_unsharp(
+                $self,
+                page      => $request->{page},
+                radius    => $request->{radius},
+                sigma     => $request->{sigma},
+                gain      => $request->{gain},
+                threshold => $request->{threshold},
+                dir       => $request->{dir},
+                uuid      => $request->{uuid},
+            );
+        }
 
-            when ('user-defined') {
-                _thread_user_defined(
-                    $self,
-                    page    => $request->{page},
-                    command => $request->{command},
-                    dir     => $request->{dir},
-                    pidfile => $request->{pidfile},
-                    uuid    => $request->{uuid}
-                );
-            }
+        elsif ( $request->{action} eq 'user-defined' ) {
+            _thread_user_defined(
+                $self,
+                page    => $request->{page},
+                command => $request->{command},
+                dir     => $request->{dir},
+                pidfile => $request->{pidfile},
+                uuid    => $request->{uuid}
+            );
+        }
 
-            default {
-                $logger->info(
-                    'Ignoring unknown request ' . $request->{action} );
-                next;
-            }
+        else {
+            $logger->info(
+                'Ignoring unknown request ' . $request->{action} );
+            next;
         }
 
         # Signal the sentinel that the request was completed.
@@ -2816,212 +2808,210 @@ sub _thread_get_file_info {
     chomp $format;
     $logger->info("Format: '$format'");
 
-    given ($format) {
-        when ('very short file (no magic)') {
+    if ( $format eq 'very short file (no magic)' ) {
+        _thread_throw_error(
+            $self,
+            $options{uuid},
+            $options{page}{uuid},
+            'Open file',
+            sprintf __('Error importing zero-length file %s.'),
+            $options{filename}
+        );
+        return;
+    }
+    elsif ( $format =~ /gzip[ ]compressed[ ]data/xsm ) {
+        $options{info}{path}   = $options{filename};
+        $options{info}{format} = 'session file';
+        $self->{return}->enqueue(
+            {
+                type => 'file-info',
+                uuid => $options{uuid},
+                info => $options{info}
+            }
+        );
+        return;
+    }
+    elsif ( $format =~ /DjVu/xsm ) {
+
+        # Dig out the number of pages
+        ( undef, my $info, my $err ) =
+          exec_command( [ 'djvudump', $options{filename} ],
+            $options{pidfile} );
+        if ( $err =~ /command[ ]not[ ]found/xsm ) {
             _thread_throw_error(
                 $self,
                 $options{uuid},
                 $options{page}{uuid},
                 'Open file',
-                sprintf __('Error importing zero-length file %s.'),
+                __(
+'Please install djvulibre-bin in order to open DjVu files.'
+                )
+            );
+            return;
+        }
+        $logger->info($info);
+        return if $_self->{cancel};
+
+        my $pages = 1;
+        if ( $info =~ /\s(\d+)\s+page/xsm ) {
+            $pages = $1;
+        }
+
+        # Dig out the size and resolution of each page
+        my ( @width, @height, @ppi );
+        $options{info}{format} = 'DJVU';
+        while ( $info =~ /DjVu\s(\d+)x(\d+).+?\s+(\d+)\s+dpi(.*)/xsm ) {
+            push @width,  $1;
+            push @height, $2;
+            push @ppi,    $3;
+            $info = $4;
+            $logger->info(
+"Page $#ppi is $width[$#width]x$height[$#height], $ppi[$#ppi] ppi"
+            );
+        }
+        if ( $pages != @ppi ) {
+            _thread_throw_error(
+                $self,
+                $options{uuid},
+                $options{page}{uuid},
+                'Open file',
+                __(
+'Unknown DjVu file structure. Please contact the author.'
+                )
+            );
+            return;
+        }
+        $options{info}{width}  = \@width;
+        $options{info}{height} = \@height;
+        $options{info}{ppi}    = \@ppi;
+        $options{info}{pages}  = $pages;
+        $options{info}{path}   = $options{filename};
+
+        # Dig out the metadata
+        ( undef, $info ) =
+          exec_command(
+            [ 'djvused', $options{filename}, '-e', 'print-meta' ],
+            $options{pidfile} );
+        $logger->info($info);
+        return if $_self->{cancel};
+
+        # extract the metadata from the file
+        _add_metadata_to_info( $options{info}, $info, qr{\s+"([^"]+)}xsm );
+
+        $self->{return}->enqueue(
+            {
+                type => 'file-info',
+                uuid => $options{uuid},
+                info => $options{info}
+            }
+        );
+        return;
+    }
+    elsif ( $format =~ /PDF[ ]document/xsm ) {
+        $format = 'Portable Document Format';
+        my $args = [ 'pdfinfo', '-isodates', $options{filename} ];
+        if ( defined $options{password} ) {
+            $args = [
+                'pdfinfo', '-isodates',
+                '-upw',    $options{password},
+                $options{filename}
+            ];
+        }
+        ( undef, my $info, my $error ) =
+          exec_command( $args, $options{pidfile} );
+        return if $_self->{cancel};
+        $logger->info("stdout: $info");
+        $logger->info("stderr: $error");
+        if ( defined $error and $error =~ /Incorrect[ ]password/xsm ) {
+            $options{info}{encrypted} = TRUE;
+        }
+        else {
+            $options{info}{pages} = 1;
+            if ( $info =~ /Pages:\s+(\d+)/xsm ) {
+                $options{info}{pages} = $1;
+            }
+            $logger->info("$options{info}{pages} pages");
+            my $float = qr{\d+(?:[.]\d*)?}xsm;
+            if ( $info =~
+                /Page\ssize:\s+($float)\s+x\s+($float)\s+(\w+)/xsm )
+            {
+                $options{info}{page_size} = [ $1, $2, $3 ];
+                $logger->info("Page size: $1 x $2 $3");
+            }
+
+            # extract the metadata from the file
+            _add_metadata_to_info( $options{info}, $info,
+                qr{:\s+([^\n]+)}xsm );
+        }
+    }
+
+    # A JPEG which I was unable to reproduce as a test case had what
+    # seemed to be a TIFF thumbnail which file -b reported, and therefore
+    # gscan2pdf attempted to import it as a TIFF. Therefore forcing the text
+    # to appear at the beginning of the file -b output.
+    elsif ( $format =~ /^TIFF[ ]image[ ]data/xsm) {
+        $format = 'Tagged Image File Format';
+        ( undef, my $info ) =
+          exec_command( [ 'tiffinfo', $options{filename} ],
+            $options{pidfile} );
+        return if $_self->{cancel};
+        $logger->info($info);
+
+        # Count number of pages
+        $options{info}{pages} = () =
+          $info =~ /TIFF[ ]Directory[ ]at[ ]offset/xsmg;
+        $logger->info("$options{info}{pages} pages");
+
+        # Dig out the size of each page
+        my ( @width, @height );
+        while (
+            $info =~ /Image\sWidth:\s(\d+)\sImage\sLength:\s(\d+)(.*)/xsm )
+        {
+            push @width,  $1;
+            push @height, $2;
+            $info = $3;
+            $logger->info(
+                "Page $#width is $width[$#width]x$height[$#height]");
+        }
+        $options{info}{width}  = \@width;
+        $options{info}{height} = \@height;
+    }
+    else {
+
+        # Get file type
+        my $image = Image::Magick->new;
+        my $e     = $image->Read( $options{filename} );
+        if ("$e") {
+            $logger->error($e);
+            _thread_throw_error(
+                $self,
+                $options{uuid},
+                $options{page}{uuid},
+                'Open file',
+                sprintf __('%s is not a recognised image type'),
                 $options{filename}
             );
             return;
         }
-        when (/gzip[ ]compressed[ ]data/xsm) {
-            $options{info}{path}   = $options{filename};
-            $options{info}{format} = 'session file';
-            $self->{return}->enqueue(
-                {
-                    type => 'file-info',
-                    uuid => $options{uuid},
-                    info => $options{info}
-                }
+        return if $_self->{cancel};
+        $format = $image->Get('format');
+        if ( not defined $format ) {
+            _thread_throw_error(
+                $self,
+                $options{uuid},
+                $options{page}{uuid},
+                'Open file',
+                sprintf __('%s is not a recognised image type'),
+                $options{filename}
             );
             return;
         }
-        when (/DjVu/xsm) {
-
-            # Dig out the number of pages
-            ( undef, my $info, my $err ) =
-              exec_command( [ 'djvudump', $options{filename} ],
-                $options{pidfile} );
-            if ( $err =~ /command[ ]not[ ]found/xsm ) {
-                _thread_throw_error(
-                    $self,
-                    $options{uuid},
-                    $options{page}{uuid},
-                    'Open file',
-                    __(
-'Please install djvulibre-bin in order to open DjVu files.'
-                    )
-                );
-                return;
-            }
-            $logger->info($info);
-            return if $_self->{cancel};
-
-            my $pages = 1;
-            if ( $info =~ /\s(\d+)\s+page/xsm ) {
-                $pages = $1;
-            }
-
-            # Dig out the size and resolution of each page
-            my ( @width, @height, @ppi );
-            $options{info}{format} = 'DJVU';
-            while ( $info =~ /DjVu\s(\d+)x(\d+).+?\s+(\d+)\s+dpi(.*)/xsm ) {
-                push @width,  $1;
-                push @height, $2;
-                push @ppi,    $3;
-                $info = $4;
-                $logger->info(
-"Page $#ppi is $width[$#width]x$height[$#height], $ppi[$#ppi] ppi"
-                );
-            }
-            if ( $pages != @ppi ) {
-                _thread_throw_error(
-                    $self,
-                    $options{uuid},
-                    $options{page}{uuid},
-                    'Open file',
-                    __(
-'Unknown DjVu file structure. Please contact the author.'
-                    )
-                );
-                return;
-            }
-            $options{info}{width}  = \@width;
-            $options{info}{height} = \@height;
-            $options{info}{ppi}    = \@ppi;
-            $options{info}{pages}  = $pages;
-            $options{info}{path}   = $options{filename};
-
-            # Dig out the metadata
-            ( undef, $info ) =
-              exec_command(
-                [ 'djvused', $options{filename}, '-e', 'print-meta' ],
-                $options{pidfile} );
-            $logger->info($info);
-            return if $_self->{cancel};
-
-            # extract the metadata from the file
-            _add_metadata_to_info( $options{info}, $info, qr{\s+"([^"]+)}xsm );
-
-            $self->{return}->enqueue(
-                {
-                    type => 'file-info',
-                    uuid => $options{uuid},
-                    info => $options{info}
-                }
-            );
-            return;
-        }
-        when (/PDF[ ]document/xsm) {
-            $format = 'Portable Document Format';
-            my $args = [ 'pdfinfo', '-isodates', $options{filename} ];
-            if ( defined $options{password} ) {
-                $args = [
-                    'pdfinfo', '-isodates',
-                    '-upw',    $options{password},
-                    $options{filename}
-                ];
-            }
-            ( undef, my $info, my $error ) =
-              exec_command( $args, $options{pidfile} );
-            return if $_self->{cancel};
-            $logger->info("stdout: $info");
-            $logger->info("stderr: $error");
-            if ( defined $error and $error =~ /Incorrect[ ]password/xsm ) {
-                $options{info}{encrypted} = TRUE;
-            }
-            else {
-                $options{info}{pages} = 1;
-                if ( $info =~ /Pages:\s+(\d+)/xsm ) {
-                    $options{info}{pages} = $1;
-                }
-                $logger->info("$options{info}{pages} pages");
-                my $float = qr{\d+(?:[.]\d*)?}xsm;
-                if ( $info =~
-                    /Page\ssize:\s+($float)\s+x\s+($float)\s+(\w+)/xsm )
-                {
-                    $options{info}{page_size} = [ $1, $2, $3 ];
-                    $logger->info("Page size: $1 x $2 $3");
-                }
-
-                # extract the metadata from the file
-                _add_metadata_to_info( $options{info}, $info,
-                    qr{:\s+([^\n]+)}xsm );
-            }
-        }
-
-        # A JPEG which I was unable to reproduce as a test case had what
-        # seemed to be a TIFF thumbnail which file -b reported, and therefore
-        # gscan2pdf attempted to import it as a TIFF. Therefore forcing the text
-        # to appear at the beginning of the file -b output.
-        when (/^TIFF[ ]image[ ]data/xsm) {
-            $format = 'Tagged Image File Format';
-            ( undef, my $info ) =
-              exec_command( [ 'tiffinfo', $options{filename} ],
-                $options{pidfile} );
-            return if $_self->{cancel};
-            $logger->info($info);
-
-            # Count number of pages
-            $options{info}{pages} = () =
-              $info =~ /TIFF[ ]Directory[ ]at[ ]offset/xsmg;
-            $logger->info("$options{info}{pages} pages");
-
-            # Dig out the size of each page
-            my ( @width, @height );
-            while (
-                $info =~ /Image\sWidth:\s(\d+)\sImage\sLength:\s(\d+)(.*)/xsm )
-            {
-                push @width,  $1;
-                push @height, $2;
-                $info = $3;
-                $logger->info(
-                    "Page $#width is $width[$#width]x$height[$#height]");
-            }
-            $options{info}{width}  = \@width;
-            $options{info}{height} = \@height;
-        }
-        default {
-
-            # Get file type
-            my $image = Image::Magick->new;
-            my $e     = $image->Read( $options{filename} );
-            if ("$e") {
-                $logger->error($e);
-                _thread_throw_error(
-                    $self,
-                    $options{uuid},
-                    $options{page}{uuid},
-                    'Open file',
-                    sprintf __('%s is not a recognised image type'),
-                    $options{filename}
-                );
-                return;
-            }
-            return if $_self->{cancel};
-            $format = $image->Get('format');
-            if ( not defined $format ) {
-                _thread_throw_error(
-                    $self,
-                    $options{uuid},
-                    $options{page}{uuid},
-                    'Open file',
-                    sprintf __('%s is not a recognised image type'),
-                    $options{filename}
-                );
-                return;
-            }
-            $logger->info("Format $format");
-            $options{info}{width}       = $image->Get('width');
-            $options{info}{height}      = $image->Get('height');
-            $options{info}{xresolution} = $image->Get('xresolution');
-            $options{info}{yresolution} = $image->Get('yresolution');
-            $options{info}{pages}       = 1;
-        }
+        $logger->info("Format $format");
+        $options{info}{width}       = $image->Get('width');
+        $options{info}{height}      = $image->Get('height');
+        $options{info}{xresolution} = $image->Get('xresolution');
+        $options{info}{yresolution} = $image->Get('yresolution');
+        $options{info}{pages}       = 1;
     }
     $options{info}{format} = $format;
     $options{info}{path}   = $options{filename};
@@ -3056,227 +3046,205 @@ sub _thread_import_file {
     my $JPG = qr/Joint[ ]Photographic[ ]Experts[ ]Group[ ]JFIF[ ]format/xsm;
     my $GIF = qr/CompuServe[ ]graphics[ ]interchange[ ]format/xsm;
 
-    given ( $options{info}{format} ) {
-        when ('DJVU') {
+    if ( $options{info}{format} eq 'DJVU' ) {
 
-            # Extract images from DjVu
-            if ( $options{last} >= $options{first} and $options{first} > 0 ) {
-                for my $i ( $options{first} .. $options{last} ) {
-                    $self->{progress} =
-                      ( $i - 1 ) / ( $options{last} - $options{first} + 1 );
-                    $self->{message} =
-                      sprintf __('Importing page %i of %i'),
-                      $i, $options{last} - $options{first} + 1;
+        # Extract images from DjVu
+        if ( $options{last} >= $options{first} and $options{first} > 0 ) {
+            for my $i ( $options{first} .. $options{last} ) {
+                $self->{progress} =
+                  ( $i - 1 ) / ( $options{last} - $options{first} + 1 );
+                $self->{message} =
+                  sprintf __('Importing page %i of %i'),
+                  $i, $options{last} - $options{first} + 1;
 
-                    my ( $tif, $txt, $ann, $error );
-                    try {
-                        $tif = File::Temp->new(
-                            DIR    => $options{dir},
-                            SUFFIX => '.tif',
-                            UNLINK => FALSE
-                        );
-                        exec_command(
-                            [
-                                'ddjvu',    '-format=tiff',
-                                "-page=$i", $options{info}{path},
-                                $tif
-                            ],
-                            $options{pidfile}
-                        );
-                        ( undef, $txt ) = exec_command(
-                            [
-                                'djvused', $options{info}{path},
-                                '-e',      "select $i; print-txt"
-                            ],
-                            $options{pidfile}
-                        );
-                        ( undef, $ann ) = exec_command(
-                            [
-                                'djvused', $options{info}{path},
-                                '-e',      "select $i; print-ant"
-                            ],
-                            $options{pidfile}
-                        );
-                    }
-                    catch {
-                        if ( defined $tif ) {
-                            $logger->error("Caught error creating $tif: $_");
-                            _thread_throw_error(
-                                $self,
-                                $options{uuid},
-                                $options{page}{uuid},
-                                'Open file',
-                                "Error: unable to write to $tif."
-                            );
-                        }
-                        else {
-                            $logger->error(
-                                "Caught error writing to $options{dir}: $_");
-                            _thread_throw_error(
-                                $self,
-                                $options{uuid},
-                                $options{page}{uuid},
-                                'Open file',
-                                "Error: unable to write to $options{dir}."
-                            );
-                        }
-                        $error = TRUE;
-                    };
-                    return if ( $_self->{cancel} or $error );
-                    my $page = Gscan2pdf::Page->new(
-                        filename    => $tif,
-                        dir         => $options{dir},
-                        delete      => TRUE,
-                        format      => 'Tagged Image File Format',
-                        xresolution => $options{info}{ppi}[ $i - 1 ],
-                        yresolution => $options{info}{ppi}[ $i - 1 ],
-                        width       => $options{info}{width}[ $i - 1 ],
-                        height      => $options{info}{height}[ $i - 1 ],
+                my ( $tif, $txt, $ann, $error );
+                try {
+                    $tif = File::Temp->new(
+                        DIR    => $options{dir},
+                        SUFFIX => '.tif',
+                        UNLINK => FALSE
                     );
-                    try {
-                        $page->import_djvu_txt($txt);
-                    }
-                    catch {
-                        $logger->error(
-                            "Caught error parsing DjVU text layer: $_");
-                        _thread_throw_error( $self, $options{uuid},
-                            $options{page}{uuid},
-                            'Open file', 'Error: parsing DjVU text layer' );
-                    };
-                    try {
-                        $page->import_djvu_ann($ann);
-                    }
-                    catch {
-                        $logger->error(
-                            "Caught error parsing DjVU annotation layer: $_");
-                        _thread_throw_error( $self, $options{uuid},
+                    exec_command(
+                        [
+                            'ddjvu',    '-format=tiff',
+                            "-page=$i", $options{info}{path},
+                            $tif
+                        ],
+                        $options{pidfile}
+                    );
+                    ( undef, $txt ) = exec_command(
+                        [
+                            'djvused', $options{info}{path},
+                            '-e',      "select $i; print-txt"
+                        ],
+                        $options{pidfile}
+                    );
+                    ( undef, $ann ) = exec_command(
+                        [
+                            'djvused', $options{info}{path},
+                            '-e',      "select $i; print-ant"
+                        ],
+                        $options{pidfile}
+                    );
+                }
+                catch {
+                    if ( defined $tif ) {
+                        $logger->error("Caught error creating $tif: $_");
+                        _thread_throw_error(
+                            $self,
+                            $options{uuid},
                             $options{page}{uuid},
                             'Open file',
-                            'Error: parsing DjVU annotation layer' );
-                    };
-                    $self->{return}->enqueue(
-                        {
-                            type => 'page',
-                            uuid => $options{uuid},
-                            page => $page->freeze
-                        }
-                    );
-                }
-            }
-        }
-        when ('Portable Document Format') {
-            _thread_import_pdf( $self, %options );
-        }
-        when ('Tagged Image File Format') {
-
-            # Only one page, so skip tiffcp in case it gives us problems
-            if ( $options{last} == 1 ) {
-                $self->{progress} = 1;
-                $self->{message}  = sprintf __('Importing page %i of %i'), 1, 1;
-                my $page = Gscan2pdf::Page->new(
-                    filename => $options{info}{path},
-                    dir      => $options{dir},
-                    delete   => FALSE,
-                    format   => $options{info}{format},
-                    width    => $options{info}{width}[0],
-                    height   => $options{info}{height}[0],
-                );
-                $self->{return}->enqueue(
-                    {
-                        type => 'page',
-                        uuid => $options{uuid},
-                        page => $page->freeze
-                    }
-                );
-            }
-
-            # Split the tiff into its pages and import them individually
-            elsif ( $options{last} >= $options{first} and $options{first} > 0 )
-            {
-                for my $i ( $options{first} - 1 .. $options{last} - 1 ) {
-                    $self->{progress} =
-                      $i / ( $options{last} - $options{first} + 1 );
-                    $self->{message} =
-                      sprintf __('Importing page %i of %i'),
-                      $i, $options{last} - $options{first} + 1;
-
-                    my ( $tif, $error );
-                    try {
-                        $tif = File::Temp->new(
-                            DIR    => $options{dir},
-                            SUFFIX => '.tif',
-                            UNLINK => FALSE
+                            "Error: unable to write to $tif."
                         );
-                        my ( $status, $out, $err ) =
-                          exec_command(
-                            [ 'tiffcp', "$options{info}{path},$i", $tif ],
-                            $options{pidfile} );
-                        if ( defined $err and $err ne $EMPTY ) {
-                            $logger->error(
-"Caught error extracting page $i from $options{info}{path}: $err"
-                            );
-                            _thread_throw_error(
-                                $self,
-                                $options{uuid},
-                                $options{page}{uuid},
-                                'Open file',
-"Caught error extracting page $i from $options{info}{path}: $err"
-                            );
-                        }
                     }
-                    catch {
-                        if ( defined $tif ) {
-                            $logger->error("Caught error creating $tif: $_");
-                            _thread_throw_error(
-                                $self,
-                                $options{uuid},
-                                $options{page}{uuid},
-                                'Open file',
-                                "Error: unable to write to $tif."
-                            );
-                        }
-                        else {
-                            $logger->error(
-                                "Caught error writing to $options{dir}: $_");
-                            _thread_throw_error(
-                                $self,
-                                $options{uuid},
-                                $options{page}{uuid},
-                                'Open file',
-                                "Error: unable to write to $options{dir}."
-                            );
-                        }
-                        $error = TRUE;
-                    };
-                    return if ( $_self->{cancel} or $error );
-                    my $page = Gscan2pdf::Page->new(
-                        filename => $tif,
-                        dir      => $options{dir},
-                        delete   => TRUE,
-                        format   => $options{info}{format},
-                        width    => $options{info}{width}[ $i - 1 ],
-                        height   => $options{info}{height}[ $i - 1 ],
-                    );
-                    $self->{return}->enqueue(
-                        {
-                            type => 'page',
-                            uuid => $options{uuid},
-                            page => $page->freeze
-                        }
-                    );
+                    else {
+                        $logger->error(
+                            "Caught error writing to $options{dir}: $_");
+                        _thread_throw_error(
+                            $self,
+                            $options{uuid},
+                            $options{page}{uuid},
+                            'Open file',
+                            "Error: unable to write to $options{dir}."
+                        );
+                    }
+                    $error = TRUE;
+                };
+                return if ( $_self->{cancel} or $error );
+                my $page = Gscan2pdf::Page->new(
+                    filename    => $tif,
+                    dir         => $options{dir},
+                    delete      => TRUE,
+                    format      => 'Tagged Image File Format',
+                    xresolution => $options{info}{ppi}[ $i - 1 ],
+                    yresolution => $options{info}{ppi}[ $i - 1 ],
+                    width       => $options{info}{width}[ $i - 1 ],
+                    height      => $options{info}{height}[ $i - 1 ],
+                );
+                try {
+                    $page->import_djvu_txt($txt);
                 }
+                catch {
+                    $logger->error(
+                        "Caught error parsing DjVU text layer: $_");
+                    _thread_throw_error( $self, $options{uuid},
+                        $options{page}{uuid},
+                        'Open file', 'Error: parsing DjVU text layer' );
+                };
+                try {
+                    $page->import_djvu_ann($ann);
+                }
+                catch {
+                    $logger->error(
+                        "Caught error parsing DjVU annotation layer: $_");
+                    _thread_throw_error( $self, $options{uuid},
+                        $options{page}{uuid},
+                        'Open file',
+                        'Error: parsing DjVU annotation layer' );
+                };
+                $self->{return}->enqueue(
+                    {
+                        type => 'page',
+                        uuid => $options{uuid},
+                        page => $page->freeze
+                    }
+                );
             }
         }
-        when (/(?:$PNG|$JPG|$GIF)/xsm) {
-            try {
+    }
+    elsif ( $options{info}{format} eq 'Portable Document Format' ) {
+        _thread_import_pdf( $self, %options );
+    }
+    elsif ( $options{info}{format} eq 'Tagged Image File Format') {
+
+        # Only one page, so skip tiffcp in case it gives us problems
+        if ( $options{last} == 1 ) {
+            $self->{progress} = 1;
+            $self->{message}  = sprintf __('Importing page %i of %i'), 1, 1;
+            my $page = Gscan2pdf::Page->new(
+                filename => $options{info}{path},
+                dir      => $options{dir},
+                delete   => FALSE,
+                format   => $options{info}{format},
+                width    => $options{info}{width}[0],
+                height   => $options{info}{height}[0],
+            );
+            $self->{return}->enqueue(
+                {
+                    type => 'page',
+                    uuid => $options{uuid},
+                    page => $page->freeze
+                }
+            );
+        }
+
+        # Split the tiff into its pages and import them individually
+        elsif ( $options{last} >= $options{first} and $options{first} > 0 )
+        {
+            for my $i ( $options{first} - 1 .. $options{last} - 1 ) {
+                $self->{progress} =
+                  $i / ( $options{last} - $options{first} + 1 );
+                $self->{message} =
+                  sprintf __('Importing page %i of %i'),
+                  $i, $options{last} - $options{first} + 1;
+
+                my ( $tif, $error );
+                try {
+                    $tif = File::Temp->new(
+                        DIR    => $options{dir},
+                        SUFFIX => '.tif',
+                        UNLINK => FALSE
+                    );
+                    my ( $status, $out, $err ) =
+                      exec_command(
+                        [ 'tiffcp', "$options{info}{path},$i", $tif ],
+                        $options{pidfile} );
+                    if ( defined $err and $err ne $EMPTY ) {
+                        $logger->error(
+"Caught error extracting page $i from $options{info}{path}: $err"
+                        );
+                        _thread_throw_error(
+                            $self,
+                            $options{uuid},
+                            $options{page}{uuid},
+                            'Open file',
+"Caught error extracting page $i from $options{info}{path}: $err"
+                        );
+                    }
+                }
+                catch {
+                    if ( defined $tif ) {
+                        $logger->error("Caught error creating $tif: $_");
+                        _thread_throw_error(
+                            $self,
+                            $options{uuid},
+                            $options{page}{uuid},
+                            'Open file',
+                            "Error: unable to write to $tif."
+                        );
+                    }
+                    else {
+                        $logger->error(
+                            "Caught error writing to $options{dir}: $_");
+                        _thread_throw_error(
+                            $self,
+                            $options{uuid},
+                            $options{page}{uuid},
+                            'Open file',
+                            "Error: unable to write to $options{dir}."
+                        );
+                    }
+                    $error = TRUE;
+                };
+                return if ( $_self->{cancel} or $error );
                 my $page = Gscan2pdf::Page->new(
-                    filename    => $options{info}{path},
-                    dir         => $options{dir},
-                    format      => $options{info}{format},
-                    width       => $options{info}{width},
-                    height      => $options{info}{height},
-                    xresolution => $options{info}{xresolution},
-                    yresolution => $options{info}{yresolution},
+                    filename => $tif,
+                    dir      => $options{dir},
+                    delete   => TRUE,
+                    format   => $options{info}{format},
+                    width    => $options{info}{width}[ $i - 1 ],
+                    height   => $options{info}{height}[ $i - 1 ],
                 );
                 $self->{return}->enqueue(
                     {
@@ -3286,40 +3254,60 @@ sub _thread_import_file {
                     }
                 );
             }
-            catch {
-                $logger->error("Caught error writing to $options{dir}: $_");
-                _thread_throw_error( $self, $options{uuid},
-                    $options{page}{uuid},
-                    'Open file', "Error: unable to write to $options{dir}." );
-            };
         }
+    }
+    elsif ( $options{info}{format} =~ /(?:$PNG|$JPG|$GIF)/xsm ) {
+        try {
+            my $page = Gscan2pdf::Page->new(
+                filename    => $options{info}{path},
+                dir         => $options{dir},
+                format      => $options{info}{format},
+                width       => $options{info}{width},
+                height      => $options{info}{height},
+                xresolution => $options{info}{xresolution},
+                yresolution => $options{info}{yresolution},
+            );
+            $self->{return}->enqueue(
+                {
+                    type => 'page',
+                    uuid => $options{uuid},
+                    page => $page->freeze
+                }
+            );
+        }
+        catch {
+            $logger->error("Caught error writing to $options{dir}: $_");
+            _thread_throw_error( $self, $options{uuid},
+                $options{page}{uuid},
+                'Open file', "Error: unable to write to $options{dir}." );
+        };
+    }
 
-        # only 1-bit Portable anymap is properly supported,
-        # so convert ANY pnm to png
-        default {
-            try {
-                my $page = Gscan2pdf::Page->new(
-                    filename => $options{info}{path},
-                    dir      => $options{dir},
-                    format   => $options{info}{format},
-                    width    => $options{info}{width},
-                    height   => $options{info}{height},
-                );
-                $self->{return}->enqueue(
-                    {
-                        type => 'page',
-                        uuid => $options{uuid},
-                        page => $page->to_png($paper_sizes)->freeze
-                    }
-                );
-            }
-            catch {
-                $logger->error("Caught error writing to $options{dir}: $_");
-                _thread_throw_error( $self, $options{uuid},
-                    $options{page}{uuid},
-                    'Open file', "Error: unable to write to $options{dir}." );
-            };
+    # only 1-bit Portable anymap is properly supported,
+    # so convert ANY pnm to png
+    else {
+        try {
+            my $page = Gscan2pdf::Page->new(
+                filename => $options{info}{path},
+                dir      => $options{dir},
+                format   => $options{info}{format},
+                width    => $options{info}{width},
+                height   => $options{info}{height},
+            );
+            $self->{return}->enqueue(
+                {
+                    type => 'page',
+                    uuid => $options{uuid},
+                    page => $page->to_png($paper_sizes)->freeze
+                }
+            );
         }
+        catch {
+            $logger->error("Caught error writing to $options{dir}: $_");
+            _thread_throw_error( $self, $options{uuid},
+                $options{page}{uuid},
+                'Open file', "Error: unable to write to $options{dir}." );
+        };
     }
     $self->{return}->enqueue(
         {
@@ -3726,25 +3714,23 @@ sub _add_page_to_pdf {
     my $gfx = $page->gfx;
     my ( $imgobj, $msg );
     try {
-        given ($format) {
-            when ('png') {
-                $imgobj = $pdf->image_png($filename);
-            }
-            when ('jpg') {
-                $imgobj = $pdf->image_jpeg($filename);
-            }
-            when (/^p[bn]m$/xsm) {
-                $imgobj = $pdf->image_pnm($filename);
-            }
-            when ('gif') {
-                $imgobj = $pdf->image_gif($filename);
-            }
-            when ('tif') {
-                $imgobj = $pdf->image_tiff($filename);
-            }
-            default {
-                $msg = "Unknown format $format file $filename";
-            }
+        if ( $format eq 'png' ) {
+            $imgobj = $pdf->image_png($filename);
+        }
+        elsif ( $format eq 'jpg' ) {
+            $imgobj = $pdf->image_jpeg($filename);
+        }
+        elsif ( $format =~ /^p[bn]m$/xsm ) {
+            $imgobj = $pdf->image_pnm($filename);
+        }
+        elsif ( $format eq 'gif' ) {
+            $imgobj = $pdf->image_gif($filename);
+        }
+        elsif ( $format eq 'tif' ) {
+            $imgobj = $pdf->image_tiff($filename);
+        }
+        else {
+            $msg = "Unknown format $format file $filename";
         }
     }
     catch { $msg = $_ };

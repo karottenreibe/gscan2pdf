@@ -2,11 +2,9 @@ package Gscan2pdf::Scanner::Options;
 
 use strict;
 use warnings;
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use Carp;
 use Glib qw(TRUE FALSE);    # To get TRUE and FALSE
 use Image::Sane ':all';     # For enums
-use feature 'switch';
 use Readonly;
 Readonly my $MAX_VALUES  => 255;
 Readonly my $EMPTY_ARRAY => -1;
@@ -238,31 +236,27 @@ sub flatbed_selected {
 sub within_tolerance {
     my ( $option, $value, $tolerance ) = @_;
     if ( not defined $tolerance ) { $tolerance = 0 }
-    given ( $option->{constraint_type} ) {
-        when (SANE_CONSTRAINT_RANGE) {
-            if ( defined $option->{constraint}{quant} ) {
-                return (
-                    abs( $value - $option->{val} ) <=
-                      $option->{constraint}{quant} / 2 + $tolerance );
-            }
-        }
-        when (SANE_CONSTRAINT_STRING_LIST) {
-            return ( $value eq $option->{val} );
-        }
-        when (SANE_CONSTRAINT_WORD_LIST) {
-            return ( $value == $option->{val} );
+    if ( $option->{constraint_type} == SANE_CONSTRAINT_RANGE ) {
+        if ( defined $option->{constraint}{quant} ) {
+            return (
+                abs( $value - $option->{val} ) <=
+                  $option->{constraint}{quant} / 2 + $tolerance );
         }
     }
-    given ( $option->{type} ) {
-        when (SANE_TYPE_BOOL) {
-            return not( $value xor $option->{val} );
-        }
-        when (SANE_TYPE_STRING) {
-            return ( $value eq $option->{val} );
-        }
-        when ( $_ == SANE_TYPE_INT or $_ == SANE_TYPE_FIXED ) {
-            return ( abs( $value - $option->{val} ) <= $tolerance );
-        }
+    elsif ( $option->{constraint_type} == SANE_CONSTRAINT_STRING_LIST ) {
+        return ( $value eq $option->{val} );
+    }
+    elsif ( $option->{constraint_type} == SANE_CONSTRAINT_WORD_LIST ) {
+        return ( $value == $option->{val} );
+    }
+    if ( $option->{type} == SANE_TYPE_BOOL ) {
+        return not( $value xor $option->{val} );
+    }
+    elsif ( $option->{type} == SANE_TYPE_STRING ) {
+        return ( $value eq $option->{val} );
+    }
+    elsif ( $option->{type} == SANE_TYPE_INT or $option->{type} == SANE_TYPE_FIXED ) {
+        return ( abs( $value - $option->{val} ) <= $tolerance );
     }
     return;
 }
@@ -386,25 +380,23 @@ sub _parse_scanimage_output {
 
             $option{desc} = $desc;
 
-            given ( $option{name} ) {
-                when ('l') {
-                    $option{name}  = SANE_NAME_SCAN_TL_X;
-                    $option{title} = 'Top-left x';
-                }
-                when ('t') {
-                    $option{name}  = SANE_NAME_SCAN_TL_Y;
-                    $option{title} = 'Top-left y';
-                }
-                when ('x') {
-                    $option{name}  = SANE_NAME_SCAN_BR_X;
-                    $option{title} = 'Bottom-right x';
-                    $option{desc}  = 'Bottom-right x position of scan area.';
-                }
-                when ('y') {
-                    $option{name}  = SANE_NAME_SCAN_BR_Y;
-                    $option{title} = 'Bottom-right y';
-                    $option{desc}  = 'Bottom-right y position of scan area.';
-                }
+            if ( $option{name} eq 'l' ) {
+                $option{name}  = SANE_NAME_SCAN_TL_X;
+                $option{title} = 'Top-left x';
+            }
+            elsif ( $option{name} eq 't' ) {
+                $option{name}  = SANE_NAME_SCAN_TL_Y;
+                $option{title} = 'Top-left y';
+            }
+            elsif ( $option{name} eq 'x' ) {
+                $option{name}  = SANE_NAME_SCAN_BR_X;
+                $option{title} = 'Bottom-right x';
+                $option{desc}  = 'Bottom-right x position of scan area.';
+            }
+            elsif ( $option{name} eq 'y' ) {
+                $option{name}  = SANE_NAME_SCAN_BR_Y;
+                $option{title} = 'Bottom-right y';
+                $option{desc}  = 'Bottom-right y position of scan area.';
             }
         }
         else {
@@ -533,25 +525,23 @@ sub parse_list_constraint {
 
 sub unit2enum {
     my ($unit) = @_;
-    given ($unit) {
-        when ('pel') {
-            return SANE_UNIT_PIXEL;
-        }
-        when ('bit') {
-            return SANE_UNIT_BIT;
-        }
-        when ('mm') {
-            return SANE_UNIT_MM;
-        }
-        when ('dpi') {
-            return SANE_UNIT_DPI;
-        }
-        when (q{%}) {
-            return SANE_UNIT_PERCENT;
-        }
-        when ('us') {
-            return SANE_UNIT_MICROSECOND;
-        }
+    if ( $unit eq 'pel' ) {
+        return SANE_UNIT_PIXEL;
+    }
+    elsif ( $unit eq 'bit' ) {
+        return SANE_UNIT_BIT;
+    }
+    elsif ( $unit eq 'mm' ) {
+        return SANE_UNIT_MM;
+    }
+    elsif ( $unit eq 'dpi' ) {
+        return SANE_UNIT_DPI;
+    }
+    elsif ( $unit eq q{%} ) {
+        return SANE_UNIT_PERCENT;
+    }
+    elsif ( $unit eq 'us' ) {
+        return SANE_UNIT_MICROSECOND;
     }
     return;
 }

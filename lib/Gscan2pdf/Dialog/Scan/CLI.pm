@@ -2,7 +2,6 @@ package Gscan2pdf::Dialog::Scan::CLI;
 
 use warnings;
 use strict;
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use Glib qw(TRUE FALSE);   # To get TRUE and FALSE
 use Image::Sane ':all';    # To get SANE_NAME_PAGE_WIDTH & SANE_NAME_PAGE_HEIGHT
 use Gscan2pdf::Dialog::Scan;
@@ -10,7 +9,6 @@ use Gscan2pdf::Frontend::CLI;
 use Gscan2pdf::Translation '__';    # easier to extract strings with xgettext
 use Storable qw(dclone);            # For cloning the options cache
 use Locale::gettext 1.05;           # For translations
-use feature 'switch';
 use List::MoreUtils qw{any};
 use Data::Dumper;
 $Data::Dumper::Sortkeys = 1;

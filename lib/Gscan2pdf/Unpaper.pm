@@ -3,8 +3,6 @@ package Gscan2pdf::Unpaper;
 use 5.008005;
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use Carp;
 use Glib qw(TRUE FALSE);    # To get TRUE and FALSE
 use Gtk3;
@@ -429,86 +427,84 @@ sub add_widget {
         $default->{$option} = $hashref->{$option}{default};
     }
 
-    given ( $hashref->{$option}{type} ) {
-        when ('ComboBox') {
-            my $hbox = Gtk3::HBox->new;
-            $vbox->pack_start( $hbox, TRUE, TRUE, 0 );
-            my $label = Gtk3::Label->new( $hashref->{$option}{string} );
-            $hbox->pack_start( $label, FALSE, FALSE, 0 );
-            $widget = Gtk3::ComboBoxText->new;
-            $hbox->pack_end( $widget, FALSE, FALSE, 0 );
+    if ( $hashref->{$option}{type} eq 'ComboBox' ) {
+        my $hbox = Gtk3::HBox->new;
+        $vbox->pack_start( $hbox, TRUE, TRUE, 0 );
+        my $label = Gtk3::Label->new( $hashref->{$option}{string} );
+        $hbox->pack_start( $label, FALSE, FALSE, 0 );
+        $widget = Gtk3::ComboBoxText->new;
+        $hbox->pack_end( $widget, FALSE, FALSE, 0 );
 
-            # Add text and tooltips
-            my @tooltip;
-            my $i = 0;
-            for ( keys %{ $hashref->{$option}{options} } ) {
-                $widget->append_text(
-                    $hashref->{$option}{options}{$_}{string} );
-                push @tooltip, $hashref->{$option}{options}{$_}{tooltip};
-                $hashref->{$option}{options}{$_}{index} = $i++;
-            }
-            $widget->signal_connect(
-                changed => sub {
-                    if ( defined $tooltip[ $widget->get_active ] ) {
-                        $widget->set_tooltip_text(
-                            $tooltip[ $widget->get_active ] );
-                    }
+        # Add text and tooltips
+        my @tooltip;
+        my $i = 0;
+        for ( keys %{ $hashref->{$option}{options} } ) {
+            $widget->append_text(
+                $hashref->{$option}{options}{$_}{string} );
+            push @tooltip, $hashref->{$option}{options}{$_}{tooltip};
+            $hashref->{$option}{options}{$_}{index} = $i++;
+        }
+        $widget->signal_connect(
+            changed => sub {
+                if ( defined $tooltip[ $widget->get_active ] ) {
+                    $widget->set_tooltip_text(
+                        $tooltip[ $widget->get_active ] );
                 }
-            );
-        }
-
-        when ('CheckButton') {
-            $widget = Gtk3::CheckButton->new( $hashref->{$option}{string} );
-            $widget->set_tooltip_text( $hashref->{$option}{tooltip} );
-            $vbox->pack_start( $widget, TRUE, TRUE, 0 );
-        }
-
-        when ('CheckButtonGroup') {
-            $widget = Gtk3::Frame->new( $hashref->{$option}{string} );
-            $vbox->pack_start( $widget, TRUE, TRUE, 0 );
-            my $vboxf = Gtk3::VBox->new;
-            $vboxf->set_border_width( $vbox->get('border-width') );
-            $widget->add($vboxf);
-            $widget->set_tooltip_text( $hashref->{$option}{tooltip} );
-            for ( keys %{ $hashref->{$option}{options} } ) {
-                my $button =
-                  $self->add_widget( $vboxf, $hashref->{$option}{options}, $_ );
             }
-        }
+        );
+    }
 
-        when ('SpinButton') {
-            my $hbox = Gtk3::HBox->new;
-            $vbox->pack_start( $hbox, TRUE, TRUE, 0 );
-            my $label = Gtk3::Label->new( $hashref->{$option}{string} );
-            $hbox->pack_start( $label, FALSE, FALSE, 0 );
-            $widget = Gtk3::SpinButton->new_with_range(
-                $hashref->{$option}{min},
-                $hashref->{$option}{max},
-                $hashref->{$option}{step}
-            );
-            $hbox->pack_end( $widget, FALSE, FALSE, 0 );
-            $widget->set_tooltip_text( $hashref->{$option}{tooltip} );
-            if ( defined $default->{$option} ) {
-                $widget->set_value( $default->{$option} );
-            }
-        }
+    elsif ( $hashref->{$option}{type} eq 'CheckButton' ) {
+        $widget = Gtk3::CheckButton->new( $hashref->{$option}{string} );
+        $widget->set_tooltip_text( $hashref->{$option}{tooltip} );
+        $vbox->pack_start( $widget, TRUE, TRUE, 0 );
+    }
 
-        when ('SpinButtonGroup') {
-            $widget = Gtk3::Frame->new( $hashref->{$option}{string} );
-            $vbox->pack_start( $widget, TRUE, TRUE, 0 );
-            my $vboxf = Gtk3::VBox->new;
-            $vboxf->set_border_width( $vbox->get('border-width') );
-            $widget->add($vboxf);
-            for (
-                sort {
-                    $hashref->{$option}{options}{$a}{order}
-                      <=> $hashref->{$option}{options}{$b}{order}
-                } keys %{ $hashref->{$option}{options} }
-              )
-            {
-                my $button =
-                  $self->add_widget( $vboxf, $hashref->{$option}{options}, $_ );
-            }
+    elsif ( $hashref->{$option}{type} eq 'CheckButtonGroup' ) {
+        $widget = Gtk3::Frame->new( $hashref->{$option}{string} );
+        $vbox->pack_start( $widget, TRUE, TRUE, 0 );
+        my $vboxf = Gtk3::VBox->new;
+        $vboxf->set_border_width( $vbox->get('border-width') );
+        $widget->add($vboxf);
+        $widget->set_tooltip_text( $hashref->{$option}{tooltip} );
+        for ( keys %{ $hashref->{$option}{options} } ) {
+            my $button =
+              $self->add_widget( $vboxf, $hashref->{$option}{options}, $_ );
+        }
+    }
+
+    elsif ( $hashref->{$option}{type} eq 'SpinButton' ) {
+        my $hbox = Gtk3::HBox->new;
+        $vbox->pack_start( $hbox, TRUE, TRUE, 0 );
+        my $label = Gtk3::Label->new( $hashref->{$option}{string} );
+        $hbox->pack_start( $label, FALSE, FALSE, 0 );
+        $widget = Gtk3::SpinButton->new_with_range(
+            $hashref->{$option}{min},
+            $hashref->{$option}{max},
+            $hashref->{$option}{step}
+        );
+        $hbox->pack_end( $widget, FALSE, FALSE, 0 );
+        $widget->set_tooltip_text( $hashref->{$option}{tooltip} );
+        if ( defined $default->{$option} ) {
+            $widget->set_value( $default->{$option} );
+        }
+    }
+
+    elsif ( $hashref->{$option}{type} eq 'SpinButtonGroup' ) {
+        $widget = Gtk3::Frame->new( $hashref->{$option}{string} );
+        $vbox->pack_start( $widget, TRUE, TRUE, 0 );
+        my $vboxf = Gtk3::VBox->new;
+        $vboxf->set_border_width( $vbox->get('border-width') );
+        $widget->add($vboxf);
+        for (
+            sort {
+                $hashref->{$option}{options}{$a}{order}
+                  <=> $hashref->{$option}{options}{$b}{order}
+            } keys %{ $hashref->{$option}{options} }
+          )
+        {
+            my $button =
+              $self->add_widget( $vboxf, $hashref->{$option}{options}, $_ );
         }
     }
 
@@ -522,40 +518,37 @@ sub get_option {
     my $default = $self->{default};
 
     if ( defined $hashref->{$option}{widget} ) {
-
-        given ( $hashref->{$option}{type} ) {
-            when ('ComboBox') {
-                my $i = $hashref->{$option}{widget}->get_active;
-                for ( keys %{ $hashref->{$option}{options} } ) {
-                    if ( $hashref->{$option}{options}{$_}{index} == $i ) {
-                        return $_;
-                    }
+        if ( $hashref->{$option}{type} eq 'ComboBox' ) {
+            my $i = $hashref->{$option}{widget}->get_active;
+            for ( keys %{ $hashref->{$option}{options} } ) {
+                if ( $hashref->{$option}{options}{$_}{index} == $i ) {
+                    return $_;
                 }
             }
-            when ('CheckButton') {
-                return $hashref->{$option}{widget}->get_active;
-            }
-            when ('SpinButton') {
-                return $hashref->{$option}{widget}->get_value;
-            }
-            when ('CheckButtonGroup') {
-                my @items;
-                for ( sort keys %{ $hashref->{$option}{options} } ) {
-                    if ( $hashref->{$option}{options}{$_}{widget}->get_active )
-                    {
-                        push @items, $_;
-                    }
+        }
+        elsif ( $hashref->{$option}{type} eq 'CheckButton' ) {
+            return $hashref->{$option}{widget}->get_active;
+        }
+        elsif ( $hashref->{$option}{type} eq 'SpinButton' ) {
+            return $hashref->{$option}{widget}->get_value;
+        }
+        elsif ( $hashref->{$option}{type} eq 'CheckButtonGroup' ) {
+            my @items;
+            for ( sort keys %{ $hashref->{$option}{options} } ) {
+                if ( $hashref->{$option}{options}{$_}{widget}->get_active )
+                {
+                    push @items, $_;
                 }
-                if (@items) { return join $COMMA, @items }
             }
-            when ('SpinButtonGroup') {
-                my @items;
-                for ( keys %{ $hashref->{$option}{options} } ) {
-                    push @items,
-                      $hashref->{$option}{options}{$_}{widget}->get_value;
-                }
-                if (@items) { return join $COMMA, @items }
+            if (@items) { return join $COMMA, @items }
+        }
+        elsif ( $hashref->{$option}{type} eq 'SpinButtonGroup' ) {
+            my @items;
+            for ( keys %{ $hashref->{$option}{options} } ) {
+                push @items,
+                  $hashref->{$option}{options}{$_}{widget}->get_value;
             }
+            if (@items) { return join $COMMA, @items }
         }
     }
     elsif ( defined $default->{$option} ) { return $default->{$option} }
@@ -583,50 +576,48 @@ sub set_options {
 
     for my $option ( keys %{$options} ) {
         if ( defined $hashref->{$option}{widget} ) {
-            given ( $hashref->{$option}{type} ) {
-                when ('ComboBox') {
-                    my $i = $hashref->{$option}{options}{ $options->{$option} }
-                      {index};
-                    if ( defined $i ) {
-                        $hashref->{$option}{widget}->set_active($i);
+            if ( $hashref->{$option}{type} eq 'ComboBox' ) {
+                my $i = $hashref->{$option}{options}{ $options->{$option} }
+                  {index};
+                if ( defined $i ) {
+                    $hashref->{$option}{widget}->set_active($i);
+                }
+            }
+            elsif ( $hashref->{$option}{type} eq 'CheckButton' ) {
+                $hashref->{$option}{widget}
+                  ->set_active( $options->{$option} );
+            }
+            elsif ( $hashref->{$option}{type} eq 'CheckButtonGroup' ) {
+                my %default;
+                if ( defined $options->{$option} ) {
+                    for ( split /,/sm, $options->{$option} ) {
+                        $default{$_} = TRUE;
                     }
                 }
-                when ('CheckButton') {
-                    $hashref->{$option}{widget}
-                      ->set_active( $options->{$option} );
+                for ( keys %{ $hashref->{$option}{options} } ) {
+                    $hashref->{$option}{options}{$_}{widget}
+                      ->set_active( defined $default{$_} );
                 }
-                when ('CheckButtonGroup') {
-                    my %default;
-                    if ( defined $options->{$option} ) {
-                        for ( split /,/sm, $options->{$option} ) {
-                            $default{$_} = TRUE;
-                        }
-                    }
-                    for ( keys %{ $hashref->{$option}{options} } ) {
+            }
+            elsif ( $hashref->{$option}{type} eq 'SpinButton' ) {
+                $hashref->{$option}{widget}
+                  ->set_value( $options->{$option} );
+            }
+            elsif ( $hashref->{$option}{type} eq 'SpinButtonGroup' ) {
+                my @default;
+                if ( defined $options->{$option} ) {
+                    @default = split /,/sm, $options->{$option};
+                }
+                for (
+                    sort {
+                        $hashref->{$option}{options}{$a}{order}
+                          <=> $hashref->{$option}{options}{$b}{order}
+                    } keys %{ $hashref->{$option}{options} }
+                  )
+                {
+                    if (@default) {
                         $hashref->{$option}{options}{$_}{widget}
-                          ->set_active( defined $default{$_} );
-                    }
-                }
-                when ('SpinButton') {
-                    $hashref->{$option}{widget}
-                      ->set_value( $options->{$option} );
-                }
-                when ('SpinButtonGroup') {
-                    my @default;
-                    if ( defined $options->{$option} ) {
-                        @default = split /,/sm, $options->{$option};
-                    }
-                    for (
-                        sort {
-                            $hashref->{$option}{options}{$a}{order}
-                              <=> $hashref->{$option}{options}{$b}{order}
-                        } keys %{ $hashref->{$option}{options} }
-                      )
-                    {
-                        if (@default) {
-                            $hashref->{$option}{options}{$_}{widget}
-                              ->set_value( shift @default );
-                        }
+                          ->set_value( shift @default );
                     }
                 }
             }

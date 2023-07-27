@@ -2,8 +2,6 @@ package Gscan2pdf::Frontend::CLI;
 
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 
 use Locale::gettext 1.05;    # For translations
 use Carp;
@@ -166,107 +164,104 @@ sub scan_pages {
 
 sub parse_scanimage_output {
     my ( $line, $options ) = @_;
-    given ($line) {
 
-        # scanimage seems to produce negative progress percentages
-        # in some circumstances
-        when (/^Progress:[ ](-?\d*[.]\d*)%/xsm) {
-            if ( defined $options->{running_callback} ) {
-                $options->{running_callback}->( $1 / $_100 );
-            }
+    # scanimage seems to produce negative progress percentages
+    # in some circumstances
+    if ( $line =~ /^Progress:[ ](-?\d*[.]\d*)%/xsm ) {
+        if ( defined $options->{running_callback} ) {
+            $options->{running_callback}->( $1 / $_100 );
         }
-        when (/^Scanning[ ](-?\d*|infinity)[ ]pages?/xsm) {
-            my $num = $1 eq 'infinity' ? $INFINITE_DOCUMENTS : $1;
-            if ( defined $options->{running_callback} ) {
-                $options->{running_callback}
-                  ->( 0, sprintf __('Scanning %i pages...'), $num );
-            }
+    }
+    elsif ( $line =~ /^Scanning[ ](-?\d*|infinity)[ ]pages?/xsm ) {
+        my $num = $1 eq 'infinity' ? $INFINITE_DOCUMENTS : $1;
+        if ( defined $options->{running_callback} ) {
+            $options->{running_callback}
+              ->( 0, sprintf __('Scanning %i pages...'), $num );
         }
-        when (/^Scanning[ ]$page_no/xsm) {
-            if ( defined $options->{running_callback} ) {
-                $options->{running_callback}
-                  ->( 0, sprintf __('Scanning page %i...'), $1 );
-            }
+    }
+    elsif ( $line =~ /^Scanning[ ]$page_no/xsm ) {
+        if ( defined $options->{running_callback} ) {
+            $options->{running_callback}
+              ->( 0, sprintf __('Scanning page %i...'), $1 );
         }
-        when (/^Scanned[ ]$page_no [.][ ][(]scanner[ ]status[ ]=[ ](\d)[)]/xsm)
-        {
-            my ( $id, $return ) = ( $1, $2 );
-            if ( $return == SANE_STATUS_EOF ) {
-                my $timer = Glib::Timeout->add(
-                    $_POLL_INTERVAL,
-                    sub {
-                        my $path =
-                          defined( $options->{dir} )
-                          ? File::Spec->catfile( $options->{dir}, "out$id.pnm" )
-                          : "out$id.pnm";
-                        if ( not -e $path ) {
-                            return Glib::SOURCE_CONTINUE;
-                        }
-                        if ( defined $options->{new_page_callback} ) {
-                            $options->{new_page_callback}->( $path, $id );
-                        }
-                        $options->{num_scans}++;
-                        return Glib::SOURCE_REMOVE;
+    }
+    elsif ( $line =~ /^Scanned[ ]$page_no [.][ ][(]scanner[ ]status[ ]=[ ](\d)[)]/xsm)
+    {
+        my ( $id, $return ) = ( $1, $2 );
+        if ( $return == SANE_STATUS_EOF ) {
+            my $timer = Glib::Timeout->add(
+                $_POLL_INTERVAL,
+                sub {
+                    my $path =
+                      defined( $options->{dir} )
+                      ? File::Spec->catfile( $options->{dir}, "out$id.pnm" )
+                      : "out$id.pnm";
+                    if ( not -e $path ) {
+                        return Glib::SOURCE_CONTINUE;
                     }
-                );
-            }
+                    if ( defined $options->{new_page_callback} ) {
+                        $options->{new_page_callback}->( $path, $id );
+                    }
+                    $options->{num_scans}++;
+                    return Glib::SOURCE_REMOVE;
+                }
+            );
         }
-        when ($mess_warmingup) {
-            if ( defined $options->{running_callback} ) {
-                $options->{running_callback}->( 0, __('Scanner warming up') );
-            }
+    }
+    elsif ( $line =~ $mess_warmingup) {
+        if ( defined $options->{running_callback} ) {
+            $options->{running_callback}->( 0, __('Scanner warming up') );
         }
-        when (
+    }
+    elsif ( $line =~
 /^$options->{frontend}:[ ]sane_start:[ ]Document[ ]feeder[ ]out[ ]of[ ]documents/xsm ## no critic (ProhibitComplexRegexes)
-          )
+      )
+    {
+        if ( defined $options->{error_callback}
+            and $options->{num_scans} == 0 )
         {
-            if ( defined $options->{error_callback}
-                and $options->{num_scans} == 0 )
-            {
-                $options->{error_callback}
-                  ->( __('Document feeder out of documents') );
-            }
+            $options->{error_callback}
+              ->( __('Document feeder out of documents') );
         }
-        when (
-            $_self->{abort_scan} == TRUE
-              and ( $line =~
+    }
+    elsif (
+        $_self->{abort_scan} == TRUE
+          and ( $line =~
 qr{^$options->{frontend}:[ ]sane_start:[ ]Error[ ]during[ ]device[ ]I/O}xsm
-                or $line =~ /^$options->{frontend}:[ ]received[ ]signal/xsm
-                or $line =~ /^$options->{frontend}:[ ]aborting/xsm
-                or $line =~
-                /^$options->{frontend}:[ ]trying[ ]to[ ]stop[ ]scanner/xsm )
-          )
-        {
-            ;
+            or $line =~ /^$options->{frontend}:[ ]received[ ]signal/xsm
+            or $line =~ /^$options->{frontend}:[ ]aborting/xsm
+            or $line =~
+            /^$options->{frontend}:[ ]trying[ ]to[ ]stop[ ]scanner/xsm )
+      )
+    {
+        ;
+    }
+    elsif ( $line =~ /^$options->{frontend}:[ ]rounded/xsm ) {
+        $logger->info( substr $line, 0, index( $line, "\n" ) + 1 );
+    }
+    elsif ( $line =~ /^Batch[ ]terminated,[ ]\d+[ ]pages?[ ]scanned/xsm ) {
+        $logger->info( substr $line, 0, index( $line, "\n" ) + 1 );
+    }
+    elsif ( $line =~ /^$options->{frontend}:[ ]sane_(?:start|read):[ ]Device[ ]busy/xsm )
+    {
+        if ( defined $options->{error_callback} ) {
+            $options->{error_callback}->( __('Device busy') );
         }
-        when (/^$options->{frontend}:[ ]rounded/xsm) {
-            $logger->info( substr $line, 0, index( $line, "\n" ) + 1 );
-        }
-        when (/^Batch[ ]terminated,[ ]\d+[ ]pages?[ ]scanned/xsm) {
-            $logger->info( substr $line, 0, index( $line, "\n" ) + 1 );
-        }
-        when (
-            /^$options->{frontend}:[ ]sane_(?:start|read):[ ]Device[ ]busy/xsm)
-        {
-            if ( defined $options->{error_callback} ) {
-                $options->{error_callback}->( __('Device busy') );
-            }
-        }
-        when (
+    }
+    elsif ( $line =~
 /^$options->{frontend}:[ ]sane_(?:start|read):[ ]Operation[ ]was[ ]cancelled/xsm
-          )
-        {
-            if ( defined $options->{error_callback} ) {
-                $options->{error_callback}->( __('Operation cancelled') );
-            }
+      )
+    {
+        if ( defined $options->{error_callback} ) {
+            $options->{error_callback}->( __('Operation cancelled') );
         }
-        default {
-            if ( defined $options->{error_callback} ) {
-                $options->{error_callback}->(
-                    __('Unknown message: ') . substr $line,
-                    0, index $line, "\n"
-                );
-            }
+    }
+    else {
+        if ( defined $options->{error_callback} ) {
+            $options->{error_callback}->(
+                __('Unknown message: ') . substr $line,
+                0, index $line, "\n"
+            );
         }
     }
     return;
@@ -423,68 +418,66 @@ sub _scanadf {
         started_callback => $options{started_callback},
         err_callback     => sub {
             my ($line) = @_;
-            given ($line) {
-                when ($mess_warmingup) {
-                    if ( defined $options{running_callback} ) {
-                        $options{running_callback}
-                          ->( 0, __('Scanner warming up') );
-                    }
+            if ( $line =~ $mess_warmingup ) {
+                if ( defined $options{running_callback} ) {
+                    $options{running_callback}
+                      ->( 0, __('Scanner warming up') );
                 }
-                when (/^Scanned[ ]document[ ]out(\d*)[.]pnm/xsm) {
-                    $id = $1;
+            }
+            elsif ( $line =~ /^Scanned[ ]document[ ]out(\d*)[.]pnm/xsm ) {
+                $id = $1;
 
-                    # Timer will run until callback returns false
-                    my $timer = Glib::Timeout->add(
-                        $_POLL_INTERVAL,
-                        sub {
-                            my $path =
-                              defined( $options{dir} )
-                              ? File::Spec->catfile( $options{dir},
-                                "out$id.pnm" )
-                              : "out$id.pnm";
-                            if ( not -e $path ) {
-                                return Glib::SOURCE_CONTINUE;
-                            }
-                            if ( defined $options{new_page_callback} ) {
-                                $options{new_page_callback}->( $path, $id );
-                            }
-                            return Glib::SOURCE_REMOVE;
+                # Timer will run until callback returns false
+                my $timer = Glib::Timeout->add(
+                    $_POLL_INTERVAL,
+                    sub {
+                        my $path =
+                          defined( $options{dir} )
+                          ? File::Spec->catfile( $options{dir},
+                            "out$id.pnm" )
+                          : "out$id.pnm";
+                        if ( not -e $path ) {
+                            return Glib::SOURCE_CONTINUE;
                         }
-                    );
-
-       # Prevent the Glib::Timeout from checking the size of the file when it is
-       # about to be renamed
-                    undef $size;
-
-                }
-                when (/^Scanned[ ]\d*[ ]pages/xsm) {
-                    ;
-                }
-                when (/^$options{frontend}:[ ]rounded/xsm) {
-                    $logger->info( substr $line, 0, index( $line, "\n" ) + 1 );
-                }
-                when (/^$options{frontend}:[ ]sane_start:[ ]Device[ ]busy/xsm) {
-                    if ( defined $options{error_callback} ) {
-                        $options{error_callback}->( __('Device busy') );
+                        if ( defined $options{new_page_callback} ) {
+                            $options{new_page_callback}->( $path, $id );
+                        }
+                        return Glib::SOURCE_REMOVE;
                     }
-                    $running = FALSE;
+                );
+
+   # Prevent the Glib::Timeout from checking the size of the file when it is
+   # about to be renamed
+                undef $size;
+
+            }
+            elsif ( $line =~ /^Scanned[ ]\d*[ ]pages/xsm ) {
+                ;
+            }
+            elsif ( $line =~ /^$options{frontend}:[ ]rounded/xsm ) {
+                $logger->info( substr $line, 0, index( $line, "\n" ) + 1 );
+            }
+            elsif ( $line =~ /^$options{frontend}:[ ]sane_start:[ ]Device[ ]busy/xsm ) {
+                if ( defined $options{error_callback} ) {
+                    $options{error_callback}->( __('Device busy') );
                 }
-                when (
+                $running = FALSE;
+            }
+            elsif ( $line =~
 /^$options{frontend}:[ ]sane_read:[ ]Operation[ ]was[ ]cancelled/xsm
-                  )
-                {
-                    if ( defined $options{error_callback} ) {
-                        $options{error_callback}->( __('Operation cancelled') );
-                    }
-                    $running = FALSE;
+              )
+            {
+                if ( defined $options{error_callback} ) {
+                    $options{error_callback}->( __('Operation cancelled') );
                 }
-                default {
-                    if ( defined $options{error_callback} ) {
-                        $options{error_callback}->(
-                            __('Unknown message: ') . substr $line,
-                            0, index $line, "\n"
-                        );
-                    }
+                $running = FALSE;
+            }
+            else {
+                if ( defined $options{error_callback} ) {
+                    $options{error_callback}->(
+                        __('Unknown message: ') . substr $line,
+                        0, index $line, "\n"
+                    );
                 }
             }
         },

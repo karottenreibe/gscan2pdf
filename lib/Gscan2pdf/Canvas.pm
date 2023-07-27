@@ -2,8 +2,6 @@ package Gscan2pdf::Canvas;
 
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use GooCanvas2;
 use Gscan2pdf::Canvas::Bbox;
 use Gscan2pdf::Canvas::ListIter;
@@ -149,31 +147,29 @@ sub SET_PROPERTY {
     if (   ( defined $newval and defined $oldval and $newval ne $oldval )
         or ( defined $newval xor defined $oldval ) )
     {
-        given ($name) {
-            when ('offset') {
-                if (   ( defined $newval xor defined $oldval )
-                    or $oldval->{x} != $newval->{x}
-                    or $oldval->{y} != $newval->{y} )
-                {
-                    $self->{$name} = $newval;
-                    $self->scroll_to( -$newval->{x}, -$newval->{y} );
-                    $self->signal_emit( 'offset-changed', $newval->{x},
-                        $newval->{y} );
-                }
-            }
-            when ('max_color') {
+        if ( $name eq 'offset' ) {
+            if (   ( defined $newval xor defined $oldval )
+                or $oldval->{x} != $newval->{x}
+                or $oldval->{y} != $newval->{y} )
+            {
                 $self->{$name} = $newval;
-                $self->{max_color_hsv} = string2hsv($newval);
+                $self->scroll_to( -$newval->{x}, -$newval->{y} );
+                $self->signal_emit( 'offset-changed', $newval->{x},
+                    $newval->{y} );
             }
-            when ('min_color') {
-                $self->{$name} = $newval;
-                $self->{min_color_hsv} = string2hsv($newval);
-            }
-            default {
-                $self->{$name} = $newval;
+        }
+        elsif ( $name eq 'max_color' ) {
+            $self->{$name} = $newval;
+            $self->{max_color_hsv} = string2hsv($newval);
+        }
+        elsif ( $name eq 'min_color' ) {
+            $self->{$name} = $newval;
+            $self->{min_color_hsv} = string2hsv($newval);
+        }
+        else {
+            $self->{$name} = $newval;
 
-                #                $self->SUPER::SET_PROPERTY( $pspec, $newval );
-            }
+            #                $self->SUPER::SET_PROPERTY( $pspec, $newval );
         }
     }
     return;

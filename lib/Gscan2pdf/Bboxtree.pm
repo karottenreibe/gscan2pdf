@@ -2,8 +2,6 @@ package Gscan2pdf::Bboxtree;
 
 use strict;
 use warnings;
-use feature 'switch';
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
 use HTML::TokeParser;
 use Encode qw(decode_utf8 encode_utf8);
 use Glib qw(TRUE FALSE);    # To get TRUE and FALSE
@@ -120,101 +118,97 @@ sub _hocr2boxes {
     my $p = HTML::TokeParser->new( \$hocr );
     my ( $data, @stack, $boxes );
     while ( my $token = $p->get_token ) {
-        given ( $token->[0] ) {
-            when ('S') {
-                my ( $tag, %attrs ) = ( $token->[1], %{ $token->[2] } );
+        if ( $token->[0] eq 'S' ) {
+            my ( $tag, %attrs ) = ( $token->[1], %{ $token->[2] } );
 
-                # new data point
-                $data = {};
+            # new data point
+            $data = {};
 
-                if ( defined $attrs{class} and defined $attrs{title} ) {
-                    _parse_tag_data( $attrs{title}, $data );
-                    given ( $attrs{class} ) {
-                        when (/_page$/xsm) {
-                            $data->{type} = 'page';
-                            push @{$boxes}, $data;
-                        }
-                        when (/_carea$/xsm) {
-                            $data->{type} = 'column';
-                        }
-                        when (/_par$/xsm) {
-                            $data->{type} = 'para';
-                        }
-                        when (/_header$/xsm) {
-                            $data->{type} = 'header';
-                        }
-                        when (/_footer$/xsm) {
-                            $data->{type} = 'footer';
-                        }
-                        when (/_caption$/xsm) {
-                            $data->{type} = 'caption';
-                        }
-                        when (/_line$/xsm) {
-                            $data->{type} = 'line';
-                        }
-                        when (/_word$/xsm) {
-                            $data->{type} = 'word';
-                        }
-                    }
-
-                    # pick up previous pointer to add style
-                    if ( not defined $data->{type} ) {
-                        $data = $stack[-1];
-                    }
-
-                    # put information xocr_word information in parent ocr_word
-                    if (    $data->{type} eq 'word'
-                        and $stack[-1]{type} eq 'word' )
-                    {
-                        for ( keys %{$data} ) {
-                            if ( not defined $stack[-1]{$_} ) {
-                                $stack[-1]{$_} = $data->{$_};
-                            }
-                        }
-
-                        # pick up previous pointer to add any later text
-                        $data = $stack[-1];
-                    }
-                    else {
-                        if ( defined $attrs{id} ) {
-                            $data->{id} = $attrs{id};
-                        }
-
-                        # if we have previous data, add the new data to the
-                        # contents of the previous data point
-                        if (    defined $stack[-1]
-                            and $data != $stack[-1]
-                            and defined $data->{bbox} )
-                        {
-                            push @{ $stack[-1]{contents} }, $data;
-                        }
-                    }
+            if ( defined $attrs{class} and defined $attrs{title} ) {
+                _parse_tag_data( $attrs{title}, $data );
+                if ( $attrs{class} =~ /_page$/xsm ) {
+                    $data->{type} = 'page';
+                    push @{$boxes}, $data;
+                }
+                elsif ( $attrs{class} =~ /_carea$/xsm ) {
+                    $data->{type} = 'column';
+                }
+                elsif ( $attrs{class} =~ /_par$/xsm ) {
+                    $data->{type} = 'para';
+                }
+                elsif ( $attrs{class} =~ /_header$/xsm ) {
+                    $data->{type} = 'header';
+                }
+                elsif ( $attrs{class} =~ /_footer$/xsm ) {
+                    $data->{type} = 'footer';
+                }
+                elsif ( $attrs{class} =~ /_caption$/xsm ) {
+                    $data->{type} = 'caption';
+                }
+                elsif ( $attrs{class} =~ /_line$/xsm ) {
+                    $data->{type} = 'line';
+                }
+                elsif ( $attrs{class} =~ /_word$/xsm ) {
+                    $data->{type} = 'word';
                 }
 
-                # pick up previous pointer
-                # so that unknown tags don't break the chain
-                else {
+                # pick up previous pointer to add style
+                if ( not defined $data->{type} ) {
                     $data = $stack[-1];
                 }
-                if ( defined $data ) {
-                    if ( $tag eq 'strong' ) { push @{ $data->{style} }, 'Bold' }
-                    if ( $tag eq 'em' ) { push @{ $data->{style} }, 'Italic' }
-                }
 
-                # put the new data point on the stack
-                push @stack, $data;
-            }
-            when ('T') {
-                if ( $token->[1] !~ /^\s*$/xsm ) {
-                    $data->{text} = _decode_hocr( $token->[1] );
-                    chomp $data->{text};
+                # put information xocr_word information in parent ocr_word
+                if (    $data->{type} eq 'word'
+                    and $stack[-1]{type} eq 'word' )
+                {
+                    for ( keys %{$data} ) {
+                        if ( not defined $stack[-1]{$_} ) {
+                            $stack[-1]{$_} = $data->{$_};
+                        }
+                    }
+
+                    # pick up previous pointer to add any later text
+                    $data = $stack[-1];
+                }
+                else {
+                    if ( defined $attrs{id} ) {
+                        $data->{id} = $attrs{id};
+                    }
+
+                    # if we have previous data, add the new data to the
+                    # contents of the previous data point
+                    if (    defined $stack[-1]
+                        and $data != $stack[-1]
+                        and defined $data->{bbox} )
+                    {
+                        push @{ $stack[-1]{contents} }, $data;
+                    }
                 }
             }
-            when ('E') {
 
-                # up a level
-                $data = pop @stack;
+            # pick up previous pointer
+            # so that unknown tags don't break the chain
+            else {
+                $data = $stack[-1];
             }
+            if ( defined $data ) {
+                if ( $tag eq 'strong' ) { push @{ $data->{style} }, 'Bold' }
+                if ( $tag eq 'em' ) { push @{ $data->{style} }, 'Italic' }
+            }
+
+            # put the new data point on the stack
+            push @stack, $data;
+        }
+        elsif ( $token->[0] eq 'T' ) {
+            if ( $token->[1] !~ /^\s*$/xsm ) {
+                $data->{text} = _decode_hocr( $token->[1] );
+                chomp $data->{text};
+            }
+        }
+        elsif ( $token->[0] eq 'E') {
+
+            # up a level
+            $data = pop @stack;
         }
 
     }
@@ -442,64 +436,62 @@ sub _pdftotext2boxes {
     my ( $data, @stack, $boxes );
     my $offset = 0;
     while ( my $token = $p->get_token ) {
-        given ( $token->[0] ) {
-            when ('S') {
-                my ( $tag, %attrs ) = ( $token->[1], %{ $token->[2] } );
+        if ( $token->[0] eq 'S' ) {
+            my ( $tag, %attrs ) = ( $token->[1], %{ $token->[2] } );
 
-                # new data point
-                $data = {};
+            # new data point
+            $data = {};
 
-                if ( $tag eq 'page' ) {
-                    $data->{type} = $tag;
-                    if ( defined $attrs{width} and defined $attrs{height} ) {
-                        my $width  = scale( $attrs{width},  $xresolution );
-                        my $height = scale( $attrs{height}, $yresolution );
-                        if ( $width == 2 * $imagew && $height == $imageh ) {
-                            $offset = $imagew;
-                        }
-                        $data->{bbox} = [ 0, 0, $width - $offset, $height ];
+            if ( $tag eq 'page' ) {
+                $data->{type} = $tag;
+                if ( defined $attrs{width} and defined $attrs{height} ) {
+                    my $width  = scale( $attrs{width},  $xresolution );
+                    my $height = scale( $attrs{height}, $yresolution );
+                    if ( $width == 2 * $imagew && $height == $imageh ) {
+                        $offset = $imagew;
                     }
-                    push @{$boxes}, $data;
+                    $data->{bbox} = [ 0, 0, $width - $offset, $height ];
                 }
-                elsif ( $tag eq 'word' ) {
-                    $data->{type} = $tag;
-                    if (    defined $attrs{xmin}
-                        and defined $attrs{ymin}
-                        and defined $attrs{xmax}
-                        and defined $attrs{ymax} )
-                    {
-                        $data->{bbox} = [
-                            scale( $attrs{xmin}, $xresolution ) - $offset,
-                            scale( $attrs{ymin}, $yresolution ),
-                            scale( $attrs{xmax}, $xresolution ) - $offset,
-                            scale( $attrs{ymax}, $yresolution )
-                        ];
-                    }
-                }
-
-                # if we have previous data, add the new data to the
-                # contents of the previous data point
-                if (    defined $stack[-1]
-                    and $data != $stack[-1]
-                    and defined $data->{bbox} )
+                push @{$boxes}, $data;
+            }
+            elsif ( $tag eq 'word' ) {
+                $data->{type} = $tag;
+                if (    defined $attrs{xmin}
+                    and defined $attrs{ymin}
+                    and defined $attrs{xmax}
+                    and defined $attrs{ymax} )
                 {
-                    push @{ $stack[-1]{contents} }, $data;
-                }
-
-                # put the new data point on the stack
-                if ( defined $data->{bbox} ) { push @stack, $data }
-            }
-            when ('T') {
-                if ( $token->[1] !~ /^\s*$/xsm ) {
-                    $data->{text} = _decode_hocr( $token->[1] );
-                    chomp $data->{text};
+                    $data->{bbox} = [
+                        scale( $attrs{xmin}, $xresolution ) - $offset,
+                        scale( $attrs{ymin}, $yresolution ),
+                        scale( $attrs{xmax}, $xresolution ) - $offset,
+                        scale( $attrs{ymax}, $yresolution )
+                    ];
                 }
             }
-            when ('E') {
 
-                # up a level
-                $data = pop @stack;
+            # if we have previous data, add the new data to the
+            # contents of the previous data point
+            if (    defined $stack[-1]
+                and $data != $stack[-1]
+                and defined $data->{bbox} )
+            {
+                push @{ $stack[-1]{contents} }, $data;
             }
+
+            # put the new data point on the stack
+            if ( defined $data->{bbox} ) { push @stack, $data }
+        }
+        elsif ( $token->[0] eq 'T' ) {
+            if ( $token->[1] !~ /^\s*$/xsm ) {
+                $data->{text} = _decode_hocr( $token->[1] );
+                chomp $data->{text};
+            }
+        }
+        elsif ( $token->[0] eq 'E' ) {
+
+            # up a level
+            $data = pop @stack;
         }
 
     }
@@ -583,18 +575,16 @@ sub _bbox_to_hocr {
     my ( $x1, $y1, $x2, $y2 ) = @{ $bbox->{bbox} };
     my $type = 'ocr_' . $bbox->{type};
     my $tag  = 'span';
-    given ( $bbox->{type} ) {
-        when ('page') {
-            $tag = 'div';
-        }
-        when (/^(?:carea|column)$/xsm) {
-            $type = 'ocr_carea';
-            $tag  = 'div';
-        }
-        when ('para') {
-            $type = 'ocr_par';
-            $tag  = 'p';
-        }
+    if ( $bbox->{type} eq 'page' ) {
+        $tag = 'div';
+    }
+    elsif ( $bbox->{type} =~ /^(?:carea|column)$/xsm ) {
+        $type = 'ocr_carea';
+        $tag  = 'div';
+    }
+    elsif ( $bbox->{type} eq 'para' ) {
+        $type = 'ocr_par';
+        $tag  = 'p';
     }
     $string .= $SPACE x ( 2 + $bbox->{depth} ) . "<$tag class='$type'";
     if ( defined $bbox->{id} ) { $string .= " id='$bbox->{id}'" }

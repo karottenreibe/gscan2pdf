@@ -2,8 +2,6 @@ package Gscan2pdf::Scanner::Profile;
 
 use strict;
 use warnings;
-no if $] >= 5.018, warnings => 'experimental::smartmatch';
-use feature 'switch';
 use Carp;
 use Glib qw(TRUE FALSE);    # To get TRUE and FALSE
 use Image::Sane ':all';     # For enums
@@ -184,32 +182,30 @@ sub map_from_cli {
     my $iter   = $self->each_backend_option;
     while ( my $i = $iter->() ) {
         my ( $name, $val ) = $self->get_backend_option_by_index($i);
-        given ($name) {
-            when ('l') {
-                $new->add_backend_option( SANE_NAME_SCAN_TL_X, $val );
+        if ( $name eq 'l' ) {
+            $new->add_backend_option( SANE_NAME_SCAN_TL_X, $val );
+        }
+        elsif ( $name eq 't' ) {
+            $new->add_backend_option( SANE_NAME_SCAN_TL_Y, $val );
+        }
+        elsif ( $name eq 'x' ) {
+            my $l = $self->get_option_by_name('l');
+            if ( not defined $l ) {
+                $l = $self->get_option_by_name(SANE_NAME_SCAN_TL_X);
             }
-            when ('t') {
-                $new->add_backend_option( SANE_NAME_SCAN_TL_Y, $val );
+            if ( defined $l ) { $val += $l }
+            $new->add_backend_option( SANE_NAME_SCAN_BR_X, $val );
+        }
+        elsif ( $name eq 'y' ) {
+            my $t = $self->get_option_by_name('t');
+            if ( not defined $t ) {
+                $t = $self->get_option_by_name(SANE_NAME_SCAN_TL_Y);
             }
-            when ('x') {
-                my $l = $self->get_option_by_name('l');
-                if ( not defined $l ) {
-                    $l = $self->get_option_by_name(SANE_NAME_SCAN_TL_X);
-                }
-                if ( defined $l ) { $val += $l }
-                $new->add_backend_option( SANE_NAME_SCAN_BR_X, $val );
-            }
-            when ('y') {
-                my $t = $self->get_option_by_name('t');
-                if ( not defined $t ) {
-                    $t = $self->get_option_by_name(SANE_NAME_SCAN_TL_Y);
-                }
-                if ( defined $t ) { $val += $t }
-                $new->add_backend_option( SANE_NAME_SCAN_BR_Y, $val );
-            }
-            default {
-                $new->add_backend_option( $name, $val );
-            }
+            if ( defined $t ) { $val += $t }
+            $new->add_backend_option( SANE_NAME_SCAN_BR_Y, $val );
+        }
+        else {
+            $new->add_backend_option( $name, $val );
         }
     }
     if ( defined $self->{data}{frontend} ) {
@@ -226,40 +222,38 @@ sub map_to_cli {
     my $iter = $self->each_backend_option;
     while ( my $i = $iter->() ) {
         my ( $name, $val ) = $self->get_backend_option_by_index($i);
-        given ($name) {
-            when (SANE_NAME_SCAN_TL_X) {
-                $new->add_backend_option( 'l', $val );
+        if ( $name eq SANE_NAME_SCAN_TL_X ) {
+            $new->add_backend_option( 'l', $val );
+        }
+        elsif ( $name eq SANE_NAME_SCAN_TL_Y ) {
+            $new->add_backend_option( 't', $val );
+        }
+        elsif ( $name eq SANE_NAME_SCAN_BR_X ) {
+            my $l = $self->get_option_by_name('l');
+            if ( not defined $l ) {
+                $l = $self->get_option_by_name(SANE_NAME_SCAN_TL_X);
             }
-            when (SANE_NAME_SCAN_TL_Y) {
-                $new->add_backend_option( 't', $val );
+            if ( defined $l ) { $val -= $l }
+            $new->add_backend_option( 'x', $val );
+        }
+        elsif ( $name eq SANE_NAME_SCAN_BR_Y ) {
+            my $t = $self->get_option_by_name('t');
+            if ( not defined $t ) {
+                $t = $self->get_option_by_name(SANE_NAME_SCAN_TL_Y);
             }
-            when (SANE_NAME_SCAN_BR_X) {
-                my $l = $self->get_option_by_name('l');
-                if ( not defined $l ) {
-                    $l = $self->get_option_by_name(SANE_NAME_SCAN_TL_X);
+            if ( defined $t ) { $val -= $t }
+            $new->add_backend_option( 'y', $val );
+        }
+        else {
+            if ( defined $options ) {
+                my $opt = $options->by_name($name);
+                if ( defined( $opt->{type} )
+                    and $opt->{type} == SANE_TYPE_BOOL )
+                {
+                    $val = $val ? 'yes' : 'no';
                 }
-                if ( defined $l ) { $val -= $l }
-                $new->add_backend_option( 'x', $val );
             }
-            when (SANE_NAME_SCAN_BR_Y) {
-                my $t = $self->get_option_by_name('t');
-                if ( not defined $t ) {
-                    $t = $self->get_option_by_name(SANE_NAME_SCAN_TL_Y);
-                }
-                if ( defined $t ) { $val -= $t }
-                $new->add_backend_option( 'y', $val );
-            }
-            default {
-                if ( defined $options ) {
-                    my $opt = $options->by_name($name);
-                    if ( defined( $opt->{type} )
-                        and $opt->{type} == SANE_TYPE_BOOL )
-                    {
-                        $val = $val ? 'yes' : 'no';
-                    }
-                }
-                $new->add_backend_option( $name, $val );
-            }
+            $new->add_backend_option( $name, $val );
         }
     }
     if ( defined $self->{data}{frontend} ) {
@@ -291,8 +285,8 @@ sub _synonyms {
         [ scalar(SANE_NAME_SCAN_BR_Y),   'y' ],
     );
     for my $synonym (@synonyms) {
-        given ($name) {
-            when ( @{$synonym} ) {
+        for my $variant (@{$synonym}) {
+            if ( $name eq $variant ) {
                 return $synonym;
             }
         }
