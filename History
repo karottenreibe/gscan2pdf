@@ -1,4 +1,4 @@
-2.13.3 (16.02.2023):
+2.13.3 (09.06.2024):
 
 * Skip options (spotted in a Brother device) where min>max.
 * Remove given and when keywords and ~~ operator to fix given is deprecated
