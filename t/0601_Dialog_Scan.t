@@ -18,6 +18,7 @@ Gscan2pdf::Translation::set_domain('gscan2pdf');
 use Log::Log4perl qw(:easy);
 Log::Log4perl->easy_init($WARN);
 my $logger = Log::Log4perl::get_logger;
+Gscan2pdf::Document->setup($logger);
 
 ok(
     my $dialog = Gscan2pdf::Dialog::Scan->new(
@@ -55,7 +56,6 @@ is $dialog->get('num-pages'), 2,
   'with no source, num-pages not affected by allow-batch-flatbed';
 ok $dialog->{framen}->is_sensitive, 'with no source, num-page gui not ghosted';
 
-Gscan2pdf::Document->setup($logger);
 my $slist = Gscan2pdf::Document->new;
 $dialog = Gscan2pdf::Dialog::Scan->new(
     title           => 'title',

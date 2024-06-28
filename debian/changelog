@@ -1,3 +1,11 @@
+gscan2pdf (2.13.3-1) unstable; urgency=medium
+
+  * New upstream release
+    Closes: #1073489:
+    FTBFS: ok 39 - current-scan-options unchanged if invalid option requested
+
+ -- Jeffrey Ratcliffe <jjr@debian.org>  Fri, 28 Jun 2024 20:20:33 +0200
+
 gscan2pdf (2.13.2-1) unstable; urgency=medium
 
   * New upstream release

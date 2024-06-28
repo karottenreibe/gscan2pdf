@@ -4,6 +4,7 @@
 * Remove given and when keywords and ~~ operator to fix given is deprecated
   Closes bug #421 (Perl 5.38.0 deprecated given and when keywords)
   Thanks to Petr Písař for the patch.
+* Fix GLib-GObject-CRITICAL error in t/0601
 * Update to Hungarian translation (thanks to csola)
 
 
