@@ -122,10 +122,12 @@ BEGIN {
     );
 }
 
+# decimals written as fractions to avoid bug #429
+# https://sourceforge.net/p/gscan2pdf/bugs/429/
 use Readonly;
-Readonly my $HALF                    => 0.5;
-Readonly my $UNIT_SLIDER_STEP        => 0.001;
-Readonly my $SIGMA_STEP              => 0.1;
+Readonly my $HALF                    => 1/2;
+Readonly my $UNIT_SLIDER_STEP        => 1/1000;
+Readonly my $SIGMA_STEP              => 1/10;
 Readonly my $MAX_SIGMA               => 5;
 Readonly my $_90_DEGREES             => 90;
 Readonly my $_180_DEGREES            => 180;
@@ -149,7 +151,7 @@ Readonly my $HELP_WINDOW_DIVIDER_POS => 200;
 Readonly my $_1KB                    => 1024;
 Readonly my $_1MB                    => $_1KB * $_1KB;
 Readonly my $_100_000MB              => 100_000;
-Readonly my $ZOOM_CONTEXT_FACTOR     => 0.5;
+Readonly my $ZOOM_CONTEXT_FACTOR     => 1/2;
 
 Glib::set_application_name('gscan2pdf');
 

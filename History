@@ -1,10 +1,12 @@
-2.13.3 (09.06.2024):
+2.13.3 (28.06.2024):
 
 * Skip options (spotted in a Brother device) where min>max.
 * Remove given and when keywords and ~~ operator to fix given is deprecated
   Closes bug #421 (Perl 5.38.0 deprecated given and when keywords)
   Thanks to Petr Písař for the patch.
 * Fix GLib-GObject-CRITICAL error in t/0601
+* Workaround for locale bug caused by GTK.
+  Closes bug #429 (settings dialog not appearing except LC_ALL=C)
 * Update to Hungarian translation (thanks to csola)
 
 
