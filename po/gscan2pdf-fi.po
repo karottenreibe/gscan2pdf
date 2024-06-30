@@ -7,1424 +7,1511 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gscan2pdf\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-20 16:30+0100\n"
-"PO-Revision-Date: 2014-01-17 18:54+0000\n"
-"Last-Translator: tjamob <Unknown>\n"
+"POT-Creation-Date: 2023-01-17 18:30+0100\n"
+"PO-Revision-Date: 2023-03-14 10:15+0000\n"
+"Last-Translator: Kimmo Kujansuu <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-02 12:44+0000\n"
-"X-Generator: Launchpad (build 17908)\n"
+"X-Launchpad-Export-Date: 2024-06-28 17:52+0000\n"
+"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"Language: fi\n"
 
-#: bin/gscan2pdf:383
+#: bin/gscan2pdf:490 bin/gscan2pdf:819
+msgid "Text layer"
+msgstr "Teksti taso"
+
+#: bin/gscan2pdf:496
+msgid "Go to least confident text"
+msgstr "Siirry"
+
+#: bin/gscan2pdf:503
+msgid "Go to previous text"
+msgstr "Siirry edelliseen tekstiin"
+
+#: bin/gscan2pdf:510
+msgid "Sort by confidence"
+msgstr "Järjestä"
+
+#: bin/gscan2pdf:511
+msgid "Sort OCR text boxes by confidence."
+msgstr "Lajittele OCR-tekstilaatikot luotettavuuden mukaan."
+
+#: bin/gscan2pdf:514
+msgid "Sort by position"
+msgstr "Lajittele sijainnin mukaan"
+
+#: bin/gscan2pdf:515
+msgid "Sort OCR text boxes by position."
+msgstr "Lajittele OCR-tekstilaatikot siijainnin mukaan."
+
+#: bin/gscan2pdf:519
+msgid "Select sort method for OCR boxes"
+msgstr "Valitse OCR-laatikoiden lajittelutapa"
+
+#: bin/gscan2pdf:537
+msgid "Go to next text"
+msgstr "Siirry  seuraavaan tekstiin"
+
+#: bin/gscan2pdf:544
+msgid "Go to most confident text"
+msgstr "Go to most confident text"
+
+#: bin/gscan2pdf:551 bin/gscan2pdf:662
+msgid "Accept corrections"
+msgstr "Accept corrections"
+
+#: bin/gscan2pdf:567 bin/gscan2pdf:677
+msgid "Cancel corrections"
+msgstr "Hylkää korjaukset"
+
+#: bin/gscan2pdf:577
+msgid "Duplicate text"
+msgstr "Kahdenna teksti"
+
+#: bin/gscan2pdf:590
+msgid "Add text"
+msgstr "Lisää teksti"
+
+#: bin/gscan2pdf:596
+msgid "my-new-word"
+msgstr "minun-uusi-sana"
+
+#: bin/gscan2pdf:631
+msgid "Delete text"
+msgstr "Poista teksti"
+
+#: bin/gscan2pdf:656 bin/gscan2pdf:821
+msgid "Annotations"
+msgstr "Huomautukset"
+
+#: bin/gscan2pdf:687
+msgid "Add annotation"
+msgstr "Lisää huomautus"
+
+#: bin/gscan2pdf:692
+msgid "my-new-annotation"
+msgstr "minnu-uusi-huomautus"
+
+#: bin/gscan2pdf:728
+msgid "Delete annotation"
+msgstr "Poista huomautus"
+
+#: bin/gscan2pdf:817
 msgid "Image"
 msgstr "Kuva"
 
-#: bin/gscan2pdf:418
-msgid "OCR Output"
-msgstr ""
-
-#: bin/gscan2pdf:524
+#: bin/gscan2pdf:901
 msgid "Error displaying help"
 msgstr "Virhe näytettäessä ohjetta"
 
-#: bin/gscan2pdf:564 bin/gscan2pdf:586
+#: bin/gscan2pdf:1005 bin/gscan2pdf:1026
 #, perl-format
 msgid "Cannot read file: %s"
-msgstr ""
+msgstr "Eo pysty lukea tiedostoa: %s"
 
-#: bin/gscan2pdf:673
+#: bin/gscan2pdf:1155
+msgid "GraphicsMagick is being used in ImageMagick compatibility mode."
+msgstr "GraphicsMagickia käytetään ImageMagick-yhteensopivuustilassa."
+
+#: bin/gscan2pdf:1158
+msgid "Whilst this might work, it is not currently supported."
+msgstr "Vaikka tämä saattaa toimia, sitä ei tällä hetkellä tueta."
+
+#: bin/gscan2pdf:1160
+msgid "Please switch to ImageMagick in case of problems."
+msgstr "Vaihda ImageMagickiin ongelmatilanteissa."
+
+#: bin/gscan2pdf:1199
+#, perl-format
+msgid ""
+"pdftk is installed, but seems to be missing required dependencies:\n"
+"%s"
+msgstr ""
+"pdftk on asennettu, mutta siltä näyttää puuttuvan vaaditut riippuvuudet:\\n\n"
+"%s"
+
+#: bin/gscan2pdf:1204
+msgid ""
+"pdftk is installed, but cannot access the directory used for temporary files."
+msgstr ""
+"pdftk on asennettu, mutta se ei voi käyttää väliaikaisten tiedostojen "
+"hakemistoa."
+
+#: bin/gscan2pdf:1207
+msgid "One reason for this might be that pdftk was installed via snap."
+msgstr ""
+"Yksi syy tähän saattaa olla se, että pdftk asennettiin snapin kautta."
+
+#: bin/gscan2pdf:1210
+msgid ""
+"In this case, removing pdftk, and reinstalling without using snap would "
+"allow gscan2pdf to use pdftk."
+msgstr ""
+"Tässä tapauksessa pdftk:n poistaminen ja uudelleenasentaminen ilman snapia "
+"antaisi gscan2pdf:lle mahdollisuuden käyttää pdftk:tä."
+
+#: bin/gscan2pdf:1213
+msgid ""
+"Another workaround would be to select a temporary directory under your home "
+"directory in Edit/Preferences."
+msgstr ""
+"Toinen ratkaisu on valita väliaikainen hakemisto kotihakemistosi alta "
+"Muokkaa/Asetukset-kohdassa."
+
+#: bin/gscan2pdf:1233
 msgid "GOCR"
-msgstr ""
+msgstr "GOCR"
 
-#: bin/gscan2pdf:673
+#: bin/gscan2pdf:1233
 msgid "Process image with GOCR."
-msgstr ""
+msgstr "Käsittele kuva GOCR:llä."
 
-#: bin/gscan2pdf:679
+#: bin/gscan2pdf:1237
 msgid "Tesseract"
-msgstr ""
+msgstr "Tesseract"
 
-#: bin/gscan2pdf:680
+#: bin/gscan2pdf:1237
 msgid "Process image with Tesseract."
-msgstr ""
+msgstr "Käsittele kuva Tesseract:lla"
 
-#: bin/gscan2pdf:687
-msgid "Ocropus"
-msgstr ""
-
-#: bin/gscan2pdf:688
-msgid "Process image with Ocropus."
-msgstr ""
-
-#: bin/gscan2pdf:695
+#: bin/gscan2pdf:1242
 msgid "Cuneiform"
-msgstr ""
+msgstr "Cuneiform"
 
-#: bin/gscan2pdf:696
+#: bin/gscan2pdf:1242
 msgid "Process image with Cuneiform."
-msgstr ""
+msgstr "Käsittele kuva Cuneiform:lla."
 
-#: bin/gscan2pdf:719
+#: bin/gscan2pdf:1269
 msgid "_File"
 msgstr "_Tiedosto"
 
-#: bin/gscan2pdf:722
+#: bin/gscan2pdf:1272
 msgid "_New"
 msgstr "_Uusi"
 
-#: bin/gscan2pdf:723
+#: bin/gscan2pdf:1273
 msgid "Clears all pages"
-msgstr ""
+msgstr "Tyhjentää kaikki sivut"
 
-#: bin/gscan2pdf:727
+#: bin/gscan2pdf:1277
 msgid "_Open"
 msgstr "_Avaa"
 
-#: bin/gscan2pdf:728
+#: bin/gscan2pdf:1278
 msgid "Open image file(s)"
 msgstr "Avaa kuvatiedosto(t)"
 
-#: bin/gscan2pdf:732
+#: bin/gscan2pdf:1282
 msgid "Open c_rashed session"
-msgstr ""
+msgstr "Avaa vioittunut  istunto"
 
-#: bin/gscan2pdf:733 bin/gscan2pdf:1824
+#: bin/gscan2pdf:1283 bin/gscan2pdf:2535
 msgid "Open crashed session"
-msgstr ""
+msgstr "Avaa vioittunut  istunto"
 
-#: bin/gscan2pdf:737
+#: bin/gscan2pdf:1287
 msgid "S_can"
 msgstr "S_kannaa"
 
-#: bin/gscan2pdf:738
+#: bin/gscan2pdf:1288
 msgid "Scan document"
 msgstr "Skannaa asiakirja"
 
-#: bin/gscan2pdf:741 bin/gscan2pdf:742 bin/gscan2pdf:2538
+#: bin/gscan2pdf:1291 bin/gscan2pdf:1292 bin/gscan2pdf:2949
 msgid "Save"
 msgstr "Tallenna"
 
-#: bin/gscan2pdf:746
+#: bin/gscan2pdf:1296
 msgid "_Email as PDF"
-msgstr ""
+msgstr "Email PDF:nä"
 
-#: bin/gscan2pdf:747
+#: bin/gscan2pdf:1297
 msgid "Attach as PDF to a new email"
-msgstr ""
+msgstr "Lisää PDF:nä uuteen sähköpostiin"
 
-#: bin/gscan2pdf:751
+#: bin/gscan2pdf:1300
 msgid "_Print"
 msgstr "T_ulosta"
 
-#: bin/gscan2pdf:752
+#: bin/gscan2pdf:1301
 msgid "Print"
 msgstr "Tulosta"
 
-#: bin/gscan2pdf:756
+#: bin/gscan2pdf:1305
 msgid "_Compress temporary files"
-msgstr ""
+msgstr "_Pakkaa väliaikaiset tiedostot"
 
-#: bin/gscan2pdf:757
+#: bin/gscan2pdf:1306
 msgid "Compress temporary files"
-msgstr ""
+msgstr "Pakkaa väliaikaiset tiedostot"
 
-#: bin/gscan2pdf:762
+#: bin/gscan2pdf:1311
 msgid "_Quit"
 msgstr "_Lopeta"
 
-#: bin/gscan2pdf:764
+#: bin/gscan2pdf:1313
 msgid "Quit"
 msgstr "Lopeta"
 
-#: bin/gscan2pdf:771
+#: bin/gscan2pdf:1320
 msgid "_Edit"
 msgstr "M_uokkaa"
 
-#: bin/gscan2pdf:773
+#: bin/gscan2pdf:1321
 msgid "_Undo"
 msgstr "_Kumoa"
 
-#: bin/gscan2pdf:774
+#: bin/gscan2pdf:1321
 msgid "Undo"
 msgstr "Kumoa"
 
-#: bin/gscan2pdf:778
+#: bin/gscan2pdf:1324
 msgid "_Redo"
 msgstr "_Tee uudelleen"
 
-#: bin/gscan2pdf:779
+#: bin/gscan2pdf:1325
 msgid "Redo"
 msgstr "Tee uudelleen"
 
-#: bin/gscan2pdf:783
+#: bin/gscan2pdf:1329
 msgid "Cu_t"
 msgstr "_Leikkaa"
 
-#: bin/gscan2pdf:784
+#: bin/gscan2pdf:1330
 msgid "Cut selection"
 msgstr "Leikkaa valinta"
 
-#: bin/gscan2pdf:788
+#: bin/gscan2pdf:1334
 msgid "_Copy"
 msgstr "_Kopioi"
 
-#: bin/gscan2pdf:789
+#: bin/gscan2pdf:1335
 msgid "Copy selection"
 msgstr "Kopioi valinta"
 
-#: bin/gscan2pdf:793
+#: bin/gscan2pdf:1339
 msgid "_Paste"
 msgstr "L_iitä"
 
-#: bin/gscan2pdf:794
+#: bin/gscan2pdf:1340
 msgid "Paste selection"
 msgstr "Liitä valinta"
 
-#: bin/gscan2pdf:798
+#: bin/gscan2pdf:1344
 msgid "_Delete"
 msgstr "_Poista"
 
-#: bin/gscan2pdf:799
+#: bin/gscan2pdf:1345
 msgid "Delete selected pages"
 msgstr "Poista valitut sivut"
 
-#: bin/gscan2pdf:803
+#: bin/gscan2pdf:1349
 msgid "_Renumber"
 msgstr "_Uudelleen numeroi"
 
-#: bin/gscan2pdf:804
+#: bin/gscan2pdf:1350
 msgid "Renumber pages"
 msgstr "Uudelleen numeroi sivut"
 
-#: bin/gscan2pdf:806 bin/gscan2pdf:971
+#: bin/gscan2pdf:1352 bin/gscan2pdf:1539
 msgid "_Select"
 msgstr "_Valitse"
 
-#: bin/gscan2pdf:809
+#: bin/gscan2pdf:1355
 msgid "_All"
 msgstr "K_aikki"
 
-#: bin/gscan2pdf:810
+#: bin/gscan2pdf:1356
 msgid "Select all pages"
 msgstr "Valitse kaikki sivut"
 
-#: bin/gscan2pdf:813
+#: bin/gscan2pdf:1359
 msgid "_Odd"
 msgstr "Pa_riton"
 
-#: bin/gscan2pdf:814
+#: bin/gscan2pdf:1360
 msgid "Select all odd-numbered pages"
-msgstr ""
+msgstr "Valitse kaikki parittomat sivut"
 
-#: bin/gscan2pdf:818
+#: bin/gscan2pdf:1364
 msgid "_Even"
 msgstr "Paril_linen"
 
-#: bin/gscan2pdf:819
+#: bin/gscan2pdf:1365
 msgid "Select all evenly-numbered pages"
-msgstr ""
+msgstr "Valitse kaikki tasanumeroiset sivut"
 
-#: bin/gscan2pdf:825
+#: bin/gscan2pdf:1370
+msgid "_Invert"
+msgstr "Muunna"
+
+#: bin/gscan2pdf:1371
+msgid "Invert selection"
+msgstr "Muuunna valinta"
+
+#: bin/gscan2pdf:1376
 msgid "_Blank"
 msgstr "Ty_hjä"
 
-#: bin/gscan2pdf:827
+#: bin/gscan2pdf:1378
 msgid "Select pages with low standard deviation"
-msgstr ""
+msgstr "Valitse sivut, joilla on pieni keskihajonta"
 
-#: bin/gscan2pdf:832
+#: bin/gscan2pdf:1383
 msgid "_Dark"
 msgstr "Tu_mma"
 
-#: bin/gscan2pdf:833
+#: bin/gscan2pdf:1384
 msgid "Select dark pages"
 msgstr "Valitse tummat sivut"
 
-#: bin/gscan2pdf:838
+#: bin/gscan2pdf:1389
 msgid "_Modified"
 msgstr "_Muokattu"
 
-#: bin/gscan2pdf:840
+#: bin/gscan2pdf:1391
 msgid "Select modified pages since last OCR"
-msgstr ""
+msgstr "Valitse edellisen OCR:n jälkeen muokatut sivut"
 
-#: bin/gscan2pdf:845
+#: bin/gscan2pdf:1396
 msgid "_No OCR"
-msgstr ""
+msgstr "_Ei OCR"
 
-#: bin/gscan2pdf:846
+#: bin/gscan2pdf:1397
 msgid "Select pages with no OCR output"
-msgstr ""
+msgstr "Valitse sivut, joilla ei ole OCR-tulostusta"
 
-#: bin/gscan2pdf:850
+#: bin/gscan2pdf:1401
 msgid "_Clear OCR"
-msgstr ""
+msgstr "_Tyhjennä OCR"
 
-#: bin/gscan2pdf:851
+#: bin/gscan2pdf:1402
 msgid "Clear OCR output from selected pages"
-msgstr ""
+msgstr "Tyhjennä OCR valituista sivuuista"
 
-#: bin/gscan2pdf:855
+#: bin/gscan2pdf:1406
 msgid "Propert_ies"
 msgstr "Omina_isuudet"
 
-#: bin/gscan2pdf:856
+#: bin/gscan2pdf:1407
 msgid "Edit image properties"
 msgstr "Muokkaa kuvan ominaisuuksia"
 
-#: bin/gscan2pdf:860
+#: bin/gscan2pdf:1411
 msgid "Prefere_nces"
 msgstr "A_setukset"
 
-#: bin/gscan2pdf:861
+#: bin/gscan2pdf:1412
 msgid "Edit preferences"
 msgstr "Muokkaa asetuksia"
 
-#: bin/gscan2pdf:865
+#: bin/gscan2pdf:1416
 msgid "_View"
 msgstr "_Näytä"
 
-#: bin/gscan2pdf:868
+#: bin/gscan2pdf:1419
 msgid "Zoom _100%"
 msgstr "Zoomaus _100%"
 
-#: bin/gscan2pdf:869
+#: bin/gscan2pdf:1420
 msgid "Zoom to 100%"
 msgstr "Sovita 100%"
 
-#: bin/gscan2pdf:873
+#: bin/gscan2pdf:1424
 msgid "Zoom to _fit"
-msgstr ""
+msgstr "Sovita ikkunaan"
 
-#: bin/gscan2pdf:874
+#: bin/gscan2pdf:1425
 msgid "Zoom to fit"
 msgstr "Sovita ikkunaan"
 
-#: bin/gscan2pdf:878
+#: bin/gscan2pdf:1429
 msgid "Zoom _in"
 msgstr "L_ähennä"
 
-#: bin/gscan2pdf:879
+#: bin/gscan2pdf:1430
 msgid "Zoom in"
 msgstr "Lähennä"
 
-#: bin/gscan2pdf:883
+#: bin/gscan2pdf:1434
 msgid "Zoom _out"
 msgstr "L_oitonna"
 
-#: bin/gscan2pdf:884
+#: bin/gscan2pdf:1435
 msgid "Zoom out"
 msgstr "Loitonna"
 
-#: bin/gscan2pdf:889 bin/gscan2pdf:891
+#: bin/gscan2pdf:1440 bin/gscan2pdf:1442
 msgid "Rotate 90° clockwise"
-msgstr "Kierrä 90° myötäpäivään"
+msgstr "Käännä 90 astetta myötäpäivään"
 
-#: bin/gscan2pdf:900 bin/gscan2pdf:902
+#: bin/gscan2pdf:1451 bin/gscan2pdf:1453
 msgid "Rotate 180°"
-msgstr "Kierrä 180°"
+msgstr "Käännä 180 astetta"
 
-#: bin/gscan2pdf:911 bin/gscan2pdf:913
+#: bin/gscan2pdf:1462 bin/gscan2pdf:1464
 msgid "Rotate 90° anticlockwise"
-msgstr "Kierrä 90° vastapäivään"
+msgstr "Käännä 90 astetta vastapäivään"
 
-#: bin/gscan2pdf:921
+#: bin/gscan2pdf:1472
 msgid "_Tools"
 msgstr "_Työkalut"
 
-#: bin/gscan2pdf:923
+#: bin/gscan2pdf:1474
 msgid "_Threshold"
 msgstr "Kynnysarvo"
 
-#: bin/gscan2pdf:924
+#: bin/gscan2pdf:1475
 msgid "Change each pixel above this threshold to black"
-msgstr ""
+msgstr "Muuta jokainen tämän kynnyksen ylittävä pikseli mustaksi"
 
-#: bin/gscan2pdf:928
+#: bin/gscan2pdf:1480
+msgid "_Brightness / Contrast"
+msgstr "Kirkkaus / Kontrasti"
+
+#: bin/gscan2pdf:1481
+msgid "Change brightness & contrast"
+msgstr "Muuta kirkkautta ja kontrastia"
+
+#: bin/gscan2pdf:1484
 msgid "_Negate"
-msgstr ""
+msgstr "Käänteinen"
 
-#: bin/gscan2pdf:929
+#: bin/gscan2pdf:1485
 msgid "Converts black to white and vice versa"
-msgstr ""
+msgstr "Muunna musta valkoiseksi ja päinvastoin"
 
-#: bin/gscan2pdf:933
+#: bin/gscan2pdf:1489
 msgid "_Unsharp Mask"
-msgstr ""
+msgstr "Epäterävä maski"
 
-#: bin/gscan2pdf:934
+#: bin/gscan2pdf:1490
 msgid "Apply an unsharp mask"
-msgstr ""
+msgstr "Hyväksy epäterävä maski"
 
-#: bin/gscan2pdf:937
+#: bin/gscan2pdf:1494 bin/gscan2pdf:1499
 msgid "_Crop"
-msgstr ""
+msgstr "_Rajaa"
 
-#: bin/gscan2pdf:938
+#: bin/gscan2pdf:1495
 msgid "Crop pages"
-msgstr ""
+msgstr "Rajaa sivut"
 
-#: bin/gscan2pdf:942
+#: bin/gscan2pdf:1500
+msgid "Crop selection"
+msgstr "Rajaa valinta"
+
+#: bin/gscan2pdf:1503
 msgid "_Clean up"
-msgstr ""
+msgstr "Puhdista"
 
-#: bin/gscan2pdf:943 bin/gscan2pdf:4254
+#: bin/gscan2pdf:1504 bin/gscan2pdf:4615
 msgid "Clean up scanned images with unpaper"
-msgstr ""
+msgstr "Puhdista skannatut kuvat paperittomalla"
 
-#: bin/gscan2pdf:946
+#: bin/gscan2pdf:1507
+msgid "_Split"
+msgstr "_Käännä"
+
+#: bin/gscan2pdf:1508
+msgid "Split pages horizontally or vertically"
+msgstr "Käännä sivut horisontaalisesti tai vertikaalisesti"
+
+#: bin/gscan2pdf:1512
 msgid "_OCR"
-msgstr ""
+msgstr "_OCR"
 
-#: bin/gscan2pdf:947
+#: bin/gscan2pdf:1513
 msgid "Optical Character Recognition"
-msgstr ""
+msgstr "Optinen hahmon tunnistus"
 
-#: bin/gscan2pdf:949
+#: bin/gscan2pdf:1517
 msgid "U_ser-defined"
-msgstr ""
+msgstr "Käyttäjän määrittelemä"
 
-#: bin/gscan2pdf:952 bin/gscan2pdf:954
+#: bin/gscan2pdf:1518
+msgid "Process images with user-defined tool"
+msgstr "Käsittele kuvia käyttäjän määrittämillä työkaluilla"
+
+#: bin/gscan2pdf:1523 bin/gscan2pdf:1525
 msgid "_Help"
 msgstr "_Ohje"
 
-#: bin/gscan2pdf:955
+#: bin/gscan2pdf:1526
 msgid "Help"
 msgstr "Ohje"
 
-#: bin/gscan2pdf:958 bin/gscan2pdf:959
+#: bin/gscan2pdf:1528
 msgid "_About"
 msgstr "Tietoj_a"
 
-#: bin/gscan2pdf:966
-msgid "_Drag"
-msgstr ""
+#: bin/gscan2pdf:1534
+msgid "_Pan"
+msgstr "_Panoroi"
 
-#: bin/gscan2pdf:967
-msgid "Use the hand tool"
-msgstr ""
+#: bin/gscan2pdf:1535
+msgid "Use the pan tool"
+msgstr "Käytä pnorointia"
 
-#: bin/gscan2pdf:972
+#: bin/gscan2pdf:1540
 msgid "Use the rectangular selection tool"
-msgstr ""
+msgstr "Käytä suorakaiteen muotoista valintatyökalua"
 
-#: bin/gscan2pdf:976
-msgid "_Paint"
-msgstr ""
+#: bin/gscan2pdf:1544
+msgid "_Select & pan"
+msgstr "_Valitse ja panoroi"
 
-#: bin/gscan2pdf:977
-msgid "Use the painter tool"
-msgstr ""
+#: bin/gscan2pdf:1545
+msgid "Use the combined select and pan tool"
+msgstr "Käytä yhdistettyä valinta- ja panorointityökalua"
 
-#: bin/gscan2pdf:1164
+#: bin/gscan2pdf:1550
+msgid "_Tabbed"
+msgstr "_Välilehti"
+
+#: bin/gscan2pdf:1551
+msgid "Arrange image and OCR viewers in tabs"
+msgstr "Järjestä kuva- ja OCR-katseluohjelmat välilehdille"
+
+#: bin/gscan2pdf:1554
+msgid "_Split horizontally"
+msgstr "Järjestä vaakasuoraan"
+
+#: bin/gscan2pdf:1556
+msgid "Arrange image and OCR viewers in horizontally split screen"
+msgstr "Järjestä kuva- ja OCR-katselulaitteet vaakasuoraan jaetulle näytölle"
+
+#: bin/gscan2pdf:1560
+msgid "_Split vertically"
+msgstr "Järjestä pystysuoraan"
+
+#: bin/gscan2pdf:1561
+msgid "Arrange image and OCR viewers in vertically split screen"
+msgstr "Järjestä kuva- ja OCR-katselulaitteet pystysuoraan jaetulle näytölle"
+
+#: bin/gscan2pdf:1568
+msgid "Edit text layer"
+msgstr "Muokkaa tekstikerrosta"
+
+#: bin/gscan2pdf:1569
+msgid "Show editing tools for text layer"
+msgstr "Näytä tekstikerroksen muokkaustyökalut"
+
+#: bin/gscan2pdf:1574
+msgid "Edit annotations"
+msgstr "Muokkaa huomautuksia"
+
+#: bin/gscan2pdf:1576
+msgid "Show editing tools for annotations"
+msgstr "Näytä merkintöjen muokkaustyökalut"
+
+#: bin/gscan2pdf:1783
 msgid "Save image and Save as PDF both require imagemagick\n"
 msgstr ""
+"Kuvan tallentaminen ja Tallenna PDF-muodossa vaativat molemmat "
+"imagemagick:iin\n"
 
-#: bin/gscan2pdf:1169
+#: bin/gscan2pdf:1788
 msgid "Save image requires libtiff\n"
-msgstr ""
+msgstr "Kuvan tallentaminen vaatii libtiff:iin\n"
 
-#: bin/gscan2pdf:1174
+#: bin/gscan2pdf:1793
 msgid "Save as DjVu requires djvulibre-bin\n"
-msgstr ""
+msgstr "Tallenna nimellä, DjVu vaatii djvulibre-bin:n\n"
 
-#: bin/gscan2pdf:1179
+#: bin/gscan2pdf:1798
 msgid "Email as PDF requires xdg-email\n"
-msgstr ""
+msgstr "Sähköposti PDF:nä vaatii  xdg-sähköpostin\n"
 
-#: bin/gscan2pdf:1229
-msgid "The rotating options and unpaper support require perlmagick\n"
+#: bin/gscan2pdf:1831
+msgid ""
+"The rotating, crop, unsharp, split and unpaper tools require perlmagick\n"
 msgstr ""
+"Pyörivät, rajaavat, terävät, halkaisut ja paperittomat työkalut vaativat "
+"perlmagickia\n"
 
-#: bin/gscan2pdf:1235
+# Ei ole hyvää suomea.
+#: bin/gscan2pdf:1836
 msgid "unpaper missing\n"
-msgstr ""
+msgstr "paperiton puuttuu\n"
 
-#: bin/gscan2pdf:1246
-msgid "OCR requires gocr, tesseract, ocropus, or cuneiform\n"
-msgstr ""
+#: bin/gscan2pdf:1848
+msgid "OCR requires gocr, tesseract, or cuneiform\n"
+msgstr "Tekstintunnistus vaatii gocr-, tesserakti- tai nuolenkirjoitus:n\n"
 
-#: bin/gscan2pdf:1251
+#: bin/gscan2pdf:1865
+msgid "PDF encryption requires pdftk\n"
+msgstr "PDF-salaus vaatii pdftk:n\n"
+
+#: bin/gscan2pdf:1870
 msgid "Warning: missing packages"
-msgstr ""
+msgstr "Varoitus: puuttuvia paketteja"
 
-#: bin/gscan2pdf:1407 lib/Gscan2pdf/Document.pm:3609
-msgid "Error copying page"
-msgstr "Virhe kopioitaessa sivua"
-
-#: bin/gscan2pdf:1512
+#: bin/gscan2pdf:2137
 #, perl-format
 msgid ""
 "Warning: unable to use %s for temporary storage. Defaulting to %s instead."
 msgstr ""
+"Varoitus: %s ei voi käyttää väliaikaista tallennusta. Oletuksena sen sijaan "
+"%s."
 
-#: bin/gscan2pdf:1571
+#: bin/gscan2pdf:2184
 msgid "Crashed sessions"
-msgstr ""
+msgstr "Vioittunut istuntoja"
 
-#: bin/gscan2pdf:1580
-msgid ""
-"The following list of sessions cannot be restored. Please retrieve any "
-"images you require from them. Selected sessions will be deleted."
-msgstr ""
+#: bin/gscan2pdf:2192
+msgid "The following list of sessions cannot be restored."
+msgstr "Seuraavaa istuntojen luetteloa ei voi palauttaa."
 
-#: bin/gscan2pdf:1587 bin/gscan2pdf:1612 bin/gscan2pdf:2569
+#: bin/gscan2pdf:2194
+msgid "Please retrieve any images you require from them."
+msgstr "Hae niistä haluamasi kuvat."
+
+#: bin/gscan2pdf:2196
+msgid "Selected sessions will be deleted."
+msgstr "Valittu istunto poistetaan."
+
+#: bin/gscan2pdf:2198 bin/gscan2pdf:2235 lib/Gscan2pdf/Dialog/Save.pm:553
 msgid "Session"
 msgstr "Istunto"
 
-#: bin/gscan2pdf:1603 bin/gscan2pdf:1609
+#: bin/gscan2pdf:2227 bin/gscan2pdf:2232
 msgid "Pick crashed session to restore"
-msgstr ""
+msgstr "Valitse vioittunut istunto palautettavaksi"
 
-#: bin/gscan2pdf:1691
-msgid "Editing text"
-msgstr ""
-
-#: bin/gscan2pdf:1698 bin/gscan2pdf:1704
-msgid "text"
-msgstr "teksti"
-
-#: bin/gscan2pdf:1743
+#: bin/gscan2pdf:2415
 msgid ""
 "Some pages have not been saved.\n"
 "Do you really want to clear all pages?"
 msgstr ""
+"Joitakin sivuja ei ole tallennettu.\\n\n"
+"Haluatko todella tyhjentää kaikki sivut?"
 
-#: bin/gscan2pdf:1858 bin/gscan2pdf:1892
+#: bin/gscan2pdf:2572 bin/gscan2pdf:2604
 #, perl-format
 msgid "Process %i of %i (%s)"
-msgstr ""
+msgstr "Prosessi %i/%i (%s)"
 
-#: bin/gscan2pdf:1899
+#: bin/gscan2pdf:2611
 #, perl-format
 msgid "Process %i of %i"
-msgstr ""
+msgstr "Prosessi  %i tai  %i"
 
-#: bin/gscan2pdf:1930
+#: bin/gscan2pdf:2639
 msgid "Open image"
 msgstr "Avaa kuva"
 
-#: bin/gscan2pdf:1938 bin/gscan2pdf:2978 bin/gscan2pdf:3214
+#: bin/gscan2pdf:2647 bin/gscan2pdf:3178 bin/gscan2pdf:3422
 msgid "Image files"
 msgstr "Kuvatiedostot"
 
-#: bin/gscan2pdf:1974
+#: bin/gscan2pdf:2685
+#, perl-format
+msgid "Enter user password for PDF %s"
+msgstr "Anna käyttäjän salasana PDF:lle %s"
+
+#: bin/gscan2pdf:2745
 msgid "Pages to extract"
-msgstr ""
+msgstr "Poimittavat sivut"
 
-#: bin/gscan2pdf:1983
+#: bin/gscan2pdf:2753
 msgid "First page to extract"
-msgstr ""
+msgstr "Ensimmäinen sivu poimittu"
 
-#: bin/gscan2pdf:1990
+#: bin/gscan2pdf:2760
 msgid "Last page to extract"
+msgstr "Viimeinen sivu poimittu"
+
+#: bin/gscan2pdf:2825
+#, perl-format
+msgid "%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime: %s"
+msgstr "%04d-%02d-%02d %02d:%02d:%02d ei ole kelvollinen päivämääräaika: %s"
+
+# Tähän voisi keksiä paremman
+#: bin/gscan2pdf:2988
+msgid "Post-save hook"
+msgstr "Jälkitallennuskoukku"
+
+#: bin/gscan2pdf:2991
+#, perl-format
+msgid ""
+"Run command on saved file. The available commands are those user-defined "
+"tools that do not specify %o"
 msgstr ""
+"Suorita komento tallennetussa tiedostossa. Käytettävissä olevat komennot "
+"ovat käyttäjän määrittämiä työkaluja, jotka eivät määritä %o:ta"
 
-#: bin/gscan2pdf:2032 lib/Gscan2pdf/Dialog/Renumber.pm:93
-msgid "Page Range"
-msgstr ""
+#: bin/gscan2pdf:3006 bin/gscan2pdf:3007
+msgid "Close dialog on save"
+msgstr "Sulje valintaikkuna tallennuksen yhteydessä"
 
-#: bin/gscan2pdf:2111
-msgid "Document Metadata"
-msgstr ""
-
-#: bin/gscan2pdf:2125
-msgid "Date"
-msgstr "Päivämäärä"
-
-#: bin/gscan2pdf:2134
-msgid "Year-Month-Day"
-msgstr "Vuosi-Kuukausi-Päivä"
-
-#: bin/gscan2pdf:2160
-msgid "Select Date"
-msgstr "Valitse päivämäärä"
-
-#: bin/gscan2pdf:2163 bin/gscan2pdf:2542 bin/gscan2pdf:3532 bin/gscan2pdf:4234
-#: bin/gscan2pdf:4273 bin/gscan2pdf:5169 bin/gscan2pdf:5248 bin/gscan2pdf:5311
-#: bin/gscan2pdf:5524 bin/gscan2pdf:5832 bin/gscan2pdf:6033 bin/gscan2pdf:6535
-#: bin/gscan2pdf:7111 lib/Gscan2pdf/Dialog.pm:61
-#: lib/Gscan2pdf/Dialog/Renumber.pm:90 lib/Gscan2pdf/Dialog/Scan.pm:237
-#: lib/Gscan2pdf/Dialog/Scan.pm:947 t/05_Dialog.t:28
-msgid "vbox"
-msgstr ""
-
-#: bin/gscan2pdf:2193
-msgid "Today"
-msgstr "Tänään"
-
-#: bin/gscan2pdf:2213
-msgid "Select date with calendar"
-msgstr ""
-
-#: bin/gscan2pdf:2222 bin/gscan2pdf:6659
-msgid "Title"
-msgstr "Otsikko"
-
-#: bin/gscan2pdf:2237
-msgid "Author"
-msgstr ""
-
-#: bin/gscan2pdf:2254
-msgid "Subject"
-msgstr "Aihe"
-
-#: bin/gscan2pdf:2272
-msgid "Keywords"
-msgstr "Avainsanat"
-
-#: bin/gscan2pdf:2428
-msgid "JPEG Quality"
-msgstr "JPEG-laatu"
-
-#: bin/gscan2pdf:2442
-msgid "Downsample to"
-msgstr ""
-
-#: bin/gscan2pdf:2447
-msgid "PPI"
-msgstr ""
-
-#: bin/gscan2pdf:2467
-msgid "Automatic"
-msgstr "Automaattinen"
-
-#: bin/gscan2pdf:2468
-msgid "Let gscan2pdf which type of compression to use."
-msgstr ""
-
-#: bin/gscan2pdf:2471 bin/gscan2pdf:2589
-msgid "LZW"
-msgstr ""
-
-#: bin/gscan2pdf:2472 bin/gscan2pdf:2590
-msgid "Compress output with Lempel-Ziv & Welch encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2475 bin/gscan2pdf:2593
-msgid "Zip"
-msgstr ""
-
-#: bin/gscan2pdf:2476 bin/gscan2pdf:2594
-msgid "Compress output with deflate encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2479 bin/gscan2pdf:2603
-msgid "Packbits"
-msgstr ""
-
-#: bin/gscan2pdf:2480 bin/gscan2pdf:2604
-msgid "Compress output with Packbits encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2487 bin/gscan2pdf:2563
-msgid "PNG"
-msgstr "PNG"
-
-#: bin/gscan2pdf:2487
-msgid "Compress output with PNG encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2490 bin/gscan2pdf:2560 bin/gscan2pdf:2599
-msgid "JPEG"
-msgstr "JPEG"
-
-#: bin/gscan2pdf:2491 bin/gscan2pdf:2600
-msgid "Compress output with JPEG encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2494 bin/gscan2pdf:2615
-msgid "None"
-msgstr "Ei mitään"
-
-#: bin/gscan2pdf:2495 bin/gscan2pdf:2616
-msgid "Use no compression algorithm on output."
-msgstr ""
-
-#: bin/gscan2pdf:2502 bin/gscan2pdf:2623
-msgid "Compression"
-msgstr "Pakkaus"
-
-#: bin/gscan2pdf:2550
-msgid "Image type"
-msgstr "Kuvatyyppi"
-
-#: bin/gscan2pdf:2554
-msgid "PDF"
-msgstr "PDF"
-
-#: bin/gscan2pdf:2554
-msgid "Portable Document Format"
-msgstr "Portable Document Format"
-
-#: bin/gscan2pdf:2556
-msgid "GIF"
-msgstr "GIF"
-
-#: bin/gscan2pdf:2557
-msgid "CompuServe graphics interchange format"
-msgstr ""
-
-#: bin/gscan2pdf:2561
-msgid "Joint Photographic Experts Group JFIF format"
-msgstr ""
-
-#: bin/gscan2pdf:2563
-msgid "Portable Network Graphics"
-msgstr "Portable Network Graphics"
-
-#: bin/gscan2pdf:2564
-msgid "PNM"
-msgstr "PNM"
-
-#: bin/gscan2pdf:2564
-msgid "Portable anymap"
-msgstr "Portable anymap"
-
-#: bin/gscan2pdf:2565
-msgid "PS"
-msgstr "PS"
-
-#: bin/gscan2pdf:2565
-msgid "Postscript"
-msgstr "Postscript"
-
-#: bin/gscan2pdf:2566
-msgid "TIFF"
-msgstr "TIFF"
-
-#: bin/gscan2pdf:2566
-msgid "Tagged Image File Format"
-msgstr "Tagged Image File Format"
-
-#: bin/gscan2pdf:2567
-msgid "Text"
-msgstr "Teksti"
-
-#: bin/gscan2pdf:2567
-msgid "Plain text"
-msgstr "Pelkkä teksti"
-
-#: bin/gscan2pdf:2568
-msgid "hOCR"
-msgstr ""
-
-#: bin/gscan2pdf:2568
-msgid "hOCR markup language"
-msgstr ""
-
-#: bin/gscan2pdf:2569
-msgid "gscan2pdf session file"
-msgstr ""
-
-#: bin/gscan2pdf:2574
-msgid "Prepend to PDF"
-msgstr ""
-
-#: bin/gscan2pdf:2575
-msgid "Prepend to an existing PDF"
-msgstr ""
-
-#: bin/gscan2pdf:2579
-msgid "Append to PDF"
-msgstr ""
-
-#: bin/gscan2pdf:2580
-msgid "Append to an existing PDF"
-msgstr ""
-
-#: bin/gscan2pdf:2584
-msgid "DjVu"
-msgstr "DjVu"
-
-#: bin/gscan2pdf:2584
-msgid "Deja Vu"
-msgstr "Deja Vu"
-
-#: bin/gscan2pdf:2607
-msgid "G3"
-msgstr "G3"
-
-#: bin/gscan2pdf:2608
-msgid "Compress output with CCITT Group 3 encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2611
-msgid "G4"
-msgstr "G4"
-
-#: bin/gscan2pdf:2612
-msgid "Compress output with CCITT Group 4 encoding."
-msgstr ""
-
-#: bin/gscan2pdf:2628
-msgid "tiff"
-msgstr "tiff"
-
-#: bin/gscan2pdf:2671
-msgid "Font for non-ASCII text"
-msgstr ""
-
-#: bin/gscan2pdf:2890 bin/gscan2pdf:2907
+#: bin/gscan2pdf:3075 bin/gscan2pdf:3099
 msgid "PDF filename"
 msgstr "PDF tiedostonimi"
 
-#: bin/gscan2pdf:2913
+#: bin/gscan2pdf:3105
 msgid "PDF files"
 msgstr "PDF tiedostot"
 
-#: bin/gscan2pdf:2935
+#: bin/gscan2pdf:3129
 msgid "DjVu filename"
-msgstr ""
+msgstr "DjVu tiedostonimi"
 
-#: bin/gscan2pdf:2950
+#: bin/gscan2pdf:3151
 msgid "DjVu files"
-msgstr ""
+msgstr "DjVu tiedostonimi"
 
-#: bin/gscan2pdf:2971
+#: bin/gscan2pdf:3171
 msgid "TIFF filename"
-msgstr ""
+msgstr "TIFF tiedostonimi"
 
-#: bin/gscan2pdf:2997
+#: bin/gscan2pdf:3197
 msgid "Text filename"
-msgstr ""
+msgstr "Text tiedostonimi"
 
-#: bin/gscan2pdf:3005
+#: bin/gscan2pdf:3205
 msgid "Text files"
-msgstr ""
+msgstr "Teksti tiedostot"
 
-#: bin/gscan2pdf:3022
+#: bin/gscan2pdf:3222
 msgid "hOCR filename"
-msgstr ""
+msgstr "hOCR tiedostonimi"
 
-#: bin/gscan2pdf:3030
+#: bin/gscan2pdf:3230
 msgid "hOCR files"
-msgstr ""
+msgstr "hOCR tiedostot"
 
-#: bin/gscan2pdf:3050
+#: bin/gscan2pdf:3249
 msgid "PS filename"
-msgstr ""
+msgstr "PS tiedostonimi"
 
-#: bin/gscan2pdf:3057
+#: bin/gscan2pdf:3256
 msgid "Postscript files"
-msgstr ""
+msgstr "Postscript tiedostot"
 
-#: bin/gscan2pdf:3075
+#: bin/gscan2pdf:3274
 msgid "gscan2pdf session filename"
-msgstr ""
+msgstr "gscan2pdf istunnon tiedostonimi"
 
-#: bin/gscan2pdf:3082
+#: bin/gscan2pdf:3281
 msgid "gscan2pdf session files"
-msgstr ""
+msgstr "gscan2pdf istunnon tiedostot"
 
-#: bin/gscan2pdf:3127 bin/gscan2pdf:3173
+#: bin/gscan2pdf:3385
+#, perl-format
+msgid "Directory %s is read-only"
+msgstr "Kansio %s on vain luku-oikeus"
+
+#: bin/gscan2pdf:3395
 #, perl-format
 msgid "File %s is read-only"
 msgstr "Tiedosto %s on kirjoitussuojattu"
 
-#: bin/gscan2pdf:3184
-#, perl-format
-msgid ""
-"File %s exists.\n"
-"Really overwrite?"
-msgstr ""
-
-#: bin/gscan2pdf:3207
+#: bin/gscan2pdf:3415
 msgid "Image filename"
-msgstr ""
+msgstr "Kuvan tiedostonimi"
 
-#: bin/gscan2pdf:3486
-msgid ""
-"You seem to be using Gnome or XFCE, but do not have gconftool installed. "
-"Unable to determine email client."
-msgstr ""
+#: bin/gscan2pdf:3442
+#, perl-format
+msgid "This operation would overwrite %s"
+msgstr "Tämä operaati ylikirjoittaa %s:n"
 
-#: bin/gscan2pdf:3503
-msgid ""
-"Unable to determine your desktop enviroment, and therefore your email client."
-msgstr ""
-
-#: bin/gscan2pdf:3528
+#: bin/gscan2pdf:3716
 msgid "Email as PDF"
-msgstr ""
+msgstr "Sähköpostita PDF:nä"
 
-#: bin/gscan2pdf:3620
+#: bin/gscan2pdf:3842
 msgid "Error creating email"
-msgstr ""
+msgstr "Virhe luotaessa sähköpostia"
 
-#: bin/gscan2pdf:3664
+#: bin/gscan2pdf:3880
 msgid "Scan Document"
-msgstr ""
+msgstr "Skannaa dokumentti"
 
-#: bin/gscan2pdf:3720 bin/gscan2pdf:4398 bin/gscan2pdf:4435 bin/gscan2pdf:4767
-#: lib/Gscan2pdf/Dialog/Scan.pm:380 lib/Gscan2pdf/Dialog/Scan.pm:385
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1017 lib/Gscan2pdf/Dialog/Scan/Sane.pm:570
-#: t/0610_Dialog_Scan_Sane.t:38 t/0610_Dialog_Scan_Sane.t:71
-#: t/0621_Dialog_Scan_CLI.t:38 t/0621_Dialog_Scan_CLI.t:96
-msgid "page-number-increment"
-msgstr ""
+#: bin/gscan2pdf:4236
+msgid "Error opening the last device used."
+msgstr "Virhe avattaessa viimeksi käytettyä laitetta."
 
-#: bin/gscan2pdf:3731 bin/gscan2pdf:4395 bin/gscan2pdf:4396 bin/gscan2pdf:4434
-#: bin/gscan2pdf:4766 lib/Gscan2pdf/Dialog/Scan.pm:398
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1016 lib/Gscan2pdf/Dialog/Scan/Sane.pm:569
-#: t/0610_Dialog_Scan_Sane.t:37 t/0621_Dialog_Scan_CLI.t:37
-msgid "page-number-start"
-msgstr ""
+#: bin/gscan2pdf:4239
+msgid "There was an error opening the last device used."
+msgstr "Määriteltyjä asetuksia ei voida käyttää."
 
-#: bin/gscan2pdf:3969 bin/gscan2pdf:6692 lib/Gscan2pdf/Dialog/Scan.pm:679
-#: lib/Gscan2pdf/Dialog/Scan.pm:798 lib/Gscan2pdf/Dialog/Scan.pm:916
-#: lib/Gscan2pdf/Dialog/Scan.pm:939 lib/Gscan2pdf/Dialog/Scan.pm:1629
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:861 lib/Gscan2pdf/Dialog/Scan/CLI.pm:877
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:993 lib/Gscan2pdf/Dialog/Scan/Sane.pm:469
-#: t/0610_Dialog_Scan_Sane.t:40 t/0610_Dialog_Scan_Sane.t:194
-#: t/0610_Dialog_Scan_Sane.t:241 t/0610_Dialog_Scan_Sane.t:248
-#: t/0610_Dialog_Scan_Sane.t:276 t/0612_Dialog_Scan_Sane.t:97
-#: t/0613_Dialog_Scan_Sane.t:49 t/0616_Dialog_Scan_Sane.t:76
-#: t/0617_Dialog_Scan_Sane.t:39 t/0618_Dialog_Scan_Sane.t:39
-#: t/06191_Dialog_Scan_Sane.t:240 t/0621_Dialog_Scan_CLI.t:40
-#: t/0621_Dialog_Scan_CLI.t:224 t/0621_Dialog_Scan_CLI.t:270
-#: t/0621_Dialog_Scan_CLI.t:278 t/0621_Dialog_Scan_CLI.t:301
-#: t/0621_Dialog_Scan_CLI.t:349 t/0621_Dialog_Scan_CLI.t:393
-#: t/0621_Dialog_Scan_CLI.t:449 t/0622_Dialog_Scan_CLI.t:87
-#: t/0623_Dialog_Scan_CLI.t:53 t/0623_Dialog_Scan_CLI.t:95
-#: t/0625_Dialog_Scan_CLI.t:106 t/0625_Dialog_Scan_CLI.t:114
-#: t/0625_Dialog_Scan_CLI.t:122 t/0625_Dialog_Scan_CLI.t:130
-#: t/0626_Dialog_Scan_CLI.t:67 t/0626_Dialog_Scan_CLI.t:80
-#: t/0626_Dialog_Scan_CLI.t:92 t/0626_Dialog_Scan_CLI.t:99
-#: t/0626_Dialog_Scan_CLI.t:106 t/0627_Dialog_Scan_CLI.t:60
-#: t/0628_Dialog_Scan_CLI.t:75 t/0629_Dialog_Scan_CLI.t:166
-msgid "available-scan-options"
-msgstr ""
+#: bin/gscan2pdf:4242
+msgid "Whoops! I forgot to turn it on. Try again now."
+msgstr "Whoops! Määriteltyjä asetuksia ei voida käyttää."
 
-#: bin/gscan2pdf:3995 lib/Gscan2pdf/Dialog/Scan.pm:254
-#: lib/Gscan2pdf/Dialog/Scan.pm:567 t/0610_Dialog_Scan_Sane.t:33
-#: t/0610_Dialog_Scan_Sane.t:405 t/06191_Dialog_Scan_Sane.t:195
-#: t/0621_Dialog_Scan_CLI.t:33 t/0621_Dialog_Scan_CLI.t:47
-#: t/0622_Dialog_Scan_CLI.t:65
-msgid "device-list"
-msgstr ""
+#: bin/gscan2pdf:4245 lib/Gscan2pdf/Dialog/Scan.pm:638
+msgid "Rescan for devices"
+msgstr "Etsi laitteita uudelleen"
 
-#: bin/gscan2pdf:3996 lib/Gscan2pdf/Dialog/Scan/CLI.pm:224
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:226 lib/Gscan2pdf/Dialog/Scan/CLI.pm:227
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:244 lib/Gscan2pdf/Dialog/Scan/CLI.pm:277
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:729 lib/Gscan2pdf/Dialog/Scan/CLI.pm:732
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:734 lib/Gscan2pdf/Dialog/Scan/CLI.pm:763
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:793 lib/Gscan2pdf/Dialog/Scan/CLI.pm:797
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1033 lib/Gscan2pdf/Dialog/Scan/Sane.pm:122
-#: t/0610_Dialog_Scan_Sane.t:32 t/0621_Dialog_Scan_CLI.t:32
-msgid "device"
-msgstr ""
+#: bin/gscan2pdf:4248
+msgid "Restart gscan2pdf."
+msgstr "Uudelleen käynnistä gscan2pdf."
 
-#: bin/gscan2pdf:4019 bin/gscan2pdf:4050
+#: bin/gscan2pdf:4251
+msgid "Just ignore the error. I don't need the scanner yet."
+msgstr "Jätä virhe huomioimatta. En tarvitse skanneria vielä."
+
+#: bin/gscan2pdf:4254 bin/gscan2pdf:7066
+msgid "Cache device list"
+msgstr "Välimuistilaiteluettelo"
+
+#: bin/gscan2pdf:4258 bin/gscan2pdf:7639
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:60
+msgid "Don't show this message again"
+msgstr "Älä näytä tätä viestiä uudestaan"
+
+#: bin/gscan2pdf:4316
+msgid "Finished scanning facing pages. Scan reverse pages?"
+msgstr "Vastakkaisten sivujen skannaus on valmis. Skannaa käänteiset sivut?"
+
+#: bin/gscan2pdf:4321
+msgid "Finished scanning reverse pages. Scan facing pages?"
+msgstr "Käänteisten sivujen skannaus on valmis. Skannaa vastakkaiset sivut?"
+
+#: bin/gscan2pdf:4368 bin/gscan2pdf:4393
 msgid "Rotate"
 msgstr "Kierrä"
 
-#: bin/gscan2pdf:4020 bin/gscan2pdf:4051
+#: bin/gscan2pdf:4369 bin/gscan2pdf:4394
 msgid "Rotate image after scanning"
-msgstr ""
+msgstr "Kierrä kuvaa skannauksen jälkeen"
 
-#: bin/gscan2pdf:4023
+#: bin/gscan2pdf:4372
 msgid "Both sides"
-msgstr ""
+msgstr "Milemmat puolet"
 
-#: bin/gscan2pdf:4023
+#: bin/gscan2pdf:4372
 msgid "Both sides."
-msgstr ""
+msgstr "Molemmat puolet."
 
-#: bin/gscan2pdf:4024
+#: bin/gscan2pdf:4373
 msgid "Facing side"
-msgstr ""
+msgstr "Vastakkainen puoli"
 
-#: bin/gscan2pdf:4024
+#: bin/gscan2pdf:4373
 msgid "Facing side."
-msgstr ""
+msgstr "Vastakkainen puoli."
 
-#: bin/gscan2pdf:4025
+#: bin/gscan2pdf:4374
 msgid "Reverse side"
-msgstr ""
+msgstr "Käänteinen puoli"
 
-#: bin/gscan2pdf:4025
+#: bin/gscan2pdf:4374
 msgid "Reverse side."
-msgstr ""
+msgstr "Käänteinen puoli."
 
-#: bin/gscan2pdf:4028 bin/gscan2pdf:4055
+#: bin/gscan2pdf:4377 bin/gscan2pdf:4398
 msgid "Select side to rotate"
-msgstr ""
+msgstr "Valitse pyöritettävä puoli"
 
-#: bin/gscan2pdf:4032
+#: bin/gscan2pdf:4380
 msgid "90"
 msgstr "90"
 
-#: bin/gscan2pdf:4033
+#: bin/gscan2pdf:4380
 msgid "Rotate image 90 degrees clockwise."
-msgstr ""
+msgstr "Kierrä kuvaa 90 astetta myötäpäivään."
 
-#: bin/gscan2pdf:4036
+#: bin/gscan2pdf:4381
 msgid "180"
 msgstr "180"
 
-#: bin/gscan2pdf:4037
+#: bin/gscan2pdf:4381
 msgid "Rotate image 180 degrees clockwise."
-msgstr ""
+msgstr "Kierrä kuvaa 180 astetta myötäpäivään."
 
-#: bin/gscan2pdf:4040
+#: bin/gscan2pdf:4383
 msgid "270"
 msgstr "270"
 
-#: bin/gscan2pdf:4041
+#: bin/gscan2pdf:4384
 msgid "Rotate image 90 degrees anticlockwise."
-msgstr ""
+msgstr "Kierrä kuvaa 90 astetta vastapäivään."
 
-#: bin/gscan2pdf:4045 bin/gscan2pdf:4058
+#: bin/gscan2pdf:4388 bin/gscan2pdf:4401
 msgid "Select direction of rotation"
-msgstr ""
+msgstr "Valitse pyörimissuunta"
 
-#: bin/gscan2pdf:4135 bin/gscan2pdf:4136
+#: bin/gscan2pdf:4477
+msgid "Process with user-defined tool"
+msgstr "Prosessi käyttäjän määrittelemällä työkalulla"
+
+#: bin/gscan2pdf:4479
+msgid "Process scanned images with user-defined tool"
+msgstr "Käsittele skannatut kuvat käyttäjän määrittämillä työkaluilla"
+
+#: bin/gscan2pdf:4507 bin/gscan2pdf:4508
 msgid "OCR scanned pages"
-msgstr ""
+msgstr "OCR skannatut sivut"
 
-#: bin/gscan2pdf:4150
+#: bin/gscan2pdf:4518
 msgid "Select OCR engine"
-msgstr ""
+msgstr "Valitse OCR moottori"
 
-#: bin/gscan2pdf:4196 bin/gscan2pdf:6078
+# Tresholdin tilalle parempi käännös
+#: bin/gscan2pdf:4566 bin/gscan2pdf:6361
 msgid "Threshold before OCR"
-msgstr ""
+msgstr "Raja-arvo ennen tekstintunnistusta"
 
-#: bin/gscan2pdf:4200 bin/gscan2pdf:6082
+#: bin/gscan2pdf:4569 bin/gscan2pdf:6364
 msgid ""
 "Threshold the image before performing OCR. This only affects the image "
 "passed to the OCR engine, and not the image stored."
 msgstr ""
+"Rajaa kuva ennen tekstintunnistusta. Tämä vaikuttaa vain OCR-moottoriin "
+"välitettyyn kuvaan, ei tallennettuun kuvaan."
 
-#: bin/gscan2pdf:4212 bin/gscan2pdf:5166 bin/gscan2pdf:5177 bin/gscan2pdf:5405
-#: bin/gscan2pdf:6095
-msgid "Threshold"
-msgstr "Raja-arvo"
+#: bin/gscan2pdf:4600
+msgid "Postprocessing"
+msgstr "Jälkikäsittelyä"
 
-#: bin/gscan2pdf:4237
-msgid "Post-processing"
-msgstr "Jälkikäsittely"
-
-#: bin/gscan2pdf:4252
+#: bin/gscan2pdf:4614
 msgid "Clean up images"
-msgstr ""
+msgstr "Puhdista kuva"
 
-#: bin/gscan2pdf:4263
+#: bin/gscan2pdf:4624
 msgid "Options"
 msgstr "Valinnat"
 
-#: bin/gscan2pdf:4264
+#: bin/gscan2pdf:4625
 msgid "Set unpaper options"
-msgstr ""
+msgstr "Aseta paperiton asetukset"
 
-#: bin/gscan2pdf:4270
+#: bin/gscan2pdf:4631
 msgid "unpaper options"
-msgstr ""
+msgstr "Paperiton asetus"
 
-#: bin/gscan2pdf:4437 lib/Gscan2pdf/Dialog/Scan.pm:336
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1015 lib/Gscan2pdf/Dialog/Scan/Sane.pm:568
-#: t/0610_Dialog_Scan_Sane.t:35 t/0621_Dialog_Scan_CLI.t:35
-msgid "num-pages"
-msgstr ""
-
-#: bin/gscan2pdf:4527
-msgid "Unable to load image"
-msgstr "Kuvaa ei voitu ladata"
-
-#: bin/gscan2pdf:4559
-msgid "print-pages"
-msgstr ""
-
-#: bin/gscan2pdf:4563
-msgid "page-ranges"
-msgstr ""
-
-#: bin/gscan2pdf:4669
-#, perl-format
-msgid "Error pasting image - %s"
-msgstr ""
-
-#: bin/gscan2pdf:4947
-msgid "Patches gratefully received from:"
-msgstr ""
-
-#: bin/gscan2pdf:4949
+#: bin/gscan2pdf:5054
 msgid "To aid the scan-to-PDF process"
-msgstr ""
+msgstr "Helpottaa skannausta PDF-tiedostoon"
 
-#: bin/gscan2pdf:4950
-msgid "Copyright 2006--2015 Jeffrey Ratcliffe"
-msgstr ""
+#: bin/gscan2pdf:5055
+msgid "Copyright 2006--2022 Jeffrey Ratcliffe"
+msgstr "Tekijänoikeus 2006--2022 Jeffrey Ratcliffe"
 
-#: bin/gscan2pdf:5245
+#: bin/gscan2pdf:5309 bin/gscan2pdf:5319 bin/gscan2pdf:5578
+msgid "Threshold"
+msgstr "Raja-arvo"
+
+#: bin/gscan2pdf:5388
+msgid "Brightness / Contrast"
+msgstr "Kirkkaus / kontrasti"
+
+#: bin/gscan2pdf:5399
+msgid "Brightness"
+msgstr "Kirkkaus"
+
+#: bin/gscan2pdf:5410
+msgid "Contrast"
+msgstr "Kontrasti"
+
+#: bin/gscan2pdf:5479
 msgid "Negate"
 msgstr "Käänteinen"
 
-#: bin/gscan2pdf:5308
+#: bin/gscan2pdf:5541
 msgid "Unsharp mask"
-msgstr ""
+msgstr "Epäterävä maski"
 
-#: bin/gscan2pdf:5324
+#: bin/gscan2pdf:5555
 msgid "Radius"
 msgstr "Säde"
 
-#: bin/gscan2pdf:5336
-msgid ""
-"The radius of the Gaussian, in pixels, not counting the center pixel (0 = "
-"automatic)."
-msgstr ""
-
-#: bin/gscan2pdf:5345 bin/gscan2pdf:5368 bin/gscan2pdf:5551 bin/gscan2pdf:5571
-#: bin/gscan2pdf:5594 bin/gscan2pdf:5619
+#: bin/gscan2pdf:5557 bin/gscan2pdf:5564 bin/gscan2pdf:5781
 msgid "pixels"
 msgstr "kuvapistettä"
 
-#: bin/gscan2pdf:5351
+#: bin/gscan2pdf:5560
+msgid ""
+"The radius of the Gaussian, in pixels, not counting the center pixel (0 = "
+"automatic)."
+msgstr "Gaussin säde pikseleinä ilman keskipikseliä (0 = automaattinen)."
+
+#: bin/gscan2pdf:5564
 msgid "Sigma"
-msgstr ""
+msgstr "Sigma"
 
-#: bin/gscan2pdf:5361
+#: bin/gscan2pdf:5566
 msgid "The standard deviation of the Gaussian."
-msgstr ""
+msgstr "Gaussin keskihajonta."
 
-#: bin/gscan2pdf:5376
-msgid "Amount"
-msgstr ""
+#: bin/gscan2pdf:5569
+msgid "Gain"
+msgstr "Gain"
 
-#: bin/gscan2pdf:5387
+#: bin/gscan2pdf:5574
 msgid ""
 "The percentage of the difference between the original and the blur image "
 "that is added back into the original."
 msgstr ""
+"Alkuperäisen ja sumennuksen välisen eron prosenttiosuus, joka lisätään "
+"takaisin alkuperäiseen."
 
-#: bin/gscan2pdf:5419
+#: bin/gscan2pdf:5583
 msgid ""
 "The threshold, as a fraction of QuantumRange, needed to apply the difference "
 "amount."
 msgstr ""
+"Kynnys, joka on murto-osa QuantumRangesta, tarvittiin eron soveltamiseen."
 
-#: bin/gscan2pdf:5520
+#: bin/gscan2pdf:5739
 msgid "Crop"
 msgstr "Rajaa"
 
-#: bin/gscan2pdf:5537
+#: bin/gscan2pdf:5753
 msgid "x"
 msgstr "×"
 
-#: bin/gscan2pdf:5544
+#: bin/gscan2pdf:5755
 msgid "The x-position of the left hand edge of the crop."
-msgstr ""
+msgstr "Rajauksen vasemman reunan x-asento."
 
-#: bin/gscan2pdf:5557
+#: bin/gscan2pdf:5758
 msgid "y"
 msgstr "y"
 
-#: bin/gscan2pdf:5564
+#: bin/gscan2pdf:5759
 msgid "The y-position of the top edge of the crop."
-msgstr ""
+msgstr "Rajauksen yläreunan y-asento."
 
-#: bin/gscan2pdf:5579 lib/Gscan2pdf/Dialog/Scan.pm:962
+#: bin/gscan2pdf:5761 lib/Gscan2pdf/Dialog/Scan.pm:1749
 msgid "Width"
-msgstr ""
+msgstr "Leveys"
 
-#: bin/gscan2pdf:5587
+#: bin/gscan2pdf:5761
 msgid "The width of the crop."
-msgstr ""
+msgstr "Rajauksen leveys."
 
-#: bin/gscan2pdf:5603 lib/Gscan2pdf/Dialog/Scan.pm:963
+#: bin/gscan2pdf:5762 lib/Gscan2pdf/Dialog/Scan.pm:1750
 msgid "Height"
-msgstr ""
+msgstr "korkeus"
 
-#: bin/gscan2pdf:5612
+#: bin/gscan2pdf:5762
 msgid "The height of the crop."
-msgstr ""
+msgstr "Korkeuden rajaus."
 
-#: bin/gscan2pdf:5743
-msgid "label"
-msgstr ""
+#: bin/gscan2pdf:5917
+msgid "Split"
+msgstr "Jaa"
 
-#: bin/gscan2pdf:5828
+#: bin/gscan2pdf:5927
+msgid "Direction"
+msgstr "Kuvaus"
+
+#: bin/gscan2pdf:5931
+msgid "Vertically"
+msgstr "Pystysuoraan"
+
+#: bin/gscan2pdf:5932
+msgid "Split the page vertically into left and right pages."
+msgstr "Jaa sivu pystysuunnassa vasemmalle ja oikealle sivulle."
+
+#: bin/gscan2pdf:5935
+msgid "Horizontally"
+msgstr "Vaakasuoraan"
+
+#: bin/gscan2pdf:5936
+msgid "Split the page horizontally into top and bottom pages."
+msgstr "Jaa sivu vaakasuunnassa ylä- ja alasivuihin."
+
+#: bin/gscan2pdf:5960
+msgid "Position"
+msgstr "Paikka"
+
+#: bin/gscan2pdf:6076
+msgid "User-defined tools"
+msgstr "Käyttäjän määrittämät työkalut"
+
+#: bin/gscan2pdf:6086
+msgid "Selected tool"
+msgstr "Valintatyökalut"
+
+#: bin/gscan2pdf:6207
 msgid "unpaper"
-msgstr ""
+msgstr "Paperiton"
 
-#: bin/gscan2pdf:5974 bin/gscan2pdf:6003
+#: bin/gscan2pdf:6258 bin/gscan2pdf:6286
 msgid "Language to recognise"
-msgstr ""
+msgstr "Tunnistettava kieli"
 
-#: bin/gscan2pdf:5986
+#: bin/gscan2pdf:6269
 msgid "English"
 msgstr "Englanti"
 
-#: bin/gscan2pdf:6029
+#: bin/gscan2pdf:6312
 msgid "OCR"
 msgstr "Tekstin luku (OCR)"
 
-#: bin/gscan2pdf:6041
+#: bin/gscan2pdf:6323
 msgid "OCR Engine"
-msgstr ""
+msgstr "OCR Engine"
 
-#: bin/gscan2pdf:6113
+#: bin/gscan2pdf:6386
 msgid "Start OCR"
 msgstr "Käynnistä tekstintunnistus"
 
-#: bin/gscan2pdf:6177
+#: bin/gscan2pdf:6478
 msgid ""
 "Some pages have not been saved.\n"
 "Do you really want to quit?"
 msgstr ""
+"Joitakin sivuja ei ole tallennettu.\n"
+"Haluatko todella lopettaa?"
 
-#: bin/gscan2pdf:6233
-#, perl-format
-msgid ""
-"The help viewer requires module Gtk2::Ex::PodViewer\n"
-"Alternatively, try: %s %s\n"
-"\n"
-msgstr ""
-
-#: bin/gscan2pdf:6341
+#: bin/gscan2pdf:6576
 #, perl-format
 msgid "%dMb free in %s."
-msgstr ""
+msgstr "%dMb vapaata  %s."
 
-#: bin/gscan2pdf:6474
+#: bin/gscan2pdf:6712
 msgid "This operation cannot be undone. Are you sure?"
-msgstr ""
+msgstr "Tätä toimintoa ei voi kumota. Oletko varma?"
 
-#: bin/gscan2pdf:6531
+#: bin/gscan2pdf:6769
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: bin/gscan2pdf:6541
+#: bin/gscan2pdf:6786
 msgid "Scan options"
-msgstr ""
+msgstr "Skannausasetukset"
 
-#: bin/gscan2pdf:6546
-msgid "Open scan dialog at program start"
-msgstr ""
+#: bin/gscan2pdf:6796
+msgid "General options"
+msgstr "Yleiset asetukset"
 
-#: bin/gscan2pdf:6550
+#: bin/gscan2pdf:6850
+msgid "Invalid regex. Try without special characters such as '*'"
+msgstr ""
+"Virheellinen säännöllinen lauseke. Kokeile ilman erikoismerkkejä, kuten *"
+
+#: bin/gscan2pdf:6926
+msgid "Changes will only take effect after restarting gscan2pdf."
+msgstr ""
+"Muutokset tulevat voimaan vasta, kun gscan2pdf on käynnistetty uudelleen."
+
+#: bin/gscan2pdf:6929
+msgid "Restart gscan2pdf now?"
+msgstr "Käynnistetäänkö gscan2pdf uudelleen nyt?"
+
+#: bin/gscan2pdf:6949
+msgid "Open scanner at program start"
+msgstr "Open scanner at program start"
+
+#: bin/gscan2pdf:6952
 msgid ""
 "Automatically open the scan dialog in the background at program start. This "
 "saves time clicking the scan button and waiting for the program to find the "
 "list of scanners"
 msgstr ""
+"Avaa skannausikkuna automaattisesti taustalla ohjelman käynnistyessä. Tämä "
+"säästää aikaa, kun napsautat skannauspainiketta ja odotat, että ohjelma "
+"löytää skanneriluettelon"
 
-#: bin/gscan2pdf:6563
+#: bin/gscan2pdf:6965
 msgid "Frontend"
-msgstr ""
+msgstr "Käyttöliittymä"
 
-#: bin/gscan2pdf:6568
-msgid "libsane-perl"
-msgstr ""
+#: bin/gscan2pdf:6970
+msgid "libimage-sane-perl"
+msgstr "libimage-sane-perl"
 
-#: bin/gscan2pdf:6569
-msgid "Scan using the perl bindings for SANE."
-msgstr ""
+#: bin/gscan2pdf:6971
+msgid "Scan using the Perl bindings for SANE."
+msgstr "Skannaa SANE:n Perl-sidoksilla."
 
-#: bin/gscan2pdf:6573
+#: bin/gscan2pdf:6974
 msgid "scanimage"
-msgstr ""
+msgstr "skannauskuva"
 
-#: bin/gscan2pdf:6574
+#: bin/gscan2pdf:6975
 msgid "Scan using the scanimage frontend."
-msgstr ""
+msgstr "Skannaa käyttämällä scanimagin käyttöliittymää."
 
-#: bin/gscan2pdf:6578
-msgid "scanimage-perl"
-msgstr ""
-
-#: bin/gscan2pdf:6579
-msgid "Scan using the scanimage-perl frontend."
-msgstr ""
-
-#: bin/gscan2pdf:6583
-msgid "scanadf-perl"
-msgstr ""
-
-#: bin/gscan2pdf:6584
-msgid "Scan using the scanadf-perl frontend."
-msgstr ""
-
-#: bin/gscan2pdf:6590
+#: bin/gscan2pdf:6980
 msgid "scanadf"
-msgstr ""
+msgstr "scanadf"
 
-#: bin/gscan2pdf:6591
+#: bin/gscan2pdf:6980
 msgid "Scan using the scanadf frontend."
-msgstr ""
+msgstr "Skannaa käyttämällä scanadf-käyttöliittymää."
 
-#: bin/gscan2pdf:6599
-msgid "Device blacklist"
-msgstr ""
-
-#: bin/gscan2pdf:6604
-msgid "Device blacklist (regular expression)"
-msgstr ""
-
-#: bin/gscan2pdf:6613
-msgid "Cycle SANE handle after scan"
-msgstr ""
-
-#: bin/gscan2pdf:6615
+#: bin/gscan2pdf:6983
 msgid "Interface used for scanner access"
-msgstr ""
+msgstr "Käyttöliittymä, jota käytetään skannerin käyttöön"
 
-#: bin/gscan2pdf:6624
+#: bin/gscan2pdf:6989
+msgid "Device blacklist"
+msgstr "Laitteen musta lista"
+
+#: bin/gscan2pdf:6993
+msgid "Device blacklist (regular expression)"
+msgstr "Laitteen musta lista (säännöllinen lauseke)"
+
+#: bin/gscan2pdf:7001
+msgid "Cycle SANE handle after scan"
+msgstr "Kierrä SANE-kahvaa skannauksen jälkeen"
+
+#: bin/gscan2pdf:7003
+msgid "Some ADFs do not feed out the last page if this is not enabled"
+msgstr ""
+"Jotkut automaattiset asiakirjansyöttölaitteet eivät syötä viimeistä sivua, "
+"jos tämä ei ole käytössä"
+
+#: bin/gscan2pdf:7012
+msgid "Allow batch scanning from flatbed"
+msgstr "Salli eräskannaus tasoskannauksesta"
+
+#: bin/gscan2pdf:7015
+msgid ""
+"If not set, switching to a flatbed scanner will force # pages to 1 and "
+"single-sided mode."
+msgstr ""
+"Jos sitä ei ole asetettu, tasoskanneriin vaihtaminen pakottaa # sivua 1- ja "
+"yksipuoliseen tilaan."
+
+#: bin/gscan2pdf:7024
+msgid "Ignore duplex capabilities of scanner"
+msgstr "Ohita skannerin kaksipuolisuusominaisuudet"
+
+#: bin/gscan2pdf:7027
+msgid ""
+"If set, any duplex capabilities are ignored, and facing/reverse widgets are "
+"displayed to allow manual interleaving of pages."
+msgstr ""
+"Jos tämä on asetettu, kaikki kaksipuoliset ominaisuudet jätetään "
+"huomioimatta, ja vastakkaiset/käänteiset widgetit näytetään, jotta sivut "
+"voidaan limittää manuaalisesti."
+
+#: bin/gscan2pdf:7036
+msgid "Force new scan job between pages"
+msgstr "Pakota uusi skannaustyö sivujen välillä"
+
+#: bin/gscan2pdf:7039
+msgid ""
+"Otherwise, some Brother scanners report out of documents, despite scanning "
+"from flatbed."
+msgstr ""
+"Muutoin jotkin Brother-skannerit ilmoittavat, että asiakirjoja ei ole, "
+"vaikka skannataan tasoskannauksesta."
+
+#: bin/gscan2pdf:7055
+msgid "Select # pages = all on selecting ADF"
+msgstr "Valitse # sivua = kaikki valittaessa ADF"
+
+#: bin/gscan2pdf:7058
+msgid ""
+"If this option is enabled, when switching to source=ADF, # pages = all is "
+"selected"
+msgstr ""
+"Jos tämä vaihtoehto on käytössä, lähde=ADF-tilaan vaihdettaessa # sivua = "
+"kaikki on valittuna"
+
+#: bin/gscan2pdf:7069
+msgid ""
+"If this option is enabled, opening the scanner is quicker, as gscan2pdf does "
+"not first search for available devices."
+msgstr ""
+"Jos tämä vaihtoehto on käytössä, skannerin avaaminen on nopeampaa, koska "
+"gscan2pdf ei ensin etsi käytettävissä olevia laitteita."
+
+#: bin/gscan2pdf:7072
+msgid ""
+"This is only effective if the device names do not change between sessions."
+msgstr ""
+"Tämä on tehokasta vain, jos laitteiden nimet eivät muutu istuntojen välillä."
+
+#: bin/gscan2pdf:7081
 msgid "Scan command prefix"
-msgstr ""
+msgstr "Skannaa komennon etuliite"
 
-#: bin/gscan2pdf:6634
+#: bin/gscan2pdf:7091
 msgid "Cache device-dependent options"
-msgstr ""
+msgstr "Välimuistiin laitekohtaiset vaihtoehdot"
 
-#: bin/gscan2pdf:6640
+#: bin/gscan2pdf:7097
 msgid "Clear device-dependent options cache"
-msgstr ""
+msgstr "Tyhjennä laitekohtaisten asetusten välimuisti"
 
-#: bin/gscan2pdf:6650
+#: bin/gscan2pdf:7109
 msgid "Option visibility & control"
-msgstr ""
+msgstr "Vaihtoehtojen näkyvyys ja hallinta"
 
-#: bin/gscan2pdf:6660
+#: bin/gscan2pdf:7118 lib/Gscan2pdf/Dialog/Save.pm:449
+msgid "Title"
+msgstr "Otsikko"
+
+#: bin/gscan2pdf:7119
 msgid "Type"
 msgstr "Tyyppi"
 
-#: bin/gscan2pdf:6661 bin/gscan2pdf:6668
+#: bin/gscan2pdf:7120 bin/gscan2pdf:7127
 msgid "Show"
 msgstr "Näytä"
 
-#: bin/gscan2pdf:6662
+#: bin/gscan2pdf:7121
 msgid "Reload"
 msgstr "Lataa uudelleen"
 
-#: bin/gscan2pdf:6678
+#: bin/gscan2pdf:7137 lib/Gscan2pdf/Dialog/MultipleMessage.pm:56
 msgid "Hide"
 msgstr "Piilota"
 
-#: bin/gscan2pdf:6687
+#: bin/gscan2pdf:7146
 msgid "List current options"
-msgstr ""
+msgstr "Listaa nykyiset vaihtoehdot"
 
-#: bin/gscan2pdf:6707
+#: bin/gscan2pdf:7166
 msgid "No scanner currently open with command line frontend."
 msgstr ""
+"Mikään skanneri ei ole tällä hetkellä auki komentorivin käyttöliittymällä."
 
-#: bin/gscan2pdf:6715
+#: bin/gscan2pdf:7174
 msgid "Show options not listed"
-msgstr ""
+msgstr "Näytä vaihtoehdot, joita ei ole listattu"
 
-#: bin/gscan2pdf:6758
-msgid "General options"
-msgstr "Yleiset asetukset"
-
-#: bin/gscan2pdf:6763
+#: bin/gscan2pdf:7220
 msgid "Restore window settings on startup"
-msgstr ""
+msgstr "Palauta ikkunan asetukset käynnistyksen yhteydessä"
 
-#: bin/gscan2pdf:6769
+#: bin/gscan2pdf:7225
 msgid "View files on saving"
-msgstr ""
+msgstr "Katso tiedostot tallennettaessa"
 
-#: bin/gscan2pdf:6778
+#: bin/gscan2pdf:7232
 msgid "Default PDF & DjVu filename"
-msgstr ""
+msgstr "PDF- ja DjVu-oletustiedostonimi"
 
-#: bin/gscan2pdf:6784
+#: bin/gscan2pdf:7237
 msgid ""
-"%a\t author\n"
-"%t\t title\n"
-"%y\t document's year\n"
-"%Y\t today's year\n"
-"%m\t document's month\n"
-"%M\t today's month\n"
-"%d\t document's day\n"
-"%D\t today's day\n"
-"%h\t document's hour\n"
-"%i\tdocument's minute\n"
-"%s\t document's second"
+"strftime codes, e.g.:\n"
+"%Y\tcurrent year\n"
+"\n"
+"with the following additions:\n"
+"%Da\tauthor\n"
+"%De\tfilename extension\n"
+"%Dk\tkeywords\n"
+"%Ds\tsubject\n"
+"%Dt\ttitle\n"
+"\n"
+"All document date codes use strftime codes with a leading D, e.g.:\n"
+"%DY\tdocument year\n"
+"%Dm\tdocument month\n"
+"%Dd\tdocument day\n"
 msgstr ""
+"strftime-koodit, esim.\n"
+"%Y kuluva vuosi\n"
+"\n"
+"seuraavilla lisäyksillä:\n"
+"%Da kirjoittaja\n"
+"%De tiedostopääte\n"
+"%Dk avainsanaa\n"
+"%Ds aihe\n"
+"%Dt otsikko\n"
+"\n"
+"Kaikki asiakirjan päivämääräkoodit käyttävät strftime-koodeja, joiden alussa "
+"on D, esim.:\n"
+"%DY asiakirjavuosi\n"
+"%Dm asiakirjakuukausi\n"
+"%Dd asiakirjapäivä\n"
 
-#: bin/gscan2pdf:6796
+#: bin/gscan2pdf:7258
+msgid "Replace whitespace in filenames with underscores"
+msgstr "Korvaa tiedostonimien välilyönnit alaviivoilla"
+
+#: bin/gscan2pdf:7264
+msgid "Use timezone from locale"
+msgstr "Käytä aikavyöhykettä alueelta"
+
+#: bin/gscan2pdf:7270
+msgid "Specify time as well as date"
+msgstr "Määritä kellonaika ja päivämäärä"
+
+#: bin/gscan2pdf:7276
+msgid "Set access and modification times to metadata date"
+msgstr "Aseta käyttö- ja muokkausajat metatietojen päivämääräksi"
+
+#: bin/gscan2pdf:7282
+msgid "Convert scanned images to PNG before further processing"
+msgstr "Muunna skannatut kuvat PNG-muotoon ennen jatkokäsittelyä"
+
+#: bin/gscan2pdf:7289
 msgid "Temporary directory"
 msgstr "Tilapäistiedostojen hakemisto"
 
-#: bin/gscan2pdf:6801
+#: bin/gscan2pdf:7294
 msgid "Browse"
 msgstr "Selaa"
 
-#: bin/gscan2pdf:6805
+#: bin/gscan2pdf:7298
 msgid "Select temporary directory"
 msgstr "Valitse tilapäistiedostojen hakemisto"
 
-#: bin/gscan2pdf:6823
+#: bin/gscan2pdf:7320
 msgid "Warn if available space less than (Mb)"
-msgstr ""
+msgstr "Varoita, jos tilaa on vähemmän kuin (Mb)"
 
-#: bin/gscan2pdf:6833
+#: bin/gscan2pdf:7326
 msgid ""
 "Warn if the available space in the temporary directory is less than this "
 "value"
 msgstr ""
+"Varoita, jos väliaikaisen hakemiston käytettävissä oleva tila on pienempi "
+"kuin tämä arvo"
 
-#: bin/gscan2pdf:6841
+#: bin/gscan2pdf:7334
 msgid "Blank threshold"
-msgstr ""
+msgstr "Tyhjä raja"
 
-#: bin/gscan2pdf:6848
+#: bin/gscan2pdf:7340
 msgid "Threshold used for selecting blank pages"
-msgstr ""
+msgstr "Raja, jota käytetään tyhjien sivujen valitsemiseen"
 
-#: bin/gscan2pdf:6854
+#: bin/gscan2pdf:7346
 msgid "Dark threshold"
-msgstr ""
+msgstr "Tumma raja"
 
-#: bin/gscan2pdf:6861
+#: bin/gscan2pdf:7352
 msgid "Threshold used for selecting dark pages"
-msgstr ""
+msgstr "Tummien sivujen valinnassa käytetty raja"
 
-#: bin/gscan2pdf:6867
+#: bin/gscan2pdf:7358
 msgid "OCR output"
-msgstr ""
+msgstr "OCR tulosta"
 
-#: bin/gscan2pdf:6872
+#: bin/gscan2pdf:7363
 msgid "Replace"
 msgstr "Korvaa"
 
-#: bin/gscan2pdf:6874
+#: bin/gscan2pdf:7365
 msgid ""
 "Replace the contents of the text buffer with that from the OCR output."
-msgstr ""
+msgstr "Korvaa tekstipuskurin sisältö OCR-tulosteen sisällöllä."
 
-#: bin/gscan2pdf:6878
+#: bin/gscan2pdf:7369
 msgid "Prepend"
 msgstr "Lisää alkuun"
 
-#: bin/gscan2pdf:6879
+#: bin/gscan2pdf:7370
 msgid "Prepend the OCR output to the text buffer."
-msgstr ""
+msgstr "Liitä OCR-tuloste tekstipuskuriin."
 
-#: bin/gscan2pdf:6882
+#: bin/gscan2pdf:7373
 msgid "Append"
 msgstr "Lisää"
 
-#: bin/gscan2pdf:6883
+#: bin/gscan2pdf:7374
 msgid "Append the OCR output to the text buffer."
-msgstr ""
+msgstr "Liitä OCR-tuloste tekstipuskuriin."
 
-#: bin/gscan2pdf:6891
-msgid "User-defined tools"
-msgstr ""
+#: bin/gscan2pdf:7382
+msgid "Manage user-defined tools"
+msgstr "Hallitse käyttäjän määrittämiä työkaluja"
 
-#: bin/gscan2pdf:6968
-msgid ""
-"You will have to restart gscanp2df for changes to the temporary directory to "
-"take effect."
-msgstr ""
-
-#: bin/gscan2pdf:7080
+#: bin/gscan2pdf:7462
 msgid ""
 "Use %i and %o for the input and output filenames respectively, or a single "
 "%i if the image is to be modified in-place.\n"
@@ -1433,799 +1520,1261 @@ msgid ""
 "\n"
 "%r resolution"
 msgstr ""
+"Käytä %i ja %o vastaavasti tulo- ja lähtötiedostonimille tai yhtä %i:tä, jos "
+"kuvaa halutaan muokata paikan päällä.\n"
+"\n"
+"Toinen käytettävissä oleva muuttuja on:\n"
+"\n"
+"%r resoluutio"
 
-#: bin/gscan2pdf:7107
+#: bin/gscan2pdf:7514
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: bin/gscan2pdf:7115
-msgid "Resolution"
-msgstr "Resoluutio"
-
-#: bin/gscan2pdf:7130
+#: bin/gscan2pdf:7526 bin/gscan2pdf:7536
 msgid "dpi"
-msgstr ""
+msgstr "dpi"
 
-#: bin/gscan2pdf:7198
-msgid "Don't show this message again"
-msgstr "Älä näytä tätä viestiä uudestaan"
+#: bin/gscan2pdf:7671
+msgid "Messages"
+msgstr "Viestit"
 
-#: lib/Gscan2pdf/Config.pm:61
-msgid ""
-"Error: unable to load settings.\n"
-"Backing up settings\n"
-"Reverting to defaults"
-msgstr ""
+#: lib/Gscan2pdf/Config.pm:327
+msgid "A3"
+msgstr "A3"
 
-#: lib/Gscan2pdf/Config.pm:116
+#: lib/Gscan2pdf/Config.pm:333
 msgid "A4"
 msgstr "A4"
 
-#: lib/Gscan2pdf/Config.pm:122
+#: lib/Gscan2pdf/Config.pm:339
 msgid "US Letter"
-msgstr ""
+msgstr "US letter"
 
-#: lib/Gscan2pdf/Config.pm:128
+#: lib/Gscan2pdf/Config.pm:345
 msgid "US Legal"
-msgstr ""
+msgstr "US legal"
 
-#: lib/Gscan2pdf/Dialog.pm:68 lib/Gscan2pdf/Dialog.pm:84 t/05_Dialog.t:25
-msgid "hide-on-delete"
-msgstr ""
+#: lib/Gscan2pdf/Dialog.pm:72 lib/Gscan2pdf/Dialog/Renumber.pm:93
+msgid "Page Range"
+msgstr "Sivualue"
 
-#: lib/Gscan2pdf/Dialog/Renumber.pm:88 lib/Gscan2pdf/Dialog/Renumber.pm:191
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:34
+msgid "Error"
+msgstr "Virhe"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:35
+msgid "Warning"
+msgstr "Varoitus"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:47
+msgid "Page"
+msgstr "Sivu"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:49
+msgid "Process"
+msgstr "Prosessi"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:51
+msgid "Message type"
+msgstr "Viestin tyyppi"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:53
+msgid "Message"
+msgstr "Viesti"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:116
+msgid "Don't show these messages again"
+msgstr "Älä näytä tätä viestiä uudelleen"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:252
+msgid ""
+"This error is normally due to ImageMagick exceeding its resource limits."
+msgstr ""
+"Tämä virhe johtuu yleensä siitä, että ImageMagick ylittää resurssirajansa."
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:256
+msgid ""
+"These can be extended by editing its policy file, which on my system is "
+"found at /etc/ImageMagick-6/policy.xml"
+msgstr ""
+"Niitä voidaan laajentaa muokkaamalla sen käytäntötiedostoa, joka löytyy "
+"järjestelmästäni osoitteesta /etc/ImageMagick-6/policy.xml"
+
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:260
+msgid ""
+"Please see https://imagemagick.org/script/resources.php for more information"
+msgstr ""
+"Katso lisätietoja osoitteesta https://imagemagick.org/script/resources.php"
+
+#: lib/Gscan2pdf/Dialog/Renumber.pm:88 lib/Gscan2pdf/Dialog/Renumber.pm:187
 msgid "Renumber"
 msgstr "Numeroi uudelleen"
-
-#: lib/Gscan2pdf/Dialog/Renumber.pm:108 lib/Gscan2pdf/Dialog/Renumber.pm:248
-#: lib/Gscan2pdf/Dialog/Renumber.pm:285
-msgid "range"
-msgstr "alue"
 
 #: lib/Gscan2pdf/Dialog/Renumber.pm:112
 msgid "Page numbering"
 msgstr "Sivunumerointi"
 
-#: lib/Gscan2pdf/Dialog/Renumber.pm:115 lib/Gscan2pdf/Dialog/Scan.pm:289
-#: lib/Gscan2pdf/Dialog/Scan.pm:1300
-msgid "border_width"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Renumber.pm:121 lib/Gscan2pdf/Dialog/Scan.pm:357
+#: lib/Gscan2pdf/Dialog/Renumber.pm:121 lib/Gscan2pdf/Dialog/Scan.pm:427
 msgid "Start"
 msgstr "Aloita"
 
-#: lib/Gscan2pdf/Dialog/Renumber.pm:136 lib/Gscan2pdf/Dialog/Renumber.pm:233
-#: lib/Gscan2pdf/Dialog/Renumber.pm:283 t/07_Dialog_Renumber.t:33
-#: t/07_Dialog_Renumber.t:46 t/07_Dialog_Renumber.t:61
-#: t/07_Dialog_Renumber.t:68
-msgid "start"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Renumber.pm:142 lib/Gscan2pdf/Dialog/Scan.pm:376
+#: lib/Gscan2pdf/Dialog/Renumber.pm:142 lib/Gscan2pdf/Dialog/Scan.pm:455
 msgid "Increment"
-msgstr ""
+msgstr "Lisäys"
 
-#: lib/Gscan2pdf/Dialog/Renumber.pm:158 lib/Gscan2pdf/Dialog/Renumber.pm:234
-#: lib/Gscan2pdf/Dialog/Renumber.pm:284 t/07_Dialog_Renumber.t:34
-#: t/07_Dialog_Renumber.t:47 t/07_Dialog_Renumber.t:62
-#: t/07_Dialog_Renumber.t:69
-msgid "increment"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Renumber.pm:172 lib/Gscan2pdf/Dialog/Renumber.pm:246
-#: lib/Gscan2pdf/Dialog/Renumber.pm:282
-msgid "document"
-msgstr "asiakirja"
-
-#: lib/Gscan2pdf/Dialog/Renumber.pm:342
+#: lib/Gscan2pdf/Dialog/Renumber.pm:332
 msgid ""
 "The current settings would result in duplicate page numbers. Please select "
 "new start and increment values."
 msgstr ""
+"Nykyiset asetukset johtaisivat päällekkäisiin sivunumeroihin. Valitse uudet "
+"aloitus- ja lisäysarvot."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:246
-msgid "Device"
-msgstr "Laite"
+#: lib/Gscan2pdf/Dialog/Save.pm:269 lib/Gscan2pdf/Dialog/Save.pm:319
+msgid "Now"
+msgstr "Nyt"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:249
-msgid "Rescan for devices"
+#: lib/Gscan2pdf/Dialog/Save.pm:271 lib/Gscan2pdf/Dialog/Save.pm:321
+msgid "Use current date and time"
+msgstr "Käytä nykyistä päivämäärää ja aikaa"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:278 lib/Gscan2pdf/Dialog/Save.pm:414
+msgid "Today"
+msgstr "Tänään"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:280
+msgid "Use today's date"
+msgstr "Käytä tätä päivää"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:296
+msgid "Document Metadata"
+msgstr "Dokumentin metatietoja"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:308
+msgid "Date/Time"
+msgstr "Päivä/Aika"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:327
+msgid "Specify"
+msgstr "Täsmentää"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:328
+msgid "Specify date and time"
+msgstr "Täsmennä päivä ja aika"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:351
+msgid "Year-Month-Day"
+msgstr "Vuosi-Kuukausi-Päivä"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:374
+msgid "Select Date"
+msgstr "Valitse päivämäärä"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:437
+msgid "Select date with calendar"
+msgstr "Valitse päivämäärä kalenterista"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:450
+msgid "Author"
+msgstr "Tekijä"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:451
+msgid "Subject"
+msgstr "Aihe"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:452
+msgid "Keywords"
+msgstr "Avainsanat"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:537
+msgid "Document type"
+msgstr "Dokumentin tyyppi"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:541
+msgid "PDF"
+msgstr "PDF"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:541
+msgid "Portable Document Format"
+msgstr "Portable Document Format"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:542
+msgid "GIF"
+msgstr "GIF"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:542
+msgid "CompuServe graphics interchange format"
+msgstr "CompuServe grafiikan vaihtomuoto"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:544 lib/Gscan2pdf/Dialog/Save.pm:612
+#: lib/Gscan2pdf/Dialog/Save.pm:808
+msgid "JPEG"
+msgstr "JPEG"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:545
+msgid "Joint Photographic Experts Group JFIF format"
+msgstr "Yhteisen valokuvausasiantuntijaryhmän JFIF-muoto"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:547
+msgid "PNG"
+msgstr "PNG"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:547
+msgid "Portable Network Graphics"
+msgstr "Portable Network Graphics"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:548
+msgid "PNM"
+msgstr "PNM"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:548
+msgid "Portable anymap"
+msgstr "Portable anymap"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:549
+msgid "PS"
+msgstr "PS"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:549
+msgid "Postscript"
+msgstr "Postscript"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:550
+msgid "TIFF"
+msgstr "TIFF"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:550
+msgid "Tagged Image File Format"
+msgstr "Tagged Image File Format"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:551
+msgid "Text"
+msgstr "Teksti"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:551
+msgid "Plain text"
+msgstr "Pelkkä teksti"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:552
+msgid "hOCR"
+msgstr "hOCR"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:552
+msgid "hOCR markup language"
+msgstr "hOCR-kuvauskieli"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:553
+msgid "gscan2pdf session file"
+msgstr "gscan2pdf-istuntotiedosto"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:555
+msgid "Prepend to PDF"
+msgstr "Liitä PDF-tiedostoon"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:555
+msgid "Prepend to an existing PDF"
+msgstr "Liitä olemassa olevaan PDF-tiedostoon"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:557
+msgid "Append to PDF"
+msgstr "Liitä PDF-tiedostoon"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:557
+msgid "Append to an existing PDF"
+msgstr "Liitä olemassa olevaan PDF-tiedostoon"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:558
+msgid "DjVu"
+msgstr "DjVu"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:558
+msgid "Deja Vu"
+msgstr "Deja Vu"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:570
+msgid "Postscript backend"
+msgstr "Postscript-taustaohjelma"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:574
+msgid "LibTIFF"
+msgstr "LibTIFF"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:575
+msgid "Use LibTIFF (tiff2ps) to create Postscript files from TIFF."
 msgstr ""
+"Käytä LibTIFF:ää (tiff2ps) Postscript-tiedostojen luomiseen TIFF:stä."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:269
-msgid "Sets the device to be used for the scan"
+#: lib/Gscan2pdf/Dialog/Save.pm:579
+msgid "Ghostscript"
+msgstr "Ghostscript"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:580
+msgid "Use Ghostscript (pdf2ps) to create Postscript files from PDF."
 msgstr ""
+"Käytä Ghostscriptiä (pdf2ps) Postscript-tiedostojen luomiseen PDF-"
+"tiedostosta."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:279
+#: lib/Gscan2pdf/Dialog/Save.pm:583
+msgid "Poppler"
+msgstr "Poppler"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:584
+msgid "Use Poppler (pdftops) to create Postscript files from PDF."
+msgstr ""
+"Käytä Poppleria (pdftopsia) Postscript-tiedostojen luomiseen PDF-tiedostosta."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:606 lib/Gscan2pdf/Dialog/Save.pm:802
+msgid "LZW"
+msgstr "LZW"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:607 lib/Gscan2pdf/Dialog/Save.pm:803
+msgid "Compress output with Lempel-Ziv & Welch encoding."
+msgstr "Pakkaa ulostulo Lempel-Ziv & Welch -koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:609
+msgid "Zip"
+msgstr "Zip"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:609
+msgid "Compress output with deflate encoding."
+msgstr "Pakkaa ulostulo deflate-koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:612
+msgid "Compress output with JPEG encoding."
+msgstr "Pakkaa tuloste JPEG-koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:614
+msgid "Packbits"
+msgstr "Packbits"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:615
+msgid "Compress output with Packbits encoding."
+msgstr "Pakkaa tulos Packbits-koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:617 lib/Gscan2pdf/Dialog/Save.pm:805
+msgid "G3"
+msgstr "G3"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:617 lib/Gscan2pdf/Dialog/Save.pm:805
+msgid "Compress output with CCITT Group 3 encoding."
+msgstr "Pakkaa lähtö CCITT Group 3 -koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:618 lib/Gscan2pdf/Dialog/Save.pm:806
+msgid "G4"
+msgstr "G4"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:618 lib/Gscan2pdf/Dialog/Save.pm:806
+msgid "Compress output with CCITT Group 4 encoding."
+msgstr "Pakkaa lähtö CCITT Group 4 -koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:619 lib/Gscan2pdf/Dialog/Save.pm:809
+msgid "None"
+msgstr "Ei mitään"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:619 lib/Gscan2pdf/Dialog/Save.pm:809
+msgid "Use no compression algorithm on output."
+msgstr "Älä käytä pakkausalgoritmia tulostuksessa."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:625 lib/Gscan2pdf/Dialog/Save.pm:815
+msgid "Compression"
+msgstr "Pakkaus"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:754
+msgid "JPEG Quality"
+msgstr "JPEG-laatu"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:773
+msgid "Downsample to"
+msgstr "Alasnäyte"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:777
+msgid "PPI"
+msgstr "PPI"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:798
+msgid "Automatic"
+msgstr "Automaattinen"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:799
+msgid "Let gscan2pdf which type of compression to use."
+msgstr "Anna gscan2pdf, minkä tyyppistä pakkausta käytetään."
+
+# Löytyykö vastinetta?
+#: lib/Gscan2pdf/Dialog/Save.pm:807
+msgid "Flate"
+msgstr "Laivasto"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:807
+msgid "Compress output with flate encoding."
+msgstr "Pakkaa ulostulo flate-koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:808
+msgid "Compress output with JPEG (DCT) encoding."
+msgstr "Pakkaa tuloste JPEG (DCT) -koodauksella."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:844
+msgid "Position of OCR output"
+msgstr "OCR-lähdön sijainti"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:847
+msgid "Behind"
+msgstr "Takana"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:847
+msgid "Put OCR output behind image."
+msgstr "Aseta OCR-lähtö kuvan taakse."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:849 lib/Gscan2pdf/Unpaper.pm:164
+#: lib/Gscan2pdf/Unpaper.pm:193
+msgid "Right"
+msgstr "Oikea"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:850
+msgid "Put OCR output to the right of the image."
+msgstr "Aseta OCR-lähtö kuvan oikealle puolelle."
+
+#: lib/Gscan2pdf/Dialog/Save.pm:865
+msgid "Encrypt PDF"
+msgstr "Salaa PDF"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:871
+msgid "Set password"
+msgstr "Aseta salasana"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:880
+msgid "User password"
+msgstr "Käyttäjän salasana"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:921
+msgid "Font for non-ASCII text"
+msgstr "Ei-ASCII-tekstin fontti"
+
+#: lib/Gscan2pdf/Dialog/Save.pm:940
+msgid "Core"
+msgstr "Ydin"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:326
 msgid "Page Options"
 msgstr "Sivuasetukset"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:286
+#: lib/Gscan2pdf/Dialog/Scan.pm:335
 msgid "# Pages"
-msgstr ""
+msgstr "# Sivut"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:296 lib/Gscan2pdf/PageRange.pm:40
+#: lib/Gscan2pdf/Dialog/Scan.pm:345 lib/Gscan2pdf/PageRange.pm:39
 msgid "All"
 msgstr "Kaikki"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:297
+#: lib/Gscan2pdf/Dialog/Scan.pm:346
 msgid "Scan all pages"
 msgstr "Skannaa kaikki sivut"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:309 lib/Gscan2pdf/Dialog/Scan.pm:314
+#: lib/Gscan2pdf/Dialog/Scan.pm:359 lib/Gscan2pdf/Dialog/Scan.pm:364
 msgid "Set number of pages to scan"
-msgstr ""
+msgstr "Aseta skannattavien sivujen määrä"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:344
+#: lib/Gscan2pdf/Dialog/Scan.pm:411
 msgid "Extended page numbering"
-msgstr ""
+msgstr "Laajennettu sivunumerointi"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:348
+#: lib/Gscan2pdf/Dialog/Scan.pm:418
 msgid "Page number"
 msgstr "Sivunumero"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:409
+#: lib/Gscan2pdf/Dialog/Scan.pm:496
 msgid "Source document"
 msgstr "Alkuperädokumentti"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:416
+#: lib/Gscan2pdf/Dialog/Scan.pm:504
 msgid "Single sided"
 msgstr "Yksipuolinen"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:418
+#: lib/Gscan2pdf/Dialog/Scan.pm:505
 msgid "Source document is single-sided"
-msgstr ""
+msgstr "Lähdedokumentti on yksipuoleinen"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:430
+#: lib/Gscan2pdf/Dialog/Scan.pm:518
 msgid "Double sided"
 msgstr "Kaksipuolinen"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:432
+#: lib/Gscan2pdf/Dialog/Scan.pm:519
 msgid "Source document is double-sided"
-msgstr ""
+msgstr "Lähdedokumentti on kaksipuoleinen"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:438
+#: lib/Gscan2pdf/Dialog/Scan.pm:525
 msgid "Side to scan"
-msgstr ""
+msgstr "Skannattava puoli"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:442
+#: lib/Gscan2pdf/Dialog/Scan.pm:529
 msgid "Facing"
-msgstr ""
+msgstr "Päällys"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:442
+#: lib/Gscan2pdf/Dialog/Scan.pm:529
 msgid "Reverse"
-msgstr ""
+msgstr "Käänteinen"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:460
+#: lib/Gscan2pdf/Dialog/Scan.pm:550
 msgid "Sets which side of a double-sided document is scanned"
-msgstr ""
+msgstr "Määrittää, mikä puoli kaksipuolisesta asiakirjasta skannataan"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:485
+#: lib/Gscan2pdf/Dialog/Scan.pm:577
 msgid "Scan profiles"
-msgstr ""
+msgstr "Skannausprofiili"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:506 lib/Gscan2pdf/Dialog/Scan.pm:512
-msgid "Name of scan profile"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan.pm:524 lib/Gscan2pdf/Dialog/Scan.pm:1698
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:746 lib/Gscan2pdf/Dialog/Scan/CLI.pm:813
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:838 lib/Gscan2pdf/Dialog/Scan/Sane.pm:502
-#: t/0610_Dialog_Scan_Sane.t:142 t/0610_Dialog_Scan_Sane.t:186
-#: t/0610_Dialog_Scan_Sane.t:237 t/0610_Dialog_Scan_Sane.t:287
-#: t/0611_Dialog_Scan_Sane.t:48 t/0614_Dialog_Scan_Sane.t:45
-#: t/0615_Dialog_Scan_Sane.t:60 t/0616_Dialog_Scan_Sane.t:96
-#: t/0621_Dialog_Scan_CLI.t:170 t/0621_Dialog_Scan_CLI.t:215
-#: t/0621_Dialog_Scan_CLI.t:266 t/0621_Dialog_Scan_CLI.t:293
-#: t/0621_Dialog_Scan_CLI.t:314 t/0625_Dialog_Scan_CLI.t:45
-#: t/0625_Dialog_Scan_CLI.t:55 t/0625_Dialog_Scan_CLI.t:69
-#: t/0625_Dialog_Scan_CLI.t:81 t/0625_Dialog_Scan_CLI.t:95
-#: t/0626_Dialog_Scan_CLI.t:45 t/0628_Dialog_Scan_CLI.t:95
-msgid "current-scan-options"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan.pm:547
+#: lib/Gscan2pdf/Dialog/Scan.pm:613
 msgid "Scan"
 msgstr "Skannaa"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:677 lib/Gscan2pdf/Dialog/Scan/CLI.pm:614
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:627 lib/Gscan2pdf/Dialog/Scan/Sane.pm:378
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:391
+#: lib/Gscan2pdf/Dialog/Scan.pm:635
+msgid "Device"
+msgstr "Laite"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:675
+msgid "Sets the device to be used for the scan"
+msgstr "Asettaa skannaukseen käytettävän laitteen"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:684 lib/Gscan2pdf/Dialog/Scan.pm:690
+msgid "Name of scan profile"
+msgstr "Nimeä skannausprofiili"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:706
+#, perl-format
+msgid "Profile '%s' exists. Overwrite?"
+msgstr "Profiili '%s' on olemassa. Korvataanko?"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:745
+msgid "Editing current scan options"
+msgstr "Nykyisten skannausasetusten muokkaaminen"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:749
+#, perl-format
+msgid "Editing scan profile \"%s\""
+msgstr "Muokataan skannausprofiilia \"%s\""
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:799
+msgid "Backend options"
+msgstr "Taustavaihtoehdot"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:800
+msgid "Frontend options"
+msgstr "Käyttöliittymän asetukset"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:982 lib/Gscan2pdf/Dialog/Scan.pm:1150
+#: lib/Gscan2pdf/Dialog/Scan.pm:1325 lib/Gscan2pdf/Dialog/Scan.pm:1338
+#: lib/Gscan2pdf/Dialog/Scan.pm:1623
 msgid "Manual"
-msgstr ""
+msgstr "Ohjeistus"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:688
-msgid "device_list"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan.pm:704
+#: lib/Gscan2pdf/Dialog/Scan.pm:1178
 #, perl-format
 msgid "Error: unknown device: %s"
-msgstr ""
+msgstr "Virhe: tuntematon laite:%s"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:929 lib/Gscan2pdf/Dialog/Scan.pm:1102
-msgid "paper"
-msgstr ""
+#: lib/Gscan2pdf/Dialog/Scan.pm:1244
+msgid "pel"
+msgstr "pel"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:940 lib/Gscan2pdf/Dialog/Scan/CLI.pm:643
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:407
-msgid "paper-formats"
-msgstr ""
+#: lib/Gscan2pdf/Dialog/Scan.pm:1247
+msgid "bit"
+msgstr "bit"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:944
+#: lib/Gscan2pdf/Dialog/Scan.pm:1250
+msgid "mm"
+msgstr "mm"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1253
+msgid "ppi"
+msgstr "ppi"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1256
+msgid "%"
+msgstr "%"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1259
+msgid "μs"
+msgstr "μs"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1321
+msgid "Paper size"
+msgstr "Paperin kokko"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1326 lib/Gscan2pdf/Dialog/Scan.pm:1335
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1328
+msgid "Selects or edits the paper size"
+msgstr "Valitse tai muokkaa paperin kokoa"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1445
+#, perl-format
+msgid ""
+"Reload recursion limit (%d) exceeded. Please file a bug, attaching a log "
+"file reproducing the problem."
+msgstr ""
+"Uudelleenlatauksen rekursioraja (%d) ylitetty. Ilmoita virheestä ja liitä "
+"lokitiedosto, joka toistaa ongelman."
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1732
 msgid "Edit paper size"
-msgstr ""
+msgstr "Muokkaa paperin kokoa"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:945 t/05_Dialog.t:26 t/05_Dialog.t:31
-#: t/05_Dialog.t:32 t/05_Dialog.t:38 t/05_Dialog.t:39
-msgid "border-width"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan.pm:961
+#: lib/Gscan2pdf/Dialog/Scan.pm:1748
 msgid "Name"
 msgstr "Nimi"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:964 lib/Gscan2pdf/Unpaper.pm:130
-#: lib/Gscan2pdf/Unpaper.pm:162
+#: lib/Gscan2pdf/Dialog/Scan.pm:1751 lib/Gscan2pdf/Unpaper.pm:153
+#: lib/Gscan2pdf/Unpaper.pm:183
 msgid "Left"
 msgstr "Vasen"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:965 lib/Gscan2pdf/Unpaper.pm:136
-#: lib/Gscan2pdf/Unpaper.pm:167
+#: lib/Gscan2pdf/Dialog/Scan.pm:1752 lib/Gscan2pdf/Unpaper.pm:159
+#: lib/Gscan2pdf/Unpaper.pm:188
 msgid "Top"
-msgstr ""
+msgstr "Ylhäällä"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1017
+#: lib/Gscan2pdf/Dialog/Scan.pm:1753
+msgid "Units"
+msgstr "Yksiköt"
+
+#: lib/Gscan2pdf/Dialog/Scan.pm:1805
 msgid "Cannot delete all paper sizes"
-msgstr ""
+msgstr "Kaikkia paperikokoja ei voi poistaa"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1085
+#: lib/Gscan2pdf/Dialog/Scan.pm:1873
 msgid ""
 "The following paper sizes are too big to be scanned by the selected device:"
 msgstr ""
+"Seuraavat paperikoot ovat liian suuria valitulla laitteella skannattavaksi:"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1264
+#: lib/Gscan2pdf/Dialog/Scan.pm:2034
 msgid ""
 "Multiple unconstrained values are not currently supported. Please file a bug."
 msgstr ""
+"Useita rajoittamattomia arvoja ei tällä hetkellä tueta. Ilmoita virhe."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1278
+#: lib/Gscan2pdf/Dialog/Scan.pm:2048
 msgid ""
 "Multiple non-numerical values are not currently supported. Please file a bug."
-msgstr ""
+msgstr "Useita ei-numeerisia arvoja ei tällä hetkellä tueta. Ilmoita virhe."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1721
+#: lib/Gscan2pdf/Dialog/Scan.pm:2537
 #, perl-format
 msgid "Scanning page %d of %d"
-msgstr ""
+msgstr "Skannataan sivua %d/%d"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1723
+#: lib/Gscan2pdf/Dialog/Scan.pm:2539
 #, perl-format
 msgid "Scanning page %d"
-msgstr ""
+msgstr "Skannataan sivu %d"
 
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:121 lib/Gscan2pdf/Dialog/Scan/CLI.pm:242
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:761
-msgid "prefix"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:126 lib/Gscan2pdf/Dialog/Scan/CLI.pm:250
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:769 lib/Gscan2pdf/Dialog/Scan/Sane.pm:77
-msgid "progress-pulse-step"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:127 lib/Gscan2pdf/Dialog/Scan/Sane.pm:78
+#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:134
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:93
 msgid "Fetching list of devices"
-msgstr ""
+msgstr "Haetaan laiteluetteloa"
 
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:142 lib/Gscan2pdf/Dialog/Scan/Sane.pm:95
+#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:150
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:111
 msgid "No devices found"
-msgstr ""
+msgstr "Laitetta ei löytynyt"
 
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:159 lib/Gscan2pdf/Dialog/Scan/CLI.pm:706
-msgid "reload-triggers"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:220 lib/Gscan2pdf/Dialog/Scan/CLI.pm:265
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:725 lib/Gscan2pdf/Dialog/Scan/CLI.pm:784
-#: t/0623_Dialog_Scan_CLI.t:32
-msgid "cache-options"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:223 lib/Gscan2pdf/Dialog/Scan/CLI.pm:266
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:728 lib/Gscan2pdf/Dialog/Scan/CLI.pm:785
-msgid "options-cache"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:243 lib/Gscan2pdf/Dialog/Scan/CLI.pm:762
-msgid "frontend"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:251 lib/Gscan2pdf/Dialog/Scan/CLI.pm:770
+#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:262 lib/Gscan2pdf/Dialog/Scan/CLI.pm:674
 msgid "Updating options"
-msgstr ""
+msgstr "Päivitetään asetukset"
 
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:328
+#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:360
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:225
 msgid "Scan Options"
-msgstr ""
+msgstr "Skannauksen asetukset"
 
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:480 t/0622_Dialog_Scan_CLI.t:33
-#: t/0622_Dialog_Scan_CLI.t:44 t/0622_Dialog_Scan_CLI.t:52
-msgid "visible-scan-options"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:610 lib/Gscan2pdf/Dialog/Scan/Sane.pm:374
-msgid "Paper size"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:615 lib/Gscan2pdf/Dialog/Scan/CLI.pm:624
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:379 lib/Gscan2pdf/Dialog/Scan/Sane.pm:388
-msgid "Edit"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:617 lib/Gscan2pdf/Dialog/Scan/Sane.pm:381
-msgid "Selects or edits the paper size"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1018 lib/Gscan2pdf/Dialog/Scan/CLI.pm:1041
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1042 lib/Gscan2pdf/Dialog/Scan/Sane.pm:571
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:586 lib/Gscan2pdf/Dialog/Scan/Sane.pm:587
-#: t/0610_Dialog_Scan_Sane.t:36 t/0621_Dialog_Scan_CLI.t:36
-msgid "max-pages"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1022 lib/Gscan2pdf/Dialog/Scan/Sane.pm:575
+#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:850
 msgid "Must scan facing pages first"
-msgstr ""
+msgstr "Skannaa ensin vastakkaiset sivut"
 
-#: lib/Gscan2pdf/Dialog/Scan/CLI.pm:1034 lib/Gscan2pdf/Dialog/Scan/Sane.pm:581
-#: t/0610_Dialog_Scan_Sane.t:34 t/0621_Dialog_Scan_CLI.t:34
-msgid "dir"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:124
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:143
 msgid "Opening device"
-msgstr ""
+msgstr "Avataan laite"
 
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:134
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:156
 msgid "Retrieving options"
-msgstr ""
+msgstr "Haeaan vaihtoehtoja"
 
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:158
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:180
 msgid "Error retrieving scanner options: "
-msgstr ""
+msgstr "Virhe skannerin vaihtoehtoja noudettaessa: "
 
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:167
+#: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:188
 msgid "Error opening device: "
-msgstr ""
+msgstr "Virhe avattaessa laitetta: "
 
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:475
-#, perl-format
-msgid "Setting option %s"
-msgstr ""
-
-#: lib/Gscan2pdf/Dialog/Scan/Sane.pm:512
-msgid "Error setting option: "
-msgstr ""
-
-#: lib/Gscan2pdf/Document.pm:105
+#: lib/Gscan2pdf/Document.pm:141
 msgid "Thumbnails"
-msgstr ""
+msgstr "Pienoiskuvakkeet"
 
-#: lib/Gscan2pdf/Document.pm:243
+#: lib/Gscan2pdf/Document.pm:407
 msgid "Error: cannot open a session file at the same time as another file."
 msgstr ""
+"Virhe: istuntotiedostoa ei voi avata samanaikaisesti toisen tiedoston kanssa."
 
-#: lib/Gscan2pdf/Document.pm:256
-msgid "Error: import a multipage file at the same time as another file."
+#: lib/Gscan2pdf/Document.pm:422
+msgid "Error: importing a multipage file at the same time as another file."
 msgstr ""
+"Virhe: tuodaan monisivuista tiedostoa samanaikaisesti toisen tiedoston "
+"kanssa."
 
-#: lib/Gscan2pdf/Document.pm:1221
+#: lib/Gscan2pdf/Document.pm:756
+msgid "Unable to load image"
+msgstr "Kuvaa ei voitu ladata"
+
+#: lib/Gscan2pdf/Document.pm:1964
 #, perl-format
 msgid "Error importing page %d. Ignoring."
-msgstr ""
+msgstr "Virhe tuottaessa sivua %d. Ohittaminen."
 
-#: lib/Gscan2pdf/Document.pm:1328
+#: lib/Gscan2pdf/Document.pm:2078
 msgid "No pages to process"
-msgstr ""
+msgstr "Sivuja ei prosessissa"
 
-#: lib/Gscan2pdf/Document.pm:1335
+#: lib/Gscan2pdf/Document.pm:2085
 msgid "No pages selected"
-msgstr ""
+msgstr "Ei valittuja sivuja"
 
-#: lib/Gscan2pdf/Document.pm:1736
+#: lib/Gscan2pdf/Document.pm:2807
 #, perl-format
 msgid "File %s not found"
-msgstr ""
+msgstr "Tiedosto %s ei löydy"
 
-#: lib/Gscan2pdf/Document.pm:1749
+#: lib/Gscan2pdf/Document.pm:2826
 #, perl-format
 msgid "Error importing zero-length file %s."
-msgstr ""
+msgstr "Virhe tuotaessa nolla-pituista tiedostoa %s."
 
-#: lib/Gscan2pdf/Document.pm:1787
+#: lib/Gscan2pdf/Document.pm:2856
+msgid "Please install djvulibre-bin in order to open DjVu files."
+msgstr "Asenna djvulibre-bin DjVu-tiedostojen avaamiseksi."
+
+#: lib/Gscan2pdf/Document.pm:2888
 msgid "Unknown DjVu file structure. Please contact the author."
-msgstr ""
+msgstr "Tuntematon DjVu-tiedostorakenne. Ota yhteyttä kirjoittajaan."
 
-#: lib/Gscan2pdf/Document.pm:1841 lib/Gscan2pdf/Document.pm:1849
+#: lib/Gscan2pdf/Document.pm:3000 lib/Gscan2pdf/Document.pm:3013
 #, perl-format
 msgid "%s is not a recognised image type"
-msgstr ""
+msgstr "%s ei ole tunnistettu kuvatyyppi"
 
-#: lib/Gscan2pdf/Document.pm:1879 lib/Gscan2pdf/Document.pm:1937
+#: lib/Gscan2pdf/Document.pm:3068 lib/Gscan2pdf/Document.pm:3175
+#: lib/Gscan2pdf/Document.pm:3200
 #, perl-format
 msgid "Importing page %i of %i"
-msgstr ""
+msgstr "Tuodaan sivua %i/%i"
 
-#: lib/Gscan2pdf/Document.pm:2050 lib/Gscan2pdf/Document.pm:2075
+#: lib/Gscan2pdf/Document.pm:3365
 msgid "Error extracting images from PDF"
-msgstr ""
+msgstr "Virhe poimittaessa kuvia PDF-tiedostosta"
 
-#: lib/Gscan2pdf/Document.pm:2089
+#: lib/Gscan2pdf/Document.pm:3382
+msgid "Error extracting text layer from PDF"
+msgstr "Virhe poimittaessa tekstitasoa PDF-tiedostosta"
+
+#: lib/Gscan2pdf/Document.pm:3414
+msgid "Error importing PDF"
+msgstr "Virhe tuotaessa PDF:ää"
+
+#: lib/Gscan2pdf/Document.pm:3422
+msgid ""
+"Warning: gscan2pdf expects one image per page, but this was not satisfied. "
+"It is probable that the PDF has not been correctly imported.\n"
+"\n"
+"If you wish to add scans to an existing PDF, use the prepend/append to PDF "
+"options in the Save dialogue.\n"
+msgstr ""
+"Varoitus: gscan2pdf odottaa yhden kuvan sivua kohden, mutta tämä ei täyty. "
+"On todennäköistä, että PDF-tiedostoa ei ole tuotu oikein.\n"
+"\n"
+"Jos haluat lisätä skannauksia olemassa olevaan PDF-tiedostoon, käytä "
+"Tallenna-valintaikkunan prepend/apppend to PDF -vaihtoehtoja.\n"
+
+#: lib/Gscan2pdf/Document.pm:3445
 msgid "Setting up PDF"
-msgstr ""
+msgstr "Asetetaan PDF"
 
-#: lib/Gscan2pdf/Document.pm:2109
+#: lib/Gscan2pdf/Document.pm:3457
+#, perl-format
+msgid "Caught error creating PDF %s: %s"
+msgstr "Havaittiin virhe luotaessa PDF %s: %s"
+
+#: lib/Gscan2pdf/Document.pm:3472
+#, perl-format
+msgid "Unable to find font '%s'. Defaulting to core font."
+msgstr "Fonttia %s ei löydy. Oletuksena ydinfontti."
+
+#: lib/Gscan2pdf/Document.pm:3496
 #, perl-format
 msgid "Saving page %i of %i"
-msgstr ""
+msgstr "Tallennetaan sivua %i/%i"
 
-#: lib/Gscan2pdf/Document.pm:2116
+#: lib/Gscan2pdf/Document.pm:3503
 msgid "Closing PDF"
-msgstr ""
+msgstr "Suljetaan PDF"
 
-#: lib/Gscan2pdf/Document.pm:2130
+#: lib/Gscan2pdf/Document.pm:3521 lib/Gscan2pdf/Document.pm:4475
+msgid "Converting to PS"
+msgstr "Muunnetaan PS:ksi"
+
+#: lib/Gscan2pdf/Document.pm:3531
+#, perl-format
+msgid "Error converting PDF to PS: %s"
+msgstr "Virhe PDF:n muuntamisessa PS:ksi: %s"
+
+#: lib/Gscan2pdf/Document.pm:3568
 #, perl-format
 msgid "Error prepending PDF: %s"
-msgstr ""
+msgstr "Virhe liitettäessä PDF-tiedostoa: %s"
 
-#: lib/Gscan2pdf/Document.pm:2138
+#: lib/Gscan2pdf/Document.pm:3576
 #, perl-format
 msgid "Error appending PDF: %s"
-msgstr ""
+msgstr "Virhe PDF-tiedoston liittämisessä: %s"
 
-#: lib/Gscan2pdf/Document.pm:2263
+#: lib/Gscan2pdf/Document.pm:3582
+msgid "Error creating backup of PDF"
+msgstr "Virhe PDF-varmuuskopion luomisessa"
+
+#: lib/Gscan2pdf/Document.pm:3607
+#, perl-format
+msgid "Error encrypting PDF: %s"
+msgstr "Virhe salattaessa PDF:%s"
+
+#: lib/Gscan2pdf/Document.pm:3646
+msgid "Unable to set file timestamp for dates prior to 1970"
+msgstr ""
+"Tiedoston aikaleimaa ei voi asettaa vuotta 1970 edeltäville päivämäärille"
+
+#: lib/Gscan2pdf/Document.pm:3756
 #, perl-format
 msgid "Error creating PDF image object: %s"
-msgstr ""
+msgstr "Virhe luotaessa PDF-kuvaobjektia: %s"
 
-#: lib/Gscan2pdf/Document.pm:2280
+#: lib/Gscan2pdf/Document.pm:3768
 #, perl-format
 msgid "Error embedding file image in %s format to PDF: %s"
-msgstr ""
+msgstr "Virhe upottamalla tiedostokuvaa %s-muodossa PDF:ään: %s"
 
-#: lib/Gscan2pdf/Document.pm:2361 lib/Gscan2pdf/Document.pm:2770
+#: lib/Gscan2pdf/Document.pm:3874 lib/Gscan2pdf/Document.pm:4471
 #, perl-format
 msgid "Error compressing image: %s"
-msgstr ""
+msgstr "Virhe kuvan pakkaamisessa: %s"
 
-#: lib/Gscan2pdf/Document.pm:2476
+#: lib/Gscan2pdf/Document.pm:3950
+#, perl-format
+msgid "Core font '%s' cannot encode character '%s', and no TTF font defined."
+msgstr ""
+"Ydinfontti '%s' ei voi koodata merkkiä '%s', eikä TTF-fonttia ole määritetty."
+
+#: lib/Gscan2pdf/Document.pm:3964
+#, perl-format
+msgid "Neither '%s' nor '%s' can encode character '%s' in '%s'"
+msgstr "Ei '%s' tai '%s' voi koodata merkkiä '%s' kielessä '%s'"
+
+#: lib/Gscan2pdf/Document.pm:4110
 #, perl-format
 msgid "Writing page %i of %i"
-msgstr ""
+msgstr "Kirjoitetaan sivua %i/%i"
 
-#: lib/Gscan2pdf/Document.pm:2565
+#: lib/Gscan2pdf/Document.pm:4140
 msgid "Error writing DjVu"
-msgstr ""
+msgstr "Virhe kirjoitettaessa DjVU"
 
-#: lib/Gscan2pdf/Document.pm:2573
+#: lib/Gscan2pdf/Document.pm:4150
 msgid "Merging DjVu"
-msgstr ""
+msgstr "Yhdistäminen DjVu"
 
-#: lib/Gscan2pdf/Document.pm:2581
+#: lib/Gscan2pdf/Document.pm:4158
 msgid "Error merging DjVu"
-msgstr ""
+msgstr "Virhe yhdistäessä DjVU"
 
-#: lib/Gscan2pdf/Document.pm:2598
+#: lib/Gscan2pdf/Document.pm:4264
 #, perl-format
 msgid "Can't write to file: %s"
-msgstr ""
+msgstr "Ei voi kirjoittaa tiedostoon %s"
 
-#: lib/Gscan2pdf/Document.pm:2617 lib/Gscan2pdf/Document.pm:2648
-#: lib/Gscan2pdf/Document.pm:2907 lib/Gscan2pdf/Document.pm:2931
+#: lib/Gscan2pdf/Document.pm:4280 lib/Gscan2pdf/Document.pm:4315
+#: lib/Gscan2pdf/Document.pm:4347 lib/Gscan2pdf/Document.pm:4647
+#: lib/Gscan2pdf/Document.pm:4672
 #, perl-format
 msgid "Can't open file: %s"
-msgstr ""
+msgstr "Ei voida avata tiedostoa:%s"
 
-#: lib/Gscan2pdf/Document.pm:2621 lib/Gscan2pdf/Document.pm:2667
-#: lib/Gscan2pdf/Document.pm:2913 lib/Gscan2pdf/Document.pm:2942
+#: lib/Gscan2pdf/Document.pm:4284 lib/Gscan2pdf/Document.pm:4319
+#: lib/Gscan2pdf/Document.pm:4367 lib/Gscan2pdf/Document.pm:4653
+#: lib/Gscan2pdf/Document.pm:4697
 #, perl-format
 msgid "Can't close file: %s"
-msgstr ""
+msgstr "Ei voida sulkea tiedostoa:%s"
 
-#: lib/Gscan2pdf/Document.pm:2633
+#: lib/Gscan2pdf/Document.pm:4297
 msgid "Error adding text layer to DjVu"
-msgstr ""
+msgstr "Virhe lisättäessä tekstitasoa DjVu:hun"
 
-#: lib/Gscan2pdf/Document.pm:2677
+#: lib/Gscan2pdf/Document.pm:4332
+msgid "Error adding annotations to DjVu"
+msgstr "Virhe lisättäessä huomautuksia DjVu:hun"
+
+#: lib/Gscan2pdf/Document.pm:4378
 msgid "Error adding metadata to DjVu"
-msgstr ""
+msgstr "Virhe metatietojen lisäämisessä DjVu:hun"
 
-#: lib/Gscan2pdf/Document.pm:2694
+#: lib/Gscan2pdf/Document.pm:4395
 #, perl-format
 msgid "Converting image %i of %i to TIFF"
-msgstr ""
+msgstr "Muunnetaan kuva %i kohteesta %i TIFF-muotoon"
 
-#: lib/Gscan2pdf/Document.pm:2735
+#: lib/Gscan2pdf/Document.pm:4444
 msgid "Error writing TIFF"
-msgstr ""
+msgstr "Virhe kirjoitettaessa TIFF"
 
-#: lib/Gscan2pdf/Document.pm:2753
+#: lib/Gscan2pdf/Document.pm:4463
 msgid "Concatenating TIFFs"
-msgstr ""
+msgstr "TIFF-tiedostojen ketjuttaminen"
 
-#: lib/Gscan2pdf/Document.pm:2774
-msgid "Converting to PS"
-msgstr ""
+#: lib/Gscan2pdf/Document.pm:4482
+#, perl-format
+msgid "Error converting TIFF to PS: %s"
+msgstr "Virhe muunnettaessa TIFF PS: %s"
 
-#: lib/Gscan2pdf/Document.pm:2867 lib/Gscan2pdf/Document.pm:2882
+#: lib/Gscan2pdf/Document.pm:4599 lib/Gscan2pdf/Document.pm:4621
 msgid "Error saving image"
-msgstr ""
+msgstr "Virhe tallentaessa kuvaa"
+
+#: lib/Gscan2pdf/Document.pm:4717
+#, perl-format
+msgid "Analysing page %i of %i"
+msgstr "Analysoidaan sivua %i / %i"
+
+#: lib/Gscan2pdf/Document.pm:5647
+msgid "Error copying page"
+msgstr "Virhe kopioitaessa sivua"
 
 #: lib/Gscan2pdf/Frontend/CLI.pm:182
 #, perl-format
 msgid "Scanning %i pages..."
-msgstr ""
+msgstr "Skannataan %i sivuja"
 
 #: lib/Gscan2pdf/Frontend/CLI.pm:188
 #, perl-format
 msgid "Scanning page %i..."
-msgstr ""
+msgstr "Skannataan sivu %i"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:220 lib/Gscan2pdf/Frontend/CLI.pm:398
+#: lib/Gscan2pdf/Frontend/CLI.pm:216 lib/Gscan2pdf/Frontend/CLI.pm:430
 msgid "Scanner warming up"
-msgstr ""
+msgstr "Skanneri lämpiää"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:231
+#: lib/Gscan2pdf/Frontend/CLI.pm:227
 msgid "Document feeder out of documents"
-msgstr ""
+msgstr "Asiakirjojen syöttölaite loppunut"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:255 lib/Gscan2pdf/Frontend/CLI.pm:436
+#: lib/Gscan2pdf/Frontend/CLI.pm:252 lib/Gscan2pdf/Frontend/CLI.pm:468
 msgid "Device busy"
-msgstr ""
+msgstr "Laite käytössä"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:264 lib/Gscan2pdf/Frontend/CLI.pm:446
+#: lib/Gscan2pdf/Frontend/CLI.pm:260 lib/Gscan2pdf/Frontend/CLI.pm:477
 msgid "Operation cancelled"
-msgstr ""
+msgstr "Operaatio peruttu"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:270 lib/Gscan2pdf/Frontend/CLI.pm:453
+#: lib/Gscan2pdf/Frontend/CLI.pm:266 lib/Gscan2pdf/Frontend/CLI.pm:484
 msgid "Unknown message: "
-msgstr ""
+msgstr "Tuntematon viesti "
 
-#: lib/Gscan2pdf/Page.pm:88 lib/Gscan2pdf/Page.pm:93
+#: lib/Gscan2pdf/Page.pm:85 lib/Gscan2pdf/Page.pm:90
 #, perl-format
 msgid "Error importing image %s: %s"
-msgstr ""
+msgstr "Virhe tuotaessa kuvaa %s:%s"
 
-#: lib/Gscan2pdf/PageRange.pm:39
+#: lib/Gscan2pdf/Page.pm:137
+#, perl-format
+msgid "Error copying image %s: %s"
+msgstr "Virhe kopioitaessa %s:%s"
+
+#: lib/Gscan2pdf/PageRange.pm:38
 msgid "Selected"
-msgstr ""
+msgstr "Valittu"
 
-#: lib/Gscan2pdf/PageRange.pm:67 t/18_PageRange.t:15
-msgid "active"
+#: lib/Gscan2pdf/Tesseract.pm:148 lib/Gscan2pdf/Tesseract.pm:162
+#: lib/Gscan2pdf/Tesseract.pm:168
+#, perl-format
+msgid "You are using locale '%s'."
+msgstr "Käytät paikallista '%s'."
+
+#: lib/Gscan2pdf/Tesseract.pm:150
+msgid ""
+"gscan2pdf does not currently know which tesseract language package would be "
+"necessary for that locale."
 msgstr ""
+"gscan2pdf ei tällä hetkellä tiedä, mikä tesseract-kielipaketti olisi "
+"tarpeellinen kyseiselle alueelle."
+
+#: lib/Gscan2pdf/Tesseract.pm:153
+msgid "Please contact the developers to add support for that locale."
+msgstr "Ota yhteyttä kehittäjiin lisätäksesi tuen kyseiselle alueelle."
+
+#: lib/Gscan2pdf/Tesseract.pm:164
+#, perl-format
+msgid ""
+"Please install tesseract package 'tesseract-ocr-%s' and restart gscan2pdf "
+"for OCR for %s with tesseract."
+msgstr ""
+"Asenna tesseract-paketti tesseract-ocr-%s ja käynnistä gscan2pdf uudelleen "
+"tekstintunnistusta varten %s:lla tesseractilla."
+
+#: lib/Gscan2pdf/Tesseract.pm:169
+#, perl-format
+msgid "There is no tesseract package for %s"
+msgstr "%s:lle ei ole tesseract-pakettia"
+
+#: lib/Gscan2pdf/Tesseract.pm:171
+msgid "If this is in error, please contact the gscan2pdf developers."
+msgstr "Jos tämä on virhe, ota yhteyttä gscan2pdf-kehittäjiin."
 
 #: lib/Gscan2pdf/Unpaper.pm:46
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: lib/Gscan2pdf/Unpaper.pm:49
 msgid "Single"
-msgstr ""
+msgstr "Yksilö"
 
 #: lib/Gscan2pdf/Unpaper.pm:51
 msgid "One page per sheet, oriented upwards without rotation."
-msgstr ""
+msgstr "Yksi sivu per arkki, suunnattu ylöspäin ilman kiertoa."
 
 #: lib/Gscan2pdf/Unpaper.pm:55
 msgid "Double"
-msgstr ""
+msgstr "Tupla"
 
 #: lib/Gscan2pdf/Unpaper.pm:57
 msgid ""
 "Two pages per sheet, landscape orientation (one page on the left half, one "
 "page on the right half)."
 msgstr ""
+"Kaksi sivua arkille, vaakasuuntainen (yksi sivu vasemmalla puoliskolla, yksi "
+"sivu oikealla puoliskolla)."
 
 #: lib/Gscan2pdf/Unpaper.pm:65
 msgid "# Output pages"
-msgstr ""
+msgstr "# Tulostussivut"
 
 #: lib/Gscan2pdf/Unpaper.pm:66
 msgid "Number of pages to output."
-msgstr ""
+msgstr "Tulostettavien sivujen määrä."
 
 #: lib/Gscan2pdf/Unpaper.pm:74
+msgid "Writing system"
+msgstr "Kirjoitusjärjestelmä"
+
+#: lib/Gscan2pdf/Unpaper.pm:77
+msgid "Left-to-right"
+msgstr "Vasemmalta - oikelalle"
+
+#: lib/Gscan2pdf/Unpaper.pm:79
+msgid "Most writings systems, e.g. Latin, Greek, Cyrillic."
+msgstr "Useimmat kirjoitusjärjestelmät, mm. latina, kreikka, kyrillinen."
+
+#: lib/Gscan2pdf/Unpaper.pm:82
+msgid "Right-to-left"
+msgstr "Oikealta - vasemmalle"
+
+#: lib/Gscan2pdf/Unpaper.pm:83
+msgid "Scripts like Arabic or Hebrew."
+msgstr "Kirjoitukset, kuten arabia tai heprea."
+
+#: lib/Gscan2pdf/Unpaper.pm:91
 msgid "No deskew"
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:75
-msgid "Disable deskewing."
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:80
-msgid "No mask scan"
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:81
-msgid "Disable mask detection."
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:86
-msgid "No black filter"
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:87
-msgid "Disable black area scan."
-msgstr ""
+msgstr "Ei vinoumia"
 
 #: lib/Gscan2pdf/Unpaper.pm:92
-msgid "No gray filter"
-msgstr ""
+msgid "Disable deskewing."
+msgstr "Poista vinoutuminen käytöstä."
 
-#: lib/Gscan2pdf/Unpaper.pm:93
-msgid "Disable gray area scan."
-msgstr ""
+#: lib/Gscan2pdf/Unpaper.pm:97
+msgid "No mask scan"
+msgstr "Ei maskin skannausta"
 
 #: lib/Gscan2pdf/Unpaper.pm:98
-msgid "No noise filter"
-msgstr ""
+msgid "Disable mask detection."
+msgstr "Poista maskin tunnistus käytöstä."
 
-#: lib/Gscan2pdf/Unpaper.pm:99
-msgid "Disable noise filter."
-msgstr ""
+#: lib/Gscan2pdf/Unpaper.pm:103
+msgid "No mask centering"
+msgstr "Ei maskin keskitystä"
 
 #: lib/Gscan2pdf/Unpaper.pm:104
-msgid "No blur filter"
-msgstr ""
+msgid "Disable mask centering."
+msgstr "Poista maskin keskitys"
 
-#: lib/Gscan2pdf/Unpaper.pm:105
-msgid "Disable blur filter."
-msgstr ""
+#: lib/Gscan2pdf/Unpaper.pm:109
+msgid "No black filter"
+msgstr "Ei mustaa filtteriä"
 
 #: lib/Gscan2pdf/Unpaper.pm:110
-msgid "No border scan"
-msgstr ""
+msgid "Disable black area scan."
+msgstr "Poista mustan alueen skannaus."
 
-#: lib/Gscan2pdf/Unpaper.pm:111
-msgid "Disable border scanning."
-msgstr ""
+#: lib/Gscan2pdf/Unpaper.pm:115
+msgid "No gray filter"
+msgstr "Ei harmaata filtteriä"
 
 #: lib/Gscan2pdf/Unpaper.pm:116
+msgid "Disable gray area scan."
+msgstr "Poista harmaan alueen skannaus."
+
+#: lib/Gscan2pdf/Unpaper.pm:121
+msgid "No noise filter"
+msgstr "Ei kohinasuodatinta"
+
+#: lib/Gscan2pdf/Unpaper.pm:122
+msgid "Disable noise filter."
+msgstr "Poista kohinansuodatin."
+
+#: lib/Gscan2pdf/Unpaper.pm:127
+msgid "No blur filter"
+msgstr "Ei sumennusfiltteriä"
+
+#: lib/Gscan2pdf/Unpaper.pm:128
+msgid "Disable blur filter."
+msgstr "Poista sumennusfiltteri."
+
+#: lib/Gscan2pdf/Unpaper.pm:133
+msgid "No border scan"
+msgstr "Ei reunus skannausta"
+
+#: lib/Gscan2pdf/Unpaper.pm:134
+msgid "Disable border scanning."
+msgstr "Poista reunusten skannaus käytöstä."
+
+#: lib/Gscan2pdf/Unpaper.pm:139
 msgid "No border align"
-msgstr ""
+msgstr "Ei rajausta"
 
-#: lib/Gscan2pdf/Unpaper.pm:118
+#: lib/Gscan2pdf/Unpaper.pm:141
 msgid "Disable aligning of the area detected by border scanning."
-msgstr ""
+msgstr "Poista reunaskannauksella havaitun alueen tasaus käytöstä."
 
-#: lib/Gscan2pdf/Unpaper.pm:123
+#: lib/Gscan2pdf/Unpaper.pm:146
 msgid "Deskew to edge"
-msgstr ""
+msgstr "Taivutettu reunaan"
 
-#: lib/Gscan2pdf/Unpaper.pm:125
+#: lib/Gscan2pdf/Unpaper.pm:148
 msgid ""
 "Edges from which to scan for rotation. Each edge of a mask can be used to "
 "detect the mask's rotation. If multiple edges are specified, the average "
 "value will be used, unless the statistical deviation exceeds --deskew-scan-"
 "deviation."
 msgstr ""
+"Reunat, joista voit skannata kiertoa. Maskin jokaista reunaa voidaan käyttää "
+"maskin pyörimisen havaitsemiseen. Jos määritetään useita reunoja, käytetään "
+"keskiarvoa, ellei tilastollinen poikkeama ylitä --deskew-scan-deviation."
 
-#: lib/Gscan2pdf/Unpaper.pm:132
+#: lib/Gscan2pdf/Unpaper.pm:155
 msgid "Use 'left' for scanning from the left edge."
-msgstr ""
+msgstr "Käytä vasenta skannaukseen vasemmasta reunasta."
 
-#: lib/Gscan2pdf/Unpaper.pm:138
+#: lib/Gscan2pdf/Unpaper.pm:160
 msgid "Use 'top' for scanning from the top edge."
-msgstr ""
+msgstr "Käytä \"yläosaa\" skannattaessa yläreunasta."
 
-#: lib/Gscan2pdf/Unpaper.pm:142 lib/Gscan2pdf/Unpaper.pm:172
-msgid "Right"
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:144
+#: lib/Gscan2pdf/Unpaper.pm:166
 msgid "Use 'right' for scanning from the right edge."
-msgstr ""
+msgstr "Käytä \"oikeaa\" skannattaessa oikeasta reunasta."
 
-#: lib/Gscan2pdf/Unpaper.pm:148 lib/Gscan2pdf/Unpaper.pm:178
+#: lib/Gscan2pdf/Unpaper.pm:170 lib/Gscan2pdf/Unpaper.pm:198
 msgid "Bottom"
-msgstr ""
+msgstr "Ala"
 
-#: lib/Gscan2pdf/Unpaper.pm:150
+#: lib/Gscan2pdf/Unpaper.pm:171
 msgid "Use 'bottom' for scanning from the bottom."
-msgstr ""
+msgstr "Käytä \"pohjaa\" skannaamiseen alhaalta."
 
-#: lib/Gscan2pdf/Unpaper.pm:157
+#: lib/Gscan2pdf/Unpaper.pm:178
 msgid "Align to edge"
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:158
-msgid "Edge to which to align the page."
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:163
-msgid "Use 'left' to align to the left edge."
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:168
-msgid "Use 'top' to align to the top edge."
-msgstr ""
-
-#: lib/Gscan2pdf/Unpaper.pm:174
-msgid "Use 'right' to align to the right edge."
-msgstr ""
+msgstr "Tasaa reunaan"
 
 #: lib/Gscan2pdf/Unpaper.pm:179
-msgid "Use 'bottom' to align to the bottom."
-msgstr ""
+msgid "Edge to which to align the page."
+msgstr "Reuna, johon sivu tasataan."
 
-#: lib/Gscan2pdf/Unpaper.pm:185
-msgid "Border margin"
-msgstr ""
+#: lib/Gscan2pdf/Unpaper.pm:184
+msgid "Use 'left' to align to the left edge."
+msgstr "Käytä 'vasenta' tasataksesi vasempaan reunaan."
 
 #: lib/Gscan2pdf/Unpaper.pm:189
-msgid "Vertical margin"
-msgstr ""
+msgid "Use 'top' to align to the top edge."
+msgstr "Käytä yläreunaa kohdistaaksesi yläreunaan."
 
-#: lib/Gscan2pdf/Unpaper.pm:191
+#: lib/Gscan2pdf/Unpaper.pm:194
+msgid "Use 'right' to align to the right edge."
+msgstr "Käytä 'oikeaa' tasataksesi oikean reunan."
+
+#: lib/Gscan2pdf/Unpaper.pm:199
+msgid "Use 'bottom' to align to the bottom."
+msgstr "Käytä \"alaa\" tasataksesi alareunaan."
+
+#: lib/Gscan2pdf/Unpaper.pm:205
+msgid "Border margin"
+msgstr "Reunusmarginaali"
+
+#: lib/Gscan2pdf/Unpaper.pm:209
+msgid "Vertical margin"
+msgstr "Pystymarginaali"
+
+#: lib/Gscan2pdf/Unpaper.pm:211
 msgid ""
 "Vertical distance to keep from the sheet edge when aligning a border area."
 msgstr ""
+"Pystysuuntainen etäisyys, joka säilytetään arkin reunasta reuna-aluetta "
+"kohdistaessa."
 
-#: lib/Gscan2pdf/Unpaper.pm:200
+#: lib/Gscan2pdf/Unpaper.pm:220
 msgid "Horizontal margin"
-msgstr ""
+msgstr "Vaakamarginaali"
 
-#: lib/Gscan2pdf/Unpaper.pm:202
+#: lib/Gscan2pdf/Unpaper.pm:222
 msgid ""
 "Horizontal distance to keep from the sheet edge when aligning a border area."
 msgstr ""
+"Vaakasuora etäisyys, joka säilytetään arkin reunasta reuna-aluetta "
+"kohdistaessa."
 
-#: lib/Gscan2pdf/Unpaper.pm:213
+#: lib/Gscan2pdf/Unpaper.pm:233
 msgid "White threshold"
-msgstr ""
+msgstr "Valkoinen kynnys"
 
-#: lib/Gscan2pdf/Unpaper.pm:215
+#: lib/Gscan2pdf/Unpaper.pm:235
 msgid "Brightness ratio above which a pixel is considered white."
-msgstr ""
+msgstr "Kirkkaussuhde, jonka yläpuolella pikseli katsotaan valkoiseksi."
 
-#: lib/Gscan2pdf/Unpaper.pm:223
+#: lib/Gscan2pdf/Unpaper.pm:243
 msgid "Black threshold"
-msgstr ""
+msgstr "Musta raja"
 
-#: lib/Gscan2pdf/Unpaper.pm:225
+#: lib/Gscan2pdf/Unpaper.pm:245
 msgid ""
 "Brightness ratio below which a pixel is considered black (non-gray). This is "
 "used by the gray-filter. This value is also used when converting a grayscale "
 "image to black-and-white mode."
 msgstr ""
+"Kirkkaussuhde, jonka alapuolella pikseli katsotaan mustaksi (ei harmaaksi). "
+"Tätä käyttää harmaa-suodatin. Tätä arvoa käytetään myös muunnettaessa "
+"harmaasävykuvaa mustavalkotilaan."
 
-#: lib/Gscan2pdf/Unpaper.pm:261
+#: lib/Gscan2pdf/Unpaper.pm:289
 msgid "Deskew"
-msgstr ""
+msgstr "Deskew"
 
-#: lib/Gscan2pdf/Unpaper.pm:293
+#: lib/Gscan2pdf/Unpaper.pm:322
 msgid "Border"
-msgstr ""
+msgstr "Raja"
 
-#: lib/Gscan2pdf/Unpaper.pm:352
+#: lib/Gscan2pdf/Unpaper.pm:382
 msgid "Filters"
-msgstr ""
-
-#: t/05_Dialog.t:23
-msgid "title"
-msgstr ""
-
-#: t/05_Dialog.t:24
-msgid "transient-for"
-msgstr ""
-
-#: t/060_Dialog_Scan.t:39 t/0610_Dialog_Scan_Sane.t:39
-#: t/0621_Dialog_Scan_CLI.t:39
-msgid "side-to-scan"
-msgstr ""
-
-#: t/0610_Dialog_Scan_Sane.t:183 t/0611_Dialog_Scan_Sane.t:71
-#: t/0621_Dialog_Scan_CLI.t:212
-msgid "profile"
-msgstr ""
+msgstr "Flitterit"
