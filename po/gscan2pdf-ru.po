@@ -4,1196 +4,1219 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 # Olesya Gerasimenko <gammaray@basealt.ru>, 2019.
+# Sergey Kazorin <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gscan2pdf\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-04 11:58+0900\n"
-"PO-Revision-Date: 2021-11-04 16:54+0000\n"
-"Last-Translator: Aleksandr Proklov <a.proklov@rosalinux.ru>\n"
-"Language-Team: \n"
-"Language: ru\n"
+"POT-Creation-Date: 2023-01-17 18:30+0100\n"
+"PO-Revision-Date: 2023-02-10 05:30+0000\n"
+"Last-Translator: Aleksey Kabanov <Unknown>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-09 09:17+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2024-06-28 17:52+0000\n"
+"X-Generator: Launchpad (build bbfa2351d9d6a9ddfe262109428f7bf5516e65d1)\n"
+"Language: ru\n"
 
-#: bin/gscan2pdf:491 bin/gscan2pdf:820
+#: bin/gscan2pdf:490 bin/gscan2pdf:819
 msgid "Text layer"
 msgstr "Текстовый слой"
 
-#: bin/gscan2pdf:497
+#: bin/gscan2pdf:496
 msgid "Go to least confident text"
-msgstr ""
+msgstr "Перейти к тексту с самой низкой степенью распознавания"
 
-#: bin/gscan2pdf:504
+#: bin/gscan2pdf:503
 msgid "Go to previous text"
-msgstr ""
+msgstr "Перейти к предыдущему тексту"
+
+#: bin/gscan2pdf:510
+msgid "Sort by confidence"
+msgstr "Сортировать по степени распознавания"
 
 #: bin/gscan2pdf:511
-msgid "Sort by confidence"
-msgstr ""
-
-#: bin/gscan2pdf:512
 msgid "Sort OCR text boxes by confidence."
-msgstr ""
+msgstr "Сортировать текстовые поля OCR по степени распознавания."
 
-#: bin/gscan2pdf:515
+#: bin/gscan2pdf:514
 msgid "Sort by position"
 msgstr "Сортировать по расположению"
 
-#: bin/gscan2pdf:516
+#: bin/gscan2pdf:515
 msgid "Sort OCR text boxes by position."
-msgstr ""
+msgstr "Сортировать тестовые поля OCR по расположению."
 
-#: bin/gscan2pdf:520
+#: bin/gscan2pdf:519
 msgid "Select sort method for OCR boxes"
-msgstr "Выбрать метод сортировки для OCR"
+msgstr "Выбрать метод сортировки для полей распознавания текста"
 
-#: bin/gscan2pdf:538
+#: bin/gscan2pdf:537
 msgid "Go to next text"
-msgstr ""
+msgstr "Перейти к следующему тексту"
 
-#: bin/gscan2pdf:545
+#: bin/gscan2pdf:544
 msgid "Go to most confident text"
-msgstr ""
+msgstr "Перейти к тексту с самой высокой степенью распознавания"
 
-#: bin/gscan2pdf:552 bin/gscan2pdf:663
+#: bin/gscan2pdf:551 bin/gscan2pdf:662
 msgid "Accept corrections"
 msgstr "Принять исправления"
 
-#: bin/gscan2pdf:568 bin/gscan2pdf:678
+#: bin/gscan2pdf:567 bin/gscan2pdf:677
 msgid "Cancel corrections"
 msgstr "Отменить исправления"
 
-#: bin/gscan2pdf:578
+#: bin/gscan2pdf:577
 msgid "Duplicate text"
-msgstr "Дублкаты текста"
+msgstr "Дубликаты текста"
 
-#: bin/gscan2pdf:591
+#: bin/gscan2pdf:590
 msgid "Add text"
 msgstr "Добавить текст"
 
-#: bin/gscan2pdf:597
+#: bin/gscan2pdf:596
 msgid "my-new-word"
-msgstr "добавьте-текст"
+msgstr "новое слово"
 
-#: bin/gscan2pdf:632
+#: bin/gscan2pdf:631
 msgid "Delete text"
 msgstr "Удалить текст"
 
-#: bin/gscan2pdf:657 bin/gscan2pdf:822
+#: bin/gscan2pdf:656 bin/gscan2pdf:821
 msgid "Annotations"
 msgstr "Примечание"
 
-#: bin/gscan2pdf:688
+#: bin/gscan2pdf:687
 msgid "Add annotation"
 msgstr "Добавить примечание"
 
-#: bin/gscan2pdf:693
+#: bin/gscan2pdf:692
 msgid "my-new-annotation"
-msgstr "текст-примечания"
+msgstr "новое примечание"
 
-#: bin/gscan2pdf:729
+#: bin/gscan2pdf:728
 msgid "Delete annotation"
 msgstr "Удалить примечание"
 
-#: bin/gscan2pdf:818
+#: bin/gscan2pdf:817
 msgid "Image"
 msgstr "Изображение"
 
-#: bin/gscan2pdf:900
+#: bin/gscan2pdf:901
 msgid "Error displaying help"
 msgstr "Ошибка при отображении справки"
 
-#: bin/gscan2pdf:1004 bin/gscan2pdf:1025
+#: bin/gscan2pdf:1005 bin/gscan2pdf:1026
 #, perl-format
 msgid "Cannot read file: %s"
-msgstr "Невозможно прочесть файл: %s"
+msgstr "Не удалось прочитать файл: %s"
 
 #: bin/gscan2pdf:1155
 msgid "GraphicsMagick is being used in ImageMagick compatibility mode."
-msgstr "GraphicsMagick используется в режиме совместимости ImageMagick."
+msgstr "GraphicsMagick используется в режиме совместимости c ImageMagick."
 
 #: bin/gscan2pdf:1158
 msgid "Whilst this might work, it is not currently supported."
 msgstr ""
+"Эта библиотека может работать, но в настоящее время не поддерживается."
 
 #: bin/gscan2pdf:1160
 msgid "Please switch to ImageMagick in case of problems."
-msgstr "Пожалуйста используйте ImageMagick чтобы избежать проблем."
+msgstr "В случае возникновении проблем переключитесь на ImageMagick."
 
-#: bin/gscan2pdf:1197
+#: bin/gscan2pdf:1199
+#, perl-format
+msgid ""
+"pdftk is installed, but seems to be missing required dependencies:\n"
+"%s"
+msgstr ""
+"pdftk установлен, но, похоже, отсутствуют необходимые зависимости:\n"
+"%s"
+
+#: bin/gscan2pdf:1204
 msgid ""
 "pdftk is installed, but cannot access the directory used for temporary files."
 msgstr ""
 "Утилита pdftk установлена, но не имеет доступа к каталогу с временными "
 "файлами."
 
-#: bin/gscan2pdf:1200
+#: bin/gscan2pdf:1207
 msgid "One reason for this might be that pdftk was installed via snap."
 msgstr "Возможная причина — утилита pdftk была установлена с помощью Snap."
 
-#: bin/gscan2pdf:1203
+#: bin/gscan2pdf:1210
 msgid ""
 "In this case, removing pdftk, and reinstalling without using snap would "
 "allow gscan2pdf to use pdftk."
 msgstr ""
-"В этом случае рекомендуется удалить утилиту pdftk и установить её заново, не "
-"используя Snap, чтобы программа gscan2pdf могла использовать утилиту pdftk."
+"В этом случае рекомендуется удалить утилиту pdftk и повторно установить её "
+"без использования Snap, после чего gscan2pdf сможет использовать pdftk."
 
-#: bin/gscan2pdf:1206
+#: bin/gscan2pdf:1213
 msgid ""
 "Another workaround would be to select a temporary directory under your home "
 "directory in Edit/Preferences."
 msgstr ""
-"Также можно решить проблему, указав в меню «Правка/Параметры» временный "
-"каталог, который будет находиться в вашем домашнем каталоге."
+"Другим возможным решением проблемы будет выбор местонахождения временного "
+"каталога внутри домашнего каталога в меню «Правка/Параметры»."
 
-#: bin/gscan2pdf:1223
+#: bin/gscan2pdf:1233
 msgid "GOCR"
 msgstr "GOCR"
 
-#: bin/gscan2pdf:1223
+#: bin/gscan2pdf:1233
 msgid "Process image with GOCR."
 msgstr "Обработать изображение с помощью GOCR"
 
-#: bin/gscan2pdf:1227
+#: bin/gscan2pdf:1237
 msgid "Tesseract"
 msgstr "Tesseract"
 
-#: bin/gscan2pdf:1227
-msgid "Process image with Tesseract."
-msgstr "Обработать изображение в Tesseract"
-
-#: bin/gscan2pdf:1232
-msgid "Ocropus"
-msgstr "Ocropus"
-
-#: bin/gscan2pdf:1232
-msgid "Process image with Ocropus."
-msgstr "Обработать изображение с помощью Ocropus"
-
 #: bin/gscan2pdf:1237
+msgid "Process image with Tesseract."
+msgstr "Обработать изображение с помощью Tesseract."
+
+#: bin/gscan2pdf:1242
 msgid "Cuneiform"
 msgstr "Cuneiform"
 
-#: bin/gscan2pdf:1237
+#: bin/gscan2pdf:1242
 msgid "Process image with Cuneiform."
-msgstr "Обработать изображение с помощью Cuneiform"
+msgstr "Обработать изображение с помощью Cuneiform."
 
-#: bin/gscan2pdf:1264
+#: bin/gscan2pdf:1269
 msgid "_File"
 msgstr "_Файл"
 
-#: bin/gscan2pdf:1267
+#: bin/gscan2pdf:1272
 msgid "_New"
 msgstr "_Создать"
 
-#: bin/gscan2pdf:1268
+#: bin/gscan2pdf:1273
 msgid "Clears all pages"
-msgstr "Стереть все страницы"
+msgstr "Очистить все страницы"
 
-#: bin/gscan2pdf:1272
+#: bin/gscan2pdf:1277
 msgid "_Open"
 msgstr "_Открыть"
 
-#: bin/gscan2pdf:1273
+#: bin/gscan2pdf:1278
 msgid "Open image file(s)"
 msgstr "Открыть файлы изображений"
 
-#: bin/gscan2pdf:1277
+#: bin/gscan2pdf:1282
 msgid "Open c_rashed session"
 msgstr "Переоткрыть п_рервавшийся сеанс"
 
-#: bin/gscan2pdf:1278 bin/gscan2pdf:2524
+#: bin/gscan2pdf:1283 bin/gscan2pdf:2535
 msgid "Open crashed session"
 msgstr "Переоткрыть прервавшийся сеанс"
 
-#: bin/gscan2pdf:1282
+#: bin/gscan2pdf:1287
 msgid "S_can"
-msgstr "О_тсканировать"
+msgstr "_Сканировать"
 
-#: bin/gscan2pdf:1283
+#: bin/gscan2pdf:1288
 msgid "Scan document"
-msgstr "Отсканировать документ"
+msgstr "Сканировать документ"
 
-#: bin/gscan2pdf:1286 bin/gscan2pdf:1287 bin/gscan2pdf:2941
+#: bin/gscan2pdf:1291 bin/gscan2pdf:1292 bin/gscan2pdf:2949
 msgid "Save"
 msgstr "Сохранить"
 
-#: bin/gscan2pdf:1291
+#: bin/gscan2pdf:1296
 msgid "_Email as PDF"
-msgstr "От_править почтой как PDF"
+msgstr "От_править по почте как PDF"
 
-#: bin/gscan2pdf:1292
+#: bin/gscan2pdf:1297
 msgid "Attach as PDF to a new email"
 msgstr "Вложить PDF в письмо"
 
-#: bin/gscan2pdf:1295
+#: bin/gscan2pdf:1300
 msgid "_Print"
 msgstr "_Печать"
 
-#: bin/gscan2pdf:1296
+#: bin/gscan2pdf:1301
 msgid "Print"
 msgstr "Печать"
 
-#: bin/gscan2pdf:1300
+#: bin/gscan2pdf:1305
 msgid "_Compress temporary files"
 msgstr "С_жать временные файлы"
 
-#: bin/gscan2pdf:1301
+#: bin/gscan2pdf:1306
 msgid "Compress temporary files"
 msgstr "Сжать временные файлы"
 
-#: bin/gscan2pdf:1306
+#: bin/gscan2pdf:1311
 msgid "_Quit"
 msgstr "В_ыход"
 
-#: bin/gscan2pdf:1308
+#: bin/gscan2pdf:1313
 msgid "Quit"
-msgstr "Выйти"
+msgstr "Выход"
 
-#: bin/gscan2pdf:1315
+#: bin/gscan2pdf:1320
 msgid "_Edit"
 msgstr "_Правка"
 
-#: bin/gscan2pdf:1316
+#: bin/gscan2pdf:1321
 msgid "_Undo"
 msgstr "_Отменить"
 
-#: bin/gscan2pdf:1316
+#: bin/gscan2pdf:1321
 msgid "Undo"
 msgstr "Отменить"
 
-#: bin/gscan2pdf:1319
+#: bin/gscan2pdf:1324
 msgid "_Redo"
 msgstr "Ве_рнуть"
 
-#: bin/gscan2pdf:1320
+#: bin/gscan2pdf:1325
 msgid "Redo"
 msgstr "Вернуть"
 
-#: bin/gscan2pdf:1324
+#: bin/gscan2pdf:1329
 msgid "Cu_t"
 msgstr "_Вырезать"
 
-#: bin/gscan2pdf:1325
+#: bin/gscan2pdf:1330
 msgid "Cut selection"
 msgstr "Вырезать выделенное"
 
-#: bin/gscan2pdf:1329
+#: bin/gscan2pdf:1334
 msgid "_Copy"
 msgstr "_Копировать"
 
-#: bin/gscan2pdf:1330
+#: bin/gscan2pdf:1335
 msgid "Copy selection"
-msgstr "Скопировать выделенное"
+msgstr "Копировать выделенное"
 
-#: bin/gscan2pdf:1334
+#: bin/gscan2pdf:1339
 msgid "_Paste"
 msgstr "Вст_авить"
 
-#: bin/gscan2pdf:1335
+#: bin/gscan2pdf:1340
 msgid "Paste selection"
 msgstr "Вставить выделенное"
 
-#: bin/gscan2pdf:1339
+#: bin/gscan2pdf:1344
 msgid "_Delete"
 msgstr "_Удалить"
 
-#: bin/gscan2pdf:1340
+#: bin/gscan2pdf:1345
 msgid "Delete selected pages"
-msgstr "Удалить выбранные страницы"
+msgstr "Удалить выделенные страницы"
 
-#: bin/gscan2pdf:1344
+#: bin/gscan2pdf:1349
 msgid "_Renumber"
 msgstr "Пере_нумеровать"
 
-#: bin/gscan2pdf:1345
+#: bin/gscan2pdf:1350
 msgid "Renumber pages"
-msgstr "Пронумеровать страницы заново"
+msgstr "Повторно пронумеровать страницы"
 
-#: bin/gscan2pdf:1347 bin/gscan2pdf:1529
+#: bin/gscan2pdf:1352 bin/gscan2pdf:1539
 msgid "_Select"
 msgstr "_Выделить"
 
-#: bin/gscan2pdf:1350
+#: bin/gscan2pdf:1355
 msgid "_All"
 msgstr "_Все"
 
-#: bin/gscan2pdf:1351
+#: bin/gscan2pdf:1356
 msgid "Select all pages"
-msgstr "Выбрать все страницы"
+msgstr "Выделить все страницы"
 
-#: bin/gscan2pdf:1354
+#: bin/gscan2pdf:1359
 msgid "_Odd"
 msgstr "_Нечётные"
 
-#: bin/gscan2pdf:1355
+#: bin/gscan2pdf:1360
 msgid "Select all odd-numbered pages"
-msgstr "Выбрать все нечётные страницы"
+msgstr "Выделить все нечётные страницы"
 
-#: bin/gscan2pdf:1359
+#: bin/gscan2pdf:1364
 msgid "_Even"
 msgstr "_Чётные"
 
-#: bin/gscan2pdf:1360
+#: bin/gscan2pdf:1365
 msgid "Select all evenly-numbered pages"
-msgstr "Выбрать все чётные страницы"
+msgstr "Выделить все чётные страницы"
 
-#: bin/gscan2pdf:1366
+#: bin/gscan2pdf:1370
+msgid "_Invert"
+msgstr "_Инвертировать"
+
+#: bin/gscan2pdf:1371
+msgid "Invert selection"
+msgstr "Инвертировать выделение"
+
+#: bin/gscan2pdf:1376
 msgid "_Blank"
 msgstr "_Пустые"
 
-#: bin/gscan2pdf:1368
+#: bin/gscan2pdf:1378
 msgid "Select pages with low standard deviation"
-msgstr "Выбрать страницы с низким стандартным отклонением"
+msgstr "Выделить страницы с низким стандартным отклонением"
 
-#: bin/gscan2pdf:1373
+#: bin/gscan2pdf:1383
 msgid "_Dark"
 msgstr "_Тёмные"
 
-#: bin/gscan2pdf:1374
+#: bin/gscan2pdf:1384
 msgid "Select dark pages"
-msgstr "Выбрать тёмные страницы"
+msgstr "Выделить тёмные страницы"
 
-#: bin/gscan2pdf:1379
+#: bin/gscan2pdf:1389
 msgid "_Modified"
 msgstr "_Изменённые"
 
-#: bin/gscan2pdf:1381
+#: bin/gscan2pdf:1391
 msgid "Select modified pages since last OCR"
-msgstr "Выбрать страницы, изменённые с момента последнего OCR"
+msgstr "Выделить страницы, изменённые с момента последнего OCR"
 
-#: bin/gscan2pdf:1386
+#: bin/gscan2pdf:1396
 msgid "_No OCR"
 msgstr "_Без OCR"
 
-#: bin/gscan2pdf:1387
+#: bin/gscan2pdf:1397
 msgid "Select pages with no OCR output"
-msgstr "Выбрать страницы без слоя OCR"
+msgstr "Выделить страницы без слоя OCR"
 
-#: bin/gscan2pdf:1391
+#: bin/gscan2pdf:1401
 msgid "_Clear OCR"
 msgstr "_Очистить слой OCR"
 
-#: bin/gscan2pdf:1392
+#: bin/gscan2pdf:1402
 msgid "Clear OCR output from selected pages"
-msgstr "Удалить слой OCR из выделенных страниц"
+msgstr "Удалить слой OCR на выделенных страницах"
 
-#: bin/gscan2pdf:1396
+#: bin/gscan2pdf:1406
 msgid "Propert_ies"
 msgstr "Сво_йства"
 
-#: bin/gscan2pdf:1397
+#: bin/gscan2pdf:1407
 msgid "Edit image properties"
 msgstr "Изменить свойства изображения"
 
-#: bin/gscan2pdf:1401
+#: bin/gscan2pdf:1411
 msgid "Prefere_nces"
 msgstr "_Параметры"
 
-#: bin/gscan2pdf:1402
+#: bin/gscan2pdf:1412
 msgid "Edit preferences"
-msgstr "Редактировать настройки"
+msgstr "Редактировать параметры"
 
-#: bin/gscan2pdf:1406
+#: bin/gscan2pdf:1416
 msgid "_View"
 msgstr "_Вид"
 
-#: bin/gscan2pdf:1409
+#: bin/gscan2pdf:1419
 msgid "Zoom _100%"
 msgstr "Масштаб _100%"
 
-#: bin/gscan2pdf:1410
+#: bin/gscan2pdf:1420
 msgid "Zoom to 100%"
 msgstr "Масштаб 100%"
 
-#: bin/gscan2pdf:1414
+#: bin/gscan2pdf:1424
 msgid "Zoom to _fit"
 msgstr "_Уместить в окне"
 
-#: bin/gscan2pdf:1415
+#: bin/gscan2pdf:1425
 msgid "Zoom to fit"
 msgstr "Уместить страницу в окне"
 
-#: bin/gscan2pdf:1419
+#: bin/gscan2pdf:1429
 msgid "Zoom _in"
-msgstr "_Приблизить"
+msgstr "_Увеличить"
 
-#: bin/gscan2pdf:1420
+#: bin/gscan2pdf:1430
 msgid "Zoom in"
-msgstr "Приблизить"
+msgstr "Увеличить"
 
-#: bin/gscan2pdf:1424
+#: bin/gscan2pdf:1434
 msgid "Zoom _out"
-msgstr "_Отдалить"
+msgstr "_Уменьшить"
 
-#: bin/gscan2pdf:1425
+#: bin/gscan2pdf:1435
 msgid "Zoom out"
-msgstr "Отдалить"
+msgstr "Уменьшить"
 
-#: bin/gscan2pdf:1430 bin/gscan2pdf:1432
+#: bin/gscan2pdf:1440 bin/gscan2pdf:1442
 msgid "Rotate 90° clockwise"
 msgstr "Повернуть на 90° по ч/с"
 
-#: bin/gscan2pdf:1441 bin/gscan2pdf:1443
+#: bin/gscan2pdf:1451 bin/gscan2pdf:1453
 msgid "Rotate 180°"
 msgstr "Повернуть на 180°"
 
-#: bin/gscan2pdf:1452 bin/gscan2pdf:1454
+#: bin/gscan2pdf:1462 bin/gscan2pdf:1464
 msgid "Rotate 90° anticlockwise"
 msgstr "Повернуть на 90° против ч/с"
 
-#: bin/gscan2pdf:1462
+#: bin/gscan2pdf:1472
 msgid "_Tools"
 msgstr "С_ервис"
 
-#: bin/gscan2pdf:1464
+#: bin/gscan2pdf:1474
 msgid "_Threshold"
 msgstr "_Порог"
 
-#: bin/gscan2pdf:1465
+#: bin/gscan2pdf:1475
 msgid "Change each pixel above this threshold to black"
 msgstr "Изменить каждый пиксел выше указанного порога на чёрный"
 
-#: bin/gscan2pdf:1470
+#: bin/gscan2pdf:1480
 msgid "_Brightness / Contrast"
 msgstr "_Яркость / Контраст"
 
-#: bin/gscan2pdf:1471
+#: bin/gscan2pdf:1481
 msgid "Change brightness & contrast"
 msgstr "Изменить яркость и контраст"
 
-#: bin/gscan2pdf:1474
+#: bin/gscan2pdf:1484
 msgid "_Negate"
 msgstr "_Негатив"
 
-#: bin/gscan2pdf:1475
+#: bin/gscan2pdf:1485
 msgid "Converts black to white and vice versa"
-msgstr "Превратить чёрное в белое и наоборот"
+msgstr "Сделать чёрное белым и наоборот"
 
-#: bin/gscan2pdf:1479
+#: bin/gscan2pdf:1489
 msgid "_Unsharp Mask"
 msgstr "_Нерезкая маска"
 
-#: bin/gscan2pdf:1480
+#: bin/gscan2pdf:1490
 msgid "Apply an unsharp mask"
 msgstr "Повысить резкость с помощью нерезкой маски"
 
-#: bin/gscan2pdf:1484 bin/gscan2pdf:1489
+#: bin/gscan2pdf:1494 bin/gscan2pdf:1499
 msgid "_Crop"
 msgstr "_Кадрировать"
 
-#: bin/gscan2pdf:1485
+#: bin/gscan2pdf:1495
 msgid "Crop pages"
 msgstr "Кадрировать страницы"
 
-#: bin/gscan2pdf:1490
+#: bin/gscan2pdf:1500
 msgid "Crop selection"
 msgstr "Кадрировать выделение"
 
-#: bin/gscan2pdf:1493
+#: bin/gscan2pdf:1503
 msgid "_Clean up"
 msgstr "О_чистить"
 
-#: bin/gscan2pdf:1494 bin/gscan2pdf:4590
+#: bin/gscan2pdf:1504 bin/gscan2pdf:4615
 msgid "Clean up scanned images with unpaper"
-msgstr "Очистить отсканированные изображения с помощью unpaper"
+msgstr "Очистить сканированные изображения с помощью unpaper"
 
-#: bin/gscan2pdf:1497
+#: bin/gscan2pdf:1507
 msgid "_Split"
 msgstr "_В режиме разделённого экрана"
 
-#: bin/gscan2pdf:1498
+#: bin/gscan2pdf:1508
 msgid "Split pages horizontally or vertically"
 msgstr "Разделить по горизонтали или по вертикали"
 
-#: bin/gscan2pdf:1502
+#: bin/gscan2pdf:1512
 msgid "_OCR"
 msgstr "_Распознать текст"
 
-#: bin/gscan2pdf:1503
+#: bin/gscan2pdf:1513
 msgid "Optical Character Recognition"
 msgstr "Оптическое распознавание символов"
 
-#: bin/gscan2pdf:1507
+#: bin/gscan2pdf:1517
 msgid "U_ser-defined"
-msgstr "З_адано пользователем"
+msgstr "Д_ополнительная обработка"
 
-#: bin/gscan2pdf:1508
+#: bin/gscan2pdf:1518
 msgid "Process images with user-defined tool"
-msgstr "Обработать изображения указанной пользователем программой"
+msgstr ""
+"Выполнить дополнительную обработку изображений указанным инструментом"
 
-#: bin/gscan2pdf:1513 bin/gscan2pdf:1515
+#: bin/gscan2pdf:1523 bin/gscan2pdf:1525
 msgid "_Help"
 msgstr "_Справка"
 
-#: bin/gscan2pdf:1516
+#: bin/gscan2pdf:1526
 msgid "Help"
 msgstr "Справка"
 
-#: bin/gscan2pdf:1518
+#: bin/gscan2pdf:1528
 msgid "_About"
 msgstr "_О программе"
 
-#: bin/gscan2pdf:1524
-msgid "_Pan"
-msgstr ""
-
-#: bin/gscan2pdf:1525
-msgid "Use the pan tool"
-msgstr ""
-
-#: bin/gscan2pdf:1530
-msgid "Use the rectangular selection tool"
-msgstr ""
-
 #: bin/gscan2pdf:1534
-msgid "_Select & pan"
-msgstr "_Выделить & pan"
+msgid "_Pan"
+msgstr "_Панорамировать"
 
 #: bin/gscan2pdf:1535
-msgid "Use the combined select and pan tool"
-msgstr ""
+msgid "Use the pan tool"
+msgstr "Использовать инструмент панорамирования"
 
 #: bin/gscan2pdf:1540
+msgid "Use the rectangular selection tool"
+msgstr "Использовать инструмент прямоугольного выделения"
+
+#: bin/gscan2pdf:1544
+msgid "_Select & pan"
+msgstr "_Выделить и панорамировать"
+
+#: bin/gscan2pdf:1545
+msgid "Use the combined select and pan tool"
+msgstr "Использовать инструмент совмещённого выделения и панорамирования"
+
+#: bin/gscan2pdf:1550
 msgid "_Tabbed"
 msgstr "_В режиме вкладок"
 
-#: bin/gscan2pdf:1541
-msgid "Arrange image and OCR viewers in tabs"
-msgstr "Просматривать изображение и результат OCR во вкладках"
-
-#: bin/gscan2pdf:1544
-msgid "_Split horizontally"
-msgstr "Разделить горизонтально"
-
-#: bin/gscan2pdf:1546
-msgid "Arrange image and OCR viewers in horizontally split screen"
-msgstr "Просматривать изображение и результат OCR на горизонтально разделённом экране"
-
-#: bin/gscan2pdf:1550
-msgid "_Split vertically"
-msgstr "Разделить вертикально"
-
 #: bin/gscan2pdf:1551
-msgid "Arrange image and OCR viewers in vertically split screen"
-msgstr "Просматривать изображение и результат OCR на вертикально разделённом экране"
+msgid "Arrange image and OCR viewers in tabs"
+msgstr "Просматривать изображение и результат распознания текста во вкладках"
 
-#: bin/gscan2pdf:1558
+#: bin/gscan2pdf:1554
+msgid "_Split horizontally"
+msgstr "Разделить _горизонтально"
+
+#: bin/gscan2pdf:1556
+msgid "Arrange image and OCR viewers in horizontally split screen"
+msgstr ""
+"Просматривать изображение и результат распознания текста на горизонтально "
+"разделённом экране"
+
+#: bin/gscan2pdf:1560
+msgid "_Split vertically"
+msgstr "_Разделить вертикально"
+
+#: bin/gscan2pdf:1561
+msgid "Arrange image and OCR viewers in vertically split screen"
+msgstr ""
+"Просматривать изображение и результат распознавания текста на вертикально "
+"разделённом экране"
+
+#: bin/gscan2pdf:1568
 msgid "Edit text layer"
 msgstr "Редактировать текстовый слой"
 
-#: bin/gscan2pdf:1559
+#: bin/gscan2pdf:1569
 msgid "Show editing tools for text layer"
-msgstr "Показать инструменты для редактирования"
+msgstr "Показать инструменты для редактирования текстового слоя"
 
-#: bin/gscan2pdf:1564
+#: bin/gscan2pdf:1574
 msgid "Edit annotations"
 msgstr "Редактировать примечания"
 
-#: bin/gscan2pdf:1566
+#: bin/gscan2pdf:1576
 msgid "Show editing tools for annotations"
 msgstr "Показать инструменты для примечаний"
 
-#: bin/gscan2pdf:1771
+#: bin/gscan2pdf:1783
 msgid "Save image and Save as PDF both require imagemagick\n"
 msgstr "Для сохранения изображений и PDF требуется ImageMagick\n"
 
-#: bin/gscan2pdf:1776
+#: bin/gscan2pdf:1788
 msgid "Save image requires libtiff\n"
 msgstr "Для сохранения изображений требуется библиотека libtiff\n"
 
-#: bin/gscan2pdf:1781
+#: bin/gscan2pdf:1793
 msgid "Save as DjVu requires djvulibre-bin\n"
-msgstr "Для сохранение в DjVu требуется библиотека djvulibre-bin\n"
+msgstr "Для сохранения в DjVu требуется библиотека djvulibre-bin\n"
 
-#: bin/gscan2pdf:1786
+#: bin/gscan2pdf:1798
 msgid "Email as PDF requires xdg-email\n"
-msgstr "Для пересылки PDF по почте требуется xdg-email\n"
+msgstr "Для пересылки PDF по почте требуется наличие xdg-email\n"
 
-#: bin/gscan2pdf:1819
+#: bin/gscan2pdf:1831
 msgid ""
 "The rotating, crop, unsharp, split and unpaper tools require perlmagick\n"
 msgstr ""
-"Операции поворота, обрезки, разделения и других преобразований "
-"требуют установки perlmagick\n"
+"Операции поворота, обрезки, разделения и других преобразований требуют "
+"наличия perlmagick\n"
 
-#: bin/gscan2pdf:1824
+#: bin/gscan2pdf:1836
 msgid "unpaper missing\n"
 msgstr "unpaper отсутствует\n"
 
-#: bin/gscan2pdf:1837
-msgid "OCR requires gocr, tesseract, ocropus, or cuneiform\n"
+#: bin/gscan2pdf:1848
+msgid "OCR requires gocr, tesseract, or cuneiform\n"
 msgstr ""
-"Для распознавания текста необходимы программы gocr, tesseract, ocropus или "
-"cuneiform\n"
+"Для распознавания текста необходимо наличие gocr, tesseract или cuneiform\n"
 
-#: bin/gscan2pdf:1854
+#: bin/gscan2pdf:1865
 msgid "PDF encryption requires pdftk\n"
 msgstr "Для шифрования PDF требуется утилита pdftk\n"
 
-#: bin/gscan2pdf:1859
+#: bin/gscan2pdf:1870
 msgid "Warning: missing packages"
 msgstr "Предупреждение: некоторые пакеты отсутствуют"
 
-#: bin/gscan2pdf:2126
+#: bin/gscan2pdf:2137
 #, perl-format
 msgid ""
 "Warning: unable to use %s for temporary storage. Defaulting to %s instead."
 msgstr ""
-"Внимание: %s нельзя использовать для временного хранилища. Переход на "
-"использование %s."
+"Внимание: не удалось использовать %s в качестве временного хранилища. Взамен "
+"по умолчанию будет использоваться %s."
 
-#: bin/gscan2pdf:2173
+#: bin/gscan2pdf:2184
 msgid "Crashed sessions"
 msgstr "Прервавшиеся сеансы"
 
-#: bin/gscan2pdf:2181
+#: bin/gscan2pdf:2192
 msgid "The following list of sessions cannot be restored."
-msgstr "Следующий список сессий не будет восстановлен."
+msgstr "Ниже приведён список сеансов, не подлежащих восстановлению."
 
-#: bin/gscan2pdf:2183
+#: bin/gscan2pdf:2194
 msgid "Please retrieve any images you require from them."
-msgstr ""
+msgstr "Извлеките из них необходимые изображения."
 
-#: bin/gscan2pdf:2185
+#: bin/gscan2pdf:2196
 msgid "Selected sessions will be deleted."
-msgstr "Выбранная сессия будет удалена"
+msgstr "Выбранные сеансы будут удалены."
 
-#: bin/gscan2pdf:2187 bin/gscan2pdf:2224 lib/Gscan2pdf/Dialog/Save.pm:553
+#: bin/gscan2pdf:2198 bin/gscan2pdf:2235 lib/Gscan2pdf/Dialog/Save.pm:553
 msgid "Session"
 msgstr "Сеанс"
 
-#: bin/gscan2pdf:2216 bin/gscan2pdf:2221
+#: bin/gscan2pdf:2227 bin/gscan2pdf:2232
 msgid "Pick crashed session to restore"
 msgstr "Выберите сеанс для восстановления"
 
-#: bin/gscan2pdf:2404
+#: bin/gscan2pdf:2415
 msgid ""
 "Some pages have not been saved.\n"
 "Do you really want to clear all pages?"
 msgstr ""
 "Некоторые страницы не были сохранены.\n"
-"Вы действительно хотите очистить все страницы?"
+"Очистить все страницы?"
 
-#: bin/gscan2pdf:2561 bin/gscan2pdf:2593
+#: bin/gscan2pdf:2572 bin/gscan2pdf:2604
 #, perl-format
 msgid "Process %i of %i (%s)"
 msgstr "Обработка %i из %i (%s)"
 
-#: bin/gscan2pdf:2600
+#: bin/gscan2pdf:2611
 #, perl-format
 msgid "Process %i of %i"
 msgstr "Обработка %i из %i"
 
-#: bin/gscan2pdf:2628
+#: bin/gscan2pdf:2639
 msgid "Open image"
 msgstr "Открыть изображение"
 
-#: bin/gscan2pdf:2636 bin/gscan2pdf:3170 bin/gscan2pdf:3414
+#: bin/gscan2pdf:2647 bin/gscan2pdf:3178 bin/gscan2pdf:3422
 msgid "Image files"
 msgstr "Файлы изображений"
 
-#: bin/gscan2pdf:2674
+#: bin/gscan2pdf:2685
 #, perl-format
 msgid "Enter user password for PDF %s"
 msgstr "Введите пароль для PDF %s"
 
-#: bin/gscan2pdf:2734
+#: bin/gscan2pdf:2745
 msgid "Pages to extract"
 msgstr "Извлекаемые страницы"
 
-#: bin/gscan2pdf:2742
+#: bin/gscan2pdf:2753
 msgid "First page to extract"
 msgstr "Первая извлекаемая страница"
 
-#: bin/gscan2pdf:2749
+#: bin/gscan2pdf:2760
 msgid "Last page to extract"
 msgstr "Последняя извлекаемая страница"
 
-#: bin/gscan2pdf:2812
+#: bin/gscan2pdf:2825
 #, perl-format
-msgid "%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime."
-msgstr "%04d-%02d-%02d %02d:%02d:%02d — некорректные дата и время."
+msgid "%04d-%02d-%02d %02d:%02d:%02d is not a valid datetime: %s"
+msgstr ""
+"%04d-%02d-%02d %02d:%02d:%02d не является корректной датой и временем: %s"
 
-#: bin/gscan2pdf:2980
+#: bin/gscan2pdf:2988
 msgid "Post-save hook"
-msgstr "Перехват после сохранения"
+msgstr "Обработка после сохранения"
 
-#: bin/gscan2pdf:2983
+#: bin/gscan2pdf:2991
 #, perl-format
 msgid ""
 "Run command on saved file. The available commands are those user-defined "
 "tools that do not specify %o"
 msgstr ""
-"Запустить команду для сохранённого файла. Доступные команды — это те "
-"указанные пользователем доп. команды (программы) обработки изображений, в "
-"которых нет %o"
+"Запустить команду для обработки сохранённого файла. Доступны команды запуска "
+"указанных пользователем инструментов дополнительной обработки изображений "
+"без указания %o"
 
-#: bin/gscan2pdf:2998 bin/gscan2pdf:2999
+#: bin/gscan2pdf:3006 bin/gscan2pdf:3007
 msgid "Close dialog on save"
 msgstr "Закрывать диалог при сохранении"
 
-#: bin/gscan2pdf:3067 bin/gscan2pdf:3091
+#: bin/gscan2pdf:3075 bin/gscan2pdf:3099
 msgid "PDF filename"
 msgstr "Имя файла PDF"
 
-#: bin/gscan2pdf:3097
+#: bin/gscan2pdf:3105
 msgid "PDF files"
 msgstr "Файлы PDF"
 
-#: bin/gscan2pdf:3121
+#: bin/gscan2pdf:3129
 msgid "DjVu filename"
 msgstr "Имя файла DjVu"
 
-#: bin/gscan2pdf:3143
+#: bin/gscan2pdf:3151
 msgid "DjVu files"
 msgstr "Файлы DjVu"
 
-#: bin/gscan2pdf:3163
+#: bin/gscan2pdf:3171
 msgid "TIFF filename"
 msgstr "Имя файла TIFF"
 
-#: bin/gscan2pdf:3189
+#: bin/gscan2pdf:3197
 msgid "Text filename"
 msgstr "Имя текстового файла"
 
-#: bin/gscan2pdf:3197
+#: bin/gscan2pdf:3205
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: bin/gscan2pdf:3214
+#: bin/gscan2pdf:3222
 msgid "hOCR filename"
 msgstr "Имя файла hOCR"
 
-#: bin/gscan2pdf:3222
+#: bin/gscan2pdf:3230
 msgid "hOCR files"
 msgstr "Файлы hOCR"
 
-#: bin/gscan2pdf:3241
+#: bin/gscan2pdf:3249
 msgid "PS filename"
 msgstr "Имя файла PS"
 
-#: bin/gscan2pdf:3248
+#: bin/gscan2pdf:3256
 msgid "Postscript files"
 msgstr "Файлы Postscript"
 
-#: bin/gscan2pdf:3266
+#: bin/gscan2pdf:3274
 msgid "gscan2pdf session filename"
 msgstr "Имя файла сеанса gscan2pdf"
 
-#: bin/gscan2pdf:3273
+#: bin/gscan2pdf:3281
 msgid "gscan2pdf session files"
 msgstr "Файлы сеанса gscan2pdf"
 
-#: bin/gscan2pdf:3377
+#: bin/gscan2pdf:3385
 #, perl-format
 msgid "Directory %s is read-only"
 msgstr "Каталог %s доступен только для чтения"
 
-#: bin/gscan2pdf:3387
+#: bin/gscan2pdf:3395
 #, perl-format
 msgid "File %s is read-only"
-msgstr "Файл %s доступен в режиме «только чтение»"
+msgstr "Файл %s доступен только для чтения"
 
-#: bin/gscan2pdf:3407
+#: bin/gscan2pdf:3415
 msgid "Image filename"
 msgstr "Имя файла изображения"
 
-#: bin/gscan2pdf:3690
-msgid "Email as PDF"
-msgstr "Отправка по почте как PDF"
+#: bin/gscan2pdf:3442
+#, perl-format
+msgid "This operation would overwrite %s"
+msgstr "Это действие перезапишет %s"
 
-#: bin/gscan2pdf:3816
+#: bin/gscan2pdf:3716
+msgid "Email as PDF"
+msgstr "Отправить по почте в виде PDF"
+
+#: bin/gscan2pdf:3842
 msgid "Error creating email"
 msgstr "Ошибка при создании письма"
 
-#: bin/gscan2pdf:3854
+#: bin/gscan2pdf:3880
 msgid "Scan Document"
-msgstr "Отсканировать документ"
+msgstr "Сканировать документ"
 
-#: bin/gscan2pdf:4210
+#: bin/gscan2pdf:4236
 msgid "Error opening the last device used."
 msgstr "Ошибка при открытии последнего использованного устройства."
 
-#: bin/gscan2pdf:4213
+#: bin/gscan2pdf:4239
 msgid "There was an error opening the last device used."
-msgstr "Ошибка при открытии последнего использованного устройства."
+msgstr "При открытии последнего использованного устройства произошла ошибка."
 
-#: bin/gscan2pdf:4216
+#: bin/gscan2pdf:4242
 msgid "Whoops! I forgot to turn it on. Try again now."
-msgstr ""
+msgstr "Устройство забыли включить. Повторить попытку."
 
-#: bin/gscan2pdf:4219 lib/Gscan2pdf/Dialog/Scan.pm:638
+#: bin/gscan2pdf:4245 lib/Gscan2pdf/Dialog/Scan.pm:638
 msgid "Rescan for devices"
-msgstr "Повторный поиск устройств"
+msgstr "Повторить попытку поиска устройств"
 
-#: bin/gscan2pdf:4222
+#: bin/gscan2pdf:4248
 msgid "Restart gscan2pdf."
-msgstr "Перезапуск gscan2pdf."
+msgstr "Перезапустить gscan2pdf."
 
-#: bin/gscan2pdf:4225
+#: bin/gscan2pdf:4251
 msgid "Just ignore the error. I don't need the scanner yet."
-msgstr "Не обращайте внимания. Наличие сканера не требуется."
+msgstr "Проигнорировать ошибку. Наличие сканера не требуется."
 
-#: bin/gscan2pdf:4228 bin/gscan2pdf:7033
+#: bin/gscan2pdf:4254 bin/gscan2pdf:7066
 msgid "Cache device list"
-msgstr ""
+msgstr "Кэшировать список устройств"
 
-#: bin/gscan2pdf:4232 bin/gscan2pdf:7606
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:56
+#: bin/gscan2pdf:4258 bin/gscan2pdf:7639
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:60
 msgid "Don't show this message again"
-msgstr "Больше не показывать это"
+msgstr "Больше не показывать это сообщение"
 
-#: bin/gscan2pdf:4290
+#: bin/gscan2pdf:4316
 msgid "Finished scanning facing pages. Scan reverse pages?"
 msgstr ""
-"Сканирование страниц с видной стороны завершено. Отсканировать страницы с "
-"другой стороны?"
+"Сканирование страниц с лицевой стороны завершено. Сканировать страницы с "
+"обратной стороны?"
 
-#: bin/gscan2pdf:4295
+#: bin/gscan2pdf:4321
 msgid "Finished scanning reverse pages. Scan facing pages?"
 msgstr ""
-"Сканирование страниц с другой стороны завершено. Отсканировать страницы с "
-"видной стороны?"
+"Сканирование страниц с обратной стороны завершено. Сканировать страницы с "
+"лицевой стороны?"
 
-#: bin/gscan2pdf:4342 bin/gscan2pdf:4367
+#: bin/gscan2pdf:4368 bin/gscan2pdf:4393
 msgid "Rotate"
 msgstr "Повернуть"
 
-#: bin/gscan2pdf:4343 bin/gscan2pdf:4368
+#: bin/gscan2pdf:4369 bin/gscan2pdf:4394
 msgid "Rotate image after scanning"
 msgstr "Повернуть изображение после сканирования"
 
-#: bin/gscan2pdf:4346
+#: bin/gscan2pdf:4372
 msgid "Both sides"
 msgstr "На обеих сторонах"
 
-#: bin/gscan2pdf:4346
+#: bin/gscan2pdf:4372
 msgid "Both sides."
 msgstr "На обеих сторонах"
 
-#: bin/gscan2pdf:4347
+#: bin/gscan2pdf:4373
 msgid "Facing side"
-msgstr "Видная сторона"
+msgstr "Лицевая сторона"
 
-#: bin/gscan2pdf:4347
+#: bin/gscan2pdf:4373
 msgid "Facing side."
-msgstr "Видная сторона"
+msgstr "Лицевая сторона."
 
-#: bin/gscan2pdf:4348
+#: bin/gscan2pdf:4374
 msgid "Reverse side"
-msgstr "Другая сторона"
+msgstr "Обратная сторона"
 
-#: bin/gscan2pdf:4348
+#: bin/gscan2pdf:4374
 msgid "Reverse side."
-msgstr "Другая сторона"
+msgstr "Обратная сторона."
 
-#: bin/gscan2pdf:4351 bin/gscan2pdf:4372
+#: bin/gscan2pdf:4377 bin/gscan2pdf:4398
 msgid "Select side to rotate"
 msgstr "Выберите сторону для поворота"
 
-#: bin/gscan2pdf:4354
+#: bin/gscan2pdf:4380
 msgid "90"
 msgstr "90°"
 
-#: bin/gscan2pdf:4354
+#: bin/gscan2pdf:4380
 msgid "Rotate image 90 degrees clockwise."
-msgstr "Повернуть на 90 градусов по часовой стрелке"
+msgstr "Повернуть на 90 градусов по часовой стрелке."
 
-#: bin/gscan2pdf:4355
+#: bin/gscan2pdf:4381
 msgid "180"
 msgstr "180°"
 
-#: bin/gscan2pdf:4355
+#: bin/gscan2pdf:4381
 msgid "Rotate image 180 degrees clockwise."
-msgstr "Повернуть на 180 градусов по часовой стрелке"
+msgstr "Повернуть на 180 градусов по часовой стрелке."
 
-#: bin/gscan2pdf:4357
+#: bin/gscan2pdf:4383
 msgid "270"
 msgstr "270°"
 
-#: bin/gscan2pdf:4358
+#: bin/gscan2pdf:4384
 msgid "Rotate image 90 degrees anticlockwise."
-msgstr "Повернуть на 90 градусов против часовой стрелки"
+msgstr "Повернуть на 90 градусов против часовой стрелки."
 
-#: bin/gscan2pdf:4362 bin/gscan2pdf:4375
+#: bin/gscan2pdf:4388 bin/gscan2pdf:4401
 msgid "Select direction of rotation"
 msgstr "Выберите направление вращения"
 
-#: bin/gscan2pdf:4451
+#: bin/gscan2pdf:4477
 msgid "Process with user-defined tool"
-msgstr "Обработать указанной пользователем программой"
+msgstr "Выполнить дополнительную обработку указанной программой"
 
-#: bin/gscan2pdf:4453
+#: bin/gscan2pdf:4479
 msgid "Process scanned images with user-defined tool"
 msgstr ""
-"Обработать отсканированные изображения указанной пользователем программой"
+"Дополнительно обработать сканированные изображения указанной программой"
 
-#: bin/gscan2pdf:4481 bin/gscan2pdf:4482
+#: bin/gscan2pdf:4507 bin/gscan2pdf:4508
 msgid "OCR scanned pages"
-msgstr "Распознать отсканированные страницы"
+msgstr "Распознать сканированные страницы"
 
-#: bin/gscan2pdf:4492
+#: bin/gscan2pdf:4518
 msgid "Select OCR engine"
 msgstr "Выберите движок распознавания текста"
 
-#: bin/gscan2pdf:4541 bin/gscan2pdf:6325
+#: bin/gscan2pdf:4566 bin/gscan2pdf:6361
 msgid "Threshold before OCR"
-msgstr "Задержка перед распознаванием"
+msgstr "Применить пороговую обработку перед распознаванием"
 
-#: bin/gscan2pdf:4544 bin/gscan2pdf:6328
+#: bin/gscan2pdf:4569 bin/gscan2pdf:6364
 msgid ""
 "Threshold the image before performing OCR. This only affects the image "
 "passed to the OCR engine, and not the image stored."
 msgstr ""
-"Применить пороговую обработку перед распознанием. Влияет только на "
-"изображение, обрабатываемое движком OCR, но не на изображение, которое "
-"сохраняется."
+"Применить пороговую обработку изображения перед распознаванием текста. "
+"Изменения затрагивают только изображение, обрабатываемое движком "
+"распознавания текста, а не сохраняемое изображение."
 
-#: bin/gscan2pdf:4575
+#: bin/gscan2pdf:4600
 msgid "Postprocessing"
 msgstr "Постобработка"
 
-#: bin/gscan2pdf:4589
+#: bin/gscan2pdf:4614
 msgid "Clean up images"
 msgstr "Очистить изображения"
 
-#: bin/gscan2pdf:4599
+#: bin/gscan2pdf:4624
 msgid "Options"
 msgstr "Параметры"
 
-#: bin/gscan2pdf:4600
+#: bin/gscan2pdf:4625
 msgid "Set unpaper options"
 msgstr "Указать параметры unpaper"
 
-#: bin/gscan2pdf:4606
+#: bin/gscan2pdf:4631
 msgid "unpaper options"
 msgstr "Параметры unpaper"
 
-#: bin/gscan2pdf:5016
+#: bin/gscan2pdf:5054
 msgid "To aid the scan-to-PDF process"
 msgstr "Упрощение процесса сканирования в PDF"
 
-#: bin/gscan2pdf:5017
-msgid "Copyright 2006--2021 Jeffrey Ratcliffe"
-msgstr "Авторское право © Jeffrey Ratcliffe, 2006—2021"
+#: bin/gscan2pdf:5055
+msgid "Copyright 2006--2022 Jeffrey Ratcliffe"
+msgstr "Авторские права: «Jeffrey Ratcliffe», 2006--2022"
 
-#: bin/gscan2pdf:5271 bin/gscan2pdf:5281 bin/gscan2pdf:5540
+#: bin/gscan2pdf:5309 bin/gscan2pdf:5319 bin/gscan2pdf:5578
 msgid "Threshold"
 msgstr "Порог"
 
-#: bin/gscan2pdf:5350
+#: bin/gscan2pdf:5388
 msgid "Brightness / Contrast"
 msgstr "Яркость / Контраст"
 
-#: bin/gscan2pdf:5361
+#: bin/gscan2pdf:5399
 msgid "Brightness"
 msgstr "Яркость"
 
-#: bin/gscan2pdf:5372
+#: bin/gscan2pdf:5410
 msgid "Contrast"
 msgstr "Контраст"
 
-#: bin/gscan2pdf:5441
+#: bin/gscan2pdf:5479
 msgid "Negate"
-msgstr "Преобразовать в негатив"
+msgstr "Негатив"
 
-#: bin/gscan2pdf:5503
+#: bin/gscan2pdf:5541
 msgid "Unsharp mask"
 msgstr "Нерезкая маска"
 
-#: bin/gscan2pdf:5517
+#: bin/gscan2pdf:5555
 msgid "Radius"
 msgstr "Радиус"
 
-#: bin/gscan2pdf:5519 bin/gscan2pdf:5526 bin/gscan2pdf:5743
+#: bin/gscan2pdf:5557 bin/gscan2pdf:5564 bin/gscan2pdf:5781
 msgid "pixels"
 msgstr "пикс."
 
-#: bin/gscan2pdf:5522
+#: bin/gscan2pdf:5560
 msgid ""
 "The radius of the Gaussian, in pixels, not counting the center pixel (0 = "
 "automatic)."
 msgstr ""
-"Радиус Гауссова размывания в пикселах, не считая центральный пиксел (0 — "
+"Радиус Гауссова размытия в пикселах, не считая центральный пиксел (0 — "
 "автоматически)"
 
-#: bin/gscan2pdf:5526
+#: bin/gscan2pdf:5564
 msgid "Sigma"
 msgstr "Сигма"
 
-#: bin/gscan2pdf:5528
+#: bin/gscan2pdf:5566
 msgid "The standard deviation of the Gaussian."
 msgstr "Стандартное значение для Гауссова размытия"
 
-#: bin/gscan2pdf:5531
+#: bin/gscan2pdf:5569
 msgid "Gain"
 msgstr "Усиление"
 
-#: bin/gscan2pdf:5536
+#: bin/gscan2pdf:5574
 msgid ""
 "The percentage of the difference between the original and the blur image "
 "that is added back into the original."
 msgstr ""
-"Процентная разница между оригиналом и размытым изображением, которая "
-"возвращается в оригинал"
+"Разница в процентах между оригиналом и размытым изображением, добавляемым "
+"обратно к оригиналу"
 
-#: bin/gscan2pdf:5545
+#: bin/gscan2pdf:5583
 msgid ""
 "The threshold, as a fraction of QuantumRange, needed to apply the difference "
 "amount."
 msgstr ""
-"Предел, как доля QuantumRange, требуемый для применения размера разницы"
+"Пороговое значение в виде доли от QuantumRange, необходимое для применения "
+"размера разницы."
 
-#: bin/gscan2pdf:5701
+#: bin/gscan2pdf:5739
 msgid "Crop"
 msgstr "Обрезать"
 
-#: bin/gscan2pdf:5715
+#: bin/gscan2pdf:5753
 msgid "x"
 msgstr "x"
 
-#: bin/gscan2pdf:5717
+#: bin/gscan2pdf:5755
 msgid "The x-position of the left hand edge of the crop."
-msgstr "Координата X левого края области выделения"
+msgstr "Координата X левого края области выделения."
 
-#: bin/gscan2pdf:5720
+#: bin/gscan2pdf:5758
 msgid "y"
 msgstr "y"
 
-#: bin/gscan2pdf:5721
+#: bin/gscan2pdf:5759
 msgid "The y-position of the top edge of the crop."
-msgstr "Координата Y верхнего края области выделения"
+msgstr "Координата Y верхнего края области выделения."
 
-#: bin/gscan2pdf:5723 lib/Gscan2pdf/Dialog/Scan.pm:1740
+#: bin/gscan2pdf:5761 lib/Gscan2pdf/Dialog/Scan.pm:1749
 msgid "Width"
 msgstr "Ширина"
 
-#: bin/gscan2pdf:5723
+#: bin/gscan2pdf:5761
 msgid "The width of the crop."
-msgstr "Ширина рамки обрезки"
+msgstr "Ширина рамки обрезки."
 
-#: bin/gscan2pdf:5724 lib/Gscan2pdf/Dialog/Scan.pm:1741
+#: bin/gscan2pdf:5762 lib/Gscan2pdf/Dialog/Scan.pm:1750
 msgid "Height"
 msgstr "Высота"
 
-#: bin/gscan2pdf:5724
+#: bin/gscan2pdf:5762
 msgid "The height of the crop."
-msgstr "Высота рамки обрезки"
+msgstr "Высота рамки обрезки."
 
-#: bin/gscan2pdf:5879
+#: bin/gscan2pdf:5917
 msgid "Split"
 msgstr "Разделить экран"
 
-#: bin/gscan2pdf:5889
+#: bin/gscan2pdf:5927
 msgid "Direction"
 msgstr "Направление"
 
-#: bin/gscan2pdf:5893
+#: bin/gscan2pdf:5931
 msgid "Vertically"
 msgstr "Вертикально"
 
-#: bin/gscan2pdf:5894
+#: bin/gscan2pdf:5932
 msgid "Split the page vertically into left and right pages."
 msgstr "Разделить страницы вертикально на левую и правую."
 
-#: bin/gscan2pdf:5897
+#: bin/gscan2pdf:5935
 msgid "Horizontally"
 msgstr "Горизонтально"
 
-#: bin/gscan2pdf:5898
+#: bin/gscan2pdf:5936
 msgid "Split the page horizontally into top and bottom pages."
-msgstr "Разделить страницы горизонтально на верхнюю и нижнюю"
+msgstr "Разделить страницы горизонтально на верхнюю и нижнюю."
 
-#: bin/gscan2pdf:5922
+#: bin/gscan2pdf:5960
 msgid "Position"
 msgstr "Позиция"
 
-#: bin/gscan2pdf:6038
+#: bin/gscan2pdf:6076
 msgid "User-defined tools"
-msgstr "Инструменты, определённые пользователем"
+msgstr "Дополнительные инструменты"
 
-#: bin/gscan2pdf:6048
+#: bin/gscan2pdf:6086
 msgid "Selected tool"
-msgstr "Выбранная программа"
+msgstr "Выбранный инструмент"
 
-#: bin/gscan2pdf:6169
+#: bin/gscan2pdf:6207
 msgid "unpaper"
 msgstr "unpaper"
 
-#: bin/gscan2pdf:6220 bin/gscan2pdf:6248
+#: bin/gscan2pdf:6258 bin/gscan2pdf:6286
 msgid "Language to recognise"
-msgstr "Какие языки распознавать"
+msgstr "Распознаваемый язык"
 
-#: bin/gscan2pdf:6231
+#: bin/gscan2pdf:6269
 msgid "English"
 msgstr "Английский"
 
-#: bin/gscan2pdf:6274
+#: bin/gscan2pdf:6312
 msgid "OCR"
 msgstr "OCR"
 
-#: bin/gscan2pdf:6285
+#: bin/gscan2pdf:6323
 msgid "OCR Engine"
 msgstr "Движок OCR"
 
-#: bin/gscan2pdf:6350
+#: bin/gscan2pdf:6386
 msgid "Start OCR"
-msgstr "Запустить OCR"
+msgstr "Запустить распознавание"
 
-#: bin/gscan2pdf:6445
+#: bin/gscan2pdf:6478
 msgid ""
 "Some pages have not been saved.\n"
 "Do you really want to quit?"
 msgstr ""
 "Некоторые страницы не были сохранены.\n"
-"Вы уверены, что хотите завершить работу?"
+"Завершить работу?"
 
-#: bin/gscan2pdf:6543
+#: bin/gscan2pdf:6576
 #, perl-format
 msgid "%dMb free in %s."
 msgstr "%d МБ свободно в %s."
 
-#: bin/gscan2pdf:6679
+#: bin/gscan2pdf:6712
 msgid "This operation cannot be undone. Are you sure?"
-msgstr "Результат этой операции не может быть отменён. Вы уверены?"
+msgstr ""
+"Результат этой операции не может быть отменён. Продолжить выполнение?"
 
-#: bin/gscan2pdf:6736
+#: bin/gscan2pdf:6769
 msgid "Preferences"
 msgstr "Параметры"
 
-#: bin/gscan2pdf:6753
+#: bin/gscan2pdf:6786
 msgid "Scan options"
 msgstr "Параметры сканирования"
 
-#: bin/gscan2pdf:6763
+#: bin/gscan2pdf:6796
 msgid "General options"
 msgstr "Общие параметры"
 
-#: bin/gscan2pdf:6817
+#: bin/gscan2pdf:6850
 msgid "Invalid regex. Try without special characters such as '*'"
 msgstr ""
 "Некорректное регулярное выражение. Попробуйте убрать специальные символы, "
 "например «*»."
 
-#: bin/gscan2pdf:6893
+#: bin/gscan2pdf:6926
 msgid "Changes will only take effect after restarting gscan2pdf."
-msgstr "Изменения будут применены после перезапуска gscan2pdf."
+msgstr "Изменения будут применены только после перезапуска gscan2pdf."
 
-#: bin/gscan2pdf:6896
+#: bin/gscan2pdf:6929
 msgid "Restart gscan2pdf now?"
 msgstr "Перезапустить gscan2pdf?"
 
-#: bin/gscan2pdf:6916
+#: bin/gscan2pdf:6949
 msgid "Open scanner at program start"
 msgstr "Открывать сканер при запуске программы"
 
-#: bin/gscan2pdf:6919
+#: bin/gscan2pdf:6952
 msgid ""
 "Automatically open the scan dialog in the background at program start. This "
 "saves time clicking the scan button and waiting for the program to find the "
@@ -1201,181 +1224,185 @@ msgid ""
 msgstr ""
 "Автоматически открыть параметры сканирования в фоновом режиме при запуске "
 "программы. Эта возможность позволяет сократить время на нажатие кнопки "
-"сканирования и время ожидания поиска доступных сканеров."
+"сканирования и время ожидания поиска доступных сканеров"
 
-#: bin/gscan2pdf:6932
+#: bin/gscan2pdf:6965
 msgid "Frontend"
 msgstr "Графический интерфейс"
 
-#: bin/gscan2pdf:6937
+#: bin/gscan2pdf:6970
 msgid "libimage-sane-perl"
 msgstr "libimage-sane-perl"
 
-#: bin/gscan2pdf:6938
+#: bin/gscan2pdf:6971
 msgid "Scan using the Perl bindings for SANE."
-msgstr "Сканирование с использованием привязок Perl для SANE"
+msgstr "Сканирование с использованием привязок Perl для SANE."
 
-#: bin/gscan2pdf:6941
+#: bin/gscan2pdf:6974
 msgid "scanimage"
 msgstr "scanimage"
 
-#: bin/gscan2pdf:6942
+#: bin/gscan2pdf:6975
 msgid "Scan using the scanimage frontend."
-msgstr "Сканирование с использованием scanimage"
+msgstr "Сканирование с использованием scanimage."
 
-#: bin/gscan2pdf:6947
+#: bin/gscan2pdf:6980
 msgid "scanadf"
 msgstr "scanadf"
 
-#: bin/gscan2pdf:6947
+#: bin/gscan2pdf:6980
 msgid "Scan using the scanadf frontend."
-msgstr "Сканирование с использованием scanadf"
+msgstr "Сканирование с использованием scanadf."
 
-#: bin/gscan2pdf:6950
+#: bin/gscan2pdf:6983
 msgid "Interface used for scanner access"
 msgstr "Интерфейс для доступа к сканеру"
 
-#: bin/gscan2pdf:6956
+#: bin/gscan2pdf:6989
 msgid "Device blacklist"
 msgstr "Чёрный список устройств"
 
-#: bin/gscan2pdf:6960
+#: bin/gscan2pdf:6993
 msgid "Device blacklist (regular expression)"
 msgstr "Чёрный список устройств (регулярное выражение)"
 
-#: bin/gscan2pdf:6968
+#: bin/gscan2pdf:7001
 msgid "Cycle SANE handle after scan"
 msgstr "Зацикливать элемент управления SANE после сканирования"
 
-#: bin/gscan2pdf:6970
+#: bin/gscan2pdf:7003
 msgid "Some ADFs do not feed out the last page if this is not enabled"
 msgstr ""
-"Некоторые автоматические податчики документов не подают последнюю страницу, "
-"если это не включено"
+"Если этот параметр не включен, некоторые устройства автоматической подачи "
+"документов не выдают последнюю страницу."
 
-#: bin/gscan2pdf:6979
+#: bin/gscan2pdf:7012
 msgid "Allow batch scanning from flatbed"
 msgstr "Разрешить пакетное сканирование с планшетного сканера"
 
-#: bin/gscan2pdf:6982
+#: bin/gscan2pdf:7015
 msgid ""
 "If not set, switching to a flatbed scanner will force # pages to 1 and "
 "single-sided mode."
 msgstr ""
-"Если не настроено, переключение на планшетный сканер сбросит # стр. на 1"
-"и односторонний режим."
+"Если этот параметр не включен, переключение на планшетный сканер приведёт к "
+"сбросу # страниц на 1 и односторонний режим."
 
-#: bin/gscan2pdf:6991
+#: bin/gscan2pdf:7024
 msgid "Ignore duplex capabilities of scanner"
 msgstr "Игнорировать поддержку дуплекса у сканера"
 
-#: bin/gscan2pdf:6994
+#: bin/gscan2pdf:7027
 msgid ""
 "If set, any duplex capabilities are ignored, and facing/reverse widgets are "
 "displayed to allow manual interleaving of pages."
 msgstr ""
-"Настройки дуплекса сканера будут пригнорированы, и будет выдаваться запрос "
-"на необходимость перевернуть страницы"
+"При включении этого параметра игнорируются настройки дуплекса сканера, а "
+"также выводятся запросы на необходимость переворота страниц."
 
-#: bin/gscan2pdf:7003
+#: bin/gscan2pdf:7036
 msgid "Force new scan job between pages"
-msgstr "Принудительный новый запуск сканирования между страницами"
+msgstr "Принудительно запускать новое сканирование между страницами"
 
-#: bin/gscan2pdf:7006
+#: bin/gscan2pdf:7039
 msgid ""
 "Otherwise, some Brother scanners report out of documents, despite scanning "
 "from flatbed."
 msgstr ""
-"Иначе некоторые сканеры Brother сообщают, что в их автоподатчике закончились "
-"документы, несмотря на то что выполняется сканирование с планшета"
+"В противном случае некоторые сканеры Brother сообщают об отсутствии "
+"документов в устройстве автоматической подачи даже при выполнении "
+"сканирования с планшета."
 
-#: bin/gscan2pdf:7022
+#: bin/gscan2pdf:7055
 msgid "Select # pages = all on selecting ADF"
-msgstr "Выбрать # стр. = все при выборе автоподатчика документов"
+msgstr ""
+"Выбрать # стр. = все при выборе устройства автоматической подачи документов"
 
-#: bin/gscan2pdf:7025
+#: bin/gscan2pdf:7058
 msgid ""
 "If this option is enabled, when switching to source=ADF, # pages = all is "
 "selected"
 msgstr ""
-"Если эта опция включена, # страниц = все выбирается при переключении на "
-"автоподатчик документов"
+"При включении этого параметра переключение источника на устройство "
+"автоматической подачи документов приведёт к установке параметра # страниц = "
+"все"
 
-#: bin/gscan2pdf:7036
+#: bin/gscan2pdf:7069
 msgid ""
 "If this option is enabled, opening the scanner is quicker, as gscan2pdf does "
 "not first search for available devices."
 msgstr ""
-"Если этот параметр включен, инициализация сканера будет быстрее,"
-"т.к. gscan2pdf не будет выполнять поиск устройств."
+"При включении этого параметра инициализация сканера будет происходить "
+"быстрее, так как gscan2pdf не будет выполнять поиск устройств."
 
-#: bin/gscan2pdf:7039
+#: bin/gscan2pdf:7072
 msgid ""
 "This is only effective if the device names do not change between sessions."
 msgstr ""
-"Это будет работать если имя устройства не изменялось."
+"Это будет работать только в случае, если имена устройств между сессиями не "
+"изменялись."
 
-#: bin/gscan2pdf:7048
+#: bin/gscan2pdf:7081
 msgid "Scan command prefix"
 msgstr "Префикс команды сканирования"
 
-#: bin/gscan2pdf:7058
+#: bin/gscan2pdf:7091
 msgid "Cache device-dependent options"
 msgstr "Временные файлы аппаратно-зависимых параметров"
 
-#: bin/gscan2pdf:7064
+#: bin/gscan2pdf:7097
 msgid "Clear device-dependent options cache"
 msgstr "Очистить временные файлы аппаратно-зависимых параметров"
 
-#: bin/gscan2pdf:7076
+#: bin/gscan2pdf:7109
 msgid "Option visibility & control"
 msgstr "Параметр доступности и управления"
 
-#: bin/gscan2pdf:7085 lib/Gscan2pdf/Dialog/Save.pm:449
+#: bin/gscan2pdf:7118 lib/Gscan2pdf/Dialog/Save.pm:449
 msgid "Title"
 msgstr "Заголовок"
 
-#: bin/gscan2pdf:7086
+#: bin/gscan2pdf:7119
 msgid "Type"
 msgstr "Тип"
 
-#: bin/gscan2pdf:7087 bin/gscan2pdf:7094
+#: bin/gscan2pdf:7120 bin/gscan2pdf:7127
 msgid "Show"
 msgstr "Показать"
 
-#: bin/gscan2pdf:7088
+#: bin/gscan2pdf:7121
 msgid "Reload"
 msgstr "Обновить"
 
-#: bin/gscan2pdf:7104 lib/Gscan2pdf/Dialog/MultipleMessage.pm:52
+#: bin/gscan2pdf:7137 lib/Gscan2pdf/Dialog/MultipleMessage.pm:56
 msgid "Hide"
 msgstr "Скрыть"
 
-#: bin/gscan2pdf:7113
+#: bin/gscan2pdf:7146
 msgid "List current options"
-msgstr "Перечислить текущие опции"
+msgstr "Перечислить текущие параметры"
 
-#: bin/gscan2pdf:7133
+#: bin/gscan2pdf:7166
 msgid "No scanner currently open with command line frontend."
-msgstr "Нет сканеров, открытых с помощью интерфейса командной строки"
+msgstr "Нет сканеров, открытых с помощью интерфейса командной строки."
 
-#: bin/gscan2pdf:7141
+#: bin/gscan2pdf:7174
 msgid "Show options not listed"
-msgstr "Показать неперечисленные опции"
+msgstr "Показывать параметры, отсутствующие в списке"
 
-#: bin/gscan2pdf:7187
+#: bin/gscan2pdf:7220
 msgid "Restore window settings on startup"
-msgstr "Восстановить настройки окна при запуске"
+msgstr "Восстанавливать настройки окна при запуске"
 
-#: bin/gscan2pdf:7192
+#: bin/gscan2pdf:7225
 msgid "View files on saving"
-msgstr "Просмотр файла после сохранения"
+msgstr "Просматривать файлы после сохранения"
 
-#: bin/gscan2pdf:7199
+#: bin/gscan2pdf:7232
 msgid "Default PDF & DjVu filename"
 msgstr "Имя файлов PDF и DjVu по умолчанию"
 
-#: bin/gscan2pdf:7204
+#: bin/gscan2pdf:7237
 msgid ""
 "strftime codes, e.g.:\n"
 "%Y\tcurrent year\n"
@@ -1407,98 +1434,101 @@ msgstr ""
 "%Dm\tмесяц документа\n"
 "%Dd\tдень документа\n"
 
-#: bin/gscan2pdf:7225
+#: bin/gscan2pdf:7258
 msgid "Replace whitespace in filenames with underscores"
 msgstr "Заменять пробелы нижним подчёркиванием в именах файлов"
 
-#: bin/gscan2pdf:7231
+#: bin/gscan2pdf:7264
 msgid "Use timezone from locale"
 msgstr "Использовать часовые пояса из системной локали"
 
-#: bin/gscan2pdf:7237
+#: bin/gscan2pdf:7270
 msgid "Specify time as well as date"
-msgstr "Указать и дату, и время"
+msgstr "Совместно с датой указывать время"
 
-#: bin/gscan2pdf:7243
+#: bin/gscan2pdf:7276
 msgid "Set access and modification times to metadata date"
-msgstr "Установить время доступа и изменения согласно дате в метаданных"
+msgstr "Устанавливать время доступа и изменения согласно дате в метаданных"
 
-#: bin/gscan2pdf:7249
+#: bin/gscan2pdf:7282
 msgid "Convert scanned images to PNG before further processing"
 msgstr ""
-"Преобразовать отсканированные изображения в PNG перед продолжением обработки"
+"Преобразовывать сканированные изображения в PNG перед продолжением обработки"
 
-#: bin/gscan2pdf:7256
+#: bin/gscan2pdf:7289
 msgid "Temporary directory"
 msgstr "Временный каталог"
 
-#: bin/gscan2pdf:7261
+#: bin/gscan2pdf:7294
 msgid "Browse"
 msgstr "Обзор"
 
-#: bin/gscan2pdf:7265
+#: bin/gscan2pdf:7298
 msgid "Select temporary directory"
 msgstr "Выбрать временный каталог"
 
-#: bin/gscan2pdf:7287
+#: bin/gscan2pdf:7320
 msgid "Warn if available space less than (Mb)"
 msgstr "Предупреждать, если свободного места меньше чем (МБ)"
 
-#: bin/gscan2pdf:7293
+#: bin/gscan2pdf:7326
 msgid ""
 "Warn if the available space in the temporary directory is less than this "
 "value"
-msgstr "Предупреждать, если во временной папке места меньше, чем это значение"
+msgstr ""
+"Предупреждать, если количество свободного места во временной папке меньше "
+"указанного значения"
 
-#: bin/gscan2pdf:7301
+#: bin/gscan2pdf:7334
 msgid "Blank threshold"
-msgstr "Порог чёрного"
+msgstr "Порог пустой страницы"
 
-#: bin/gscan2pdf:7307
+#: bin/gscan2pdf:7340
 msgid "Threshold used for selecting blank pages"
 msgstr "Пороговое значение, используемое для выявления пустых страниц"
 
-#: bin/gscan2pdf:7313
+#: bin/gscan2pdf:7346
 msgid "Dark threshold"
-msgstr "Порог тёмного"
+msgstr "Порог тёмной страницы"
 
-#: bin/gscan2pdf:7319
+#: bin/gscan2pdf:7352
 msgid "Threshold used for selecting dark pages"
-msgstr "Ограничение для выбора тёмных страниц"
+msgstr "Пороговое значение для выявления тёмных страниц"
 
-#: bin/gscan2pdf:7325
+#: bin/gscan2pdf:7358
 msgid "OCR output"
 msgstr "Вывод OCR"
 
-#: bin/gscan2pdf:7330
+#: bin/gscan2pdf:7363
 msgid "Replace"
-msgstr "Заменить"
+msgstr "Заменять"
 
-#: bin/gscan2pdf:7332
-msgid "Replace the contents of the text buffer with that from the OCR output."
-msgstr "Заменить содержимое текстового буфера из вывода OCR"
+#: bin/gscan2pdf:7365
+msgid ""
+"Replace the contents of the text buffer with that from the OCR output."
+msgstr "Заменять содержимое текстового буфера на вывод распознанного текста."
 
-#: bin/gscan2pdf:7336
+#: bin/gscan2pdf:7369
 msgid "Prepend"
 msgstr "Добавлять в начало"
 
-#: bin/gscan2pdf:7337
+#: bin/gscan2pdf:7370
 msgid "Prepend the OCR output to the text buffer."
-msgstr "Помещать вывод OCR в начало текстового буфера"
+msgstr "Помещать вывод распознанного текста в начало текстового буфера."
 
-#: bin/gscan2pdf:7340
+#: bin/gscan2pdf:7373
 msgid "Append"
 msgstr "Добавлять в конец"
 
-#: bin/gscan2pdf:7341
+#: bin/gscan2pdf:7374
 msgid "Append the OCR output to the text buffer."
-msgstr "Помещать вывод OCR в конец текстового буфера"
+msgstr "Помещать вывод распознанного текста в конец текстового буфера"
 
-#: bin/gscan2pdf:7349
+#: bin/gscan2pdf:7382
 msgid "Manage user-defined tools"
-msgstr "Управление заданными пользователем программами"
+msgstr "Управление дополнительными инструментами"
 
-#: bin/gscan2pdf:7429
+#: bin/gscan2pdf:7462
 msgid ""
 "Use %i and %o for the input and output filenames respectively, or a single "
 "%i if the image is to be modified in-place.\n"
@@ -1507,22 +1537,23 @@ msgid ""
 "\n"
 "%r resolution"
 msgstr ""
-"Используйте %i и %o для имён файлов соответственно на входе и выходе, либо "
-"просто %i, если изображение будет редактироваться непосредственно.\n"
+"Параметры %i и %o используются для входных и выходных файлов, "
+"соответственно. При встроенном редактировании изображения используется "
+"только параметр %i.\n"
 "\n"
 "Другие параметры:\n"
 "\n"
 "%r разрешение"
 
-#: bin/gscan2pdf:7481
+#: bin/gscan2pdf:7514
 msgid "Properties"
 msgstr "Свойства"
 
-#: bin/gscan2pdf:7493 bin/gscan2pdf:7503
+#: bin/gscan2pdf:7526 bin/gscan2pdf:7536
 msgid "dpi"
 msgstr "точек на дюйм"
 
-#: bin/gscan2pdf:7638
+#: bin/gscan2pdf:7671
 msgid "Messages"
 msgstr "Сообщения"
 
@@ -1546,55 +1577,55 @@ msgstr "US Legal"
 msgid "Page Range"
 msgstr "Диапазон страниц"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:30
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:34
 msgid "Error"
 msgstr "Ошибка"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:31
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:35
 msgid "Warning"
 msgstr "Предупреждение"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:43
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:47
 msgid "Page"
 msgstr "Страница"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:45
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:49
 msgid "Process"
 msgstr "Обработка"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:47
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:51
 msgid "Message type"
 msgstr "Тип сообщения"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:49
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:53
 msgid "Message"
 msgstr "Сообщение"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:112
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:116
 msgid "Don't show these messages again"
 msgstr "Больше не показывать эти сообщения"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:248
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:252
 msgid ""
 "This error is normally due to ImageMagick exceeding its resource limits."
 msgstr ""
-"Эта ошибка обычно возникает из-за превышения ограничений ресурсов редактором "
+"Эта ошибка обычно возникает при превышении ограничений ресурсов редактором "
 "ImageMagick."
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:252
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:256
 msgid ""
 "These can be extended by editing its policy file, which on my system is "
 "found at /etc/ImageMagick-6/policy.xml"
 msgstr ""
-"Можно выделить редактору больше ресурсов, изменив соответствующий файл "
-"политики: /etc/ImageMagick-6/policy.xml"
+"Увеличить выделение ресурсов редактору можно путём внесения изменений в "
+"соответствующий файл политики: /etc/ImageMagick-6/policy.xml"
 
-#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:256
+#: lib/Gscan2pdf/Dialog/MultipleMessage.pm:260
 msgid ""
 "Please see https://imagemagick.org/script/resources.php for more information"
 msgstr ""
-"Дополнительные сведения доступны на веб-сайте https://imagemagick.org/script/"
-"resources.php"
+"Дополнительные сведения доступны на веб-сайте: "
+"https://imagemagick.org/script/resources.php"
 
 #: lib/Gscan2pdf/Dialog/Renumber.pm:88 lib/Gscan2pdf/Dialog/Renumber.pm:187
 msgid "Renumber"
@@ -1646,7 +1677,7 @@ msgstr "Дата и время"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:327
 msgid "Specify"
-msgstr "Укажите"
+msgstr "Указать"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:328
 msgid "Specify date and time"
@@ -1735,7 +1766,7 @@ msgstr "TIFF"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:550
 msgid "Tagged Image File Format"
-msgstr "Размеченный формат файлов изображений"
+msgstr "Tagged Image File Format"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:551
 msgid "Text"
@@ -1783,7 +1814,7 @@ msgstr "Deja Vu"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:570
 msgid "Postscript backend"
-msgstr "Внутренняя служба Postscript"
+msgstr "Модуль Postscript"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:574
 msgid "LibTIFF"
@@ -1791,7 +1822,8 @@ msgstr "LibTIFF"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:575
 msgid "Use LibTIFF (tiff2ps) to create Postscript files from TIFF."
-msgstr "Использовать LibTIFF (tiff2ps) для создания файлов PostScript из TIFF"
+msgstr ""
+"Использовать LibTIFF (tiff2ps) для создания файлов PostScript из TIFF."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:579
 msgid "Ghostscript"
@@ -1800,7 +1832,7 @@ msgstr "Ghostscript"
 #: lib/Gscan2pdf/Dialog/Save.pm:580
 msgid "Use Ghostscript (pdf2ps) to create Postscript files from PDF."
 msgstr ""
-"Использовать Ghostscript (pdf2ps) для создания файлов PostScript из PDF"
+"Использовать Ghostscript (pdf2ps) для создания файлов PostScript из PDF."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:583
 msgid "Poppler"
@@ -1808,7 +1840,8 @@ msgstr "Poppler"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:584
 msgid "Use Poppler (pdftops) to create Postscript files from PDF."
-msgstr "Использовать Poppler (pdftops) для создания файлов PostScript из PDF"
+msgstr ""
+"Использовать Poppler (pdftops) для создания файлов PostScript из PDF."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:606 lib/Gscan2pdf/Dialog/Save.pm:802
 msgid "LZW"
@@ -1816,7 +1849,7 @@ msgstr "LZW"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:607 lib/Gscan2pdf/Dialog/Save.pm:803
 msgid "Compress output with Lempel-Ziv & Welch encoding."
-msgstr "Сжатие вывода алгоритмом Лемпеля — Зива — Велча"
+msgstr "Сжатие вывода алгоритмом Лемпеля — Зива — Велча."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:609
 msgid "Zip"
@@ -1824,11 +1857,11 @@ msgstr "Zip"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:609
 msgid "Compress output with deflate encoding."
-msgstr "Сжатие вывода алгоритмом понижения порядка (deflate)"
+msgstr "Сжатие вывода алгоритмом понижения порядка (deflate)."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:612
 msgid "Compress output with JPEG encoding."
-msgstr "Сжатие вывода алгоритмом JPEG"
+msgstr "Сжатие вывода алгоритмом JPEG."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:614
 msgid "Packbits"
@@ -1836,7 +1869,7 @@ msgstr "Packbits"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:615
 msgid "Compress output with Packbits encoding."
-msgstr "Сжатие вывода алгоритмом Packbits"
+msgstr "Сжатие вывода алгоритмом Packbits."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:617 lib/Gscan2pdf/Dialog/Save.pm:805
 msgid "G3"
@@ -1844,7 +1877,7 @@ msgstr "G3"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:617 lib/Gscan2pdf/Dialog/Save.pm:805
 msgid "Compress output with CCITT Group 3 encoding."
-msgstr "Сжатие вывода алгоритмом CCITT Group 3"
+msgstr "Сжатие вывода алгоритмом CCITT Group 3."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:618 lib/Gscan2pdf/Dialog/Save.pm:806
 msgid "G4"
@@ -1852,7 +1885,7 @@ msgstr "G4"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:618 lib/Gscan2pdf/Dialog/Save.pm:806
 msgid "Compress output with CCITT Group 4 encoding."
-msgstr "Сжатие вывода алгоритмом CCITT Group 4"
+msgstr "Сжатие вывода алгоритмом CCITT Group 4."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:619 lib/Gscan2pdf/Dialog/Save.pm:809
 msgid "None"
@@ -1860,7 +1893,7 @@ msgstr "Нет"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:619 lib/Gscan2pdf/Dialog/Save.pm:809
 msgid "Use no compression algorithm on output."
-msgstr "Не использовать алгоритм сжатия при выводе"
+msgstr "Не использовать алгоритм сжатия при выводе."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:625 lib/Gscan2pdf/Dialog/Save.pm:815
 msgid "Compression"
@@ -1884,23 +1917,23 @@ msgstr "Автоматически"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:799
 msgid "Let gscan2pdf which type of compression to use."
-msgstr "Пусть программа сама выберет подходящий алгоритм сжатия"
+msgstr "Пусть программа сама выберет подходящий алгоритм сжатия."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:807
 msgid "Flate"
-msgstr ""
+msgstr "Flate"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:807
 msgid "Compress output with flate encoding."
-msgstr "Сжатие вывода алгоритмом flate"
+msgstr "Сжатие вывода алгоритмом flate."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:808
 msgid "Compress output with JPEG (DCT) encoding."
-msgstr "Сжатие вывода алгоритмом JPEG"
+msgstr "Сжатие вывода алгоритмом JPEG (DCT)."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:844
 msgid "Position of OCR output"
-msgstr "Позиция OCR вывода"
+msgstr "Позиция вывода распознанного текста"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:847
 msgid "Behind"
@@ -1908,16 +1941,16 @@ msgstr "После"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:847
 msgid "Put OCR output behind image."
-msgstr "Помещать вывод OCR после изображения."
+msgstr "Помещать вывод распознанного текста после изображения."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:849 lib/Gscan2pdf/Unpaper.pm:164
 #: lib/Gscan2pdf/Unpaper.pm:193
 msgid "Right"
-msgstr "Правый"
+msgstr "Справа"
 
 #: lib/Gscan2pdf/Dialog/Save.pm:850
 msgid "Put OCR output to the right of the image."
-msgstr "Помещать вывод OCR в справа от изображения."
+msgstr "Помещать вывод распознанного текста справа от изображения."
 
 #: lib/Gscan2pdf/Dialog/Save.pm:865
 msgid "Encrypt PDF"
@@ -1953,7 +1986,7 @@ msgstr "Все"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:346
 msgid "Scan all pages"
-msgstr "Отсканировать все страницы"
+msgstr "Сканировать все страницы"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:359 lib/Gscan2pdf/Dialog/Scan.pm:364
 msgid "Set number of pages to scan"
@@ -1993,15 +2026,15 @@ msgstr "Какую сторону сканировать"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:529
 msgid "Facing"
-msgstr "Парные страницы"
+msgstr "Лицевая"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:529
 msgid "Reverse"
-msgstr "Обратный порядок"
+msgstr "Обратная"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:550
 msgid "Sets which side of a double-sided document is scanned"
-msgstr "Указать, какую сторону документа с двухсторонней печатью сканировать"
+msgstr "Указать сторону сканирования документа с двухсторонней печатью"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:577
 msgid "Scan profiles"
@@ -2009,7 +2042,7 @@ msgstr "Профили сканирования"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:613
 msgid "Scan"
-msgstr "Отсканировать"
+msgstr "Сканировать"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:635
 msgid "Device"
@@ -2039,17 +2072,17 @@ msgstr "Редактирование профиля сканирования «%
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:799
 msgid "Backend options"
-msgstr ""
+msgstr "Параметры модуля"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:800
 msgid "Frontend options"
-msgstr ""
+msgstr "Параметры интерфейса"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:982 lib/Gscan2pdf/Dialog/Scan.pm:1150
 #: lib/Gscan2pdf/Dialog/Scan.pm:1325 lib/Gscan2pdf/Dialog/Scan.pm:1338
-#: lib/Gscan2pdf/Dialog/Scan.pm:1620
+#: lib/Gscan2pdf/Dialog/Scan.pm:1623
 msgid "Manual"
-msgstr "Руководство"
+msgstr "Указать вручную"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:1178
 #, perl-format
@@ -2058,7 +2091,7 @@ msgstr "Ошибка: неизвестное устройство: %s"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:1244
 msgid "pel"
-msgstr "пкс"
+msgstr "пикс"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:1247
 msgid "bit"
@@ -2070,7 +2103,7 @@ msgstr "мм"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:1253
 msgid "ppi"
-msgstr "пкс/дюйм"
+msgstr "пикс/дюйм"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:1256
 msgid "%"
@@ -2090,70 +2123,70 @@ msgstr "Правка"
 
 #: lib/Gscan2pdf/Dialog/Scan.pm:1328
 msgid "Selects or edits the paper size"
-msgstr "Выбрать или изменить данные о размере бумаги"
+msgstr "Выбрать или изменить размер бумаги"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1442
+#: lib/Gscan2pdf/Dialog/Scan.pm:1445
 #, perl-format
 msgid ""
 "Reload recursion limit (%d) exceeded. Please file a bug, attaching a log "
 "file reproducing the problem."
 msgstr ""
-"Предел рекурсии (%d) превышен. Пожалуйста, отправьте отчёт об ошибке, "
-"приложив файл журнала с воспроизведением проблемы."
+"Предел рекурсии (%d) превышен. Отправьте отчёт об ошибке вместе с файлом "
+"журнала для воспроизведения проблемы."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1723
+#: lib/Gscan2pdf/Dialog/Scan.pm:1732
 msgid "Edit paper size"
 msgstr "Изменить формат страницы"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1739
+#: lib/Gscan2pdf/Dialog/Scan.pm:1748
 msgid "Name"
 msgstr "Имя"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1742 lib/Gscan2pdf/Unpaper.pm:153
+#: lib/Gscan2pdf/Dialog/Scan.pm:1751 lib/Gscan2pdf/Unpaper.pm:153
 #: lib/Gscan2pdf/Unpaper.pm:183
 msgid "Left"
-msgstr "Левый"
+msgstr "Слева"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1743 lib/Gscan2pdf/Unpaper.pm:159
+#: lib/Gscan2pdf/Dialog/Scan.pm:1752 lib/Gscan2pdf/Unpaper.pm:159
 #: lib/Gscan2pdf/Unpaper.pm:188
 msgid "Top"
-msgstr "Верхний"
+msgstr "Сверху"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1744
+#: lib/Gscan2pdf/Dialog/Scan.pm:1753
 msgid "Units"
 msgstr "Единицы измерения"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1796
+#: lib/Gscan2pdf/Dialog/Scan.pm:1805
 msgid "Cannot delete all paper sizes"
 msgstr "Невозможно удалить все размеры бумаги"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:1864
+#: lib/Gscan2pdf/Dialog/Scan.pm:1873
 msgid ""
 "The following paper sizes are too big to be scanned by the selected device:"
 msgstr ""
 "Бумага следующих размеров слишком велика для сканирования с помощью "
 "выбранного устройства:"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2025
+#: lib/Gscan2pdf/Dialog/Scan.pm:2034
 msgid ""
 "Multiple unconstrained values are not currently supported. Please file a bug."
 msgstr ""
-"Несколько неограниченных значений не поддерживаются должным образом. "
-"Пожалуйста, отправьте отчёт об ошибке."
+"Несколько неограниченных значений в настоящий момент не поддерживаются. "
+"Отправьте отчёт об ошибке."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2039
+#: lib/Gscan2pdf/Dialog/Scan.pm:2048
 msgid ""
 "Multiple non-numerical values are not currently supported. Please file a bug."
 msgstr ""
-"Несколько нецифровых значений не поддерживаются должным образом. Пожалуйста, "
-"отправьте отчёт об ошибке."
+"Несколько нецифровых значений в настоящее время не поддерживаются.Отправьте "
+"отчёт об ошибке."
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2528
+#: lib/Gscan2pdf/Dialog/Scan.pm:2537
 #, perl-format
 msgid "Scanning page %d of %d"
 msgstr "Сканирование страницы %d из %d"
 
-#: lib/Gscan2pdf/Dialog/Scan.pm:2530
+#: lib/Gscan2pdf/Dialog/Scan.pm:2539
 #, perl-format
 msgid "Scanning page %d"
 msgstr "Сканирование страницы %d"
@@ -2179,7 +2212,7 @@ msgstr "Параметры сканирования"
 
 #: lib/Gscan2pdf/Dialog/Scan/CLI.pm:850
 msgid "Must scan facing pages first"
-msgstr "Сначала нужно отсканировать парные страницы"
+msgstr "Сканировать сначала лицевые страницы"
 
 #: lib/Gscan2pdf/Dialog/Scan/Image_Sane.pm:143
 msgid "Opening device"
@@ -2209,65 +2242,65 @@ msgstr "Ошибка: невозможно открыть файл сеанса 
 msgid "Error: importing a multipage file at the same time as another file."
 msgstr "Ошибка: импорт многостраничного файла одновременно с другим файлом."
 
-#: lib/Gscan2pdf/Document.pm:754
+#: lib/Gscan2pdf/Document.pm:756
 msgid "Unable to load image"
 msgstr "Невозможно загрузить изображение"
 
-#: lib/Gscan2pdf/Document.pm:1990
+#: lib/Gscan2pdf/Document.pm:1964
 #, perl-format
 msgid "Error importing page %d. Ignoring."
 msgstr "Ошибка при импорте страницы %d. Игнорируется."
 
-#: lib/Gscan2pdf/Document.pm:2105
+#: lib/Gscan2pdf/Document.pm:2078
 msgid "No pages to process"
 msgstr "Нет страниц для обработки"
 
-#: lib/Gscan2pdf/Document.pm:2112
+#: lib/Gscan2pdf/Document.pm:2085
 msgid "No pages selected"
 msgstr "Не выбрано ни одной страницы"
 
-#: lib/Gscan2pdf/Document.pm:2834
+#: lib/Gscan2pdf/Document.pm:2807
 #, perl-format
 msgid "File %s not found"
 msgstr "Файл «%s» не найден"
 
-#: lib/Gscan2pdf/Document.pm:2853
+#: lib/Gscan2pdf/Document.pm:2826
 #, perl-format
 msgid "Error importing zero-length file %s."
 msgstr "Ошибка импорта файла нулевого размера (%s)."
 
-#: lib/Gscan2pdf/Document.pm:2883
+#: lib/Gscan2pdf/Document.pm:2856
 msgid "Please install djvulibre-bin in order to open DjVu files."
-msgstr "Пожалуйста установите djvulibre-bin для открытия DjVu файлов."
+msgstr "Установите djvulibre-bin для открытия DjVu файлов."
 
-#: lib/Gscan2pdf/Document.pm:2915
+#: lib/Gscan2pdf/Document.pm:2888
 msgid "Unknown DjVu file structure. Please contact the author."
 msgstr "Неизвестная структура файла DjVu. Свяжитесь с автором."
 
-#: lib/Gscan2pdf/Document.pm:3027 lib/Gscan2pdf/Document.pm:3040
+#: lib/Gscan2pdf/Document.pm:3000 lib/Gscan2pdf/Document.pm:3013
 #, perl-format
 msgid "%s is not a recognised image type"
-msgstr "%s не является типом изображения"
+msgstr "%s не является распознаваемым типом изображения"
 
-#: lib/Gscan2pdf/Document.pm:3095 lib/Gscan2pdf/Document.pm:3202
-#: lib/Gscan2pdf/Document.pm:3227
+#: lib/Gscan2pdf/Document.pm:3068 lib/Gscan2pdf/Document.pm:3175
+#: lib/Gscan2pdf/Document.pm:3200
 #, perl-format
 msgid "Importing page %i of %i"
 msgstr "Импорт страницы %i из %i"
 
-#: lib/Gscan2pdf/Document.pm:3392
+#: lib/Gscan2pdf/Document.pm:3365
 msgid "Error extracting images from PDF"
 msgstr "Ошибка при извлечении изображений из PDF"
 
-#: lib/Gscan2pdf/Document.pm:3409
+#: lib/Gscan2pdf/Document.pm:3382
 msgid "Error extracting text layer from PDF"
 msgstr "Ошибка извлечения текстового слоя из PDF"
 
-#: lib/Gscan2pdf/Document.pm:3441
+#: lib/Gscan2pdf/Document.pm:3414
 msgid "Error importing PDF"
 msgstr "Ошибка импорта PDF"
 
-#: lib/Gscan2pdf/Document.pm:3449
+#: lib/Gscan2pdf/Document.pm:3422
 msgid ""
 "Warning: gscan2pdf expects one image per page, but this was not satisfied. "
 "It is probable that the PDF has not been correctly imported.\n"
@@ -2275,249 +2308,255 @@ msgid ""
 "If you wish to add scans to an existing PDF, use the prepend/append to PDF "
 "options in the Save dialogue.\n"
 msgstr ""
-"Предупреждение: gscan2pdf ожидает одно изображение на страницу, но это "
-"условие не удовлетворено. Возможно, PDF не был правильно импортирован.\n"
+"Предупреждение: gscan2pdf предполагает соответствие одной страницы одному "
+"изображению, что не соответствует текущему состоянию. Возможно, PDF был "
+"неправильно импортирован.\n"
 "\n"
-"Если требуется добавить результаты сканирования в существующий PDF, "
-"используйте соответствующие пункты меню «Сохранить».\n"
+"При добавлении результатов сканирования в существующий PDF, воспользуйтесь "
+"параметрами для добавления в начало/конец PDF в диалоговом окне "
+"«Сохранить».\n"
 
-#: lib/Gscan2pdf/Document.pm:3472
+#: lib/Gscan2pdf/Document.pm:3445
 msgid "Setting up PDF"
 msgstr "Настройка PDF"
 
-#: lib/Gscan2pdf/Document.pm:3484
+#: lib/Gscan2pdf/Document.pm:3457
 #, perl-format
 msgid "Caught error creating PDF %s: %s"
 msgstr "Ошибка при создании PDF %s: %s"
 
-#: lib/Gscan2pdf/Document.pm:3499
+#: lib/Gscan2pdf/Document.pm:3472
 #, perl-format
 msgid "Unable to find font '%s'. Defaulting to core font."
-msgstr "Не найден шрифт '%s'. Используем шрифт по-умолчанию."
+msgstr ""
+"Не найден шрифт «%s». Будет использоваться базовый шрифт по умолчанию."
 
-#: lib/Gscan2pdf/Document.pm:3523
+#: lib/Gscan2pdf/Document.pm:3496
 #, perl-format
 msgid "Saving page %i of %i"
 msgstr "Сохранение страницы %i из %i"
 
-#: lib/Gscan2pdf/Document.pm:3530
+#: lib/Gscan2pdf/Document.pm:3503
 msgid "Closing PDF"
 msgstr "Закрытие PDF"
 
-#: lib/Gscan2pdf/Document.pm:3548 lib/Gscan2pdf/Document.pm:4500
+#: lib/Gscan2pdf/Document.pm:3521 lib/Gscan2pdf/Document.pm:4475
 msgid "Converting to PS"
 msgstr "Преобразование в PS"
 
-#: lib/Gscan2pdf/Document.pm:3558
+#: lib/Gscan2pdf/Document.pm:3531
 #, perl-format
 msgid "Error converting PDF to PS: %s"
 msgstr "Ошибка преобразования PDF в PS: %s"
 
-#: lib/Gscan2pdf/Document.pm:3595
+#: lib/Gscan2pdf/Document.pm:3568
 #, perl-format
 msgid "Error prepending PDF: %s"
 msgstr "Ошибка добавления в начало PDF: %s"
 
-#: lib/Gscan2pdf/Document.pm:3603
+#: lib/Gscan2pdf/Document.pm:3576
 #, perl-format
 msgid "Error appending PDF: %s"
 msgstr "Ошибка добавления в конец PDF: %s"
 
-#: lib/Gscan2pdf/Document.pm:3609
+#: lib/Gscan2pdf/Document.pm:3582
 msgid "Error creating backup of PDF"
 msgstr "Ошибка создания резервной копии PDF"
 
-#: lib/Gscan2pdf/Document.pm:3634
+#: lib/Gscan2pdf/Document.pm:3607
 #, perl-format
 msgid "Error encrypting PDF: %s"
 msgstr "Ошибка шифрования PDF: %s"
 
-#: lib/Gscan2pdf/Document.pm:3673
+#: lib/Gscan2pdf/Document.pm:3646
 msgid "Unable to set file timestamp for dates prior to 1970"
-msgstr "Невозможно задать дату файла для дат до 1970 года"
+msgstr "Невозможно задать метку времени для дат до 1970 года"
 
-#: lib/Gscan2pdf/Document.pm:3783
+#: lib/Gscan2pdf/Document.pm:3756
 #, perl-format
 msgid "Error creating PDF image object: %s"
 msgstr "Ошибка при создании объекта изображения в PDF: %s"
 
-#: lib/Gscan2pdf/Document.pm:3795
+#: lib/Gscan2pdf/Document.pm:3768
 #, perl-format
 msgid "Error embedding file image in %s format to PDF: %s"
 msgstr "Ошибка при внедрении изображения в формате %s в PDF: %s"
 
-#: lib/Gscan2pdf/Document.pm:3901 lib/Gscan2pdf/Document.pm:4496
+#: lib/Gscan2pdf/Document.pm:3874 lib/Gscan2pdf/Document.pm:4471
 #, perl-format
 msgid "Error compressing image: %s"
 msgstr "Ошибка при сжатии изображения: %s"
 
-#: lib/Gscan2pdf/Document.pm:3977
+#: lib/Gscan2pdf/Document.pm:3950
 #, perl-format
 msgid "Core font '%s' cannot encode character '%s', and no TTF font defined."
-msgstr "Шрифт '%s' не может отобразить символ '%s', и не указан TTF шрифт."
+msgstr ""
+"Базовый шрифт «%s» не может отобразить символ «%s», а шрифт TTF не указан."
 
-#: lib/Gscan2pdf/Document.pm:3991
+#: lib/Gscan2pdf/Document.pm:3964
 #, perl-format
 msgid "Neither '%s' nor '%s' can encode character '%s' in '%s'"
-msgstr ""
+msgstr "Ни «%s», ни «%s» не могут отобразить символ «%s» в «%s»"
 
-#: lib/Gscan2pdf/Document.pm:4137
+#: lib/Gscan2pdf/Document.pm:4110
 #, perl-format
 msgid "Writing page %i of %i"
 msgstr "Запись страницы %i из %i"
 
-#: lib/Gscan2pdf/Document.pm:4167
+#: lib/Gscan2pdf/Document.pm:4140
 msgid "Error writing DjVu"
 msgstr "Ошибка при сохранении DjVu"
 
-#: lib/Gscan2pdf/Document.pm:4177
+#: lib/Gscan2pdf/Document.pm:4150
 msgid "Merging DjVu"
-msgstr "Соединение DjVu"
+msgstr "Слияние DjVu"
 
-#: lib/Gscan2pdf/Document.pm:4185
+#: lib/Gscan2pdf/Document.pm:4158
 msgid "Error merging DjVu"
-msgstr "Ошибка соединения DjVu"
+msgstr "Ошибка слияния DjVu"
 
-#: lib/Gscan2pdf/Document.pm:4291
+#: lib/Gscan2pdf/Document.pm:4264
 #, perl-format
 msgid "Can't write to file: %s"
-msgstr "Не удалось записать в файл: %s"
+msgstr "Не удалось выполнить запись в файл: %s"
 
-#: lib/Gscan2pdf/Document.pm:4307 lib/Gscan2pdf/Document.pm:4341
-#: lib/Gscan2pdf/Document.pm:4372 lib/Gscan2pdf/Document.pm:4672
-#: lib/Gscan2pdf/Document.pm:4697
+#: lib/Gscan2pdf/Document.pm:4280 lib/Gscan2pdf/Document.pm:4315
+#: lib/Gscan2pdf/Document.pm:4347 lib/Gscan2pdf/Document.pm:4647
+#: lib/Gscan2pdf/Document.pm:4672
 #, perl-format
 msgid "Can't open file: %s"
 msgstr "Не удалось открыть файл: %s"
 
-#: lib/Gscan2pdf/Document.pm:4311 lib/Gscan2pdf/Document.pm:4345
-#: lib/Gscan2pdf/Document.pm:4392 lib/Gscan2pdf/Document.pm:4678
-#: lib/Gscan2pdf/Document.pm:4722
+#: lib/Gscan2pdf/Document.pm:4284 lib/Gscan2pdf/Document.pm:4319
+#: lib/Gscan2pdf/Document.pm:4367 lib/Gscan2pdf/Document.pm:4653
+#: lib/Gscan2pdf/Document.pm:4697
 #, perl-format
 msgid "Can't close file: %s"
 msgstr "Не удалось закрыть файл: %s"
 
-#: lib/Gscan2pdf/Document.pm:4323
+#: lib/Gscan2pdf/Document.pm:4297
 msgid "Error adding text layer to DjVu"
 msgstr "Ошибка при добавлении текстового слоя в DjVu"
 
-#: lib/Gscan2pdf/Document.pm:4357
+#: lib/Gscan2pdf/Document.pm:4332
 msgid "Error adding annotations to DjVu"
-msgstr "Ошибка при добавлении примечания в DjVu"
+msgstr "Ошибка при добавлении примечаний в DjVu"
 
-#: lib/Gscan2pdf/Document.pm:4403
+#: lib/Gscan2pdf/Document.pm:4378
 msgid "Error adding metadata to DjVu"
 msgstr "Ошибка при добавлении метаданных в DjVu"
 
-#: lib/Gscan2pdf/Document.pm:4420
+#: lib/Gscan2pdf/Document.pm:4395
 #, perl-format
 msgid "Converting image %i of %i to TIFF"
 msgstr "Преобразование изображения %i из %i в TIFF"
 
-#: lib/Gscan2pdf/Document.pm:4469
+#: lib/Gscan2pdf/Document.pm:4444
 msgid "Error writing TIFF"
 msgstr "Ошибка при записи TIFF"
 
-#: lib/Gscan2pdf/Document.pm:4488
+#: lib/Gscan2pdf/Document.pm:4463
 msgid "Concatenating TIFFs"
 msgstr "Объединение файлов TIFF"
 
-#: lib/Gscan2pdf/Document.pm:4507
+#: lib/Gscan2pdf/Document.pm:4482
 #, perl-format
 msgid "Error converting TIFF to PS: %s"
 msgstr "Ошибка преобразования TIFF в PS: %s"
 
-#: lib/Gscan2pdf/Document.pm:4624 lib/Gscan2pdf/Document.pm:4646
+#: lib/Gscan2pdf/Document.pm:4599 lib/Gscan2pdf/Document.pm:4621
 msgid "Error saving image"
 msgstr "Ошибка сохранения изображения"
 
-#: lib/Gscan2pdf/Document.pm:4742
+#: lib/Gscan2pdf/Document.pm:4717
 #, perl-format
 msgid "Analysing page %i of %i"
 msgstr "Анализ страницы %i из %i"
 
-#: lib/Gscan2pdf/Document.pm:5710
+#: lib/Gscan2pdf/Document.pm:5647
 msgid "Error copying page"
 msgstr "Ошибка при копировании страницы"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:181
+#: lib/Gscan2pdf/Frontend/CLI.pm:182
 #, perl-format
 msgid "Scanning %i pages..."
-msgstr "Сканирование %i страниц..."
+msgstr "Сканирование %i страниц…"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:187
+#: lib/Gscan2pdf/Frontend/CLI.pm:188
 #, perl-format
 msgid "Scanning page %i..."
-msgstr "Сканирование страницы %i..."
+msgstr "Сканирование страницы %i…"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:215 lib/Gscan2pdf/Frontend/CLI.pm:429
+#: lib/Gscan2pdf/Frontend/CLI.pm:216 lib/Gscan2pdf/Frontend/CLI.pm:430
 msgid "Scanner warming up"
 msgstr "Сканер разогревается"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:226
+#: lib/Gscan2pdf/Frontend/CLI.pm:227
 msgid "Document feeder out of documents"
 msgstr "Автоподатчик документов пуст"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:251 lib/Gscan2pdf/Frontend/CLI.pm:467
+#: lib/Gscan2pdf/Frontend/CLI.pm:252 lib/Gscan2pdf/Frontend/CLI.pm:468
 msgid "Device busy"
 msgstr "Устройство занято"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:259 lib/Gscan2pdf/Frontend/CLI.pm:476
+#: lib/Gscan2pdf/Frontend/CLI.pm:260 lib/Gscan2pdf/Frontend/CLI.pm:477
 msgid "Operation cancelled"
 msgstr "Действие отменено"
 
-#: lib/Gscan2pdf/Frontend/CLI.pm:265 lib/Gscan2pdf/Frontend/CLI.pm:483
+#: lib/Gscan2pdf/Frontend/CLI.pm:266 lib/Gscan2pdf/Frontend/CLI.pm:484
 msgid "Unknown message: "
 msgstr "Неизвестное сообщение: "
 
-#: lib/Gscan2pdf/Page.pm:88 lib/Gscan2pdf/Page.pm:93
+#: lib/Gscan2pdf/Page.pm:85 lib/Gscan2pdf/Page.pm:90
 #, perl-format
 msgid "Error importing image %s: %s"
 msgstr "Ошибка при импорте изображения %s: %s"
 
-#: lib/Gscan2pdf/Page.pm:140
+#: lib/Gscan2pdf/Page.pm:137
 #, perl-format
 msgid "Error copying image %s: %s"
 msgstr "Ошибка копирования изображения %s: %s"
 
 #: lib/Gscan2pdf/PageRange.pm:38
 msgid "Selected"
-msgstr "Выбранные"
+msgstr "Выделенные"
 
-#: lib/Gscan2pdf/Tesseract.pm:140 lib/Gscan2pdf/Tesseract.pm:154
-#: lib/Gscan2pdf/Tesseract.pm:160
+#: lib/Gscan2pdf/Tesseract.pm:148 lib/Gscan2pdf/Tesseract.pm:162
+#: lib/Gscan2pdf/Tesseract.pm:168
 #, perl-format
 msgid "You are using locale '%s'."
-msgstr "Вы используете локаль '%s'."
+msgstr "Используется локаль «%s»."
 
-#: lib/Gscan2pdf/Tesseract.pm:142
+#: lib/Gscan2pdf/Tesseract.pm:150
 msgid ""
 "gscan2pdf does not currently know which tesseract language package would be "
 "necessary for that locale."
 msgstr ""
-"gscan2pdf не может определить какой язык tesseract необходим для данной локали."
+"gscan2pdf не может определить необходимый для данной локали языковой пакет "
+"tesseract."
 
-#: lib/Gscan2pdf/Tesseract.pm:145
+#: lib/Gscan2pdf/Tesseract.pm:153
 msgid "Please contact the developers to add support for that locale."
-msgstr "Пожалуйста свяжитесь с разработчиками для добавления поддержки этой локали."
+msgstr "Свяжитесь с разработчиками для добавления поддержки этой локали."
 
-#: lib/Gscan2pdf/Tesseract.pm:156
+#: lib/Gscan2pdf/Tesseract.pm:164
 #, perl-format
 msgid ""
 "Please install tesseract package 'tesseract-ocr-%s' and restart gscan2pdf "
 "for OCR for %s with tesseract."
 msgstr ""
-"Пожалуйста установите 'tesseract-ocr-%s' и перезапустите gscan2pdf для распознавания %s "
+"Установите «tesseract-ocr-%s» и перезапустите gscan2pdf для распознавания %s "
 "с помощью tesseract."
 
-#: lib/Gscan2pdf/Tesseract.pm:161
+#: lib/Gscan2pdf/Tesseract.pm:169
 #, perl-format
 msgid "There is no tesseract package for %s"
 msgstr "Не установлен пакет tesseract для %s"
 
-#: lib/Gscan2pdf/Tesseract.pm:163
+#: lib/Gscan2pdf/Tesseract.pm:171
 msgid "If this is in error, please contact the gscan2pdf developers."
-msgstr "Это ошибка, пожалуйста свяжитесь с разработчиками gscan2pdf."
+msgstr ""
+"Если при этом происходит ошибка, свяжитесь с разработчиками gscan2pdf."
 
 #: lib/Gscan2pdf/Unpaper.pm:46
 msgid "Layout"
@@ -2529,7 +2568,7 @@ msgstr "Одиночная"
 
 #: lib/Gscan2pdf/Unpaper.pm:51
 msgid "One page per sheet, oriented upwards without rotation."
-msgstr "Одна страница на листе, книжная ориентация, без вращения"
+msgstr "Одна страница на листе, книжная ориентация, без вращения."
 
 #: lib/Gscan2pdf/Unpaper.pm:55
 msgid "Double"
@@ -2540,8 +2579,8 @@ msgid ""
 "Two pages per sheet, landscape orientation (one page on the left half, one "
 "page on the right half)."
 msgstr ""
-"Две страницы на листе, альбомная ориентация (одна страница на одной "
-"половине, вторая — на другой)"
+"Две страницы на листе, альбомная ориентация (одна страница слева, другая "
+"справа)."
 
 #: lib/Gscan2pdf/Unpaper.pm:65
 msgid "# Output pages"
@@ -2549,7 +2588,7 @@ msgstr "Выводимых страниц: #"
 
 #: lib/Gscan2pdf/Unpaper.pm:66
 msgid "Number of pages to output."
-msgstr "Количество выводимых страниц"
+msgstr "Количество выводимых страниц."
 
 #: lib/Gscan2pdf/Unpaper.pm:74
 msgid "Writing system"
@@ -2563,7 +2602,7 @@ msgstr "Слева направо"
 msgid "Most writings systems, e.g. Latin, Greek, Cyrillic."
 msgstr ""
 "Большинство систем письменности (например, латиница, кириллица, греческое "
-"письмо)"
+"письмо)."
 
 #: lib/Gscan2pdf/Unpaper.pm:82
 msgid "Right-to-left"
@@ -2571,7 +2610,7 @@ msgstr "Справа налево"
 
 #: lib/Gscan2pdf/Unpaper.pm:83
 msgid "Scripts like Arabic or Hebrew."
-msgstr "Такие языки, как арабский и иврит"
+msgstr "Например, арабская или еврейская система письменности."
 
 #: lib/Gscan2pdf/Unpaper.pm:91
 msgid "No deskew"
@@ -2579,7 +2618,7 @@ msgstr "Без выравнивания"
 
 #: lib/Gscan2pdf/Unpaper.pm:92
 msgid "Disable deskewing."
-msgstr "Не использовать функцию выравнивания листа"
+msgstr "Не использовать функцию выравнивания листа."
 
 #: lib/Gscan2pdf/Unpaper.pm:97
 msgid "No mask scan"
@@ -2587,7 +2626,7 @@ msgstr "Не искать маску"
 
 #: lib/Gscan2pdf/Unpaper.pm:98
 msgid "Disable mask detection."
-msgstr "Отключить поиск маски"
+msgstr "Отключить поиск маски."
 
 #: lib/Gscan2pdf/Unpaper.pm:103
 msgid "No mask centering"
@@ -2595,7 +2634,7 @@ msgstr "Без центрирования маски"
 
 #: lib/Gscan2pdf/Unpaper.pm:104
 msgid "Disable mask centering."
-msgstr "Отключить центрирование маски"
+msgstr "Отключить центрирование маски."
 
 #: lib/Gscan2pdf/Unpaper.pm:109
 msgid "No black filter"
@@ -2603,7 +2642,7 @@ msgstr "Без фильтра чёрного цвета"
 
 #: lib/Gscan2pdf/Unpaper.pm:110
 msgid "Disable black area scan."
-msgstr "Отключить поиск чёрных областей"
+msgstr "Отключить поиск чёрных областей."
 
 #: lib/Gscan2pdf/Unpaper.pm:115
 msgid "No gray filter"
@@ -2611,7 +2650,7 @@ msgstr "Без фильтра серого цвета"
 
 #: lib/Gscan2pdf/Unpaper.pm:116
 msgid "Disable gray area scan."
-msgstr "Отключить поиск серых областей"
+msgstr "Отключить поиск серых областей."
 
 #: lib/Gscan2pdf/Unpaper.pm:121
 msgid "No noise filter"
@@ -2619,7 +2658,7 @@ msgstr "Без фильтра шума"
 
 #: lib/Gscan2pdf/Unpaper.pm:122
 msgid "Disable noise filter."
-msgstr "Отключить фильтр шума"
+msgstr "Отключить фильтр шума."
 
 #: lib/Gscan2pdf/Unpaper.pm:127
 msgid "No blur filter"
@@ -2627,15 +2666,15 @@ msgstr "Без фильтра размывания"
 
 #: lib/Gscan2pdf/Unpaper.pm:128
 msgid "Disable blur filter."
-msgstr "Отключить фильтр размывания"
+msgstr "Отключить фильтр размывания."
 
 #: lib/Gscan2pdf/Unpaper.pm:133
 msgid "No border scan"
-msgstr "Без поиска краёв"
+msgstr "Без поиска полей"
 
 #: lib/Gscan2pdf/Unpaper.pm:134
 msgid "Disable border scanning."
-msgstr "Отключить поиск краёв"
+msgstr "Отключить поиск границ."
 
 #: lib/Gscan2pdf/Unpaper.pm:139
 msgid "No border align"
@@ -2643,7 +2682,7 @@ msgstr "Без выравнивания полей"
 
 #: lib/Gscan2pdf/Unpaper.pm:141
 msgid "Disable aligning of the area detected by border scanning."
-msgstr "Отключить выравнивание областей, выявленных при анализе полей"
+msgstr "Отключить выравнивание областей, выявленных при поиске полей."
 
 #: lib/Gscan2pdf/Unpaper.pm:146
 msgid "Deskew to edge"
@@ -2663,23 +2702,23 @@ msgstr ""
 
 #: lib/Gscan2pdf/Unpaper.pm:155
 msgid "Use 'left' for scanning from the left edge."
-msgstr "Для сканирования от левого края"
+msgstr "Используйте параметр «Слева» для сканирования от левого края."
 
 #: lib/Gscan2pdf/Unpaper.pm:160
 msgid "Use 'top' for scanning from the top edge."
-msgstr "Для сканирования от верхнего края"
+msgstr "Используйте параметр «Сверху» для сканирования от верхнего края."
 
 #: lib/Gscan2pdf/Unpaper.pm:166
 msgid "Use 'right' for scanning from the right edge."
-msgstr "Для сканирования от правого края"
+msgstr "Используйте параметр «Справа» для сканирования от правого края."
 
 #: lib/Gscan2pdf/Unpaper.pm:170 lib/Gscan2pdf/Unpaper.pm:198
 msgid "Bottom"
-msgstr "Нижний"
+msgstr "Снизу"
 
 #: lib/Gscan2pdf/Unpaper.pm:171
 msgid "Use 'bottom' for scanning from the bottom."
-msgstr "Для сканирования от нижнего края"
+msgstr "Используйте параметр «Снизу» для сканирования от нижнего края."
 
 #: lib/Gscan2pdf/Unpaper.pm:178
 msgid "Align to edge"
@@ -2687,23 +2726,23 @@ msgstr "Выравнивание по краю"
 
 #: lib/Gscan2pdf/Unpaper.pm:179
 msgid "Edge to which to align the page."
-msgstr "По какому краю выравнивать страницу"
+msgstr "Край для выравнивания страницы."
 
 #: lib/Gscan2pdf/Unpaper.pm:184
 msgid "Use 'left' to align to the left edge."
-msgstr "Используйте «Левый» для выравнивания по левому краю"
+msgstr "Используйте параметр «Слева» для выравнивания по левому краю."
 
 #: lib/Gscan2pdf/Unpaper.pm:189
 msgid "Use 'top' to align to the top edge."
-msgstr "Используйте «Верхний» для выравнивания по верхнему краю"
+msgstr "Используйте параметр «Сверху» для выравнивания по верхнему краю."
 
 #: lib/Gscan2pdf/Unpaper.pm:194
 msgid "Use 'right' to align to the right edge."
-msgstr "Используйте «Правый» для выравнивания по правому краю"
+msgstr "Используйте параметр «Справа» для выравнивания по правому краю."
 
 #: lib/Gscan2pdf/Unpaper.pm:199
 msgid "Use 'bottom' to align to the bottom."
-msgstr "Используйте «Нижний» для выравнивания по нижнему краю"
+msgstr "Используйте параметр «Снизу» для выравнивания по нижнему краю."
 
 #: lib/Gscan2pdf/Unpaper.pm:205
 msgid "Border margin"
@@ -2717,7 +2756,7 @@ msgstr "Вертикальное поле"
 msgid ""
 "Vertical distance to keep from the sheet edge when aligning a border area."
 msgstr ""
-"Расстояние по вертикали от границы листа, оставляемое при выравнивании полей"
+"Расстояние по вертикали от границы листа, оставляемое при выравнивании полей."
 
 #: lib/Gscan2pdf/Unpaper.pm:220
 msgid "Horizontal margin"
@@ -2728,7 +2767,7 @@ msgid ""
 "Horizontal distance to keep from the sheet edge when aligning a border area."
 msgstr ""
 "Расстояние по горизонтали от границы листа, оставляемое при выравнивании "
-"полей"
+"полей."
 
 #: lib/Gscan2pdf/Unpaper.pm:233
 msgid "White threshold"
@@ -2736,7 +2775,7 @@ msgstr "Порог белого"
 
 #: lib/Gscan2pdf/Unpaper.pm:235
 msgid "Brightness ratio above which a pixel is considered white."
-msgstr "Уровень яркости, выше которого пиксел считается белым"
+msgstr "Уровень яркости, выше которого пиксел считается белым."
 
 #: lib/Gscan2pdf/Unpaper.pm:243
 msgid "Black threshold"
@@ -2758,7 +2797,7 @@ msgstr "Выравнивание"
 
 #: lib/Gscan2pdf/Unpaper.pm:322
 msgid "Border"
-msgstr "Края"
+msgstr "Граница"
 
 #: lib/Gscan2pdf/Unpaper.pm:382
 msgid "Filters"
