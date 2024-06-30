@@ -1,4 +1,4 @@
-2.13.3 (28.06.2024):
+2.13.3 (29.06.2024):
 
 * Skip options (spotted in a Brother device) where min>max.
 * Remove given and when keywords and ~~ operator to fix given is deprecated
@@ -8,6 +8,8 @@
 * Workaround for locale bug caused by GTK.
   Closes bug #429 (settings dialog not appearing except LC_ALL=C)
 * Update to Hungarian translation (thanks to csola)
+* Update to Belarussian translation
+  (thanks to the Ubuntu Belarusian Translators Team)
 
 
 2.13.2 (16.01.2023):
