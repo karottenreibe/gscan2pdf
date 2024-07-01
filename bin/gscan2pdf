@@ -36,10 +36,10 @@
 #     make file_releases
 # 7. Build packages for Debian & Ubuntu
 #    name the release -0~ppa1<release>, where release (https://wiki.ubuntu.com/Releases) is:
-#      * kinetic (until 2023-07)
+#      * noble (until 2029-06)
+#      * mantic (until 2024-07)
 #      * jammy (until 2027-04)
 #      * focal (until 2025-04, dh12)
-#      * bionic (until 2023-04, dh11, no tests, no fonts-noto-extra, liblocale-codes-perl >= 3.55, also in Build-Depends-Indep)
 #     debuild -S -sa
 #     dput ftp-master .changes
 #     dput gscan2pdf-ppa .changes
