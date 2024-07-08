@@ -188,16 +188,25 @@ my ( $rc, %SETTING ) = read_config();
 
 set_up_test_mode();
 
-$logger->info("Operating system: $OSNAME");
-if ( $OSNAME eq 'linux' ) {
-    my @files = glob '/etc/*-release';
-    for (@files) {
-        my $output = Gscan2pdf::Document::slurp($_);
-        if ( defined $output ) {
-            chomp $output;
-            $logger->info($output);
+sub rlog_release {
+    my @files = @_;
+    for my $file (@files) {
+        if ( -d $file ) {
+            rlog_release( glob "$file/*" );
+        }
+        else {
+            my $output = Gscan2pdf::Document::slurp($file);
+            if ( defined $output ) {
+                chomp $output;
+                $logger->info($output);
+            }
         }
     }
+}
+
+$logger->info("Operating system: $OSNAME");
+if ( $OSNAME eq 'linux' ) {
+    rlog_release( glob '/etc/*-release' );
 }
 $logger->info("Perl version $PERL_VERSION");
 $logger->info("Glib-Perl version $Glib::VERSION");

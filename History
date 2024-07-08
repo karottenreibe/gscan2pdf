@@ -1,3 +1,8 @@
+2.13.4 (29.07.2024):
+* Fix crash on startup when /etc/upstream-release is directory
+  Closes bug #430 (gscan2pdf not running under Linux Mint 22beta)
+
+
 2.13.3 (29.06.2024):
 
 * Skip options (spotted in a Brother device) where min>max.
