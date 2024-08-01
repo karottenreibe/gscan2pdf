@@ -13,7 +13,7 @@
 #    Download new translations (https://translations.launchpad.net/gscan2pdf)
 #    Update translators in credits (https://launchpad.net/gscan2pdf/+topcontributors)
 #    Check $VERSION. If necessary bump with something like
-#     xargs sed -i "s/\(\$VERSION *= \)'2\.13\.2'/\1'2.13.3'/" < MANIFEST
+#     xargs sed -i "s/\(\$VERSION *= \)'2\.13\.3'/\1'2.13.4'/" < MANIFEST
 #    Make appropriate updates to ../debian/changelog
 # 2.  perl Makefile.PL
 #     Upload .pot
@@ -159,7 +159,7 @@ Glib::set_application_name('gscan2pdf');
 Glib::Object::Introspection->invoke( 'GLib', undef, 'set_prgname',
     'net.sourceforge.gscan2pdf' );
 my $prog_name = Glib::get_application_name;
-my $VERSION   = '2.13.3';
+my $VERSION   = '2.13.4';
 
 # Image border to ensure that a scaled to fit image gets no scrollbars
 my $border = 1;
@@ -3271,7 +3271,7 @@ sub save_button_clicked_callback {
         # cd back to tempdir
         chdir $session;
     }
-    elsif ( $SETTING{'image type'} eq 'session') {
+    elsif ( $SETTING{'image type'} eq 'session' ) {
 
         # cd back to cwd to save
         chdir $SETTING{cwd};
@@ -3350,8 +3350,7 @@ sub file_chooser_response_callback {
         }
         elsif ( $type eq 'ps' ) {
             if ( $SETTING{ps_backend} eq 'libtiff' ) {
-                my $tif =
-                  File::Temp->new( DIR => $session, SUFFIX => '.tif' );
+                my $tif = File::Temp->new( DIR => $session, SUFFIX => '.tif' );
                 save_tiff( $tif->filename, $filename, $list_of_pages );
             }
             else {
@@ -5296,13 +5295,11 @@ sub handle_clicks {
 
     if ( $event->button == $RIGHT_MOUSE_BUTTON ) {
         if ( $widget->isa('Gtk3::ImageView') ) {    # main image
-            $uimanager->get_widget('/Detail_Popup')
-              ->popup_at_pointer( $event );
+            $uimanager->get_widget('/Detail_Popup')->popup_at_pointer($event);
         }
         else {                                      # Thumbnail simplelist
             $SETTING{'Page range'} = 'selected';
-            $uimanager->get_widget('/Thumb_Popup')
-              ->popup_at_pointer( $event );
+            $uimanager->get_widget('/Thumb_Popup')->popup_at_pointer($event);
         }
 
         # block event propagation
