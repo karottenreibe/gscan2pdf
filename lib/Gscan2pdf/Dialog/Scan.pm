@@ -607,6 +607,22 @@ sub INIT_INSTANCE {
     );
     $hboxsp->pack_start( $dbutton, FALSE, FALSE, 0 );
 
+    # ks magic buttons
+    my $hboxk = Gtk3::HBox->new;
+    $vbox1->pack_end( $hboxk, FALSE, FALSE, 0 );
+
+    my $kbtn = sub {
+        my ($name, $action) = @_;
+        my $btn1side = Gtk3::Button->new(__($name));
+        $btn1side->signal_connect(
+            clicked => $action
+        );
+        $hboxk->pack_start( $btn1side, FALSE, FALSE, 0 );
+    };
+    $kbtn->('_1Side', sub { $self->scanSingle; });
+    $kbtn->('_Front', sub { $self->scanFront; });
+    $kbtn->('_Back', sub { $self->scanBack; });
+
     ( $self->{scan_button} ) = $self->add_actions(
         __('Scan'),
         sub {
@@ -625,6 +641,34 @@ sub INIT_INSTANCE {
 
     $self->set( 'cursor', 'default' );
     return $self;
+}
+
+sub scanSingle {
+    my $self = shift;
+    $self->set( 'sided',     'single' );
+    $self->set( 'num-pages', 0 );
+    $self->signal_emit('clicked-scan-button');
+    $self->scan;
+    return;
+}
+
+sub scanFront {
+    my $self = shift;
+    $self->set( 'sided',     'double' );
+    $self->set( 'side-to-scan', 'facing' );
+    $self->set( 'num-pages', 0 );
+    $self->signal_emit('clicked-scan-button');
+    $self->scan;
+    return;
+}
+
+sub scanBack {
+    my $self = shift;
+    $self->set( 'sided',     'double' );
+    $self->set( 'side-to-scan', 'reverse' );
+    $self->signal_emit('clicked-scan-button');
+    $self->scan;
+    return;
 }
 
 sub _add_device_combobox {
