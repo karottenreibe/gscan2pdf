@@ -164,7 +164,7 @@ debdist : tardist
 	$(MKPATH) /tmp/$(NAME)
 	cp $(NAME)-$(VERSION).tar.xz /tmp/$(NAME)/$(NAME)_$(VERSION).orig.tar.xz
 	cd /tmp/$(NAME) && tar xvfJ $(NAME)_$(VERSION).orig.tar.xz
-	cd /tmp/$(NAME)/$(NAME)-$(VERSION) && debuild
+	cd /tmp/$(NAME)/$(NAME)-$(VERSION) && debuild --no-sign
 	$(CP) /tmp/$(NAME)/$(NAME)_$(VERSION)*_all.deb \
               /tmp/$(NAME)/$(NAME)_$(VERSION)*.dsc \
               /tmp/$(NAME)/$(NAME)_$(VERSION).orig.tar.xz .
