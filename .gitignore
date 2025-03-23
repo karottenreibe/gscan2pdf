@@ -35,3 +35,8 @@ tr
 uk
 zh_TW
 *.tdy
+
+gscan2pdf-*.tar.xz
+gscan2pdf_*-1.dsc
+gscan2pdf_*-1_all.deb
+gscan2pdf_*.orig.tar.xz
